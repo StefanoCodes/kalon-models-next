@@ -80,7 +80,7 @@
     text-wrap: balance;
   }
   .body-text {
-    @apply text-lg leading-[1.7] tracking-tight text-whiteColor;
+    @apply text-base leading-[1.5] tracking-tight text-whiteColor md:text-lg md:leading-[1.7];
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;

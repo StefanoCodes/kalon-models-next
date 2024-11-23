@@ -3,12 +3,10 @@ import content from "./about.config";
 import Hr from "@/components/hr";
 import Image from "next/image";
 import { WordFadeIn } from "@/components/motion/text-slide";
-import { FadeText } from "@/components/motion/text-fade";
-import { delay } from "motion";
 const { title } = content;
 export default function About() {
   return (
-    <main className="py-24">
+    <main className="py-10 px-5 w-full md:px-10">
       <section id="about" className="container">
         <div className="flex flex-col gap-16">
           {/* HEADER*/}
@@ -17,13 +15,13 @@ export default function About() {
               <WordFadeIn
                 words={title.main}
                 delay={0.15}
-                className="text-4xl font-medium leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-8xl"
+                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-6xl xl:text-8xl"
               />
               <br />
               <WordFadeIn
                 words={title.sub}
                 delay={0.4}
-                className="text-4xl font-medium leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-8xl"
+                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-6xl xl:text-8xl"
               />
             </div>
             <div className="flex flex-col gap-8">
@@ -84,14 +82,14 @@ export default function About() {
                 <Hr gradient="dark" />
               </div>
               {/* AUTOBIOGRAPHY */}
-              <div className="flex items-start justify-between gap-16">
-                <div className="flex-1">
+              <div className="flex flex-col md:flex-row items-start justify-between gap-16">
+                <div className="md:flex-1 w-full md:w-auto">
                   <Image
-                    src={'/about/kalon_placeholder.jpg'}
+                    src={'/about/founder.webp'}
                     alt="Kalon"
                     width={304}
                     height={304}
-                    className=" max-w-md h-full aspect-square object-cover"
+                    className="w-full md:max-w-md md:h-full md:aspect-square md:object-cover"
                   />
                 </div>
 
@@ -128,8 +126,8 @@ export default function About() {
             </div>
             {/* FOOTER */}
             <div className="flex flex-col items-center justify-center gap-8">
-              <h3 className="body-text text-2xl">Our approach is simple</h3>
-              <p className="body-text text-2xl text-center">
+              <h3 className="body-text md:text-2xl">Our approach is simple</h3>
+              <p className="body-text md:text-2xl text-center">
                 We exist to shape top-tier models with unmatched skill and confidence.  We see potential AND REFINE IT. Welcoming every background, we find beauty in stories, strength, and the confidence we help build. Whether it’s your first step on the runway or your hundredth, this is where you discover your voice, your power, and your place.
 
               </p>
