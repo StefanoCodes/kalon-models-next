@@ -21,6 +21,7 @@ export default {
 				// THEME COLORS
 				primaryColor: "var(--color-primary)",
 				secondaryColor: "var(--color-secondary)",
+				tertiaryColor: "var(--color-tertiary)",
 				backgroundLightColor: "var(--color-background-light)",
 				textDarkColor: "var(--color-text-dark)",
 				backgroundLightAltColor: "var(--color-background-light-alt)",
