@@ -14,7 +14,42 @@ const content = {
       "At the heart of everything we do is the belief that empowerment changes everything. Because when you're empowered, the world takes notice.",
   },
   services: [
-    // array of services objects
+    {
+      title: "Runway\nTraining",
+      description:
+        "Master the art of the catwalk with our professional runway training.",
+      image: "/about/services/service_1-min.png",
+    },
+    {
+      title: "Casting\nSkills",
+      description:
+        "Learn how to shine in casting calls and land more modeling jobs.",
+      image: "/about/services/service_2-min.png",
+    },
+    {
+      title: "Pageant\nTraining",
+      description:
+        "Prepare for success in beauty pageants with our comprehensive training program.",
+      image: "/about/services/service_1-min.png",
+    },
+    {
+      title: "Social Media\nBranding",
+      description:
+        "Build your online presence and create a strong personal brand in the modeling industry.",
+      image: "/about/services/service_4-min.png",
+    },
+    {
+      title: "Photo\nShoots",
+      description:
+        "Get professional photoshoot experience to enhance your portfolio.",
+      image: "/about/services/service_2-min.png",
+    },
+    {
+      title: "Master\nClass",
+      description:
+        "Elevate your modeling skills with our intensive masterclass sessions.",
+      image: "/about/services/service_4-min.png",
+    },
   ],
   founder: {
     textNote1:

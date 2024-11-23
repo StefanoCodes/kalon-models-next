@@ -3,6 +3,8 @@ import content from "./about.config";
 import Hr from "@/components/hr";
 import Image from "next/image";
 import { WordFadeIn } from "@/components/motion/text-slide";
+import ServicesList from "./_components/services-list";
+import Heading from "./_components/heading";
 const { title } = content;
 const { description1, description3 } = content.descriptionTexts;
 const {
@@ -72,78 +74,71 @@ export default function About() {
             <div className="flex flex-col gap-8">
               {/* SERVICES */}
               <div className=" flex flex-col gap-16">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2>Services</h2>
-                  </div>
-                  <div>
-                    <h2>Services</h2>
-                  </div>
-                  <div>
-                    <h2>Services</h2>
-                  </div>
+                <div className="flex flex-col gap-8">
+                  <Heading headingSize="h2" className="text-whiteColor">Services</Heading>
+                  <ServicesList />
                 </div>
-                <Hr gradient="dark" />
+
               </div>
-              {/* AUTOBIOGRAPHY */}
-              <div className="flex flex-col md:flex-row items-start justify-between gap-16">
-                <div className="md:flex-1 w-full md:w-auto">
-                  <Image
-                    src={'/about/founder.webp'}
-                    alt="Kalon"
-                    width={304}
-                    height={304}
-                    className="w-full md:max-w-md md:h-full md:aspect-square md:object-cover"
-                  />
-                </div>
-
-                <div>
-                  {/* CONTENT */}
-                  <div className="flex flex-col gap-8">
-                    <div className="flex flex-col gap-5 max-w-xl">
-                      <p className="body-text">
-                        {
-                          textNote1
-                        }
-                      </p>
-
-                      <p className="body-text">
-                        {
-                          textNote2
-                        }
-                      </p>
-
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <Image
-                        src={founderImage}
-                        alt="Kalon"
-                        width={80}
-                        height={36}
-                        className=" object-cover"
-                      />
-                      <p className="body-text">
-                        {
-                          founderAbbreviation
-                        }
-                      </p>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+              <Hr gradient="dark" />
             </div>
-            {/* FOOTER */}
-            <div className="flex flex-col items-center justify-center gap-8">
-              <h3 className="body-text md:text-2xl">{heading}</h3>
-              <p className="body-text md:text-2xl text-center">
-                {description}
-              </p>
+            {/* AUTOBIOGRAPHY */}
+            <div className="flex flex-col md:flex-row items-start justify-between gap-16">
+              <div className="md:flex-1 w-full md:w-auto">
+                <Image
+                  src={'/about/founder.webp'}
+                  alt="Kalon"
+                  width={304}
+                  height={304}
+                  className="w-full md:max-w-md md:h-full md:aspect-square md:object-cover"
+                />
+              </div>
+
+              <div>
+                {/* CONTENT */}
+                <div className="flex flex-col gap-8">
+                  <div className="flex flex-col gap-5 max-w-xl">
+                    <p className="body-text">
+                      {
+                        textNote1
+                      }
+                    </p>
+
+                    <p className="body-text">
+                      {
+                        textNote2
+                      }
+                    </p>
+
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Image
+                      src={founderImage}
+                      alt="Kalon"
+                      width={80}
+                      height={36}
+                      className=" object-cover"
+                    />
+                    <p className="body-text">
+                      {
+                        founderAbbreviation
+                      }
+                    </p>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
-
+          {/* FOOTER */}
+          <div className="flex flex-col items-center justify-center gap-8">
+            <h3 className="body-text md:text-2xl">{heading}</h3>
+            <p className="body-text md:text-2xl text-center">
+              {description}
+            </p>
+          </div>
         </div>
       </section>
-    </main>
+    </main >
   );
 }
