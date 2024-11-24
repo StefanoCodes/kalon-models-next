@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function RegistrationFormImg() {
     return (
-        <div className="relative flex-1 w-full">
+        <div className="relative md:flex-1 w-full min-h-[300px]">
             <Image
                 fill
                 src="/about/founder.webp"
-                alt="Restaurant ambiance"
+                alt="founder image"
                 className="w-full h-full rounded-t-2xl object-cover transition-all duration-300 ease-in-out md:rounded-l-none md:rounded-r-2xl"
                 priority
             />

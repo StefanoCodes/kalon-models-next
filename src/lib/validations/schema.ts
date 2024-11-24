@@ -1,7 +1,10 @@
 import { z } from "zod";
-const genderEnum = z.enum(["Male", "Female", "Other"]);
-const preferedMethodOfContactEnum = z.enum(["Whatsapp", "Email"]);
-
+const genderEnum = z.enum(["Male", "Female", "Other"], {
+  message: "Invalid Entry",
+});
+const preferedMethodOfContactEnum = z.enum(["Whatsapp", "Email"], {
+  message: "Invalid Entry",
+});
 // zod schema for the registration form
 export const registriationFormSchema = z.object({
   name: z
@@ -21,13 +24,13 @@ export const registriationFormSchema = z.object({
     .string()
     .min(1, { message: "Age must be at least 1 character" })
     .max(3, { message: "Age must be less than 3 characters" }),
-  dateOfBirth: z.date({
+  dateOfBirth: z.string({
     message: "Date of birth is required",
   }),
   gender: genderEnum,
   cityResidingIn: z.string().min(2, { message: "City is required" }),
   preferedMethodOfContact: preferedMethodOfContactEnum,
-  instgramUsername: z
+  instagramUsername: z
     .string()
     .min(1, { message: "Instagram username is required" }),
   howDidYouHearAboutUs: z

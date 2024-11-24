@@ -15,15 +15,18 @@ type Inputs = z.infer<typeof registriationFormSchema>
 const steps = [
     {
         id: 'Step 1',
-        name: 'Personal Information',
-        fields: ['firstName', 'lastName', 'email']
+        fields: ['name', 'surname', 'email', 'phoneNumber']
     },
     {
         id: 'Step 2',
-        name: 'Address',
-        fields: ['country', 'state', 'city', 'street', 'zip']
+        fields: ['age', 'dateOfBirth', 'gender', 'cityResidingIn',]
     },
-    { id: 'Step 3', name: 'Complete' }
+    {
+        id: 'Step 3',
+        fields: ["preferedMethodOfContact", 'instagramUsername', 'howDidYouHearAboutUs']
+    },
+
+    { id: 'Step 4', name: 'Complete' }
 ]
 const metadata: Metadata = {
     title: "Register | #1 modelling academy in South Africa",
@@ -37,7 +40,8 @@ export default function Register() {
     const [previousStep, setPreviousStep] = useState(0)
     const [currentStep, setCurrentStep] = useState(0)
     const delta = currentStep - previousStep
-
+    // 0,1,2
+    // 3
     const {
         register,
         handleSubmit,
@@ -61,7 +65,7 @@ export default function Register() {
         const output = await trigger(fields as FieldName[], { shouldFocus: true })
 
         if (!output) return
-
+        1
         if (currentStep < steps.length - 1) {
             if (currentStep === steps.length - 2) {
                 await handleSubmit(processForm)()
@@ -86,15 +90,16 @@ export default function Register() {
                     <FadeText text="This is a Multi-Part Form Demo! In this demonstration, we will showcase the powerful new forms tools available." className="body-text text-mutedColor" />
                 </div>
                 {/* MAIN BOX */}
-                <section className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl rounded-l-none" id="register">
-                    <div className="flex flex-col-reverse md:flex-row">
-                        <div className="flex flex-col flex-[1.5] gap-4">
+                <section className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl rounded-tl-none" id="register">
+                    <div className="flex flex-col-reverse md:flex-row ">
+                        <div className="flex flex-col md:flex-[1.5] gap-4">
                             <div className="flex flex-col gap-4">
-                                <ProgressBar progressPercentage={progressBarPercentage as 33 | 66 | 100} className="bg-primaryColor transition-all duration-300" />
+                                <ProgressBar progressPercentage={progressBarPercentage} className="bg-primaryColor transition-all duration-300" />
                                 <div className="text-black flex flex-col gap-8 p-4">
                                     {/* INPUTS */}
                                     <div className="flex flex-col gap-4">
                                         <form onSubmit={handleSubmit(processForm)}>
+
                                             {currentStep === 0 && (
                                                 <motion.div
                                                     initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
@@ -191,9 +196,9 @@ export default function Register() {
                                                                     autoComplete='phone-number'
                                                                     className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
                                                                 />
-                                                                {errors.surname?.message && (
+                                                                {errors.phoneNumber?.message && (
                                                                     <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.surname.message}
+                                                                        {errors.phoneNumber.message}
                                                                     </p>
                                                                 )}
                                                             </div>
@@ -208,7 +213,7 @@ export default function Register() {
                                                     animate={{ x: 0, opacity: 1 }}
                                                     transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 >
-                                                    <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                                                    <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
                                                         <div className='sm:col-span-3'>
                                                             <label
                                                                 htmlFor='age'
@@ -217,29 +222,23 @@ export default function Register() {
                                                                 Age
                                                             </label>
                                                             <div className='mt-2'>
-                                                                <select
+                                                                <input
+                                                                    type='text'
                                                                     id='age'
                                                                     {...register('age')}
+                                                                    placeholder="Enter your age"
                                                                     autoComplete='age'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                                                                >
-                                                                    <option>less than 18</option>
-                                                                    <option>18-25</option>
-                                                                    <option>26-35</option>
-                                                                    <option>36-45</option>
-                                                                    <option>46-55</option>
-                                                                    <option>56-65</option>
-                                                                    <option>65+</option>
-                                                                </select>
-                                                                {errors.cityResidingIn?.message && (
+                                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4"
+                                                                />
+                                                                {errors.age?.message && (
                                                                     <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.cityResidingIn.message}
+                                                                        {errors.age.message}
                                                                     </p>
                                                                 )}
                                                             </div>
                                                         </div>
 
-                                                        <div className='col-span-full'>
+                                                        <div className='sm:col-span-3'>
                                                             <label
                                                                 htmlFor='dateofbirth'
                                                                 className='block text-sm font-medium leading-6 text-gray-900'
@@ -251,8 +250,9 @@ export default function Register() {
                                                                     type='text'
                                                                     id='dateofbirth'
                                                                     {...register('dateOfBirth')}
-                                                                    autoComplete='street-address'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                                                                    autoComplete='date-of-birth'
+                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                    placeholder="Enter your date of birth"
                                                                 />
                                                                 {errors.dateOfBirth?.message && (
                                                                     <p className='mt-2 text-sm text-red-400'>
@@ -262,12 +262,12 @@ export default function Register() {
                                                             </div>
                                                         </div>
 
-                                                        <div className='sm:col-span-2 sm:col-start-1'>
+                                                        <div className='sm:col-span-3'>
                                                             <label
                                                                 htmlFor='gender'
                                                                 className='block text-sm font-medium leading-6 text-gray-900'
                                                             >
-                                                                City
+                                                                Gender
                                                             </label>
                                                             <div className='mt-2'>
                                                                 <input
@@ -275,7 +275,8 @@ export default function Register() {
                                                                     id='gender'
                                                                     {...register('gender')}
                                                                     autoComplete='address-level2'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                    placeholder="Enter your gender"
                                                                 />
                                                                 {errors.gender?.message && (
                                                                     <p className='mt-2 text-sm text-red-400'>
@@ -285,7 +286,7 @@ export default function Register() {
                                                             </div>
                                                         </div>
 
-                                                        <div className='sm:col-span-2'>
+                                                        <div className='sm:col-span-3'>
                                                             <label
                                                                 htmlFor='cityYouResideIn'
                                                                 className='block text-sm font-medium leading-6 text-gray-900'
@@ -298,7 +299,8 @@ export default function Register() {
                                                                     id='cityYouResideIn'
                                                                     {...register('cityResidingIn')}
                                                                     autoComplete='address-level1'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryColor sm:text-sm sm:leading-6 px-4'
+                                                                    placeholder="Enter your city"
                                                                 />
                                                                 {errors.cityResidingIn?.message && (
                                                                     <p className='mt-2 text-sm text-red-400'>
@@ -308,33 +310,39 @@ export default function Register() {
                                                             </div>
                                                         </div>
 
-                                                        <div className='sm:col-span-2'>
-                                                            <label
-                                                                htmlFor='zip'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Prefered mode of communication
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='preferedMethodOfContact'
-                                                                    {...register('preferedMethodOfContact')}
-                                                                    autoComplete='postal-code'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                                                                />
-                                                                {errors.preferedMethodOfContact?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.preferedMethodOfContact.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </motion.div>
                                             )}
 
-                                            {currentStep === 2 && (
+                                            {
+                                                currentStep === 2 && (
+                                                    <div className='sm:col-span-2'>
+                                                        <label
+                                                            htmlFor='zip'
+                                                            className='block text-sm font-medium leading-6 text-gray-900'
+                                                        >
+                                                            Prefered mode of communication
+                                                        </label>
+                                                        <div className='mt-2'>
+                                                            <input
+                                                                type='text'
+                                                                id='preferedMethodOfContact'
+                                                                {...register('preferedMethodOfContact')}
+                                                                autoComplete='preferedMethodOfContact'
+                                                                className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                                                            />
+                                                            {errors.preferedMethodOfContact?.message && (
+                                                                <p className='mt-2 text-sm text-red-400'>
+                                                                    {errors.preferedMethodOfContact.message}
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
+                                            {/* THANK YOU PAGE */}
+                                            {currentStep === 3 && (
                                                 <>
                                                     <h2 className='text-base font-semibold leading-7 text-gray-900'>
                                                         Complete
@@ -344,6 +352,7 @@ export default function Register() {
                                                     </p>
                                                 </>
                                             )}
+
 
                                         </form>
                                     </div>
@@ -363,8 +372,8 @@ export default function Register() {
                         <RegistrationFormImg />
                     </div>
                 </section>
-            </div>
-        </main>
+            </div >
+        </main >
 
     );
 }
