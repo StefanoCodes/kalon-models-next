@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The Masterclass",
+  title: "Kalon | The modelling academy for all",
   description: "The Masterclass",
 };
 

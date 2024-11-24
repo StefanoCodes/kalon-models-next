@@ -5,6 +5,13 @@ import Image from "next/image";
 import { WordFadeIn } from "@/components/motion/text-slide";
 import ServicesList from "./_components/services-list";
 import Heading from "./_components/heading";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | A Modeling Academy for Everyone, but Not Just Anyone.",
+  description: "The Masterclass",
+};
+
 const { title } = content;
 const { description1, description3 } = content.descriptionTexts;
 const {
