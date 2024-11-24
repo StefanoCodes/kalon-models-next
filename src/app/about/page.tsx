@@ -9,7 +9,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About | A Modeling Academy for Everyone, but Not Just Anyone.",
-  description: "The Masterclass",
+  description: "Discover Kalon Models, a top modeling academy since 2020, empowering aspiring models with expert training in runway, pageantry, and personal branding.",
 };
 
 const { title } = content;
