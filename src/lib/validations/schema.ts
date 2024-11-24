@@ -1,8 +1,8 @@
 import { z } from "zod";
-const genderEnum = z.enum(["Male", "Female", "Other"], {
+const genderEnum = z.enum(["male", "female", "other"], {
   message: "Invalid Entry",
 });
-const preferedMethodOfContactEnum = z.enum(["Whatsapp", "Email"], {
+const preferedMethodOfContactEnum = z.enum(["whatsapp", "email"], {
   message: "Invalid Entry",
 });
 // zod schema for the registration form
@@ -24,9 +24,7 @@ export const registriationFormSchema = z.object({
     .string()
     .min(1, { message: "Age must be at least 1 character" })
     .max(3, { message: "Age must be less than 3 characters" }),
-  dateOfBirth: z.string({
-    message: "Date of birth is required",
-  }),
+  dateOfBirth: z.string().min(1, { message: "Date of birth is required" }),
   gender: genderEnum,
   cityResidingIn: z.string().min(2, { message: "City is required" }),
   preferedMethodOfContact: preferedMethodOfContactEnum,

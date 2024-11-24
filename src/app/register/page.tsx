@@ -11,6 +11,9 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { motion } from 'motion/react';
 import { registriationFormSchema } from '@/lib/validations/schema';
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 type Inputs = z.infer<typeof registriationFormSchema>
 const steps = [
     {
@@ -39,36 +42,41 @@ export default function Register() {
     const [progressBarPercentage, setProgressBarPercentage] = useState(25);
     const [previousStep, setPreviousStep] = useState(0)
     const [currentStep, setCurrentStep] = useState(0)
-    const delta = currentStep - previousStep
-    // 0,1,2
-    // 3
-    const {
-        register,
-        handleSubmit,
-        watch,
-        reset,
-        trigger,
-        formState: { errors }
-    } = useForm<Inputs>({
-        resolver: zodResolver(registriationFormSchema)
+    const delta = currentStep - previousStep;
+
+    const form = useForm<z.infer<typeof registriationFormSchema>>({
+        resolver: zodResolver(registriationFormSchema),
+        defaultValues: {
+            name: '',
+            surname: '',
+            email: '',
+            phoneNumber: '',
+            age: '',
+            dateOfBirth: '',
+            gender: 'female',
+            cityResidingIn: '',
+            preferedMethodOfContact: 'whatsapp',
+            instagramUsername: '',
+            howDidYouHearAboutUs: '',
+        },
     })
 
     const processForm: SubmitHandler<Inputs> = data => {
         console.log(data)
-        reset()
+        form.reset()
     }
 
     type FieldName = keyof Inputs
 
     const next = async () => {
         const fields = steps[currentStep].fields
-        const output = await trigger(fields as FieldName[], { shouldFocus: true })
+        const output = await form.trigger(fields as FieldName[], { shouldFocus: true })
 
         if (!output) return
-        1
+
         if (currentStep < steps.length - 1) {
             if (currentStep === steps.length - 2) {
-                await handleSubmit(processForm)()
+                await form.handleSubmit(processForm)()
             }
             setPreviousStep(currentStep)
             setCurrentStep(step => step + 1)
@@ -98,272 +106,220 @@ export default function Register() {
                             <div className="flex flex-col gap-12">
                                 <ProgressBar progressPercentage={progressBarPercentage} className="bg-primaryColor transition-all duration-700 rounded-2xl ease-[cubic-bezier(0.4,0,0.2,1)]" />
                                 <div className="text-black flex flex-col gap-12 p-4 pb-8">
-                                    {/* INPUTS */}
+                                    {/* FORM */}
                                     <div className="flex flex-col gap-4">
-                                        <form onSubmit={handleSubmit(processForm)}>
-                                            {currentStep === 0 && (
-                                                <motion.div
-                                                    initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                                    animate={{ x: 0, opacity: 1 }}
-                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                                >
-                                                    <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-                                                        {/* NAME */}
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='name'
-                                                                className='block text-sm font-medium leading-6 text-blackColor'
-                                                            >
-                                                                Name
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='name'
-                                                                    placeholder="Enter your name"
-                                                                    {...register('name')}
-                                                                    autoComplete='name'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                />
-                                                                {errors.name?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.name.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                        {/* Surname */}
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='surname'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Surname
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='surname'
-                                                                    {...register('surname')}
-                                                                    placeholder="Enter your surname"
-                                                                    autoComplete='family-name'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                />
-                                                                {errors.surname?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.surname.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                        {/* EMAIL */}
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='email'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Email address
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    id='email'
-                                                                    type='email'
-                                                                    placeholder="Enter your email"
-                                                                    {...register('email')}
-                                                                    autoComplete='email'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                />
-                                                                {errors.email?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.email.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                        {/* PHONE  */}
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='phoneNumber'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Phone Number
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='tel'
-                                                                    id='phoneNumber'
-                                                                    {...register('phoneNumber')}
-                                                                    placeholder="Enter your phone number"
-                                                                    autoComplete='phone-number'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                />
-                                                                {errors.phoneNumber?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.phoneNumber.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </motion.div>
-                                            )}
-
-                                            {currentStep === 1 && (
-                                                <motion.div
-                                                    initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-                                                    animate={{ x: 0, opacity: 1 }}
-                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                                >
-                                                    <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='age'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Age
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='age'
-                                                                    {...register('age')}
-                                                                    placeholder="Enter your age"
-                                                                    autoComplete='age'
-                                                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4"
-                                                                />
-                                                                {errors.age?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.age.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='dateofbirth'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Date of Birth
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='dateofbirth'
-                                                                    {...register('dateOfBirth')}
-                                                                    autoComplete='date-of-birth'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                    placeholder="Enter your date of birth"
-                                                                />
-                                                                {errors.dateOfBirth?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.dateOfBirth.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='gender'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Gender
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='gender'
-                                                                    {...register('gender')}
-                                                                    autoComplete='address-level2'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
-                                                                    placeholder="Enter your gender"
-                                                                />
-                                                                {errors.gender?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.gender.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-                                                                htmlFor='cityYouResideIn'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                City You Reside In
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='cityYouResideIn'
-                                                                    {...register('cityResidingIn')}
-                                                                    autoComplete='address-level1'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryColor sm:text-sm sm:leading-6 px-4'
-                                                                    placeholder="Enter your city"
-                                                                />
-                                                                {errors.cityResidingIn?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.cityResidingIn.message}
-                                                                    </p>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                </motion.div>
-                                            )}
-
-                                            {
-                                                currentStep === 2 && (
+                                        <Form {...form}>
+                                            <form onSubmit={form.handleSubmit(processForm)}>
+                                                {currentStep === 0 && (
                                                     <motion.div
                                                         initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
                                                         animate={{ x: 0, opacity: 1 }}
                                                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                     >
-
-                                                        <div className='sm:col-span-3'>
-                                                            <label
-
-                                                                htmlFor='zip'
-                                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                                            >
-                                                                Prefered mode of communication
-                                                            </label>
-                                                            <div className='mt-2'>
-                                                                <input
-                                                                    type='text'
-                                                                    id='preferedMethodOfContact'
-                                                                    {...register('preferedMethodOfContact')}
-                                                                    autoComplete='preferedMethodOfContact'
-                                                                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
+                                                        <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                                                            {/* NAME */}
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="name"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Name</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} name="name" type="text" placeholder="Enter your name" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='name'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )}
                                                                 />
-                                                                {errors.preferedMethodOfContact?.message && (
-                                                                    <p className='mt-2 text-sm text-red-400'>
-                                                                        {errors.preferedMethodOfContact.message}
-                                                                    </p>
-                                                                )}
+                                                            </div>
+                                                            {/* Surname */}
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="surname"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Surname</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} name="surname" type="text" placeholder="Enter your surname" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='surname'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )}
+                                                                />
+                                                            </div>
+                                                            {/* EMAIL */}
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="email"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Email</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} name="email" type="text" placeholder="Enter your email" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='email'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage className="text-red-400" />
+                                                                        </FormItem>
+                                                                    )}
+                                                                />
+                                                            </div>
+                                                            {/* PHONE  */}
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="phoneNumber"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Phone Number</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} type="tel" name="phoneNumber" placeholder="Enter your phone number" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='phone'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )} />
                                                             </div>
                                                         </div>
                                                     </motion.div>
-                                                )
-                                            }
-                                            {/* THANK YOU PAGE */}
-                                            {currentStep === 3 && (
-                                                <>
-                                                    <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                                                        Complete
-                                                    </h2>
-                                                    <p className='mt-1 text-sm leading-6 text-gray-600'>
-                                                        Thank you for your submission.
-                                                    </p>
-                                                </>
-                                            )}
+                                                )}
+
+                                                {currentStep === 1 && (
+                                                    <motion.div
+                                                        initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                                                        animate={{ x: 0, opacity: 1 }}
+                                                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                    >
+                                                        <div className='grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="age"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Age</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} type="text" name="age" placeholder="Enter your age" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='age'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )} />
+                                                            </div>
+
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="dateOfBirth"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Date of Birth</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} type="text" name="dateOfBirth" placeholder="Enter your date of birth" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='date-of-birth'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )} />
+                                                            </div>
+
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="gender"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Gender</FormLabel>
+                                                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                                                <FormControl>
+                                                                                    <SelectTrigger>
+                                                                                        <SelectValue placeholder="Select a gender" />
+                                                                                    </SelectTrigger>
+                                                                                </FormControl>
+                                                                                <SelectContent>
+                                                                                    <SelectItem value="male">Male</SelectItem>
+                                                                                    <SelectItem value="female">Female</SelectItem>
+                                                                                    <SelectItem value="other">Other</SelectItem>
+                                                                                </SelectContent>
+                                                                            </Select>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+
+                                                                    )}
+                                                                />
+                                                            </div>
+
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="cityResidingIn"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>City You Reside In</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} type="text" name="cityResidingIn" placeholder="Enter your city" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='city-residing-in'
+                                                                                />
+                                                                            </FormControl>
+                                                                            <FormMessage />
+                                                                        </FormItem>
+                                                                    )} />
+                                                            </div>
 
 
-                                        </form>
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+
+                                                {
+                                                    currentStep === 2 && (
+                                                        <motion.div
+                                                            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+                                                            animate={{ x: 0, opacity: 1 }}
+                                                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                        >
+
+                                                            <div className='sm:col-span-3'>
+                                                                <FormField
+                                                                    control={form.control}
+                                                                    name="preferedMethodOfContact"
+                                                                    render={({ field }) => (
+                                                                        <FormItem>
+                                                                            <FormLabel>Prefered Method of Contact</FormLabel>
+                                                                            <FormControl>
+                                                                                <Input {...field} type="text" name="preferedMethodOfContact" placeholder="Enter your age" className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4'
+                                                                                    autoComplete='preferedMethodOfContact'
+                                                                                />
+                                                                            </FormControl>
+                                                                        </FormItem>
+                                                                    )} />
+                                                            </div>
+                                                        </motion.div>
+                                                    )
+                                                }
+                                                {/* THANK YOU PAGE */}
+                                                {currentStep === 3 && (
+                                                    <>
+                                                        <h2 className='text-base font-semibold leading-7 text-gray-900'>
+                                                            Complete
+                                                        </h2>
+                                                        <p className='mt-1 text-sm leading-6 text-gray-600'>
+                                                            Thank you for your submission.
+                                                        </p>
+                                                    </>
+                                                )}
+                                            </form>
+                                        </Form>
                                     </div>
                                     {/* BUTTONS NEXT AND PREV */}
                                     <div className="justify-end flex gap-4 items-center w-full">
