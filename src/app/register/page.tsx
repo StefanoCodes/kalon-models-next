@@ -92,11 +92,11 @@ export default function Register() {
                     <FadeText text="This is a Multi-Part Form Demo! In this demonstration, we will showcase the powerful new forms tools available." className="body-text text-mutedColor" />
                 </div>
                 {/* MAIN BOX */}
-                <section className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl rounded-tl-none" id="register">
+                <section className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl" id="register">
                     <div className="flex flex-col-reverse md:flex-row ">
                         <div className="flex flex-col md:flex-[1.5] gap-4">
                             <div className="flex flex-col gap-12">
-                                <ProgressBar progressPercentage={progressBarPercentage} className="bg-primaryColor transition-all duration-300" />
+                                <ProgressBar progressPercentage={progressBarPercentage} className="bg-primaryColor transition-all duration-700 rounded-2xl ease-[cubic-bezier(0.4,0,0.2,1)]" />
                                 <div className="text-black flex flex-col gap-12 p-4 pb-8">
                                     {/* INPUTS */}
                                     <div className="flex flex-col gap-4">
