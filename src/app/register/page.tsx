@@ -97,11 +97,10 @@ export default function Register() {
                         <div className="flex flex-col md:flex-[1.5] gap-4">
                             <div className="flex flex-col gap-12">
                                 <ProgressBar progressPercentage={progressBarPercentage} className="bg-primaryColor transition-all duration-300" />
-                                <div className="text-black flex flex-col gap-12 p-4">
+                                <div className="text-black flex flex-col gap-12 p-4 pb-8">
                                     {/* INPUTS */}
                                     <div className="flex flex-col gap-4">
                                         <form onSubmit={handleSubmit(processForm)}>
-
                                             {currentStep === 0 && (
                                                 <motion.div
                                                     initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
