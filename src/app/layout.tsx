@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${inter.variable} bg-blackColor text-whiteColor antialiased`}
+        className={`${inter.className} ${inter.variable} bg-whiteColor text-blackColor antialiased`}
       >
         {/* <div className="flex flex-col justify-between min-h-[100dvh]"> */}
 

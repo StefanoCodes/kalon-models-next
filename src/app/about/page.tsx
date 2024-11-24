@@ -33,13 +33,13 @@ export default function About() {
               <WordFadeIn
                 words={title.main}
                 delay={0.15}
-                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-6xl xl:text-8xl"
+                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-blackColor md:text-5xl lg:text-6xl xl:text-8xl"
               />
               <br />
               <WordFadeIn
                 words={title.sub}
                 delay={0.4}
-                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-whiteColor md:text-5xl lg:text-6xl xl:text-8xl"
+                className="text-2xl leading-3 sm:text-3xl font-medium md:leading-[1.5] tracking-tight text-blackColor md:text-5xl lg:text-6xl xl:text-8xl"
               />
             </div>
             <div className="flex flex-col gap-8">
@@ -82,7 +82,7 @@ export default function About() {
               {/* SERVICES */}
               <div className=" flex flex-col gap-16">
                 <div className="flex flex-col gap-8">
-                  <Heading headingSize="h2" className="text-whiteColor">Services</Heading>
+                  <Heading headingSize="h2" className="text-blackColor">Services</Heading>
                   <ServicesList />
                 </div>
 
