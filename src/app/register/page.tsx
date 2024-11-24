@@ -20,7 +20,7 @@ export default function Register() {
                     <FadeText text="This is a Multi-Part Form Demo! In this demonstration, we will showcase the powerful new forms tools available." className="body-text text-mutedColor" />
                 </div>
                 {/* MAIN BOX */}
-                <section className="overflow-hidden rounded-2xl bg-white shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl rounded-l-none" id="register">
+                <section className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl rounded-l-none" id="register">
                     <div className="flex flex-col-reverse md:flex-row">
                         <div className="flex flex-col flex-[1.5] gap-4">
                             <div className="flex flex-col gap-4">
