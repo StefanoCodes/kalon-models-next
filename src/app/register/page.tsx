@@ -18,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "motion/react";
@@ -27,8 +28,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import Success from "./_components/sucess";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -465,23 +465,7 @@ export default function Register() {
                           </motion.div>
                         )}
                         {/* THANK YOU PAGE */}
-                        {currentStep === 3 && (
-                          <div className="flex flex-col gap-8 md:items-start">
-                            <div className="flex flex-col gap-1">
-                              <h2 className="body-text text-2xl font-semibold">
-                                Registration Successful!
-                              </h2>
-                              <p className="body-text">
-                                Thank you for registering with Kalon Models.
-                                Your application has been received and is being
-                                processed.
-                              </p>
-                            </div>
-                            <Button asChild variant={"kalon"}>
-                              <Link href={"/about"}>Learn More About Us</Link>
-                            </Button>
-                          </div>
-                        )}
+                        {currentStep === 3 && <Success />}
                       </form>
                     </Form>
                   </div>
