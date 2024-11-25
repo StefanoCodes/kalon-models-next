@@ -30,6 +30,7 @@ import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
 import Success from "./_components/sucess";
 import { PhoneInput } from "@/components/ui/phone-input";
+import Heading from "../about/_components/heading";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -71,7 +72,7 @@ export default function Register() {
       surname: "",
       email: "",
       phoneNumber: "",
-      age: undefined,
+      age: "",
       dateOfBirth: "",
       gender: "female",
       cityResidingIn: "",
@@ -82,7 +83,17 @@ export default function Register() {
   });
 
   const processForm: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    const isDataValid = registriationFormSchema.safeParse(data);
+    if (!isDataValid.success) {
+      console.log("invalid");
+      // we can send an email to the user saying we did not follow through with the application for whatber reason if the user decided to spoof the data
+    }
+    const formData = {
+      ...data,
+      age: Number(data.age),
+    };
+    console.log(formData);
+    // business logic here
     form.reset();
   };
 
@@ -140,11 +151,11 @@ export default function Register() {
                   progressPercentage={progressBarPercentage}
                   className={cn(
                     "ease-[cubic-bezier(0.4,0,0.2,1)] rounded-2xl bg-primaryColor transition-all duration-700",
-                    registrationFinished && "rounded-none",
+                    registrationFinished && "animate-none rounded-none",
                   )}
+                  animation="pulse"
                 />
                 <div className="flex flex-col gap-12 p-4 pb-8 text-black">
-                  {/* FORM */}
                   <div className="flex flex-col gap-4">
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(processForm)}>
