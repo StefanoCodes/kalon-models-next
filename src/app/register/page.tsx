@@ -27,6 +27,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -59,6 +61,7 @@ export default function Register() {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const delta = currentStep - previousStep;
+  const registrationFinished = currentStep === steps.length - 1;
 
   const form = useForm<z.infer<typeof registriationFormSchema>>({
     resolver: zodResolver(registriationFormSchema),
@@ -139,7 +142,10 @@ export default function Register() {
               <div className="flex flex-col gap-12">
                 <ProgressBar
                   progressPercentage={progressBarPercentage}
-                  className="ease-[cubic-bezier(0.4,0,0.2,1)] rounded-2xl bg-primaryColor transition-all duration-700"
+                  className={cn(
+                    "ease-[cubic-bezier(0.4,0,0.2,1)] rounded-2xl bg-primaryColor transition-all duration-700",
+                    registrationFinished && "rounded-none",
+                  )}
                 />
                 <div className="flex flex-col gap-12 p-4 pb-8 text-black">
                   {/* FORM */}
@@ -460,15 +466,19 @@ export default function Register() {
                         )}
                         {/* THANK YOU PAGE */}
                         {currentStep === 3 && (
-                          <>
-                            <h2 className="text-base font-semibold leading-7 text-gray-900">
-                              Complete
-                            </h2>
-                            <p className="mt-1 text-sm leading-6 text-gray-600">
-                              Thank you for your submission, kindly check your
-                              email
-                            </p>
-                          </>
+                          <div className="flex flex-col gap-8">
+                            <div className="flex flex-col gap-1">
+                              <h2 className="body-text text-2xl font-semibold">
+                                Complete
+                              </h2>
+                              <p className="body-text">
+                                Thank you for your submission
+                              </p>
+                            </div>
+                            <Button asChild variant={"kalon"}>
+                              <Link href={"/about"}>Learn More About Us</Link>
+                            </Button>
+                          </div>
                         )}
                       </form>
                     </Form>
