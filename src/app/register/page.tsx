@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -323,7 +324,17 @@ export default function Register() {
                                         {/* <DatePicker /> */}
                                         <DateField
                                           className="space-y-2"
-                                          onChange={field.onChange}
+                                          onChange={(e) => {
+                                            if (!e) return;
+                                            const day = e.day;
+                                            const month = e.month - 1;
+                                            const year = e.year;
+                                            const birthDate = format(
+                                              new Date(year, month, day),
+                                              "MM/dd/yyyy",
+                                            );
+                                            field.onChange(birthDate);
+                                          }}
                                         >
                                           <DateInput className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20">
                                             {(segment) => (
