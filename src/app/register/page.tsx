@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { PhoneInput } from "@/components/ui/phone-input";
 import {
   Select,
   SelectContent,
@@ -30,8 +31,7 @@ import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
 import Success from "./_components/sucess";
-import { PhoneInput } from "@/components/ui/phone-input";
-import Heading from "../about/_components/heading";
+
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -143,16 +143,16 @@ export default function Register() {
         </div>
         {/* MAIN BOX */}
         <section
-          className="overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl"
+          className="min-h-full overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl"
           id="register"
         >
-          <div className="flex flex-col-reverse md:flex-row">
+          <div className="flex flex-col-reverse md:flex-row lg:h-full">
             <div className="flex flex-col gap-4 md:flex-[1.5]">
               <div className="flex flex-col gap-12">
                 <ProgressBar
                   progressPercentage={progressBarPercentage}
                   className={cn(
-                    "ease-[cubic-bezier(0.4,0,0.2,1)] animate-pulse-slow rounded-2xl bg-primaryColor transition-all duration-700",
+                    "ease-[cubic-bezier(0.4,0,0.2,1)] rounded-2xl bg-primaryColor bg-gradient-to-r from-primaryColor to-tertiaryColor transition-all duration-700",
                     registrationFinished && "animate-none rounded-none",
                   )}
                 />
@@ -170,7 +170,7 @@ export default function Register() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                           >
-                            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div className="grid min-h-full grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                               {/* NAME */}
                               <div className="sm:col-span-3">
                                 <FormField
