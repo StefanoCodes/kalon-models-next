@@ -91,6 +91,7 @@ export default function Register() {
     const formData = {
       ...data,
       age: Number(data.age),
+      name: data.name,
     };
     console.log(formData);
     // business logic here
