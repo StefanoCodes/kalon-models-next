@@ -31,6 +31,10 @@ import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
 import Success from "./_components/sucess";
+import DatePicker from "./_components/date-picker";
+import { Label } from "@/components/ui/label";
+import { DateField, DateInput, DateSegment } from "react-aria-components";
+// import DatePicker from "@/components/ui/calendar";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
@@ -185,7 +189,7 @@ export default function Register() {
                                           name="name"
                                           type="text"
                                           placeholder="Enter your name"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="name"
                                         />
                                       </FormControl>
@@ -208,7 +212,7 @@ export default function Register() {
                                           name="surname"
                                           type="text"
                                           placeholder="Enter your surname"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="surname"
                                         />
                                       </FormControl>
@@ -231,7 +235,7 @@ export default function Register() {
                                           name="email"
                                           type="text"
                                           placeholder="Enter your email"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="email"
                                         />
                                       </FormControl>
@@ -288,7 +292,7 @@ export default function Register() {
                                           type="number"
                                           name="age"
                                           placeholder="Enter your age"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="age"
                                         />
                                       </FormControl>
@@ -306,14 +310,30 @@ export default function Register() {
                                     <FormItem>
                                       <FormLabel>Date of Birth</FormLabel>
                                       <FormControl>
-                                        <Input
+                                        {/* <Input
                                           {...field}
                                           type="text"
                                           name="dateOfBirth"
                                           placeholder="Enter your date of birth"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="date-of-birth"
-                                        />
+                                        /> */}
+
+                                        {/* <DatePicker /> */}
+                                        {/* <DatePicker /> */}
+                                        <DateField
+                                          className="space-y-2"
+                                          onChange={field.onChange}
+                                        >
+                                          <DateInput className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20">
+                                            {(segment) => (
+                                              <DateSegment
+                                                segment={segment}
+                                                className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
+                                              />
+                                            )}
+                                          </DateInput>
+                                        </DateField>
                                       </FormControl>
                                       <FormMessage />
                                     </FormItem>
@@ -328,27 +348,27 @@ export default function Register() {
                                   render={({ field }) => (
                                     <FormItem>
                                       <FormLabel>Gender</FormLabel>
-                                      <Select
-                                        onValueChange={field.onChange}
-                                        defaultValue={field.value}
-                                      >
-                                        <FormControl>
-                                          <SelectTrigger>
+                                      <FormControl>
+                                        <Select
+                                          onValueChange={field.onChange}
+                                          defaultValue={field.value}
+                                        >
+                                          <SelectTrigger id="select-15">
                                             <SelectValue placeholder="Select a gender" />
                                           </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                          <SelectItem value="male">
-                                            Male
-                                          </SelectItem>
-                                          <SelectItem value="female">
-                                            Female
-                                          </SelectItem>
-                                          <SelectItem value="other">
-                                            Other
-                                          </SelectItem>
-                                        </SelectContent>
-                                      </Select>
+                                          <SelectContent>
+                                            <SelectItem value="female">
+                                              Female
+                                            </SelectItem>
+                                            <SelectItem value="male">
+                                              Male
+                                            </SelectItem>
+                                            <SelectItem value="other">
+                                              Other
+                                            </SelectItem>
+                                          </SelectContent>
+                                        </Select>
+                                      </FormControl>
                                       <FormMessage />
                                     </FormItem>
                                   )}
@@ -368,7 +388,7 @@ export default function Register() {
                                           type="text"
                                           name="cityResidingIn"
                                           placeholder="Enter your city"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="city-residing-in"
                                         />
                                       </FormControl>
@@ -436,7 +456,7 @@ export default function Register() {
                                           type="text"
                                           name="instagramUsername"
                                           placeholder="Leah Robinson"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
                                           autoComplete="instagram-username"
                                         />
                                       </FormControl>
@@ -471,7 +491,6 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
-
                         {/* STEP 4 / SUCCESS PAGE */}
                         {currentStep === 3 && (
                           <motion.div
