@@ -42,12 +42,16 @@ const steps = [
   },
   {
     id: "Step 2",
-    fields: ["age", "dateOfBirth", "gender", "cityResidingIn"],
+    fields: [
+      "dateOfBirth",
+      "gender",
+      "cityResidingIn",
+      "preferedMethodOfContact",
+    ],
   },
   {
     id: "Step 3",
     fields: [
-      "preferedMethodOfContact",
       "instagramUsername",
       "howDidYouHearAboutUs",
       "whyWouldYouLikeToJoinKalonModels",
@@ -76,7 +80,6 @@ export default function Register() {
       surname: "",
       email: "",
       phoneNumber: "",
-      age: "",
       dateOfBirth: "",
       gender: "female",
       cityResidingIn: "",
@@ -95,7 +98,6 @@ export default function Register() {
     }
     const formData = {
       ...data,
-      age: Number(data.age),
       name: data.name,
     };
     console.log(formData);
@@ -283,29 +285,6 @@ export default function Register() {
                               <div className="sm:col-span-3">
                                 <FormField
                                   control={form.control}
-                                  name="age"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormLabel>Age</FormLabel>
-                                      <FormControl>
-                                        <Input
-                                          {...field}
-                                          type="number"
-                                          name="age"
-                                          placeholder="Enter your age"
-                                          className="form-input"
-                                          autoComplete="age"
-                                        />
-                                      </FormControl>
-                                      <FormMessage />
-                                    </FormItem>
-                                  )}
-                                />
-                              </div>
-
-                              <div className="sm:col-span-3">
-                                <FormField
-                                  control={form.control}
                                   name="dateOfBirth"
                                   render={({ field }) => (
                                     <FormItem>
@@ -402,20 +381,6 @@ export default function Register() {
                                   )}
                                 />
                               </div>
-                            </div>
-                          </motion.div>
-                        )}
-                        {/* STEP 3 */}
-                        {currentStep === 2 && (
-                          <motion.div
-                            initial={{
-                              x: delta >= 0 ? "50%" : "-50%",
-                              opacity: 0,
-                            }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                          >
-                            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                               <div className="sm:col-span-3">
                                 <FormField
                                   control={form.control}
@@ -448,7 +413,20 @@ export default function Register() {
                                   )}
                                 />
                               </div>
-
+                            </div>
+                          </motion.div>
+                        )}
+                        {/* STEP 3 */}
+                        {currentStep === 2 && (
+                          <motion.div
+                            initial={{
+                              x: delta >= 0 ? "50%" : "-50%",
+                              opacity: 0,
+                            }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                               <div className="sm:col-span-3">
                                 <FormField
                                   control={form.control}
