@@ -20,10 +20,14 @@ export const registriationFormSchema = z.object({
     .string()
     .min(10, { message: "Phone number must be at least 10 characters" })
     .max(15, { message: "Phone number must be less than 15 characters" }),
-  age: z
-    .string()
-    .min(1, { message: "Age must be at least 1 character" })
-    .max(3, { message: "Age must be less than 3 characters" }),
+  age: z.coerce
+    .number()
+    .min(1, {
+      message: "Invalid age",
+    })
+    .max(90, {
+      message: "Invalid age",
+    }),
   dateOfBirth: z.string().min(1, { message: "Date of birth is required" }),
   gender: genderEnum,
   cityResidingIn: z.string().min(2, { message: "City is required" }),

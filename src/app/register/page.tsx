@@ -71,7 +71,7 @@ export default function Register() {
       surname: "",
       email: "",
       phoneNumber: "",
-      age: "",
+      age: undefined,
       dateOfBirth: "",
       gender: "female",
       cityResidingIn: "",
@@ -273,7 +273,7 @@ export default function Register() {
                                       <FormControl>
                                         <Input
                                           {...field}
-                                          type="text"
+                                          type="number"
                                           name="age"
                                           placeholder="Enter your age"
                                           className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
@@ -459,6 +459,7 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
+
                         {/* STEP 4 / SUCCESS PAGE */}
                         {currentStep === 3 && <Success />}
                       </form>
@@ -472,13 +473,13 @@ export default function Register() {
                           disabled={currentStep === 0}
                           onClick={prev}
                           variant={"kalon"}
-                          className="disabled:opacity-50' px-8 disabled:cursor-not-allowed"
+                          className="disabled:opacity-50' bg-tertiaryColorRgba px-8 disabled:cursor-not-allowed"
                         >
                           Prev
                         </Button>
                         <Button
                           variant={"kalon"}
-                          className="px-8 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="bg-tertiaryColorRgba px-8 disabled:cursor-not-allowed disabled:opacity-50"
                           onClick={next}
                           disabled={currentStep === steps.length - 1}
                         >
