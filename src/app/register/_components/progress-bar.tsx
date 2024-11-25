@@ -7,20 +7,16 @@ const animationsOptions = {
   bounce: "animate-bounce",
 };
 
-const animationSpeed = {
-  slow: "",
-};
-
 export default function ProgressBar({
   progressPercentage,
   showPercentage,
   className,
-  animation = "none",
+  animation,
 }: {
   progressPercentage?: number;
   showPercentage?: boolean;
   className?: string;
-  animation: "pulse" | "spin" | "ping" | "bounce" | "none";
+  animation?: "pulse" | "spin" | "ping" | "bounce" | "none";
 }) {
   return (
     <div className="flex flex-col">

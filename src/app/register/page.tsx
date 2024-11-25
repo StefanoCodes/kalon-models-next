@@ -2,6 +2,7 @@
 import { FadeText } from "@/components/motion/text-fade";
 import { WordFadeIn } from "@/components/motion/text-slide";
 import { Button } from "@/components/ui/button";
+
 import {
   Form,
   FormControl,
@@ -151,10 +152,9 @@ export default function Register() {
                 <ProgressBar
                   progressPercentage={progressBarPercentage}
                   className={cn(
-                    "ease-[cubic-bezier(0.4,0,0.2,1)] rounded-2xl bg-primaryColor transition-all duration-700",
+                    "ease-[cubic-bezier(0.4,0,0.2,1)] animate-pulse-slow rounded-2xl bg-primaryColor transition-all duration-700",
                     registrationFinished && "animate-none rounded-none",
                   )}
-                  animation="pulse"
                 />
                 <div className="flex flex-col gap-12 p-4 pb-8 text-black">
                   <div className="flex flex-col gap-4">

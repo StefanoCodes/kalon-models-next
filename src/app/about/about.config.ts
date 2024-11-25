@@ -56,7 +56,7 @@ const content = {
       "My modeling journey began in 2017, but my career truly started in 2020. The first three years were particularly challenging—not due to rejection or missed opportunities, but because I didn’t receive the proper guidance.",
     textNote2:
       "This led me to establishing Kalon Models in 2020, from there on out I made it my mission to create a supportive environment where models can thrive, ensuring that no one has to navigate the industry alone.",
-    founderImage: "/about/signature.svg",
+    founderSignature: "/about/signature.svg",
     founderAbbreviation: "Founder, Kalon Models",
   },
   footer: {

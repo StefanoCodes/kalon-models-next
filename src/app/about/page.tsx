@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const { title } = content;
 const { description1, description3 } = content.descriptionTexts;
-const { textNote1, textNote2, founderImage, founderAbbreviation } =
+const { textNote1, textNote2, founderSignature, founderAbbreviation } =
   content.founder;
 const { heading, description } = content.footer;
 
@@ -63,7 +63,7 @@ export default function About() {
           </div>
 
           {/* MAIN */}
-          <div className="flex flex-col gap-32">
+          <div className="flex flex-col gap-16 md:gap-32">
             {/* CONTENT */}
             <div className="flex flex-col gap-8">
               {/* SERVICES */}
@@ -79,13 +79,14 @@ export default function About() {
             </div>
             {/* AUTOBIOGRAPHY */}
             <div className="flex flex-col items-start justify-between gap-16 md:flex-row">
-              <div className="w-full md:w-auto md:flex-1">
+              <div className="flex h-full w-full md:w-auto md:flex-1">
                 <Image
                   src={"/about/founder.webp"}
                   alt="Kalon"
                   width={304}
-                  height={304}
-                  className="w-full md:aspect-square md:h-full md:max-w-md md:object-cover"
+                  height={327}
+                  quality={85}
+                  className="h-full w-full rounded-xl object-cover md:aspect-square md:max-h-[327px] md:w-auto md:max-w-xl"
                 />
               </div>
 
@@ -99,8 +100,8 @@ export default function About() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <Image
-                      src={founderImage}
-                      alt="Kalon"
+                      src={founderSignature}
+                      alt="Kalon signature"
                       width={80}
                       height={36}
                       className="object-cover"
