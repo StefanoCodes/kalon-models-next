@@ -466,13 +466,15 @@ export default function Register() {
                         )}
                         {/* THANK YOU PAGE */}
                         {currentStep === 3 && (
-                          <div className="flex flex-col gap-8">
+                          <div className="flex flex-col gap-8 md:items-start">
                             <div className="flex flex-col gap-1">
                               <h2 className="body-text text-2xl font-semibold">
-                                Complete
+                                Registration Successful!
                               </h2>
                               <p className="body-text">
-                                Thank you for your submission
+                                Thank you for registering with Kalon Models.
+                                Your application has been received and is being
+                                processed.
                               </p>
                             </div>
                             <Button asChild variant={"kalon"}>
