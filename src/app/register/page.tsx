@@ -473,7 +473,18 @@ export default function Register() {
                         )}
 
                         {/* STEP 4 / SUCCESS PAGE */}
-                        {currentStep === 3 && <Success />}
+                        {currentStep === 3 && (
+                          <motion.div
+                            initial={{
+                              x: delta >= 0 ? "50%" : "-50%",
+                              opacity: 0,
+                            }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                          >
+                            <Success />
+                          </motion.div>
+                        )}
                       </form>
                     </Form>
                   </div>
