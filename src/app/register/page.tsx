@@ -148,6 +148,7 @@ export default function Register() {
                   <div className="flex flex-col gap-4">
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(processForm)}>
+                        {/* STEP 1 */}
                         {currentStep === 0 && (
                           <motion.div
                             initial={{
@@ -251,7 +252,7 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
-
+                        {/* STEP 2 */}
                         {currentStep === 1 && (
                           <motion.div
                             initial={{
@@ -367,7 +368,7 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
-
+                        {/* STEP 3 */}
                         {currentStep === 2 && (
                           <motion.div
                             initial={{
@@ -458,7 +459,7 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
-                        {/* SUCCESS PAGE */}
+                        {/* STEP 4 / SUCCESS PAGE */}
                         {currentStep === 3 && <Success />}
                       </form>
                     </Form>
