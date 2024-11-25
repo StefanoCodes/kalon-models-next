@@ -148,7 +148,7 @@ export default function Register() {
         </div>
         {/* MAIN BOX */}
         <section
-          className="min-h-full overflow-hidden rounded-2xl bg-backgroundLightColor shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl"
+          className="min-h-full overflow-hidden rounded-2xl bg-transparent shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl"
           id="register"
         >
           <div className="flex flex-col-reverse md:flex-row lg:h-full">
@@ -190,7 +190,7 @@ export default function Register() {
                                           name="name"
                                           type="text"
                                           placeholder="Enter your name"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className={`form-input`}
                                           autoComplete="name"
                                         />
                                       </FormControl>
@@ -213,7 +213,7 @@ export default function Register() {
                                           name="surname"
                                           type="text"
                                           placeholder="Enter your surname"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="surname"
                                         />
                                       </FormControl>
@@ -236,11 +236,11 @@ export default function Register() {
                                           name="email"
                                           type="text"
                                           placeholder="Enter your email"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="email"
                                         />
                                       </FormControl>
-                                      <FormMessage className="text-red-400" />
+                                      <FormMessage />
                                     </FormItem>
                                   )}
                                 />
@@ -259,6 +259,7 @@ export default function Register() {
                                           name="phoneNumber"
                                           placeholder="Enter your phone number"
                                           autoComplete="phone"
+                                          className="form-input"
                                         />
                                       </FormControl>
                                       <FormMessage />
@@ -293,7 +294,7 @@ export default function Register() {
                                           type="number"
                                           name="age"
                                           placeholder="Enter your age"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="age"
                                         />
                                       </FormControl>
@@ -316,7 +317,7 @@ export default function Register() {
                                           type="text"
                                           name="dateOfBirth"
                                           placeholder="Enter your date of birth"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="date-of-birth"
                                         /> */}
 
@@ -336,7 +337,7 @@ export default function Register() {
                                             field.onChange(birthDate);
                                           }}
                                         >
-                                          <DateInput className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20">
+                                          <DateInput className="form-input">
                                             {(segment) => (
                                               <DateSegment
                                                 segment={segment}
@@ -364,7 +365,10 @@ export default function Register() {
                                           onValueChange={field.onChange}
                                           defaultValue={field.value}
                                         >
-                                          <SelectTrigger id="select-15">
+                                          <SelectTrigger
+                                            id="select-15"
+                                            className="form-input"
+                                          >
                                             <SelectValue placeholder="Select a gender" />
                                           </SelectTrigger>
                                           <SelectContent>
@@ -399,7 +403,7 @@ export default function Register() {
                                           type="text"
                                           name="cityResidingIn"
                                           placeholder="Enter your city"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="city-residing-in"
                                         />
                                       </FormControl>
@@ -436,7 +440,7 @@ export default function Register() {
                                         defaultValue={field.value}
                                       >
                                         <FormControl>
-                                          <SelectTrigger>
+                                          <SelectTrigger className="form-input">
                                             <SelectValue placeholder="Select a prefered method of contact" />
                                           </SelectTrigger>
                                         </FormControl>
@@ -467,7 +471,7 @@ export default function Register() {
                                           type="text"
                                           name="instagramUsername"
                                           placeholder="Leah Robinson"
-                                          className="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20"
+                                          className="form-input"
                                           autoComplete="instagram-username"
                                         />
                                       </FormControl>
@@ -490,7 +494,7 @@ export default function Register() {
                                           {...field}
                                           name="howDidYouHearAboutUs"
                                           placeholder="I heard about Kalon through instagram"
-                                          className="block w-full flex-1 rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
+                                          className="form-input"
                                           autoComplete="how-did-you-hear-about-us"
                                         />
                                       </FormControl>
