@@ -29,6 +29,7 @@ import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
 import Success from "./_components/sucess";
+import { PhoneInput } from "@/components/ui/phone-input";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -102,11 +103,6 @@ export default function Register() {
       setPreviousStep(currentStep);
       setCurrentStep((prevStep) => prevStep + 1);
       setProgressBarPercentage(progressBarPercentage + 25);
-    }
-
-    if (currentStep === steps.length - 1) {
-      // run some code
-      console.log("last step");
     }
   };
 
@@ -240,12 +236,10 @@ export default function Register() {
                                     <FormItem>
                                       <FormLabel>Phone Number</FormLabel>
                                       <FormControl>
-                                        <Input
+                                        <PhoneInput
                                           {...field}
-                                          type="tel"
                                           name="phoneNumber"
                                           placeholder="Enter your phone number"
-                                          className="block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                                           autoComplete="phone"
                                         />
                                       </FormControl>
@@ -464,7 +458,7 @@ export default function Register() {
                             </div>
                           </motion.div>
                         )}
-                        {/* THANK YOU PAGE */}
+                        {/* SUCCESS PAGE */}
                         {currentStep === 3 && <Success />}
                       </form>
                     </Form>

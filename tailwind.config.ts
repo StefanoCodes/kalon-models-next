@@ -22,6 +22,7 @@ export default {
         primaryColor: "var(--color-primary)",
         secondaryColor: "var(--color-secondary)",
         tertiaryColor: "var(--color-tertiary)",
+        tertiaryColorRgba: "var(--color-tertiary-rgba)",
         backgroundLightColor: "var(--color-background-light)",
         textDarkColor: "var(--color-text-dark)",
         backgroundLightAltColor: "var(--color-background-light-alt)",

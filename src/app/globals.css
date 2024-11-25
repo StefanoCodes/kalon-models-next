@@ -8,6 +8,7 @@
     --color-primary: rgb(128, 0, 255);
     --color-secondary: rgb(77, 0, 153);
     --color-tertiary: rgb(212, 168, 255);
+    --color-tertiary-rgba: rgba(212, 168, 255, 0.3);
     --color-background-light: rgb(248, 248, 248);
     --color-text-dark: rgb(71, 70, 69);
     --color-background-light-alt: rgb(242, 242, 242);
@@ -81,7 +82,7 @@
     text-wrap: balance;
   }
   .body-text {
-    @apply text-paragraph text-base leading-[1.5] tracking-tight md:text-lg md:leading-[1.7];
+    @apply text-base leading-[1.5] tracking-tight text-paragraph md:text-lg md:leading-[1.7];
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;
