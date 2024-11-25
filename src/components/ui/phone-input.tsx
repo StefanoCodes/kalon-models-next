@@ -95,12 +95,6 @@ const CountrySelect = ({
             country={selectedCountry}
             countryName={selectedCountry}
           />
-          {/* <ChevronsUpDown
-            className={cn(
-              "-mr-2 size-4 opacity-50",
-              disabled ? "hidden" : "opacity-100",
-            )} */}
-          {/* /> */}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0">
@@ -157,7 +151,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
-    <span className="flex h-4 w-6 items-center justify-center overflow-hidden rounded-sm">
+    <span className="flex h-4 w-6 items-center justify-center overflow-hidden rounded-xl bg-none">
       {Flag && <Flag title={countryName} />}
     </span>
   );

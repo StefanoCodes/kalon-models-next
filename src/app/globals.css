@@ -88,9 +88,7 @@
     @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;
   }
   .form-input {
-    /* old input-style */
-    /* @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/5 ; */
-    @apply input-border-styles relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap border-none px-0 py-2 text-paragraph transition-shadow data-[focus-within]:border-ring data-[disabled]:opacity-50 data-[focus-within]:outline-none data-[focus-within]:ring-[3px] data-[focus-within]:ring-ring/20;
+    @apply input-border-styles relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-none border-none px-0 py-2 text-paragraph outline-none transition-shadow md:max-w-[75%];
   }
 }
 

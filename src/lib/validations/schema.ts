@@ -50,4 +50,8 @@ export const registriationFormSchema = z.object({
     .or(
       z.string().min(2, { message: "How did you hear about us is required" }),
     ),
+  whyWouldYouLikeToJoinKalonModels: z
+    .string()
+    .trim()
+    .min(2, { message: "Reason is required" }),
 });

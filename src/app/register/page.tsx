@@ -20,22 +20,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
 import { motion } from "motion/react";
 import { Metadata } from "next";
 import { useState } from "react";
+import { DateField, DateInput, DateSegment } from "react-aria-components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
 import RegistrationFormImg from "./_components/registration-form-img";
 import Success from "./_components/sucess";
-import DatePicker from "./_components/date-picker";
-import { Label } from "@/components/ui/label";
-import { DateField, DateInput, DateSegment } from "react-aria-components";
-// import DatePicker from "@/components/ui/calendar";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
@@ -53,6 +50,7 @@ const steps = [
       "preferedMethodOfContact",
       "instagramUsername",
       "howDidYouHearAboutUs",
+      "whyWouldYouLikeToJoinKalonModels",
     ],
   },
 
@@ -85,6 +83,7 @@ export default function Register() {
       preferedMethodOfContact: "whatsapp",
       instagramUsername: "",
       howDidYouHearAboutUs: "",
+      whyWouldYouLikeToJoinKalonModels: "",
     },
   });
 
@@ -153,7 +152,7 @@ export default function Register() {
         >
           <div className="flex flex-col-reverse md:flex-row lg:h-full">
             <div className="flex flex-col gap-4 md:flex-[1.5]">
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col gap-8 md:gap-12">
                 <ProgressBar
                   progressPercentage={progressBarPercentage}
                   className={cn(
@@ -161,7 +160,7 @@ export default function Register() {
                     registrationFinished && "animate-none rounded-none",
                   )}
                 />
-                <div className="flex flex-col gap-12 p-4 pb-8 text-black">
+                <div className="flex flex-col gap-8 px-8 py-4 md:gap-12 md:px-12 md:py-8">
                   <div className="flex flex-col gap-4">
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(processForm)}>
@@ -259,7 +258,7 @@ export default function Register() {
                                           name="phoneNumber"
                                           placeholder="Enter your phone number"
                                           autoComplete="phone"
-                                          className="form-input"
+                                          className=""
                                         />
                                       </FormControl>
                                       <FormMessage />
@@ -312,17 +311,6 @@ export default function Register() {
                                     <FormItem>
                                       <FormLabel>Date of Birth</FormLabel>
                                       <FormControl>
-                                        {/* <Input
-                                          {...field}
-                                          type="text"
-                                          name="dateOfBirth"
-                                          placeholder="Enter your date of birth"
-                                          className="form-input"
-                                          autoComplete="date-of-birth"
-                                        /> */}
-
-                                        {/* <DatePicker /> */}
-                                        {/* <DatePicker /> */}
                                         <DateField
                                           className="space-y-2"
                                           onChange={(e) => {
@@ -337,7 +325,9 @@ export default function Register() {
                                             field.onChange(birthDate);
                                           }}
                                         >
-                                          <DateInput className="form-input">
+                                          <DateInput
+                                            className={`form-input flex w-full border border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
+                                          >
                                             {(segment) => (
                                               <DateSegment
                                                 segment={segment}
@@ -458,6 +448,7 @@ export default function Register() {
                                   )}
                                 />
                               </div>
+
                               <div className="sm:col-span-3">
                                 <FormField
                                   control={form.control}
@@ -480,7 +471,7 @@ export default function Register() {
                                   )}
                                 />
                               </div>
-                              <div className="sm:col-span-6">
+                              <div className="sm:col-span-3">
                                 <FormField
                                   control={form.control}
                                   name="howDidYouHearAboutUs"
@@ -496,6 +487,29 @@ export default function Register() {
                                           placeholder="I heard about Kalon through instagram"
                                           className="form-input"
                                           autoComplete="how-did-you-hear-about-us"
+                                        />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                              </div>
+                              <div className="sm:col-span-3">
+                                <FormField
+                                  control={form.control}
+                                  name="whyWouldYouLikeToJoinKalonModels"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>
+                                        Why would you like to join Kalon Models
+                                      </FormLabel>
+                                      <FormControl>
+                                        <Input
+                                          {...field}
+                                          name="whyWouldYouLikeToJoinKalonModels"
+                                          placeholder="I want to be a model"
+                                          className="form-input"
+                                          autoComplete="why-would-you-like-to-join-kalon-models"
                                         />
                                       </FormControl>
                                       <FormMessage />
@@ -548,7 +562,7 @@ export default function Register() {
                 </div>
               </div>
             </div>
-            <RegistrationFormImg />
+            {/* <RegistrationFormImg /> */}
           </div>
         </section>
       </div>
