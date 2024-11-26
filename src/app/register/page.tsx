@@ -27,7 +27,12 @@ import { format } from "date-fns";
 import { motion } from "motion/react";
 import { Metadata } from "next";
 import { useState } from "react";
-import { DateField, DateInput, DateSegment } from "react-aria-components";
+import {
+  DateField,
+  DateInput,
+  DateSegment,
+  FieldError,
+} from "react-aria-components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import ProgressBar from "./_components/progress-bar";
@@ -293,6 +298,8 @@ export default function Register() {
                                       <FormLabel>Date of Birth</FormLabel>
                                       <FormControl>
                                         <DateField
+                                          aria-label="Date of Birth"
+                                          aria-describedby="date-of-birth-description"
                                           className="space-y-2"
                                           onChange={(e) => {
                                             if (!e) return;
@@ -303,19 +310,36 @@ export default function Register() {
                                               new Date(year, month, day),
                                               "MM/dd/yyyy",
                                             );
+                                            console.log(birthDate);
                                             field.onChange(birthDate);
                                           }}
                                         >
                                           <DateInput
                                             className={`form-input flex w-full border-b border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
                                           >
-                                            {(segment) => (
-                                              <DateSegment
-                                                segment={segment}
-                                                className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
-                                              />
-                                            )}
+                                            {(segment) => {
+                                              if (segment.type === "year") {
+                                                return (
+                                                  <DateSegment
+                                                    segment={{
+                                                      ...segment,
+                                                      minValue: 1900,
+                                                      maxValue:
+                                                        new Date().getFullYear(),
+                                                    }}
+                                                    className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
+                                                  />
+                                                );
+                                              }
+                                              return (
+                                                <DateSegment
+                                                  segment={segment}
+                                                  className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
+                                                />
+                                              );
+                                            }}
                                           </DateInput>
+                                          <FieldError />
                                         </DateField>
                                       </FormControl>
                                       <FormMessage />

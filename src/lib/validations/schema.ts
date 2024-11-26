@@ -25,8 +25,22 @@ export const registriationFormSchema = z.object({
     .max(15, { message: "Phone number must be less than 15 characters" }),
   dateOfBirth: z
     .string()
-    .trim()
-    .min(1, { message: "Date of birth is required" }),
+    .regex(/^\d{2}\/\d{2}\/\d{4}$/, {
+      message: "Date is required",
+    })
+    .refine(
+      (date) => {
+        const [, , year] = date.split("/").map(Number);
+        const currentYear = new Date().getFullYear();
+
+        // Check if year is between 1900 and current year
+        return year >= 1900 && year <= currentYear;
+      },
+      {
+        message: "invalid date of birth",
+      },
+    ),
+
   gender: genderEnum,
   cityResidingIn: z.string().trim().min(2, { message: "City is required" }),
   preferedMethodOfContact: preferedMethodOfContactEnum,
@@ -37,10 +51,7 @@ export const registriationFormSchema = z.object({
   howDidYouHearAboutUs: z
     .string()
     .trim()
-    .optional()
-    .or(
-      z.string().min(2, { message: "How did you hear about us is required" }),
-    ),
+    .min(2, { message: "How did you hear about us is required" }),
   whyWouldYouLikeToJoinKalonModels: z
     .string()
     .trim()
