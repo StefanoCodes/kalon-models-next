@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Inter } from "next/font/google";
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  fallback: ["sans-serif"],
-});
-
 const ABCNormal = localFont({
   src: "./fonts/ABCNormal-Normal.ttf",
   fallback: ["sans-serif"],
   display: "swap",
   variable: "--font-ABCNormal",
+  preload: true,
+  weight: "400",
+  style: "normal",
 });
 
 export const metadata: Metadata = {
