@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navabar from "@/components/navbar/navbar";
+import Navbar from "@/components/navbar/navbar";
 const ABCNormal = localFont({
   src: "./fonts/ABCNormal-Normal.ttf",
   fallback: ["sans-serif"],
@@ -26,11 +28,8 @@ export default function RootLayout({
       <body
         className={`${ABCNormal.className} ${ABCNormal.variable} bg-whiteColor text-blackColor antialiased`}
       >
-        {/* <div className="flex flex-col justify-between min-h-[100dvh]"> */}
-
+        <Navbar />
         {children}
-        {/* <Footer /> */}
-        {/* </div> */}
       </body>
     </html>
   );

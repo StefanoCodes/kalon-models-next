@@ -152,7 +152,7 @@ export default function Register() {
             className="text-3xl font-semibold md:text-4xl lg:text-5xl"
           />
           <FadeText
-            text="This is a Multi-Part Form Demo! In this demonstration, we will showcase the powerful new forms tools available."
+            text="Join Kalon Models and take the first step towards your modeling career. Fill out the form below and our team will review your application."
             className="body-text text-mutedColor"
           />
         </div>
