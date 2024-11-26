@@ -59,7 +59,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <Hr />
+            {/* <Hr /> */}
           </div>
 
           {/* MAIN */}
@@ -69,13 +69,13 @@ export default function About() {
               {/* SERVICES */}
               <div className="flex flex-col gap-16">
                 <div className="flex flex-col gap-8">
-                  <Heading headingSize="h2" className="text-blackColor">
+                  <Heading headingSize="h5" className="font-normal">
                     Services
                   </Heading>
-                  <ServicesList />
+                  {/* <ServicesList /> */}
                 </div>
               </div>
-              <Hr gradient="dark" />
+              {/* <Hr gradient="dark" /> */}
             </div>
             {/* AUTOBIOGRAPHY */}
             <div className="flex flex-col items-start justify-between gap-16 md:flex-row">
@@ -85,8 +85,7 @@ export default function About() {
                   alt="Kalon"
                   width={304}
                   height={327}
-                  quality={85}
-                  className="h-full w-full rounded-xl object-cover md:aspect-square md:max-h-[327px] md:w-auto md:max-w-xl"
+                  className="h-full max-h-[327px] w-full rounded-xl object-cover md:aspect-square md:w-auto md:max-w-[304px]"
                 />
               </div>
 

@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-
+import localFont from "next/font/local";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Footer from "@/components/footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   fallback: ["sans-serif"],
 });
 
-// const ABCNormal = Next({
-//   src: "url('/fonts/ABCNormal.ttf')",
-//   variable: "--font-ABCNormal",
-// });
+const ABCNormal = localFont({
+  src: "./fonts/ABCNormal-Normal.ttf",
+  fallback: ["sans-serif"],
+  display: "swap",
+  variable: "--font-ABCNormal",
+});
 
 export const metadata: Metadata = {
   title: "Kalon | The modelling academy for all",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${inter.variable} bg-whiteColor text-blackColor antialiased`}
+        className={`${ABCNormal.className} ${ABCNormal.variable} bg-whiteColor text-blackColor antialiased`}
       >
         {/* <div className="flex flex-col justify-between min-h-[100dvh]"> */}
 
