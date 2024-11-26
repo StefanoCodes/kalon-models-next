@@ -78,7 +78,7 @@ export default function About() {
               {/* <Hr gradient="dark" /> */}
             </div>
             {/* AUTOBIOGRAPHY */}
-            <div className="flex flex-col items-start justify-between gap-16 md:flex-row">
+            <div className="mb-8 flex flex-col items-start justify-between gap-16 md:flex-row">
               <div className="flex h-full w-full md:w-auto md:flex-1">
                 <Image
                   src={"/about/founder.webp"}
@@ -112,10 +112,10 @@ export default function About() {
             </div>
           </div>
           {/* FOOTER */}
-          <div className="flex flex-col items-center justify-center gap-8">
+          {/* <div className="flex flex-col items-center justify-center gap-8">
             <h3 className="body-text md:text-2xl">{heading}</h3>
             <p className="body-text text-center md:text-2xl">{description}</p>
-          </div>
+          </div> */}
         </div>
       </section>
     </main>

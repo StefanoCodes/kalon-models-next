@@ -6,7 +6,6 @@ const ABCNormal = localFont({
   fallback: ["sans-serif"],
   display: "swap",
   variable: "--font-ABCNormal",
-  preload: true,
   weight: "400",
   style: "normal",
 });
