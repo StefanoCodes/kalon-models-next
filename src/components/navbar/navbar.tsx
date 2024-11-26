@@ -8,7 +8,7 @@ const routes = navbar.routes;
 export default function Navbar() {
   return (
     <div>
-      <div className={cn("container py-4", "max-w-screen-xl")}>
+      <div className={cn("container hidden py-4 sm:block", "max-w-screen-xl")}>
         <div className="flex flex-row justify-between">
           <Heading headingSize="h2" className="font-light uppercase">
             <Link href="/">Kalon</Link>
