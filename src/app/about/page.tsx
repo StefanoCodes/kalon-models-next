@@ -1,6 +1,6 @@
 import KalonTag from "@/components/kalon-tag";
 import content from "./about.config";
-import Hr from "@/components/hr";
+// import Hr from "@/components/hr";
 import Image from "next/image";
 import { WordFadeIn } from "@/components/motion/text-slide";
 import ServicesList from "./_components/services-list";
@@ -72,6 +72,7 @@ export default function About() {
                   <Heading headingSize="h5" className="font-normal">
                     Services
                   </Heading>
+                  {/* will add the new services list */}
                   {/* <ServicesList /> */}
                 </div>
               </div>
