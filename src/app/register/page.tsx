@@ -63,6 +63,8 @@ const steps = [
     ],
   },
 
+  // we still need to figure out the kids component adding the guardiant stuff
+
   { id: "Step 4", name: "Complete" },
 ];
 const metadata: Metadata = {

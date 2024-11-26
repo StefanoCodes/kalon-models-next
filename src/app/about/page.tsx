@@ -73,7 +73,7 @@ export default function About() {
                     Services
                   </Heading>
                   {/* will add the new services list */}
-                  {/* <ServicesList /> */}
+                  <ServicesList />
                 </div>
               </div>
               {/* <Hr gradient="dark" /> */}
