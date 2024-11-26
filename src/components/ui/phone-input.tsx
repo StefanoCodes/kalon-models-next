@@ -63,7 +63,11 @@ const InputComponent = React.forwardRef<
   HTMLInputElement,
   React.ComponentProps<"input">
 >(({ className, ...props }, ref) => (
-  <Input className={cn("form-input", className)} {...props} ref={ref} />
+  <Input
+    className={cn("form-input", className, "md:w-[calc(100%-25%-48px)]")}
+    {...props}
+    ref={ref}
+  />
 ));
 InputComponent.displayName = "InputComponent";
 
@@ -88,7 +92,10 @@ const CountrySelect = ({
         <Button
           type="button"
           variant="ghost"
-          className="flex gap-1 border-none px-3 focus:z-10"
+          className={cn(
+            "flex h-9 gap-1 rounded-none px-3 py-0 focus:z-10",
+            "border-b border-input",
+          )}
           disabled={disabled}
         >
           <FlagComponent

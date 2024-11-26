@@ -99,6 +99,8 @@ export default function Register() {
     const formData = {
       ...data,
       name: data.name,
+      // calculate the age
+      // age: new Date().getFullYear() - data.dateOfBirth.slice(-4),
     };
     console.log(formData);
     // business logic here
@@ -260,7 +262,7 @@ export default function Register() {
                                           name="phoneNumber"
                                           placeholder="Enter your phone number"
                                           autoComplete="phone"
-                                          className=""
+                                          className="flex items-center"
                                         />
                                       </FormControl>
                                       <FormMessage />
@@ -305,7 +307,7 @@ export default function Register() {
                                           }}
                                         >
                                           <DateInput
-                                            className={`form-input flex w-full border border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
+                                            className={`form-input flex w-full border-b border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
                                           >
                                             {(segment) => (
                                               <DateSegment
