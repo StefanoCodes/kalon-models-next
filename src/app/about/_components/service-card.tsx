@@ -1,17 +1,10 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
 
-type Service = {
-  title: string;
-  description: string;
-  image: string;
-};
-
-export default function ServicesCard({ service }: { service: Service }) {
+export default function ServicesCard({ title }: { title: string }) {
   return (
-    <div>
-      <p className="body-text">{service.title}</p>
+    <div className="md:min-w-[200px]">
+      <p className="body-text">{title}</p>
     </div>
   );
 }

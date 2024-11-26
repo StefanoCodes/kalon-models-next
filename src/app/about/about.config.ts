@@ -15,25 +15,25 @@ const content = {
   },
   services: [
     {
-      title: "Runway\nTraining",
+      title: "Runway Training",
       description:
         "Master the art of the catwalk with our professional runway training.",
       image: "/about/services/service_1-min.png",
     },
     {
-      title: "Casting\nSkills",
+      title: "Casting Skills Training",
       description:
         "Learn how to shine in casting calls and land more modeling jobs.",
       image: "/about/services/service_2-min.png",
     },
     {
-      title: "Pageant\nTraining",
+      title: "Pageant Training",
       description:
         "Prepare for success in beauty pageants with our comprehensive training program.",
       image: "/about/services/service_1-min.png",
     },
     {
-      title: "Social Media\nBranding",
+      title: "Social Media & Personal Branding",
       description:
         "Build your online presence and create a strong personal brand in the modeling industry.",
       image: "/about/services/service_4-min.png",

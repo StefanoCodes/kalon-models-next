@@ -63,12 +63,12 @@ export default function About() {
           </div>
 
           {/* MAIN */}
-          <div className="flex flex-col gap-16 md:gap-32">
+          <div className="flex flex-col gap-16">
             {/* CONTENT */}
             <div className="flex flex-col gap-8">
               {/* SERVICES */}
               <div className="flex flex-col gap-16">
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-6">
                   <Heading headingSize="h5" className="font-normal">
                     Services
                   </Heading>
@@ -86,7 +86,7 @@ export default function About() {
                   alt="Kalon"
                   width={304}
                   height={327}
-                  className="h-full max-h-[327px] w-full rounded-xl object-cover md:aspect-square md:w-auto md:max-w-[304px]"
+                  className="aspect-square h-full max-h-[327px] w-full rounded-xl object-cover md:w-auto md:max-w-[304px]"
                 />
               </div>
 
