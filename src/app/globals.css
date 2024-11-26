@@ -79,11 +79,6 @@
   }
   body {
     @apply text-balance bg-background text-foreground;
-    transition-property: opacity, background-color, background, transform,
-      filter;
-    transition-timing-function: ease-in-out;
-    transition-duration: 500ms;
-    opacity: 1;
   }
   .body-text {
     @apply text-base leading-[1.5] tracking-[0.4px] text-blackColor md:text-lg md:leading-[1.7];
