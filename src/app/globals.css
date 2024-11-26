@@ -78,8 +78,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    text-wrap: balance;
+    @apply text-balance bg-background text-foreground;
+    transition-property: opacity, background-color, background, transform,
+      filter;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+    opacity: 1;
   }
   .body-text {
     @apply text-base leading-[1.5] tracking-[0.4px] text-blackColor md:text-lg md:leading-[1.7];
@@ -90,4 +94,18 @@
   .form-input {
     @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap px-0 py-2 text-paragraph outline-none transition-shadow md:max-w-[75%];
   }
+}
+body {
+  transition-property: opacity, background-color, background, transform, filter;
+  transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+}
+.page-transition {
+  opacity: 0;
+  background: #2a2a2a;
+  transform: translateY(200px);
+  filter: blur(12px);
+  overflow-y: hidden;
+  z-index: 1;
+  transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }

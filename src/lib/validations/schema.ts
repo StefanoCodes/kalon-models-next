@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { MAX_AGE } from "../constants";
+import { MIN_AGE } from "../constants";
 const genderEnum = z.enum(["male", "female", "other"], {
   message: "Invalid Entry",
 });
@@ -32,12 +34,13 @@ export const registriationFormSchema = z.object({
       (date) => {
         const [, , year] = date.split("/").map(Number);
         const currentYear = new Date().getFullYear();
+        const age = currentYear - year;
 
-        // Check if year is between 1900 and current year
-        return year >= 1900 && year <= currentYear;
+        // Check if age is between 5 and 60 years
+        return age >= MIN_AGE && age <= MAX_AGE;
       },
       {
-        message: "invalid date of birth",
+        message: `Age must be between ${MIN_AGE} and ${MAX_AGE} years`,
       },
     ),
 

@@ -102,12 +102,11 @@ export default function Register() {
     if (!isDataValid.success) {
       console.log("invalid");
       // we can send an email to the user saying we did not follow through with the application for whatber reason if the user decided to spoof the data
+      return;
     }
     const formData = {
       ...data,
       name: data.name,
-      // calculate the age
-      // age: new Date().getFullYear() - data.dateOfBirth.slice(-4),
     };
     console.log(formData);
     // business logic here
