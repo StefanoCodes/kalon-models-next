@@ -338,7 +338,7 @@ export default function Register() {
                                         >
                                           <SelectTrigger
                                             id="select-15"
-                                            className="form-input"
+                                            className="form-input px-0"
                                           >
                                             <SelectValue placeholder="Select a gender" />
                                           </SelectTrigger>
@@ -397,7 +397,10 @@ export default function Register() {
                                         defaultValue={field.value}
                                       >
                                         <FormControl>
-                                          <SelectTrigger className="form-input">
+                                          <SelectTrigger
+                                            className="form-input px-0"
+                                            id="select-16"
+                                          >
                                             <SelectValue placeholder="Select a prefered method of contact" />
                                           </SelectTrigger>
                                         </FormControl>
