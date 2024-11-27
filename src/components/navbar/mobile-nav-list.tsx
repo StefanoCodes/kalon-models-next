@@ -20,8 +20,8 @@ const navItems = [
 ];
 
 export default function MobileNavList() {
-  if (typeof window === "undefined") return null;
   const [isOpen, setIsOpen] = useState(false);
+  if (typeof window === "undefined") return null;
   const body = document.querySelector("body");
   const toggleNavigation = () => {
     setIsOpen((previsOpen) => !previsOpen);
