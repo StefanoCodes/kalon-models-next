@@ -7,6 +7,9 @@ import { useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion } from "motion/react";
 import { navbar } from "./navbar.config";
+import { InstagramIcon } from "lucide-react";
+import { FacebookIcon } from "lucide-react";
+import { TwitterIcon } from "lucide-react";
 const routes = navbar.routes;
 const navItems = [
   ...routes,
@@ -89,8 +92,8 @@ export default function MobileNavList() {
             variants={menuVariants}
             className="fixed left-0 top-0 z-10 h-[100dvh] w-full bg-blackColor p-4 text-whiteColor"
           >
-            <nav className="flex h-full pt-32">
-              <div className="flex flex-col justify-between gap-8">
+            <nav className="flex h-full w-full pt-32">
+              <div className="flex w-full flex-col justify-between gap-8">
                 <div className="flex flex-col gap-4">
                   {navItems.map((item, i) => (
                     <motion.div
@@ -104,7 +107,22 @@ export default function MobileNavList() {
                     </motion.div>
                   ))}
                 </div>
-                <motion.p variants={linkVariants}>kalon@models.info</motion.p>
+                <div className="flex w-full flex-row items-center justify-between">
+                  <motion.p className="text-white/40" variants={linkVariants}>
+                    kalon@models.info
+                  </motion.p>
+                  <div className="flex flex-row gap-2">
+                    <motion.div variants={linkVariants}>
+                      <FacebookIcon className="h-5 w-5 font-normal text-white/40 opacity-50" />
+                    </motion.div>
+                    <motion.div variants={linkVariants}>
+                      <InstagramIcon className="h-5 w-5 text-white/40 opacity-50" />
+                    </motion.div>
+                    <motion.div variants={linkVariants}>
+                      <TwitterIcon className="h-5 w-5 font-normal text-white/40 opacity-50" />
+                    </motion.div>
+                  </div>
+                </div>
               </div>
             </nav>
           </motion.div>
