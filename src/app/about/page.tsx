@@ -30,13 +30,12 @@ export default function About() {
               <WordFadeIn
                 words={title.main}
                 delay={0.15}
-                className="text-2xl font-medium leading-3 tracking-tight text-blackColor sm:text-3xl md:text-5xl md:leading-[1.5] lg:text-6xl xl:text-8xl"
+                className="text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1]"
               />
-              <br />
               <WordFadeIn
                 words={title.sub}
                 delay={0.4}
-                className="text-2xl font-medium leading-3 tracking-tight text-blackColor sm:text-3xl md:text-5xl md:leading-[1.5] lg:text-6xl xl:text-8xl"
+                className="text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1]"
               />
             </div>
             <div className="flex flex-col gap-8">

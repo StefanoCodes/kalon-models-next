@@ -82,6 +82,9 @@ export default {
       animation: {
         "pulse-slow": "pulse 20s linear infinite",
       },
+      fontFamily: {
+        abcNormal: "var(--font-ABCNormal)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -21,24 +21,13 @@ const navItems = [
 
 export default function MobileNavList() {
   const [isOpen, setIsOpen] = useState(false);
-  if (typeof window === "undefined") return null;
+  // if (typeof window === "undefined") return null;
   const body = document.querySelector("body");
   const toggleNavigation = () => {
     setIsOpen((previsOpen) => !previsOpen);
     body?.classList.toggle(`body-overflow-hidden`);
   };
   const menuVariants = {
-    closed: {
-      opacity: 0,
-      y: "-100%",
-      transition: {
-        y: { stiffness: 1000 },
-        opacity: { duration: 0.2 },
-        when: "afterChildren",
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
-    },
     open: {
       opacity: 1,
       y: 0,
@@ -50,21 +39,32 @@ export default function MobileNavList() {
         delayChildren: 0.2,
       },
     },
+    closed: {
+      opacity: 0,
+      y: "-100%",
+      transition: {
+        y: { stiffness: 1000 },
+        opacity: { duration: 0.2 },
+        when: "afterChildren",
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
   };
 
   const linkVariants = {
-    closed: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        y: { stiffness: 1000 },
-      },
-    },
     open: {
       opacity: 1,
       y: 0,
       transition: {
         y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        y: { stiffness: 1000 },
       },
     },
   };

@@ -4,12 +4,51 @@ import "./globals.css";
 import Navabar from "@/components/navbar/navbar";
 import Navbar from "@/components/navbar/navbar";
 const ABCNormal = localFont({
-  src: "./fonts/ABCNormal-Normal.ttf",
+  src: [
+    {
+      path: "./fonts/ABCNormal-Thin.ttf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Normal.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Neutral.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Medium.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Heavy.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/ABCNormal-Super.ttf",
+      weight: "900",
+      // style: "super",
+    },
+  ],
   fallback: ["sans-serif"],
   display: "swap",
   variable: "--font-ABCNormal",
-  weight: "400",
-  style: "normal",
 });
 
 export const metadata: Metadata = {
