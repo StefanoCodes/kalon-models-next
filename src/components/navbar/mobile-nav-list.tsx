@@ -3,7 +3,7 @@
 import Heading from "@/app/about/_components/heading";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion } from "motion/react";
 import { navbar } from "./navbar.config";
@@ -21,12 +21,19 @@ const navItems = [
 
 export default function MobileNavList() {
   const [isOpen, setIsOpen] = useState(false);
-  // if (typeof window === "undefined") return null;
-  const body = document.querySelector("body");
-  const toggleNavigation = () => {
-    setIsOpen((previsOpen) => !previsOpen);
-    body?.classList.toggle(`body-overflow-hidden`);
-  };
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Clean up
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+  const toggleNavigation = () => setIsOpen((previsOpen) => !previsOpen);
   const menuVariants = {
     open: {
       opacity: 1,
