@@ -55,7 +55,7 @@ const steps = [
 ];
 
 export default function GuardianMultiStepForm() {
-  const [progressBarPercentage, setProgressBarPercentage] = useState(25);
+  const [progressBarPercentage, setProgressBarPercentage] = useState(50);
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const delta = currentStep - previousStep;
@@ -104,7 +104,7 @@ export default function GuardianMultiStepForm() {
       }
       setPreviousStep(currentStep);
       setCurrentStep((prevStep) => prevStep + 1);
-      setProgressBarPercentage(progressBarPercentage + 25);
+      setProgressBarPercentage(progressBarPercentage + 50);
     }
   };
 
