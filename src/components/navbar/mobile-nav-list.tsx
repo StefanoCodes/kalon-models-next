@@ -1,6 +1,5 @@
 "use client";
 
-import Heading from "@/app/about/_components/heading";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -22,13 +21,7 @@ const navItems = [
 export default function MobileNavList() {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    // Clean up
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
