@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
+// comment
 export default function NotFound() {
   return (
     <div className="flex min-h-[calc(100dvh-72px)] flex-col items-center justify-center bg-white px-4 text-gray-900">
