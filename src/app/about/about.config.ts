@@ -52,6 +52,7 @@ const content = {
     },
   ],
   founder: {
+    founderImage: `/about/founder.webp`,
     textNote1:
       "My modeling journey began in 2017, but my career truly started in 2020. The first three years were particularly challenging—not due to rejection or missed opportunities, but because I didn’t receive the proper guidance.",
     textNote2:

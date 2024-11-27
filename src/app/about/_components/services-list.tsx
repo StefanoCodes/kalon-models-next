@@ -6,6 +6,7 @@ export default function ServicesList() {
   return (
     <>
       <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">
+        {/* DESKTOP 2 ROWS */}
         <div className="flex flex-col gap-1 sm:gap-2">
           <ServicesCard title={services[0].title} />
           <ServicesCard title={services[3].title} />
@@ -19,6 +20,7 @@ export default function ServicesList() {
           <ServicesCard title={services[1].title} />
         </div>
       </div>
+      {/* MOBILE 2 COLS  */}
       <div className="flex flex-col gap-4 sm:hidden">
         <div className="flex flex-col gap-1 sm:gap-2">
           <ServicesCard title={services[0].title} />

@@ -7,7 +7,7 @@ const genderEnum = z.enum(["male", "female", "other"], {
 const preferedMethodOfContactEnum = z.enum(["whatsapp", "email"], {
   message: "Invalid Entry",
 });
-// zod schema for the registration form
+// ADULT ZOD SCHEMA for the registration form
 export const registriationFormSchema = z.object({
   name: z
     .string()
@@ -59,4 +59,24 @@ export const registriationFormSchema = z.object({
     .string()
     .trim()
     .min(2, { message: "Reason is required" }),
+});
+// GUARDIAN ZOD SCHEMA for the registartion form
+export const guardianRegistriationFormSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(50, { message: "Name must be less than 50 characters" }),
+  surname: z
+    .string()
+    .trim()
+    .min(2, { message: "Surname must be at least 2 characters" })
+    .max(50, { message: "Surname must be less than 50 characters" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  phoneNumber: z
+    .string()
+    .trim()
+    .min(10, { message: "Phone number must be at least 10 characters" })
+    .max(15, { message: "Phone number must be less than 15 characters" }),
+  preferedMethodOfContact: preferedMethodOfContactEnum,
 });

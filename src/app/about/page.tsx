@@ -14,10 +14,16 @@ export const metadata: Metadata = {
 };
 
 const { title } = content;
-const { description1, description3 } = content.descriptionTexts;
-const { textNote1, textNote2, founderSignature, founderAbbreviation } =
-  content.founder;
-const { heading, description } = content.footer;
+const { description1, description3, description4 } = content.descriptionTexts;
+const {
+  textNote1,
+  textNote2,
+  founderSignature,
+  founderAbbreviation,
+  founderImage,
+} = content.founder;
+
+const headerAnimationStyle = `text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1]`;
 
 export default function About() {
   return (
@@ -30,12 +36,12 @@ export default function About() {
               <WordFadeIn
                 words={title.main}
                 delay={0.15}
-                className="text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1]"
+                className={headerAnimationStyle}
               />
               <WordFadeIn
                 words={title.sub}
                 delay={0.4}
-                className="text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1]"
+                className={headerAnimationStyle}
               />
             </div>
             <div className="flex flex-col gap-8">
@@ -51,14 +57,9 @@ export default function About() {
               </div>
               <div className="flex flex-col gap-4">
                 <p className="body-text">{description3}</p>
-                <p className="body-text">
-                  At the heart of everything we do is the belief that
-                  empowerment changes everything. Because when you're empowered,
-                  the world takes notice.
-                </p>
+                <p className="body-text">{description4}</p>
               </div>
             </div>
-            {/* <Hr /> */}
           </div>
 
           {/* MAIN */}
@@ -71,17 +72,15 @@ export default function About() {
                   <Heading headingSize="h5" className="font-normal">
                     Services
                   </Heading>
-                  {/* will add the new services list */}
                   <ServicesList />
                 </div>
               </div>
-              {/* <Hr gradient="dark" /> */}
             </div>
             {/* AUTOBIOGRAPHY */}
             <div className="mb-8 flex flex-col items-start justify-between gap-16 md:flex-row">
               <div className="flex h-full w-full md:w-auto md:flex-1">
                 <Image
-                  src={"/about/founder.webp"}
+                  src={founderImage}
                   alt="Kalon"
                   width={304}
                   height={327}
@@ -111,11 +110,6 @@ export default function About() {
               </div>
             </div>
           </div>
-          {/* FOOTER */}
-          {/* <div className="flex flex-col items-center justify-center gap-8">
-            <h3 className="body-text md:text-2xl">{heading}</h3>
-            <p className="body-text text-center md:text-2xl">{description}</p>
-          </div> */}
         </div>
       </section>
     </main>
