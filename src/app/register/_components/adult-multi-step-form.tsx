@@ -20,7 +20,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { cn } from "@/lib/utils";
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
@@ -35,8 +34,6 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import ProgressBar from "./progress-bar";
-import RegistrationFormImg from "./registration-form-img";
 import Success from "./sucess";
 import Row from "@/components/row";
 
@@ -73,7 +70,6 @@ export default function AdultMultiStepForm() {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const delta = currentStep - previousStep;
-  const registrationFinished = currentStep === steps.length - 1;
 
   const form = useForm<z.infer<typeof registriationFormSchema>>({
     resolver: zodResolver(registriationFormSchema),
@@ -136,384 +132,380 @@ export default function AdultMultiStepForm() {
 
   return (
     <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
-      <div className="flex flex-col gap-8">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(processForm)}>
-            {/* STEP 1 */}
-            {currentStep === 0 && (
-              <motion.div
-                initial={{
-                  x: delta >= 0 ? "50%" : "-50%",
-                  opacity: 0,
-                }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <div className="flex flex-col gap-4 md:gap-8">
-                  <Row className="flex-col gap-4 md:flex-row">
-                    {/* NAME */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Name</FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                name="name"
-                                type="text"
-                                placeholder="Enter your name"
-                                className={`form-input`}
-                                autoComplete="name"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    {/* Surname */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="surname"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Surname</FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                name="surname"
-                                type="text"
-                                placeholder="Enter your surname"
-                                className="form-input"
-                                autoComplete="surname"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                  <Row className="flex-col gap-4 md:flex-row">
-                    {/* EMAIL */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                name="email"
-                                type="text"
-                                placeholder="Enter your email"
-                                className="form-input"
-                                autoComplete="email"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    {/* PHONE  */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="phoneNumber"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Phone Number</FormLabel>
-                            <FormControl>
-                              <PhoneInput
-                                {...field}
-                                name="phoneNumber"
-                                placeholder="Enter your phone number"
-                                autoComplete="phone"
-                                className="flex items-center"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                </div>
-              </motion.div>
-            )}
-            {/* STEP 2 */}
-            {currentStep === 1 && (
-              <motion.div
-                initial={{
-                  x: delta >= 0 ? "50%" : "-50%",
-                  opacity: 0,
-                }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                {/* START FROM HERE APPLYING THE SAME CLASSES APPLIED YESTERDAY */}
-                <div className="flex flex-col gap-8">
-                  <Row className="flex-col gap-4 md:flex-row">
-                    {/* Date of Birth */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="dateOfBirth"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Date of Birth</FormLabel>
-                            <FormControl>
-                              <DateField
-                                aria-label="Date of Birth"
-                                aria-describedby="date-of-birth-description"
-                                className="space-y-2"
-                                onChange={(e) => {
-                                  if (!e) return;
-                                  const day = e.day;
-                                  const month = e.month - 1;
-                                  const year = e.year;
-                                  const birthDate = format(
-                                    new Date(year, month, day),
-                                    "MM/dd/yyyy",
-                                  );
-                                  console.log(birthDate);
-                                  field.onChange(birthDate);
-                                }}
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(processForm)}>
+          {/* STEP 1 */}
+          {currentStep === 0 && (
+            <motion.div
+              initial={{
+                x: delta >= 0 ? "50%" : "-50%",
+                opacity: 0,
+              }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="flex flex-col gap-4 md:gap-8">
+                <Row className="flex-col gap-4 md:flex-row">
+                  {/* NAME */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              name="name"
+                              type="text"
+                              placeholder="Enter your name"
+                              className={`form-input`}
+                              autoComplete="name"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  {/* Surname */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="surname"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Surname</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              name="surname"
+                              type="text"
+                              placeholder="Enter your surname"
+                              className="form-input"
+                              autoComplete="surname"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+                <Row className="flex-col gap-4 md:flex-row">
+                  {/* EMAIL */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              name="email"
+                              type="text"
+                              placeholder="Enter your email"
+                              className="form-input"
+                              autoComplete="email"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  {/* PHONE  */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <FormControl>
+                            <PhoneInput
+                              {...field}
+                              name="phoneNumber"
+                              placeholder="Enter your phone number"
+                              autoComplete="phone"
+                              className="flex items-center"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+              </div>
+            </motion.div>
+          )}
+          {/* STEP 2 */}
+          {currentStep === 1 && (
+            <motion.div
+              initial={{
+                x: delta >= 0 ? "50%" : "-50%",
+                opacity: 0,
+              }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {/* START FROM HERE APPLYING THE SAME CLASSES APPLIED YESTERDAY */}
+              <div className="flex flex-col gap-8">
+                <Row className="flex-col gap-4 md:flex-row">
+                  {/* Date of Birth */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="dateOfBirth"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Date of Birth</FormLabel>
+                          <FormControl>
+                            <DateField
+                              aria-label="Date of Birth"
+                              aria-describedby="date-of-birth-description"
+                              className="space-y-2"
+                              onChange={(e) => {
+                                if (!e) return;
+                                const day = e.day;
+                                const month = e.month - 1;
+                                const year = e.year;
+                                const birthDate = format(
+                                  new Date(year, month, day),
+                                  "MM/dd/yyyy",
+                                );
+                                console.log(birthDate);
+                                field.onChange(birthDate);
+                              }}
+                            >
+                              <DateInput
+                                className={`form-input flex w-full border-b border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
                               >
-                                <DateInput
-                                  className={`form-input flex w-full border-b border-input bg-background py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`}
-                                >
-                                  {(segment) => {
-                                    if (segment.type === "year") {
-                                      return (
-                                        <DateSegment
-                                          segment={{
-                                            ...segment,
-                                            minValue: 1900,
-                                            maxValue: new Date().getFullYear(),
-                                          }}
-                                          className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
-                                        />
-                                      );
-                                    }
+                                {(segment) => {
+                                  if (segment.type === "year") {
                                     return (
                                       <DateSegment
-                                        segment={segment}
+                                        segment={{
+                                          ...segment,
+                                          minValue: 1900,
+                                          maxValue: new Date().getFullYear(),
+                                        }}
                                         className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
                                       />
                                     );
-                                  }}
-                                </DateInput>
-                                <FieldError />
-                              </DateField>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    {/* Gender */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="gender"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Gender</FormLabel>
-                            <FormControl>
-                              <Select
-                                onValueChange={field.onChange}
-                                defaultValue={field.value}
-                              >
-                                <SelectTrigger
-                                  id="select-15"
-                                  className="form-input px-0"
-                                >
-                                  <SelectValue placeholder="Select a gender" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                  <SelectItem value="female">Female</SelectItem>
-                                  <SelectItem value="male">Male</SelectItem>
-                                  <SelectItem value="other">Other</SelectItem>
-                                </SelectContent>
-                              </Select>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                  {/* City Residing In */}
-                  <Row className="flex-col gap-4 md:flex-row">
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="cityResidingIn"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>City You Reside In</FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                type="text"
-                                name="cityResidingIn"
-                                placeholder="Enter your city"
-                                className="form-input"
-                                autoComplete="city-residing-in"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    {/* Prefered method of contact */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="preferedMethodOfContact"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Prefered Method of Contact</FormLabel>
+                                  }
+                                  return (
+                                    <DateSegment
+                                      segment={segment}
+                                      className="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed data-[focused]:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[focused]:data-[placeholder]:text-foreground data-[focused]:text-foreground data-[invalid]:data-[focused]:data-[placeholder]:text-destructive-foreground data-[invalid]:data-[focused]:text-destructive-foreground data-[invalid]:data-[placeholder]:text-destructive data-[invalid]:text-destructive data-[placeholder]:text-muted-foreground/70 data-[type=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
+                                    />
+                                  );
+                                }}
+                              </DateInput>
+                              <FieldError />
+                            </DateField>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  {/* Gender */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="gender"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Gender</FormLabel>
+                          <FormControl>
                             <Select
                               onValueChange={field.onChange}
                               defaultValue={field.value}
                             >
-                              <FormControl>
-                                <SelectTrigger
-                                  className="form-input px-0"
-                                  id="select-16"
-                                >
-                                  <SelectValue placeholder="Select a prefered method of contact" />
-                                </SelectTrigger>
-                              </FormControl>
+                              <SelectTrigger
+                                id="select-15"
+                                className="form-input px-0"
+                              >
+                                <SelectValue placeholder="Select a gender" />
+                              </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="whatsapp">
-                                  Whatsapp
-                                </SelectItem>
-                                <SelectItem value="email">Email</SelectItem>
+                                <SelectItem value="female">Female</SelectItem>
+                                <SelectItem value="male">Male</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
                               </SelectContent>
                             </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                </div>
-              </motion.div>
-            )}
-            {/* STEP 3 */}
-            {currentStep === 2 && (
-              <motion.div
-                initial={{
-                  x: delta >= 0 ? "50%" : "-50%",
-                  opacity: 0,
-                }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <div className="flex flex-col gap-8">
-                  <Row className="flex-col gap-4 md:flex-row">
-                    {/* Instagram UserName */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="instagramUsername"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Instagram Username</FormLabel>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+                {/* City Residing In */}
+                <Row className="flex-col gap-4 md:flex-row">
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="cityResidingIn"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>City You Reside In</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              type="text"
+                              name="cityResidingIn"
+                              placeholder="Enter your city"
+                              className="form-input"
+                              autoComplete="city-residing-in"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  {/* Prefered method of contact */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="preferedMethodOfContact"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Prefered Method of Contact</FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
                             <FormControl>
-                              <Input
-                                {...field}
-                                type="text"
-                                name="instagramUsername"
-                                placeholder="Leah Robinson"
-                                className="form-input"
-                                autoComplete="instagram-username"
-                              />
+                              <SelectTrigger
+                                className="form-input px-0"
+                                id="select-16"
+                              >
+                                <SelectValue placeholder="Select a prefered method of contact" />
+                              </SelectTrigger>
                             </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    {/* How Did you Hear About Kalon */}
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="howDidYouHearAboutUs"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>How Did You Hear About Us</FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                name="howDidYouHearAboutUs"
-                                placeholder="I heard about Kalon through instagram"
-                                className="form-input"
-                                autoComplete="how-did-you-hear-about-us"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                  {/* Why Join Kalon */}
-                  <Row className="flex-col gap-4 md:flex-row">
-                    <div className="md:flex-1">
-                      <FormField
-                        control={form.control}
-                        name="whyWouldYouLikeToJoinKalonModels"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>
-                              Why would you like to join Kalon Models
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                {...field}
-                                name="whyWouldYouLikeToJoinKalonModels"
-                                placeholder="I want to be a model"
-                                className="form-input"
-                                autoComplete="why-would-you-like-to-join-kalon-models"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  </Row>
-                </div>
-              </motion.div>
-            )}
-            {/* STEP 4 / SUCCESS PAGE */}
-            {currentStep === 3 && (
-              <motion.div
-                initial={{
-                  x: delta >= 0 ? "50%" : "-50%",
-                  opacity: 0,
-                }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <Success />
-              </motion.div>
-            )}
-          </form>
-        </Form>
-      </div>
+                            <SelectContent>
+                              <SelectItem value="whatsapp">Whatsapp</SelectItem>
+                              <SelectItem value="email">Email</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+              </div>
+            </motion.div>
+          )}
+          {/* STEP 3 */}
+          {currentStep === 2 && (
+            <motion.div
+              initial={{
+                x: delta >= 0 ? "50%" : "-50%",
+                opacity: 0,
+              }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="flex flex-col gap-8">
+                <Row className="flex-col gap-4 md:flex-row">
+                  {/* Instagram UserName */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="instagramUsername"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Instagram Username</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              type="text"
+                              name="instagramUsername"
+                              placeholder="Leah Robinson"
+                              className="form-input"
+                              autoComplete="instagram-username"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  {/* How Did you Hear About Kalon */}
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="howDidYouHearAboutUs"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>How Did You Hear About Us</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              name="howDidYouHearAboutUs"
+                              placeholder="I heard about Kalon through instagram"
+                              className="form-input"
+                              autoComplete="how-did-you-hear-about-us"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+                {/* Why Join Kalon */}
+                <Row className="flex-col gap-4 md:flex-row">
+                  <div className="md:flex-1">
+                    <FormField
+                      control={form.control}
+                      name="whyWouldYouLikeToJoinKalonModels"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>
+                            Why would you like to join Kalon Models
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              name="whyWouldYouLikeToJoinKalonModels"
+                              placeholder="I want to be a model"
+                              className="form-input"
+                              autoComplete="why-would-you-like-to-join-kalon-models"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </Row>
+              </div>
+            </motion.div>
+          )}
+          {/* STEP 4 / SUCCESS PAGE */}
+          {currentStep === 3 && (
+            <motion.div
+              initial={{
+                x: delta >= 0 ? "50%" : "-50%",
+                opacity: 0,
+              }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <Success />
+            </motion.div>
+          )}
+        </form>
+      </Form>
       {/* BUTTONS NEXT AND PREV */}
       <div className="flex w-full justify-end gap-4 md:max-w-[88%] md:items-center">
         {currentStep !== steps.length - 1 && (
