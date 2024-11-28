@@ -1,15 +1,14 @@
 "use client";
-
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion } from "motion/react";
 import { navbar } from "./navbar.config";
-import { InstagramIcon } from "lucide-react";
-import { FacebookIcon } from "lucide-react";
-import { TwitterIcon } from "lucide-react";
+import SocialLinks, { ContactLink } from "./social-links";
+import { linkVariants, menuVariants } from "../motion/motion.config";
 const routes = navbar.routes;
+const { email } = navbar.contact;
 const navItems = [
   ...routes,
   {
@@ -27,51 +26,9 @@ export default function MobileNavList() {
     };
   }, [isOpen]);
   const toggleNavigation = () => setIsOpen((previsOpen) => !previsOpen);
-  const menuVariants = {
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        y: { stiffness: 1000, velocity: -100 },
-        opacity: { duration: 0.2 },
-        when: "beforeChildren",
-        staggerChildren: 0.05,
-        delayChildren: 0.2,
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: "-100%",
-      transition: {
-        y: { stiffness: 1000 },
-        opacity: { duration: 0.2 },
-        when: "afterChildren",
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
-    },
-  };
-
-  const linkVariants = {
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        y: { stiffness: 1000, velocity: -100 },
-      },
-    },
-    closed: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        y: { stiffness: 1000 },
-      },
-    },
-  };
-
   return (
     <>
-      <div className="z-20 flex w-full justify-between sm:hidden">
+      <div className="z-20 flex w-full items-center justify-between sm:hidden">
         <NavLogo className={cn(isOpen && `text-whiteColor`)} />
         <div
           className={cn(
@@ -109,19 +66,9 @@ export default function MobileNavList() {
                   ))}
                 </div>
                 <div className="flex w-full flex-row items-center justify-between">
-                  <motion.p className="text-white/40" variants={linkVariants}>
-                    kalon@models.info
-                  </motion.p>
-                  <div className="flex flex-row gap-2">
-                    <motion.div variants={linkVariants}>
-                      <FacebookIcon className="h-5 w-5 font-normal text-white/40 opacity-50" />
-                    </motion.div>
-                    <motion.div variants={linkVariants}>
-                      <InstagramIcon className="h-5 w-5 text-white/40 opacity-50" />
-                    </motion.div>
-                    <motion.div variants={linkVariants}>
-                      <TwitterIcon className="h-5 w-5 font-normal text-white/40 opacity-50" />
-                    </motion.div>
+                  <ContactLink>{email}</ContactLink>
+                  <div className="flex flex-row gap-3">
+                    <SocialLinks />
                   </div>
                 </div>
               </div>

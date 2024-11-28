@@ -1,3 +1,4 @@
+import { BirdIcon, InstagramIcon } from "lucide-react";
 export const navbar = {
   routes: [
     {
@@ -11,6 +12,21 @@ export const navbar = {
     {
       title: "Pricing",
       href: "/pricing",
+    },
+  ],
+  contact: {
+    email: "info@kalonmodels.co.za",
+  },
+  socials: [
+    {
+      handle: "kalon.models",
+      icon: InstagramIcon,
+      link: `https://www.instagram.com/kalon.models`,
+    },
+    {
+      handle: "kalonmodels",
+      icon: BirdIcon,
+      link: "https://www.tiktok.com/@kalonmodels",
     },
   ],
 };

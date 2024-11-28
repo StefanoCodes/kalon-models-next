@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navabar from "@/components/navbar/navbar";
 import Navbar from "@/components/navbar/navbar";
 const ABCNormal = localFont({
   src: [
