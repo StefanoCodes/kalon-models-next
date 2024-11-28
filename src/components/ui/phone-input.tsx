@@ -64,7 +64,7 @@ const InputComponent = React.forwardRef<
   React.ComponentProps<"input">
 >(({ className, ...props }, ref) => (
   <Input
-    className={cn("form-input", className, "md:w-[calc(100%-25%-48px)]")}
+    className={cn("form-input", className, "md:w-[calc(100%-25%-36px)]")}
     {...props}
     ref={ref}
   />
