@@ -1,22 +1,13 @@
 "use client";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion } from "motion/react";
 import { navbar } from "./navbar.config";
 import SocialLinks, { ContactLink } from "./social-links";
-import { linkVariants, menuVariants } from "../motion/motion.config";
-const routes = navbar.routes;
+import { menuVariants } from "../motion/motion.config";
+import AnimatedMobileNavLinks from "./animated-mobile-nav-items";
 const { email } = navbar.contact;
-const navItems = [
-  ...routes,
-  {
-    title: `Register`,
-    href: `/register`,
-  },
-];
-
 export default function MobileNavList() {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -53,17 +44,7 @@ export default function MobileNavList() {
             <nav className="flex h-full w-full pt-32">
               <div className="flex w-full flex-col justify-between gap-8">
                 <div className="flex flex-col gap-4">
-                  {navItems.map((item, i) => (
-                    <motion.div
-                      key={item.title}
-                      variants={linkVariants}
-                      className="text-2xl transition-colors duration-300 ease-in-out hover:text-gray-300"
-                    >
-                      <Link onClick={toggleNavigation} href={item.href}>
-                        {item.title}
-                      </Link>
-                    </motion.div>
-                  ))}
+                  <AnimatedMobileNavLinks onClick={toggleNavigation} />
                 </div>
                 <div className="flex w-full flex-row items-center justify-between">
                   <ContactLink>{email}</ContactLink>
