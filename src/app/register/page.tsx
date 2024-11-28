@@ -57,9 +57,15 @@ export default function Register() {
                   <SelectValue placeholder="Select your age range" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="lessThan18">Less Than 18</SelectItem>
-                  <SelectItem value="18to25">18-25</SelectItem>
-                  <SelectItem value="morethan25">Greater Than 25</SelectItem>
+                  <SelectItem className="pl-2" value="lessThan18">
+                    Less Than 18
+                  </SelectItem>
+                  <SelectItem className="pl-2" value="18to25">
+                    18-25
+                  </SelectItem>
+                  <SelectItem className="pl-2" value="morethan25">
+                    Greater Than 25
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
