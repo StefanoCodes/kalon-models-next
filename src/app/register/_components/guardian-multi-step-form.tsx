@@ -125,7 +125,7 @@ export default function GuardianMultiStepForm() {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Name</FormLabel>
+                          <FormLabel>Guardian Name</FormLabel>
                           <FormControl>
                             <Input
                               {...field}
@@ -148,7 +148,7 @@ export default function GuardianMultiStepForm() {
                       name="surname"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Surname</FormLabel>
+                          <FormLabel>Guardian Surname</FormLabel>
                           <FormControl>
                             <Input
                               {...field}
@@ -173,7 +173,7 @@ export default function GuardianMultiStepForm() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Email</FormLabel>
+                          <FormLabel>Guardian Email</FormLabel>
                           <FormControl>
                             <Input
                               {...field}
@@ -196,7 +196,7 @@ export default function GuardianMultiStepForm() {
                       name="phoneNumber"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
+                          <FormLabel>Guardian Phone Number</FormLabel>
                           <FormControl>
                             <PhoneInput
                               {...field}
