@@ -13,7 +13,6 @@ const navItems = [
     href: `/register`,
   },
 ];
-navItems.map;
 export default function AnimatedMobileNavLinks({
   onClick,
   className,
