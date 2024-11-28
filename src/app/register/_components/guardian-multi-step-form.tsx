@@ -28,6 +28,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import Success from "./sucess";
 import Row from "@/components/row";
+import { cn } from "@/lib/utils";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 // 0 1
@@ -239,7 +240,7 @@ export default function GuardianMultiStepForm() {
                           >
                             <FormControl>
                               <SelectTrigger
-                                className="form-input px-0"
+                                className={cn("form-input px-0", `max-w-[88%]`)}
                                 id="select-16"
                               >
                                 <SelectValue placeholder="Select a prefered method of contact" />

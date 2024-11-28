@@ -64,6 +64,7 @@ export default function Register() {
               </Select>
             </div>
           </div>
+          {/* TODO: check if they need to know the information regarding the age range if so we can pass it down as props to both components */}
           {selectedAge === `lessThan18` && <GuardianMultiStepForm />}
           {(selectedAge === `morethan25` || selectedAge === `18to25`) && (
             <AdultMultiStepForm />
