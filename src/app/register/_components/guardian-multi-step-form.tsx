@@ -235,10 +235,13 @@ export default function GuardianMultiStepForm() {
                           >
                             <FormControl>
                               <SelectTrigger
-                                className={cn("form-input px-0", `max-w-[88%]`)}
+                                className={cn(
+                                  "form-input px-0",
+                                  `md:max-w-[88%]`,
+                                )}
                                 id="select-16"
                               >
-                                <SelectValue placeholder="Select a prefered method of contact" />
+                                <SelectValue placeholder="Select a preferred method of contact" />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
