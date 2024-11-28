@@ -12,7 +12,7 @@ export default {
       container: {
         center: true,
         screens: {
-          sm: "31.25rem",
+          // sm: "31.25rem",
           md: "48rem",
           lg: "68.75rem",
         },

@@ -93,7 +93,7 @@ const CountrySelect = ({
           type="button"
           variant="ghost"
           className={cn(
-            "flex h-9 gap-1 rounded-none px-3 py-0 focus:z-10",
+            "flex h-9 gap-1 rounded-none px-0 py-0 pr-3 focus:z-10",
             "border-b border-input",
           )}
           disabled={disabled}
@@ -104,7 +104,7 @@ const CountrySelect = ({
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="m-2 w-[300px] p-0 md:m-0">
         <Command>
           <CommandInput placeholder="Search country..." />
           <CommandList>

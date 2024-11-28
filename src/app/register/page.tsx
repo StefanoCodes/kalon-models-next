@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import GuardianMultiStepForm from "./_components/guardian-multi-step-form";
 import AdultMultiStepForm from "./_components/adult-multi-step-form";
+import Heading from "../about/_components/heading";
 
 const metadata: Metadata = {
   title: "Register | #1 modelling academy in South Africa",
@@ -31,48 +32,36 @@ export default function Register() {
     <main className="w-full px-5 py-10 md:px-10">
       <div className="container flex flex-col gap-8">
         <div className="flex flex-col gap-4">
-          <WordFadeIn
-            words="Registration"
-            delay={0.4}
-            className="text-3xl font-semibold md:text-4xl lg:text-5xl"
-          />
-          <FadeText
-            text="Join Kalon Models and take the first step towards your modeling career. Fill out the form below and our team will review your application."
-            className="body-text text-mutedColor"
-          />
+          <Heading headingSize="h1">Registration</Heading>
+          <p className="body-text text-mutedColor">
+            Join Kalon Models and take the first step towards your modeling
+            career. Fill out the form below and our team will review your
+            application.
+          </p>
         </div>
         {/* MAIN BOX */}
-        <section
-          className="min-h-full overflow-hidden rounded-2xl bg-transparent shadow-xl transition-all duration-300 ease-in-out hover:shadow-2xl"
-          id="register"
-        >
-          <div
-            className={cn(
-              "flex min-h-[320px] w-full items-center md:flex-row lg:h-full",
-              selectedAge && `hidden`,
-            )}
-          >
-            <div className="flex flex-col gap-4 md:flex-[1.5]">
-              <div className="flex flex-col gap-8 md:gap-12">
-                <div className="flex flex-col gap-8 px-8 py-4 md:gap-12 md:px-12 md:py-8">
-                  <Select
-                    onValueChange={(e) => {
-                      setSelectedAge(e as ageRangeTypes);
-                    }}
-                  >
-                    <SelectTrigger id="select-15" className="form-input px-0">
-                      <SelectValue placeholder="Select your age range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="lessThan18">Less Than 18</SelectItem>
-                      <SelectItem value="18to25">18-25</SelectItem>
-                      <SelectItem value="morethan25">
-                        Greater Than 25
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+        <section className="min-h-full overflow-hidden" id="register">
+          <div className={cn("w-full", selectedAge && `hidden`)}>
+            <div className="flex flex-col gap-8 md:gap-12">
+              <Select
+                onValueChange={(e) => {
+                  setSelectedAge(e as ageRangeTypes);
+                }}
+              >
+                <SelectTrigger
+                  id="select-15"
+                  className={cn(
+                    "max-w-xl rounded-md border-b-0 bg-tertiaryColor p-4 py-6 text-secondaryColor",
+                  )}
+                >
+                  <SelectValue placeholder="Select your age range" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lessThan18">Less Than 18</SelectItem>
+                  <SelectItem value="18to25">18-25</SelectItem>
+                  <SelectItem value="morethan25">Greater Than 25</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
           {selectedAge === `lessThan18` && <GuardianMultiStepForm />}
