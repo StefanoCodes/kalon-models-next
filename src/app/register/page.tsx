@@ -65,8 +65,9 @@ export default function Register() {
             </div>
           </div>
           {selectedAge === `lessThan18` && <GuardianMultiStepForm />}
-          {selectedAge === `morethan25` && <AdultMultiStepForm />}
-          {selectedAge === `18to25` && <AdultMultiStepForm />}
+          {(selectedAge === `morethan25` || selectedAge === `18to25`) && (
+            <AdultMultiStepForm />
+          )}
         </section>
       </div>
     </main>
