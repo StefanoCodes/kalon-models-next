@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
 type HeadingProps = {
@@ -12,20 +13,18 @@ const Heading: React.FC<HeadingProps> = ({
   className = "",
 }) => {
   const headingStyles = {
-    h1: "text-3xl md:text-4xl font-semibold lg:text-5xl",
-    h2: "text-2xl md:text-3xl font-medium lg:text-4xl",
-    h3: "text-xl md:text-2xl font-medium lg:text-3xl",
-    h4: "text-lg md:text-xl font-medium lg:text-2xl",
-    h5: "text-base font-medium lg:text-lg",
-    h6: "text-sm font-medium lg:text-base",
+    h1: "text-blackColor text-3xl md:text-4xl font-semibold lg:text-5xl",
+    h2: "text-blackColor text-2xl md:text-3xl font-medium lg:text-4xl",
+    h3: "text-blackColor text-xl md:text-2xl font-medium lg:text-3xl",
+    h4: "text-blackColor text-lg md:text-xl font-medium lg:text-2xl",
+    h5: "text-blackColor text-base font-medium lg:text-lg",
+    h6: "text-blackColor text-sm font-medium lg:text-base",
   };
 
   const HeadingTag = headingSize as keyof JSX.IntrinsicElements;
 
   return (
-    <HeadingTag
-      className={`text-blackColor ${headingStyles[headingSize]} ${className}`}
-    >
+    <HeadingTag className={cn(headingStyles[headingSize], className)}>
       {children}
     </HeadingTag>
   );

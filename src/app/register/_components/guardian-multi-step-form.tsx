@@ -31,12 +31,7 @@ import Row from "@/components/row";
 import { cn } from "@/lib/utils";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
-// 0 1
-// 1 2
-// 2 3
-// steps.length === 3
-// current step = 0
-//
+
 const steps = [
   {
     id: "Step 1",

@@ -2,7 +2,7 @@
 export const menuVariants = {
   open: {
     opacity: 1,
-    y: 0,
+    y: "0%",
     transition: {
       y: { stiffness: 1000, velocity: -100 },
       opacity: { duration: 0.2 },

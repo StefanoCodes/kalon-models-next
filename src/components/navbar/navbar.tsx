@@ -7,7 +7,12 @@ const routes = navbar.routes;
 export default function Navbar() {
   return (
     <header className="z-50">
-      <nav className={cn("container px-4 py-4 sm:block", "max-w-screen-xl")}>
+      <nav
+        className={cn(
+          "container px-4 py-4 sm:block xl:px-0",
+          "max-w-screen-xl",
+        )}
+      >
         <div className="flex flex-row items-center justify-between">
           {/* DESKTOP NAV HIDDEN ON mobile SHOWN AT SM */}
           <DesktopNavList />
