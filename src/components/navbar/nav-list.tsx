@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { navbar } from "./navbar.config";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
+import Link from "next/link";
+
 const { routes } = navbar;
 export default function DesktopNavList({
   wrapperClasses,

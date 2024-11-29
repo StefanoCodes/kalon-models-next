@@ -138,7 +138,7 @@ export default function AdultMultiStepForm({
   };
 
   return (
-    <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
+    <div className="flex flex-col gap-8 py-8 md:gap-12">
       {/* <GoBack
         className={cn(
           `visible opacity-100 transition-all duration-300`,

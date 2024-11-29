@@ -13,7 +13,7 @@ export const menuVariants = {
   },
   closed: {
     opacity: 0,
-    y: "-100%",
+    y: "0",
     transition: {
       y: { stiffness: 1000 },
       opacity: { duration: 0.2 },

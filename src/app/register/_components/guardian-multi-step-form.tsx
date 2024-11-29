@@ -104,7 +104,7 @@ export default function GuardianMultiStepForm({
   };
 
   return (
-    <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
+    <div className="flex flex-col gap-8 py-8 md:gap-12">
       {/* when the button is clicked we want to set the selectedAge to undefined */}
       {/* <GoBack
         onClick={() => setSelectedAge(undefined)}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+
 const ABCNormal = localFont({
   src: [
     {
@@ -42,7 +43,6 @@ const ABCNormal = localFont({
     {
       path: "./fonts/ABCNormal-Super.ttf",
       weight: "900",
-      // style: "super",
     },
   ],
   fallback: ["sans-serif"],

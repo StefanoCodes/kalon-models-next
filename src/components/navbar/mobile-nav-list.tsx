@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion } from "motion/react";
 import { navbar } from "./navbar.config";
-import SocialLinks, { ContactLink } from "./social-links";
 import { menuVariants } from "../motion/motion.config";
 import AnimatedMobileNavLinks from "./animated-mobile-nav-items";
+import RegisterButton from "../buttons/register-button";
 const { email } = navbar.contact;
 export default function MobileNavList() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,10 +47,7 @@ export default function MobileNavList() {
                   <AnimatedMobileNavLinks onClick={toggleNavigation} />
                 </div>
                 <div className="flex w-full flex-row items-center justify-between">
-                  <ContactLink>{email}</ContactLink>
-                  <div className="flex flex-row gap-3">
-                    <SocialLinks />
-                  </div>
+                  <RegisterButton toggleNavigation={toggleNavigation} />
                 </div>
               </div>
             </nav>

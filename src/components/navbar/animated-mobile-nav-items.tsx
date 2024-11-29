@@ -3,16 +3,10 @@ import { motion } from "motion/react";
 import { navbar } from "./navbar.config";
 import { linkVariants } from "../motion/motion.config";
 import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
-const routes = navbar.routes;
-const navItems = [
-  ...routes,
-  {
-    title: `Register`,
-    href: `/register`,
-  },
-];
+const navItems = navbar.routes;
 export default function AnimatedMobileNavLinks({
   onClick,
   className,

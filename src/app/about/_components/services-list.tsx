@@ -1,6 +1,6 @@
 import Heading from "@/app/about/_components/heading";
-import ServicesCard from "@/app/about/_components/service-card";
 import content from "@/app/about/about.config";
+import ServicesCard from "./service-card";
 const { services } = content;
 
 export default function ServicesList() {

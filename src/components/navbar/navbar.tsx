@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 import MobileNavList from "./mobile-nav-list";
 import DesktopNavList from "./nav-list";
-import { navbar } from "./navbar.config";
 
-const routes = navbar.routes;
 export default function Navbar() {
   return (
     <header className="z-50">
