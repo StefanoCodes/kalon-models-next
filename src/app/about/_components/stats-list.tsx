@@ -8,7 +8,7 @@ export default function StatsList() {
       <Heading headingSize="h5" className="font-normal">
         Our Impact
       </Heading>
-      <div className="flex flex-col flex-wrap justify-between gap-5 sm:flex-row">
+      <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">
         {stats.map((stat, index) => (
           <StatItem key={index} title={stat.title} value={stat.value} />
         ))}

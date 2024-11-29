@@ -22,7 +22,7 @@ export default function KalonTag({
         height={14.5}
         className="h-[15px] w-[15px]"
       />
-      <span className="text-base leading-normal">{text}</span>
+      <span className="text-base font-normal leading-normal">{text}</span>
     </span>
   );
 }
