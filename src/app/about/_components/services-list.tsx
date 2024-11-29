@@ -1,12 +1,12 @@
 import Heading from "@/app/about/_components/heading";
-import ServicesCard from "./service-card";
+import ServicesCard from "@/app/about/_components/service-card";
 import content from "@/app/about/about.config";
 const { services } = content;
 
 export default function ServicesList() {
   return (
     <div className="flex flex-col gap-6">
-      <Heading headingSize="h5" className="font-normal">
+      <Heading headingSize="h5" className="font-normal text-blackColor">
         Services
       </Heading>
       <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">

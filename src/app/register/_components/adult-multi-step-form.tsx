@@ -38,6 +38,7 @@ import Success from "./sucess";
 import Row from "@/components/row";
 import { ageRangeTypes } from "./registration-dialog";
 import GoBack from "./go-back";
+import { cn } from "@/lib/utils";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
@@ -138,7 +139,13 @@ export default function AdultMultiStepForm({
 
   return (
     <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
-      <GoBack onClick={() => setSelectedAge(undefined)} />
+      {/* <GoBack
+        className={cn(
+          `visible opacity-100 transition-all duration-300`,
+          currentStep !== 0 && "invisible select-none opacity-0",
+        )}
+        onClick={() => setSelectedAge(undefined)}
+      /> */}
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(processForm)}>
@@ -262,7 +269,7 @@ export default function AdultMultiStepForm({
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               {/* START FROM HERE APPLYING THE SAME CLASSES APPLIED YESTERDAY */}
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4 md:gap-8">
                 <Row className="flex-col gap-4 md:flex-row">
                   {/* Date of Birth */}
                   <div className="md:flex-1">
@@ -422,7 +429,7 @@ export default function AdultMultiStepForm({
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-4 md:gap-8">
                 <Row className="flex-col gap-4 md:flex-row">
                   {/* Instagram UserName */}
                   <div className="md:flex-1">

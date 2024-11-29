@@ -106,16 +106,13 @@ export default function GuardianMultiStepForm({
   return (
     <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
       {/* when the button is clicked we want to set the selectedAge to undefined */}
-      {currentStep === 0 && (
-        <motion.div
-          initial={{ x: "-50%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "-50%", opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          <GoBack onClick={() => setSelectedAge(undefined)} />
-        </motion.div>
-      )}
+      {/* <GoBack
+        onClick={() => setSelectedAge(undefined)}
+        className={cn(
+          `visible opacity-100 transition-all duration-300`,
+          currentStep !== 0 && "invisible select-none opacity-0",
+        )}
+      /> */}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(processForm)}>
           {/* STEP 1 */}
