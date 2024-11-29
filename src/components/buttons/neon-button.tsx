@@ -23,13 +23,10 @@ export default function NeonButton({
         // Background and border
         "border border-purple-400/50 bg-purple-600/90",
         // Glow effects
-        "shadow-[0_0_2rem_-0.25rem_rgb(168,85,247,0.8)]",
-        "after:absolute after:inset-0 after:-z-10 after:rounded-xl",
-        "after:bg-gradient-to-r after:from-purple-600 after:to-purple-500",
-        "after:opacity-60 after:blur-2xl",
+        "shadow-[0_0_2rem_-0.5rem_rgb(168,85,247,1)]",
         // Hover effects
         "hover:border-purple-300/50 hover:bg-purple-500/90",
-        "hover:shadow-[0_0_3rem_0rem_rgb(168,85,247,0.8)]",
+        "hover:shadow-[0_0_3rem_0rem_rgb(168,85,247,1)]",
         "hover:after:opacity-75",
         // Focus styles
         "focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black",

@@ -43,7 +43,10 @@ export default function RegistrationDialog() {
       {selectedAge === `lessThan18` && (
         <GuardianMultiStepForm setSelectedAge={setSelectedAge} />
       )}
-      {(selectedAge === `morethan25` || selectedAge === `18to25`) && (
+      {selectedAge === `18to25` && (
+        <AdultMultiStepForm setSelectedAge={setSelectedAge} />
+      )}
+      {selectedAge === `morethan25` && (
         <AdultMultiStepForm setSelectedAge={setSelectedAge} />
       )}
     </>

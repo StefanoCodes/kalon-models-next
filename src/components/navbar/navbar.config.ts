@@ -6,12 +6,16 @@ export const navbar = {
       href: "/about",
     },
     {
-      title: "Contact",
-      href: "/contact",
+      title: "Gallery",
+      href: "/gallery",
     },
     {
       title: "Pricing",
       href: "/pricing",
+    },
+    {
+      title: "Contact",
+      href: "/contact",
     },
   ],
   contact: {

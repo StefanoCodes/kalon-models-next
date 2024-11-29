@@ -14,7 +14,7 @@ export default {
         screens: {
           // sm: "31.25rem",
           md: "48rem",
-          lg: "68.75rem",
+          lg: "80rem",
         },
       },
       colors: {
