@@ -7,7 +7,7 @@ export default function GallerySlugHeader({
 }) {
   const [firstPart, secondPart] = title.split(" ");
   return (
-    <div className="flex max-w-2xl flex-col gap-2">
+    <div className="flex max-w-2xl flex-col gap-2 md:flex-[0.25]">
       <h1 className="text-colorBlack text-4xl font-bold tracking-tight sm:text-5xl">
         {firstPart}
       </h1>
