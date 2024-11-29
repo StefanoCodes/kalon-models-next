@@ -1,10 +1,14 @@
+import Heading from "@/app/about/_components/heading";
 import ServicesCard from "./service-card";
 import content from "@/app/about/about.config";
 const { services } = content;
 
 export default function ServicesList() {
   return (
-    <>
+    <div className="flex flex-col gap-6">
+      <Heading headingSize="h5" className="font-normal">
+        Services
+      </Heading>
       <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">
         {/* DESKTOP 2 ROWS */}
         <div className="flex flex-col gap-1 sm:gap-2">
@@ -33,6 +37,6 @@ export default function ServicesList() {
           <ServicesCard title={services[1].title} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

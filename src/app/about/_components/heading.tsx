@@ -17,7 +17,7 @@ const Heading: React.FC<HeadingProps> = ({
     h2: "text-blackColor text-2xl md:text-3xl font-medium lg:text-4xl",
     h3: "text-blackColor text-xl md:text-2xl font-medium lg:text-3xl",
     h4: "text-blackColor text-lg md:text-xl font-medium lg:text-2xl",
-    h5: "text-blackColor text-base font-medium lg:text-lg",
+    h5: "text-blackColor text-xl font-medium lg:text-2xl",
     h6: "text-blackColor text-sm font-medium lg:text-base",
   };
 

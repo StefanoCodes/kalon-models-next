@@ -51,6 +51,20 @@ const content = {
       image: "/about/services/service_4-min.png",
     },
   ],
+  stats: [
+    {
+      title: "Models Trained",
+      value: 500,
+    },
+    {
+      title: "Partner Agencies",
+      value: 50,
+    },
+    {
+      title: "Successful Bookings",
+      value: 1000,
+    },
+  ],
   founder: {
     founderImage: `/about/founder.webp`,
     textNote1:

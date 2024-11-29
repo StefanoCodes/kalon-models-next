@@ -22,13 +22,15 @@ import {
   registriationFormSchema,
 } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import Success from "./sucess";
 import Row from "@/components/row";
 import { cn } from "@/lib/utils";
+import GoBack from "./go-back";
+import { ageRangeTypes } from "./registration-dialog";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 
@@ -44,7 +46,11 @@ const steps = [
   { id: "Step 3", name: "Complete" },
 ];
 
-export default function GuardianMultiStepForm() {
+export default function GuardianMultiStepForm({
+  setSelectedAge,
+}: {
+  setSelectedAge: (age: ageRangeTypes) => void;
+}) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const delta = currentStep - previousStep;
@@ -99,6 +105,17 @@ export default function GuardianMultiStepForm() {
 
   return (
     <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
+      {/* when the button is clicked we want to set the selectedAge to undefined */}
+      {currentStep === 0 && (
+        <motion.div
+          initial={{ x: "-50%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-50%", opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <GoBack onClick={() => setSelectedAge(undefined)} />
+        </motion.div>
+      )}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(processForm)}>
           {/* STEP 1 */}

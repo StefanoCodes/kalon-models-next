@@ -23,7 +23,7 @@ import {
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import {
   DateField,
@@ -36,6 +36,8 @@ import { z } from "zod";
 
 import Success from "./sucess";
 import Row from "@/components/row";
+import { ageRangeTypes } from "./registration-dialog";
+import GoBack from "./go-back";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
@@ -66,7 +68,11 @@ const steps = [
   { id: "Step 4", name: "Complete" },
 ];
 
-export default function AdultMultiStepForm() {
+export default function AdultMultiStepForm({
+  setSelectedAge,
+}: {
+  setSelectedAge: (age: ageRangeTypes) => void;
+}) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const delta = currentStep - previousStep;
@@ -132,6 +138,8 @@ export default function AdultMultiStepForm() {
 
   return (
     <div className="flex flex-col gap-8 py-4 md:gap-12 md:py-8">
+      <GoBack onClick={() => setSelectedAge(undefined)} />
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(processForm)}>
           {/* STEP 1 */}
