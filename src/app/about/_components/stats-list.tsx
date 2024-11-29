@@ -1,5 +1,4 @@
 import content from "../about.config";
-import Heading from "./heading";
 import { StatItem } from "./stats-item";
 const { stats } = content;
 export default function StatsList() {

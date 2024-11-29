@@ -18,8 +18,8 @@ export default function About() {
           <Header />
           <div className="flex flex-col gap-16">
             <div className="flex flex-col gap-8 md:gap-12">
-              <ServicesList />
               <StatsList />
+              <ServicesList />
             </div>
             <FounderContent />
           </div>
