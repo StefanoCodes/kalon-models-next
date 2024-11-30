@@ -7,12 +7,13 @@ import { GalleryContent } from "../types/type";
 import GallerySlugSectors from "./_components/sectors";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function GalleryInnerPage({
+export default async function GalleryInnerPage({
   params,
 }: {
-  params: { slug: GalleryContent["slug"] };
+  params: { slug: Promise<GalleryContent["slug"]> };
 }) {
-  const { slug } = params;
+  const slug = await params.slug;
+
   const content = galleryContent.find((item) => item.slug === slug);
   if (!content) {
     return notFound();
