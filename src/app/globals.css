@@ -89,23 +89,11 @@
   .form-input {
     @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap px-0 py-2 text-paragraph outline-none transition-shadow md:max-w-[75%];
   }
+  .slug-content {
+    @apply text-sm leading-[1.5] text-paragraph;
+  }
 }
 
 .body-overflow-hidden {
   overflow: hidden;
 }
-/* body {
-  transition-property: opacity, background-color, background, transform, filter;
-  transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 1;
-}
-.page-transition {
-  opacity: 0;
-  background: #2a2a2a;
-  transform: translateY(200px);
-  filter: blur(12px);
-  overflow-y: hidden;
-  overflow-x: hidden;
-  z-index: 1;
-  transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
-} */

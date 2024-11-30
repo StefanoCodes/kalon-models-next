@@ -15,7 +15,7 @@ export default function GallerySlugOverview({
         overview
       </Heading>
       {overview.map((item, index) => (
-        <p key={index} className="text-sm leading-[1.5] text-paragraph">
+        <p key={index} className="slug-content">
           {item}
         </p>
       ))}

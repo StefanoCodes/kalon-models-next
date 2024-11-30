@@ -6,6 +6,9 @@ import GallerySlugOverview from "./_components/overview";
 import { GalleryContent } from "../types/type";
 import GallerySlugSectors from "./_components/sectors";
 import { Skeleton } from "@/components/ui/skeleton";
+import GallerySlugImages from "./_components/images";
+import GallerySlugMainImage from "./_components/main-image";
+import GallerySlugContentImage from "./_components/content-image";
 type Params = Promise<{ slug: string }>;
 
 export default async function GalleryInnerPage({ params }: { params: Params }) {
@@ -30,9 +33,14 @@ export default async function GalleryInnerPage({ params }: { params: Params }) {
         </div>
       </div>
       {/* IMAGE */}
-      <Skeleton className="flex h-[400px] w-full items-center justify-center bg-muted text-xs font-medium uppercase tracking-widest">
-        Placeholder
-      </Skeleton>
+      <div className="flex flex-col gap-8">
+        <GallerySlugMainImage />
+        <GallerySlugImages />
+      </div>
+      <div className="flex flex-col gap-8">
+        <GallerySlugContentImage title="Problem Overview" reverse />
+        <GallerySlugContentImage title="Solution Overview" />
+      </div>
     </div>
   );
 }
