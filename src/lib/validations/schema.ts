@@ -80,3 +80,16 @@ export const guardianRegistriationFormSchema = z.object({
     .max(15, { message: "Phone number must be less than 15 characters" }),
   preferedMethodOfContact: preferedMethodOfContactEnum,
 });
+// CONTACT FORM ZOD SCHEMA
+export const contactFormSchema = z.object({
+  name: z.string().trim().min(2, { message: "Name is required" }),
+  email: z.string().trim().email({ message: "Invalid email address" }),
+  phoneNumber: z
+    .string()
+    .trim()
+    .min(10, { message: "Phone number must be at least 10 characters" })
+    .max(15, { message: "Phone number must be less than 15 characters" }),
+  companyName: z.string().trim().optional(),
+  country: z.string().trim().min(2, { message: "Country is required" }),
+  message: z.string().trim().optional(),
+});

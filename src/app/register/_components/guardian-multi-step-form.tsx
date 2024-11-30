@@ -17,19 +17,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  guardianRegistriationFormSchema,
-  registriationFormSchema,
-} from "@/lib/validations/schema";
+import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import Success from "./sucess";
 import Row from "@/components/row";
 import { cn } from "@/lib/utils";
-import GoBack from "./go-back";
 import { ageRangeTypes } from "./registration-dialog";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
