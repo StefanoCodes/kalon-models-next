@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
 import { GalleryContent } from "../types/type";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export default function GalleryBreadcrumb({
   title,
