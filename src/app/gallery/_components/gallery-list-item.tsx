@@ -19,7 +19,10 @@ export default function GalleryListItem({
   return (
     <div className={cn(`group`, className)}>
       <Link href={`/gallery/${slug}`} className="flex flex-col gap-4">
-        <GallerySlugPlaceholder />
+        <GallerySlugPlaceholder
+          src="/gallery/placeholder_3.webp"
+          className="brightness-75 filter"
+        />
         {/* we want the border to start from zero */}
         <div className="flex flex-col gap-4 border-b border-border pb-4 transition-all duration-300 group-hover:border-blackColor">
           <div className="flex flex-col gap-1">
