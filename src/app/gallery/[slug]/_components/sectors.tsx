@@ -1,6 +1,5 @@
 import Heading from "@/app/about/_components/heading";
 import { GalleryContent } from "../../types/type";
-import GallerySlugSectorBadge from "./sector-badge";
 import GallerySlugSectorList from "./sector-list";
 import GallerySlugCredits from "./credits";
 

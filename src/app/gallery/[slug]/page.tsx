@@ -5,7 +5,6 @@ import GallerySlugHeader from "./_components/header";
 import GallerySlugOverview from "./_components/overview";
 import { GalleryContent } from "../types/type";
 import GallerySlugSectors from "./_components/sectors";
-import { Skeleton } from "@/components/ui/skeleton";
 import GallerySlugImages from "./_components/images";
 import GallerySlugMainImage from "./_components/main-image";
 import GallerySlugContentImage from "./_components/content-image";

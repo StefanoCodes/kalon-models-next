@@ -24,7 +24,9 @@ export default function GalleryBreadcrumb({
           <Slash />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-blackColor">{title}</BreadcrumbPage>
+          <BreadcrumbPage className="text-primaryColor opacity-80">
+            {title}
+          </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
