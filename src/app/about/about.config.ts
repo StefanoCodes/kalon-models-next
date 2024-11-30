@@ -54,15 +54,15 @@ const content = {
   stats: [
     {
       title: "Models Trained",
-      value: 500,
+      value: 49,
     },
     {
-      title: "Partner Agencies",
-      value: 50,
+      title: "Years open",
+      value: 4,
     },
     {
-      title: "Successful Bookings",
-      value: 1000,
+      title: "Team members",
+      value: 8,
     },
   ],
   founder: {

@@ -15,7 +15,7 @@ export const StatItem: React.FC<StatItemProps> = ({ title, value }) => {
   useEffect(() => {
     // we want this to run only in view
     if (isInView) {
-      const animation = animate(count, value, { duration: 6 });
+      const animation = animate(count, value, { duration: 2 });
       return animation.stop;
     }
   }, [count, value, isInView]);
@@ -26,7 +26,7 @@ export const StatItem: React.FC<StatItemProps> = ({ title, value }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       onViewportEnter={() => setIsInView(true)}
     >
       <motion.div className="text-3xl font-medium sm:text-4xl md:text-5xl">
