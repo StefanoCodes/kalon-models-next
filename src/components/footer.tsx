@@ -4,7 +4,7 @@ export default function Footer() {
   const foundedYear = 2020;
   return (
     <footer className="bg-backgroundLightAltColor">
-      <div className="flex items-center justify-between px-4 py-4">
+      <div className="container flex items-center justify-between px-4 py-4">
         <span className="block text-sm text-paragraph">
           Creating Experiences Since {foundedYear}
         </span>
