@@ -23,11 +23,14 @@ export default async function GalleryInnerPage({ params }: { params: Params }) {
         <div className="flex flex-col gap-8 md:max-w-7xl md:flex-row md:gap-16">
           <GallerySlugHeader title={content.title} />
           <GallerySlugOverview overview={content.overview} />
-          <GallerySlugSectors sectors={content.sectors} />
+          <GallerySlugSectors
+            sectors={content.sectors}
+            credits={content.credits}
+          />
         </div>
       </div>
       {/* IMAGE */}
-      <Skeleton className="flex h-[250px] w-full items-center justify-center bg-muted text-xs font-medium uppercase tracking-widest">
+      <Skeleton className="flex h-[400px] w-full items-center justify-center bg-muted text-xs font-medium uppercase tracking-widest">
         Placeholder
       </Skeleton>
     </div>

@@ -2,11 +2,14 @@ import Heading from "@/app/about/_components/heading";
 import { GalleryContent } from "../../types/type";
 import GallerySlugSectorBadge from "./sector-badge";
 import GallerySlugSectorList from "./sector-list";
+import GallerySlugCredits from "./credits";
 
 export default function GallerySlugSectors({
   sectors,
+  credits,
 }: {
   sectors: GalleryContent["sectors"];
+  credits: GalleryContent["credits"];
 }) {
   return (
     <div className="flex flex-col gap-4 md:flex-[0.25]">
@@ -16,7 +19,10 @@ export default function GallerySlugSectors({
       >
         sectors
       </Heading>
-      <GallerySlugSectorList sectors={sectors} />
+      <div className="flex flex-col gap-8">
+        <GallerySlugSectorList sectors={sectors} />
+        <GallerySlugCredits credits={credits} />
+      </div>
     </div>
   );
 }
