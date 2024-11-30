@@ -27,7 +27,7 @@ export default function GalleryListItem({
             <p className="text-sm text-gray-500">{timeline}</p>
           </div>
           <div>
-            <p>{overview}</p>
+            <p className="slug-content">{overview}</p>
           </div>
         </div>
       </Link>
