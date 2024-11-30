@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { TextArea } from "react-aria-components";
+import { Button } from "@/components/ui/button";
 
 type Inputs = z.infer<typeof contactFormSchema>;
 export default function ContactForm() {
@@ -166,6 +167,9 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
+          <div className="flex justify-end">
+            <Button variant="kalon">Get In Touch</Button>
+          </div>
         </div>
       </form>
     </Form>
