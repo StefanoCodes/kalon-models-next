@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default async function GalleryInnerPage({
   params,
 }: {
-  params: { slug: Promise<GalleryContent["slug"]> };
+  params: { slug: Promise<string> };
 }) {
   const slug = await params.slug;
 
