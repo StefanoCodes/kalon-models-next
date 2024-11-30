@@ -17,7 +17,6 @@ export default function GalleryListItem({
           <h3 className="text-2xl font-medium">{title}</h3>
           <ArrowUpRightIcon className={`h-4 w-4`} />
         </div>
-
         <p className="text-sm text-gray-500">{timeline}</p>
       </div>
     </Link>

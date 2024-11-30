@@ -6,13 +6,10 @@ import GallerySlugOverview from "./_components/overview";
 import { GalleryContent } from "../types/type";
 import GallerySlugSectors from "./_components/sectors";
 import { Skeleton } from "@/components/ui/skeleton";
+type Params = Promise<{ slug: string }>;
 
-export default async function GalleryInnerPage({
-  params,
-}: {
-  params: { slug: Promise<string> };
-}) {
-  const slug = await params.slug;
+export default async function GalleryInnerPage({ params }: { params: Params }) {
+  const { slug } = await params;
 
   const content = galleryContent.find((item) => item.slug === slug);
   if (!content) {
