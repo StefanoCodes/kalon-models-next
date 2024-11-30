@@ -101,4 +101,29 @@ export const galleryContent: GalleryContent[] = [
       },
     ],
   },
+  {
+    id: 5,
+    slug: "eutierria",
+    title: "Eutierria",
+    overview: [
+      "Eutierria is a reflection of humanity’s deep connection to the natural world. Set in lush green surroundings, this shoot captures the interplay of organic textures and earthy tones, emphasizing harmony between people and nature.",
+      "The Kalon Models take on the spirit of the elements—rooted, dynamic, and alive. Styled with simplicity and elegance, they represent the strength found in diversity and unity. Every image feels like a moment suspended in time, a quiet yet powerful reminder of how deeply our stories are intertwined with the earth. This is more than a collection of photographs; Eutierria is a thoughtful celebration of nature, individuality, and the beauty of coexistence.",
+    ],
+    sectors: ["Fashion", "Sustainability", "Lifestyle"],
+    timeline: "April 2023",
+    credits: [
+      {
+        title: "Photographer",
+        name: "Oogonem",
+      },
+      {
+        title: "Makeup Artist",
+        name: "Onlyandile",
+      },
+      {
+        title: "Creative Director",
+        name: "Manana Baloyi",
+      },
+    ],
+  },
 ];

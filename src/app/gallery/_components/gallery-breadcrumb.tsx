@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Slash } from "lucide-react";
 import { GalleryContent } from "../types/type";
+import Link from "next/link";
 
 export default function GalleryBreadcrumb({
   title,
@@ -18,7 +19,9 @@ export default function GalleryBreadcrumb({
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/gallery">Gallery</BreadcrumbLink>
+          <BreadcrumbLink asChild>
+            <Link href="/gallery">Gallery</Link>
+          </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <Slash />
