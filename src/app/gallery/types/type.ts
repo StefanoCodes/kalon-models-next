@@ -6,9 +6,15 @@ export type GalleryContent = {
   sectors: string[];
   timeline: string;
   credits: Credits[];
+  coverImage?: string;
+  images?: GalleryImage[];
 };
 
 export type Credits = {
   title: string;
   name: string;
+};
+export type GalleryImage = {
+  src: string;
+  alt: string;
 };

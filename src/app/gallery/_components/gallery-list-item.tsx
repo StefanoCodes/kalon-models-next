@@ -1,29 +1,33 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import GallerySlugPlaceholder from "../[slug]/_components/placeholder";
-import { ExternalLinkIcon } from "lucide-react";
-
+import Image from "next/image";
 export default function GalleryListItem({
   title,
   timeline,
   slug,
   className,
   overview,
+  coverImage,
 }: {
   title: string;
   timeline: string;
   overview: string;
   slug: string;
   className?: string;
+  coverImage?: string;
 }) {
   return (
     <div className={cn(`group`, className)}>
       <Link href={`/gallery/${slug}`} className="flex flex-col gap-4">
-        <GallerySlugPlaceholder
-          src="/gallery/placeholder_3.webp"
-          className="brightness-75 filter"
+        {/* image will come in as props later */}
+        <Image
+          src={coverImage || "/gallery/placeholder_3.webp"}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          width={1000}
+          height={1000}
+          className="w-full brightness-75 filter"
+          alt="placeholder"
         />
-        {/* we want the border to start from zero */}
         <div className="flex flex-col gap-4 border-b border-border pb-4 transition-all duration-300 group-hover:border-blackColor">
           <div className="flex flex-col gap-1">
             <h3 className="text-lg font-normal md:text-xl">{title}</h3>

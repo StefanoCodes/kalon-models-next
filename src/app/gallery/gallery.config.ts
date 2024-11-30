@@ -52,6 +52,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
+      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
     },
     {
       id: 3,
@@ -102,6 +103,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
+      coverImage: "/gallery/eutierria/cover.webp",
     },
     {
       id: 5,
