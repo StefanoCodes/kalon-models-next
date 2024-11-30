@@ -1,4 +1,4 @@
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 export default function GalleryListItem({
