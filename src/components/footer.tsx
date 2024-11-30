@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { InstagramIcon } from "lucide-react";
 export default function Footer() {
   const foundedYear = 2020;
   return (
@@ -8,9 +9,10 @@ export default function Footer() {
         <span className="block text-sm text-paragraph">
           Creating Experiences Since {foundedYear}
         </span>
-        <Button className="h-auto bg-secondaryColor px-4 py-[2px] text-base font-normal text-whiteColor hover:bg-primaryColor">
-          <Link href="/contact">Support</Link>
-        </Button>
+
+        <Link href="https://www.instagram.com/sentri.co.za/" target="_blank">
+          <InstagramIcon className="h-4 w-4 text-mutedColor" />
+        </Link>
       </div>
     </footer>
   );
