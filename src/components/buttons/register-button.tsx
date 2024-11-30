@@ -1,22 +1,26 @@
 "use client";
 import { motion } from "motion/react";
-import NeonButton from "./neon-button";
 import { linkVariants } from "../motion/motion.config";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function RegisterButton({
   toggleNavigation,
+  children = "Register Now",
 }: {
-  toggleNavigation: () => void;
+  toggleNavigation?: () => void;
+  children?: React.ReactNode;
 }) {
   return (
     <motion.div variants={linkVariants} className="w-full">
-      <NeonButton
-        link="/register"
-        onClick={toggleNavigation}
-        className="hover:bg-tertiaryColor/90 w-full rounded-sm bg-tertiaryColor py-3 text-base font-normal text-secondaryColor"
-      >
-        Register
-      </NeonButton>
+      <Button asChild onClick={toggleNavigation}>
+        <Link
+          href="/register"
+          className="w-full rounded-sm bg-gradient-to-b from-[#6e3bff] to-[#7e51ff] text-xl font-normal tracking-[0.4px] text-whiteColor"
+        >
+          {children}
+        </Link>
+      </Button>
     </motion.div>
   );
 }

@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
 import Link from "next/link";
+import RegisterButton from "../buttons/register-button";
 
 const { routes } = navbar;
 export default function DesktopNavList({
@@ -31,7 +32,6 @@ export default function DesktopNavList({
             </Link>
           </li>
         ))}
-
         <li>
           <Button
             variant="kalon"

@@ -89,6 +89,9 @@ export default {
       fontFamily: {
         abcNormal: "var(--font-ABCNormal)",
       },
+      dropShadow: {
+        button: "0 8px 10px rgba(80, 59, 137, 0.5)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

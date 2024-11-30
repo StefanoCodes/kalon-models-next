@@ -1,25 +1,17 @@
+import { Button } from "./ui/button";
 import Link from "next/link";
-import Hr from "./hr";
-
-const lastestYear = new Date().getFullYear();
 export default function Footer() {
-    return (
-        <footer className="bg-blackColor rounded-lg shadow py-8 px-8">
-            <div className="w-full flex items-center flex-col gap-4">
-                <Hr gradient="dark" className="opacity-50" />
-                <div className="flex flex-col md items-center md:justify-between w-full pt-4">
-                    <div className="flex flex-col gap-8 md:flex-row justify-center items-center md:justify-between w-full">
-                        <Link href="https://flowbite.com/" className="flex items-center">
-                            <img src="/Kalon.svg" className="h-8" alt="Flowbite Logo" />
-                        </Link>
-
-                        <span className="block text-sm text-mutedColor">© {lastestYear} Kalon All Rights Reserved.</span>
-
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    )
-
+  const foundedYear = 2020;
+  return (
+    <footer className="bg-backgroundLightAltColor">
+      <div className="flex items-center justify-between px-4 py-4">
+        <span className="block text-sm text-paragraph">
+          Creating Experiences Since {foundedYear}
+        </span>
+        <Button className="h-auto bg-secondaryColor px-4 py-[2px] text-base font-normal text-whiteColor hover:bg-primaryColor">
+          <Link href="/contact">Support</Link>
+        </Button>
+      </div>
+    </footer>
+  );
 }
