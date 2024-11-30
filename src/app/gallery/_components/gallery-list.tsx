@@ -1,4 +1,4 @@
-import { galleryContent } from "../gallery.config";
+import { GalleryContent } from "../types/type";
 import GalleryListItem from "./gallery-list-item";
 import GalleryListRow from "./gallery-list-row";
 
@@ -10,16 +10,21 @@ const gridCols = {
   5: "col-span-12 md:col-span-4 lg:col-span-4",
 };
 
-export default function GalleryList() {
+export default function GalleryList({
+  content,
+}: {
+  content: GalleryContent[];
+}) {
   return (
     <>
       <GalleryListRow>
-        {galleryContent.map(({ id, title, timeline, slug }) => (
+        {content.map(({ id, title, timeline, slug, overview }) => (
           <GalleryListItem
             key={id}
             title={title}
             timeline={timeline}
             slug={slug}
+            overview={overview[0]}
             className={gridCols[id as keyof typeof gridCols]}
           />
         ))}

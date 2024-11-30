@@ -17,6 +17,9 @@ export default {
           lg: "80rem",
         },
       },
+      screens: {
+        xs: "375px",
+      },
       colors: {
         // THEME COLORS
         primaryColor: "var(--color-primary)",

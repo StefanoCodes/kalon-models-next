@@ -1,33 +1,34 @@
 import Link from "next/link";
-// Variants
 import { cn } from "@/lib/utils";
 import GallerySlugPlaceholder from "../[slug]/_components/placeholder";
-
-const variants = {
-  "1/2": "col-span-1",
-  "1/3": "col-span-1",
-  "1/4": "col-span-1",
-};
+import { ExternalLinkIcon } from "lucide-react";
 
 export default function GalleryListItem({
   title,
   timeline,
   slug,
   className,
+  overview,
 }: {
   title: string;
   timeline: string;
+  overview: string;
   slug: string;
   className?: string;
 }) {
   return (
-    <div className={cn(`flex flex-col gap-4`, className)}>
-      <GallerySlugPlaceholder />
-      <Link href={`/gallery/${slug}`}>
-        <div className="flex flex-row items-center justify-between gap-4 border-b border-border pb-4">
-          <h3 className="text-lg font-normal md:text-xl">{title}</h3>
-
-          <p className="text-sm text-gray-500">{timeline}</p>
+    <div className={cn(`group`, className)}>
+      <Link href={`/gallery/${slug}`} className="flex flex-col gap-4">
+        <GallerySlugPlaceholder />
+        {/* we want the border to start from zero */}
+        <div className="flex flex-col gap-4 border-b border-border pb-4 transition-all duration-300 group-hover:border-blackColor">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-lg font-normal md:text-xl">{title}</h3>
+            <p className="text-sm text-gray-500">{timeline}</p>
+          </div>
+          <div>
+            <p>{overview}</p>
+          </div>
         </div>
       </Link>
     </div>

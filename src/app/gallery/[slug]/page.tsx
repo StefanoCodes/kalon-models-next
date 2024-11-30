@@ -11,11 +11,15 @@ type Params = Promise<{ slug: string }>;
 
 export default async function GalleryInnerPage({ params }: { params: Params }) {
   const { slug } = await params;
-
-  const content = galleryContent.find((item) => item.slug === slug);
+  const contentList = galleryContent.map((item) =>
+    item.find((item) => item.slug === slug),
+  );
+  const items = contentList.filter((item) => item !== undefined);
+  const content = items.find((item) => item !== undefined);
   if (!content) {
     return notFound();
   }
+
   return (
     <div className="flex flex-col gap-8 md:gap-16">
       <GalleryBreadcrumb title={content.title} />

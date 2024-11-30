@@ -4,7 +4,7 @@ export default function GalleryListRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-12 gap-8 md:gap-10 lg:gap-12">
+    <div className="xs:grid flex grid-cols-12 flex-col gap-8 md:gap-10 lg:gap-12">
       {children}
     </div>
   );
