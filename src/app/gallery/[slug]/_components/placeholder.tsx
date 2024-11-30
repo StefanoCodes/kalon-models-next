@@ -10,7 +10,7 @@ export default function GallerySlugPlaceholder({
 }) {
   return (
     <Image
-      src={src || "/gallery/placeholder.webp"}
+      src={src || "/gallery/placeholder_wide.webp"}
       alt="Placeholder"
       width={1000}
       height={1000}
