@@ -34,7 +34,7 @@ export default async function GalleryInnerPage({ params }: { params: Params }) {
       </div>
       {/* IMAGE */}
       <div className="flex flex-col gap-8">
-        <GallerySlugMainImage />
+        <GallerySlugMainImage image={`/gallery/placeholder_wide.webp`} />
         <GallerySlugImages />
       </div>
       <div className="flex flex-col gap-8">
