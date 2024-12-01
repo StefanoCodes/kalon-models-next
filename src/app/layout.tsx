@@ -3,7 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
-import { ViewTransitions } from "next-view-transitions";
+import { Toaster } from "@/components/ui/toaster";
+
 const ABCNormal = localFont({
   src: [
     {
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

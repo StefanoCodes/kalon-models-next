@@ -1,4 +1,5 @@
 "use client";
+
 import { contactFormSchema } from "@/lib/validations/schema";
 
 import {
@@ -16,9 +17,11 @@ import { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { TextArea } from "react-aria-components";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 type Inputs = z.infer<typeof contactFormSchema>;
 export default function ContactForm() {
+  const { toast } = useToast();
   const form = useForm<Inputs>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -32,12 +35,20 @@ export default function ContactForm() {
   });
 
   const processForm: SubmitHandler<Inputs> = (data) => {
-    const formData = {
-      ...data,
-      name: data.name,
-    };
-    console.log(formData);
+    const isValidData = contactFormSchema.safeParse(data);
+    if (!isValidData.success) {
+      toast({
+        title: "Form Error",
+        description: "Please check your form for errors",
+      });
+      return;
+    }
     // business logic here
+    console.log(data);
+    toast({
+      title: "Message Sent",
+      description: "We will get back to you as soon as possible",
+    });
     form.reset();
   };
 
@@ -63,7 +74,7 @@ export default function ContactForm() {
                     autoComplete="name"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
@@ -103,7 +114,7 @@ export default function ContactForm() {
                     autoComplete="phoneNumber"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
@@ -123,13 +134,13 @@ export default function ContactForm() {
                     autoComplete="companyName"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
           <FormField
             control={form.control}
-            name="companyName"
+            name="country"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Country</FormLabel>
@@ -143,7 +154,7 @@ export default function ContactForm() {
                     autoComplete="country"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
@@ -162,7 +173,7 @@ export default function ContactForm() {
                     className={`placeholder-sentri-font-body h-32 w-full resize-none rounded-md border border-input bg-transparent p-2 text-paragraph outline-none focus:ring-0`}
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
