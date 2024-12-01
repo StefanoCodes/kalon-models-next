@@ -176,23 +176,23 @@ export const galleryContent: GalleryContent[][] = [
 
       images: [
         {
-          src: "/gallery/ineffeable/inner-wide.webp",
+          src: "/gallery/eutierria/inner-wide.webp",
           alt: "inner-wide",
         },
         {
-          src: "/gallery/ineffeable/second.webp",
+          src: "/gallery/eutierria/second.webp",
           alt: "second",
         },
         {
-          src: "/gallery/ineffeable/third.webp",
+          src: "/gallery/eutierria/third.webp",
           alt: "third",
         },
         {
-          src: "/gallery/ineffeable/fourth.webp",
+          src: "/gallery/eutierria/fourth.webp",
           alt: "fourth",
         },
         {
-          src: "/gallery/ineffeable/fifth.webp",
+          src: "/gallery/eutierria/fifth.webp",
           alt: "fifth",
         },
       ],
@@ -223,23 +223,23 @@ export const galleryContent: GalleryContent[][] = [
       ],
       images: [
         {
-          src: "/gallery/ineffeable/inner-wide.webp",
-          alt: "inner-wide",
+          src: "/gallery/eutierria/inner-wide.webp",
+          alt: "inner-wide ",
         },
         {
-          src: "/gallery/ineffeable/second.webp",
+          src: "/gallery/eutierria/second.webp",
           alt: "second",
         },
         {
-          src: "/gallery/ineffeable/third.webp",
+          src: "/gallery/eutierria/third.webp",
           alt: "third",
         },
         {
-          src: "/gallery/ineffeable/fourth.webp",
+          src: "/gallery/eutierria/fourth.webp",
           alt: "fourth",
         },
         {
-          src: "/gallery/ineffeable/fifth.webp",
+          src: "/gallery/eutierria/fifth.webp",
           alt: "fifth",
         },
       ],

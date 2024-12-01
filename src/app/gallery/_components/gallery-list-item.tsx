@@ -14,15 +14,14 @@ export default function GalleryListItem({
   overview: string;
   slug: string;
   className?: string;
-  coverImage?: string;
+  coverImage: string;
 }) {
   return (
     <div className={cn(`group`, className)}>
       <Link href={`/gallery/${slug}`} className="flex flex-col gap-4">
         <div className="flex w-full flex-col gap-4">
-          {/* image will come in as props later */}
           <Image
-            src={coverImage || "/gallery/placeholder_3.webp"}
+            src={coverImage}
             width={1000}
             height={1000}
             className="aspect-square min-h-[450px] w-full rounded-md object-cover object-top brightness-75 filter lg:max-h-[550px]"
