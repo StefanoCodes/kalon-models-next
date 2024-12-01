@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import StatsList from "./_components/stats-list";
 import FounderContent from "./_components/founder-content";
 import Header from "./_components/header";
+import LatestWork from "./_components/latest-work";
 
 export const metadata: Metadata = {
   title: "About | A Modeling Academy for Everyone, but Not Just Anyone.",
@@ -22,6 +23,7 @@ export default function About() {
               <ServicesList />
             </div>
             <FounderContent />
+            <LatestWork />
           </div>
         </div>
       </section>

@@ -30,7 +30,7 @@ export default function GalleryListItem({
         />
         <div className="flex flex-col gap-4 border-b border-border pb-4 transition-all duration-300 group-hover:border-blackColor">
           <div className="flex flex-col gap-1">
-            <h3 className="text-lg font-normal md:text-xl">{title}</h3>
+            <h2 className="text-lg font-normal md:text-xl">{title}</h2>
             <p className="text-sm text-gray-500">{timeline}</p>
           </div>
           <div>

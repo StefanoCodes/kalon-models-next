@@ -1,3 +1,5 @@
+import { galleryContent } from "../gallery/gallery.config";
+
 const content = {
   title: {
     main: "In the academy today,",
@@ -78,6 +80,11 @@ const content = {
     heading: "Our approach is simple",
     description:
       "We exist to shape top-tier models with unmatched skill and confidence.  We see potential AND REFINE IT. Welcoming every background, we find beauty in stories, strength, and the confidence we help build. Whether it’s your first step on the runway or your hundredth, this is where you discover your voice, your power, and your place.",
+  },
+  latestWork: {
+    latestWorkTitle: "Latest Work",
+    latestWorkRecent: galleryContent[0][1],
+    latestWorkSecond: galleryContent[0][3],
   },
 };
 

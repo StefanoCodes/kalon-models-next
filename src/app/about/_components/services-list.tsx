@@ -6,7 +6,7 @@ const { services } = content;
 export default function ServicesList() {
   return (
     <div className="flex flex-col gap-6">
-      <Heading headingSize="h5" className="font-normal text-blackColor">
+      <Heading headingSize="h2" className="text-xl font-normal lg:text-2xl">
         Services
       </Heading>
       <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">
