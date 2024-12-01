@@ -40,11 +40,29 @@ export default async function GalleryInnerPage({ params }: { params: Params }) {
           image={content.images?.[0]?.src || ""}
           alt={content.images?.[0]?.alt || ""}
         />
-        <GallerySlugImages />
+        <div className="flex flex-col gap-4 md:flex-row">
+          <GallerySlugImages
+            image={content.images?.[1]?.src || ""}
+            alt={content.images?.[1]?.alt || ""}
+          />
+          <GallerySlugImages
+            image={content.images?.[2]?.src || ""}
+            alt={content.images?.[2]?.alt || ""}
+          />
+        </div>
       </div>
       <div className="flex flex-col gap-8">
-        <GallerySlugContentImage title="Problem Overview" reverse />
-        <GallerySlugContentImage title="Solution Overview" />
+        <GallerySlugContentImage
+          title="Problem Overview"
+          reverse
+          image={content.images?.[3]?.src || ""}
+          alt={content.images?.[3]?.alt || ""}
+        />
+        <GallerySlugContentImage
+          title="Solution Overview"
+          image={content.images?.[4]?.src || ""}
+          alt={content.images?.[4]?.alt || ""}
+        />
       </div>
     </div>
   );

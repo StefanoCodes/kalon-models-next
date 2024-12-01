@@ -14,6 +14,8 @@ export default function GallerySlugMainImage({
         fill
         src={image}
         alt={alt}
+        quality={100}
+        priority
       />
     </div>
   );

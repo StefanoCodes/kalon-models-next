@@ -1,18 +1,22 @@
 import { cn } from "@/lib/utils";
 import GallerySlugPlaceholder from "./placeholder";
+import GallerySlugImages from "./images";
 
 export default function GallerySlugContentImage({
   image,
+  alt,
   content,
   title,
   reverse,
+  imageClassNames,
 }: {
-  image?: string;
+  image: string;
+  alt: string;
   content?: string;
   reverse?: boolean;
   title?: string;
+  imageClassNames?: string;
 }) {
-  // const { title, description } = content;
   return (
     <div className="flex w-full flex-col items-start justify-between gap-8 md:flex-row md:items-center md:gap-16">
       <div className={cn("w-full md:flex-1", reverse && "order-1 md:order-2")}>
@@ -40,7 +44,11 @@ export default function GallerySlugContentImage({
         </div>
       </div>
       <div className={cn("w-full md:flex-1", reverse && "order-2 md:order-1")}>
-        <GallerySlugPlaceholder className="h-[400px] w-full" />
+        <GallerySlugImages
+          image={image}
+          alt={alt}
+          className={imageClassNames}
+        />
       </div>
     </div>
   );

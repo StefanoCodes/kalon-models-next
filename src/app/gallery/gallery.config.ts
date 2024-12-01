@@ -84,6 +84,22 @@ export const galleryContent: GalleryContent[][] = [
           src: "/gallery/ineffeable/inner-wide.webp",
           alt: "inner-wide",
         },
+        {
+          src: "/gallery/ineffeable/second.webp",
+          alt: "second",
+        },
+        {
+          src: "/gallery/ineffeable/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/ineffeable/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/ineffeable/fifth.webp",
+          alt: "fifth",
+        },
       ],
     },
     {
