@@ -40,6 +40,7 @@ export default function ContactForm() {
       toast({
         title: "Form Error",
         description: "Please check your form for errors",
+        duration: 5000,
       });
       return;
     }
