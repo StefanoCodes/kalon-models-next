@@ -27,7 +27,30 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      images: [],
+      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+
+      images: [
+        {
+          src: "/gallery/ineffeable/inner-wide.webp",
+          alt: "inner-wide",
+        },
+        {
+          src: "/gallery/ineffeable/second.webp",
+          alt: "second",
+        },
+        {
+          src: "/gallery/ineffeable/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/ineffeable/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/ineffeable/fifth.webp",
+          alt: "fifth",
+        },
+      ],
     },
     {
       id: 2,
@@ -54,6 +77,28 @@ export const galleryContent: GalleryContent[][] = [
         },
       ],
       coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+      images: [
+        {
+          src: "/gallery/ineffeable/inner-wide.webp",
+          alt: "inner-wide",
+        },
+        {
+          src: "/gallery/ineffeable/second.webp",
+          alt: "second",
+        },
+        {
+          src: "/gallery/ineffeable/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/ineffeable/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/ineffeable/fifth.webp",
+          alt: "fifth",
+        },
+      ],
     },
     {
       id: 3,
@@ -79,6 +124,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Don Eros & Manana Baloyi",
         },
       ],
+      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
       images: [
         {
           src: "/gallery/ineffeable/inner-wide.webp",
@@ -126,7 +172,30 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/eutierria/cover.webp",
+      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+
+      images: [
+        {
+          src: "/gallery/ineffeable/inner-wide.webp",
+          alt: "inner-wide",
+        },
+        {
+          src: "/gallery/ineffeable/second.webp",
+          alt: "second",
+        },
+        {
+          src: "/gallery/ineffeable/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/ineffeable/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/ineffeable/fifth.webp",
+          alt: "fifth",
+        },
+      ],
     },
     {
       id: 5,
@@ -152,6 +221,29 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
+      images: [
+        {
+          src: "/gallery/ineffeable/inner-wide.webp",
+          alt: "inner-wide",
+        },
+        {
+          src: "/gallery/ineffeable/second.webp",
+          alt: "second",
+        },
+        {
+          src: "/gallery/ineffeable/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/ineffeable/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/ineffeable/fifth.webp",
+          alt: "fifth",
+        },
+      ],
+      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
     },
   ],
 

@@ -6,8 +6,8 @@ export type GalleryContent = {
   sectors: string[];
   timeline: string;
   credits: Credits[];
-  coverImage?: string;
-  images?: GalleryImage[];
+  coverImage: string;
+  images: GalleryImage[];
 };
 
 export type Credits = {
