@@ -10,12 +10,12 @@ export default function Footer() {
   return (
     <footer className="bg-backgroundLightAltColor">
       <div className="container flex items-center justify-between px-4 py-4">
-        <span className="block text-sm text-paragraph">
+        <span className="block text-xs text-paragraph">
           Creating Experiences Since {foundedYear}
         </span>
 
         <Link href={instagramLink} target="_blank">
-          <InstagramIcon className="h-4 w-4 text-mutedColor" />
+          <InstagramIcon className="size-3 text-mutedColor" />
         </Link>
       </div>
     </footer>
