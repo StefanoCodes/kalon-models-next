@@ -37,8 +37,6 @@ import { z } from "zod";
 import Success from "./sucess";
 import Row from "@/components/row";
 import { ageRangeTypes } from "./registration-dialog";
-import GoBack from "./go-back";
-import { cn } from "@/lib/utils";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
