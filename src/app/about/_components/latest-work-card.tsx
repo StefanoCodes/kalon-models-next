@@ -24,11 +24,11 @@ export default function LatestWorkCard({
   return (
     <div className="flex items-center gap-4 rounded-md bg-backgroundLightAltColor p-2 py-4 lg:gap-8 lg:px-4">
       {/* left */}
-      <div className="h-auto lg:h-[200px]">
+      <div className="h-[100px] md:h-[150px] lg:h-[200px]">
         <Image
-          src={coverImage || ""}
+          src={coverImage}
           alt={title}
-          className="aspect-square min-h-[150px] rounded-md object-cover lg:h-[200px] lg:w-[200px]"
+          className="aspect-square h-full w-full rounded-md object-cover lg:h-[200px] lg:w-[200px]"
           width={1000}
           height={1000}
         />
