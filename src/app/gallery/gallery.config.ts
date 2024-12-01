@@ -27,7 +27,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+      coverImage: "/gallery/ineffeable/third.webp",
 
       images: [
         {
@@ -79,23 +79,23 @@ export const galleryContent: GalleryContent[][] = [
       coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
       images: [
         {
-          src: "/gallery/ineffeable/inner-wide.webp",
+          src: "/gallery/power-of-wearing-flowers/inner-wide.webp",
           alt: "inner-wide",
         },
         {
-          src: "/gallery/ineffeable/second.webp",
+          src: "/gallery/power-of-wearing-flowers/second.webp",
           alt: "second",
         },
         {
-          src: "/gallery/ineffeable/third.webp",
+          src: "/gallery/power-of-wearing-flowers/third.webp",
           alt: "third",
         },
         {
-          src: "/gallery/ineffeable/fourth.webp",
+          src: "/gallery/power-of-wearing-flowers/fourth.webp",
           alt: "fourth",
         },
         {
-          src: "/gallery/ineffeable/fifth.webp",
+          src: "/gallery/power-of-wearing-flowers/fifth.webp",
           alt: "fifth",
         },
       ],
@@ -124,7 +124,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Don Eros & Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+      coverImage: "/gallery/ineffeable/second.webp",
       images: [
         {
           src: "/gallery/ineffeable/inner-wide.webp",
@@ -172,7 +172,6 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
 
       images: [
         {
@@ -196,54 +195,52 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      coverImage: "/gallery/eutierria/cover.webp",
     },
     {
       id: 5,
-      slug: "eutierria",
-      title: "Eutierria",
+      slug: "pose",
+      title: "Pose",
       overview: [
-        "Eutierria is a reflection of humanity’s deep connection to the natural world. Set in lush green surroundings, this shoot captures the interplay of organic textures and earthy tones, emphasizing harmony between people and nature.",
-        "The Kalon Models take on the spirit of the elements—rooted, dynamic, and alive. Styled with simplicity and elegance, they represent the strength found in diversity and unity. Every image feels like a moment suspended in time, a quiet yet powerful reminder of how deeply our stories are intertwined with the earth. This is more than a collection of photographs; Eutierria is a thoughtful celebration of nature, individuality, and the beauty of coexistence.",
+        "Pose is a vivid celebration of creativity and individuality, inviting Kalon Models to step beyond their comfort zones. Bright, bold outfits add a striking contrast to the minimalist set, highlighting each model’s dynamic energy and unique presence.",
+        "Through innovative poses and fearless experimentation, the shoot captures moments of transformation and growth. The vibrant wardrobe symbolizes confidence and the power of embracing new challenges, making each image a testament to the beauty of bold self-expression.",
+        "This project is a statement of empowerment, showing that stepping outside the ordinary creates extraordinary results.",
       ],
-      sectors: ["Fashion", "Sustainability", "Lifestyle"],
-      timeline: "April 2023",
+      sectors: ["Fashion", "Art", "Performance"],
+      timeline: "July 2024",
       credits: [
         {
           title: "Photographer",
-          name: "Oogonem",
+          name: "Tshiamo Ramatlhape",
         },
         {
-          title: "Makeup Artist",
-          name: "Onlyandile",
-        },
-        {
-          title: "Creative Director",
+          title: "Stylist & Creative Director",
           name: "Manana Baloyi",
         },
       ],
       images: [
         {
-          src: "/gallery/eutierria/inner-wide.webp",
+          src: "/gallery/pose/inner-wide.webp",
           alt: "inner-wide ",
         },
         {
-          src: "/gallery/eutierria/second.webp",
+          src: "/gallery/pose/second.webp",
           alt: "second",
         },
         {
-          src: "/gallery/eutierria/third.webp",
+          src: "/gallery/pose/third.webp",
           alt: "third",
         },
         {
-          src: "/gallery/eutierria/fourth.webp",
+          src: "/gallery/pose/fourth.webp",
           alt: "fourth",
         },
         {
-          src: "/gallery/eutierria/fifth.webp",
+          src: "/gallery/pose/fifth.webp",
           alt: "fifth",
         },
       ],
-      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+      coverImage: "/gallery/pose/second.webp",
     },
   ],
 
