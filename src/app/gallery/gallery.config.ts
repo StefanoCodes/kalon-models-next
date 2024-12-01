@@ -27,6 +27,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
+      images: [],
     },
     {
       id: 2,
@@ -76,6 +77,12 @@ export const galleryContent: GalleryContent[][] = [
         {
           title: "Creative Directors",
           name: "Don Eros & Manana Baloyi",
+        },
+      ],
+      images: [
+        {
+          src: "/gallery/ineffeable/inner-wide.webp",
+          alt: "inner-wide",
         },
       ],
     },

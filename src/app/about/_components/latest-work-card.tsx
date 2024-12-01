@@ -29,8 +29,8 @@ export default function LatestWorkCard({
           src={coverImage || ""}
           alt={title}
           className="aspect-square min-h-[150px] rounded-md object-cover lg:h-[200px] lg:w-[200px]"
-          width={100}
-          height={100}
+          width={1000}
+          height={1000}
         />
       </div>
 
