@@ -16,8 +16,11 @@ export const Preloader = () => {
         const timer = setTimeout(() => {
           setShowPreloader(false);
         }, 2500); // Increased to 2.5 seconds for the animation
-
-        return () => clearTimeout(timer);
+        localStorage.removeItem("hasLoaded");
+        return () => {
+          clearTimeout(timer);
+          // so that the preloader doesn't show again on a full refresh
+        };
       } else {
         setShowPreloader(false); // Hide preloader immediately if already loaded
       }
