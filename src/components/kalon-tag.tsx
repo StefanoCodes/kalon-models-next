@@ -11,7 +11,7 @@ export default function KalonTag({
   return (
     <span
       className={cn(
-        "relative -top-[1px] inline-flex h-6 cursor-default select-none items-center justify-center gap-[2px] rounded-sm bg-tertiaryColor px-2 text-sm font-medium text-secondaryColor transition-all duration-300 hover:-rotate-3 hover:scale-105 hover:bg-tertiaryColor hover:text-secondaryColor",
+        "relative -top-[1px] inline-flex h-6 cursor-default select-none items-center justify-center gap-[2px] rounded-sm bg-tertiaryColor px-2 font-abcNormal text-sm font-medium text-secondaryColor transition-all duration-300 hover:-rotate-3 hover:scale-105 hover:bg-tertiaryColor hover:text-secondaryColor",
         className,
       )}
     >

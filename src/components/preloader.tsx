@@ -1,48 +1,44 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import KalonSvgAnimation from "./kalon-svg-animation";
 
 export const Preloader = () => {
   const [showPreloader, setShowPreloader] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // avoid hydration error since we are using a browser api only can run on client side
-    if (typeof window !== "undefined") {
-      if (!isMounted) {
-        setIsMounted(true);
-        const timer = setTimeout(() => {
-          setShowPreloader(false);
-        }, 2500);
-        return () => {
-          clearTimeout(timer);
-        };
-      }
-    }
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <AnimatePresence>
       {showPreloader && (
         <motion.div
-          className="fixed inset-0 z-50 flex min-h-screen-mobile flex-col items-center justify-center bg-white md:min-h-screen-desktop"
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.8, ease: "easeInOut", delay: 1.7 }}
-          onAnimationComplete={() => setShowPreloader(false)}
+          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+          initial={{ opacity: 1 }}
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: 0.5,
+              ease: "easeInOut",
+            },
+          }}
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
           >
-            <h1 className="mb-4 text-5xl font-bold tracking-wider text-gray-800">
-              KALON
-            </h1>
+            <KalonSvgAnimation />
           </motion.div>
         </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
