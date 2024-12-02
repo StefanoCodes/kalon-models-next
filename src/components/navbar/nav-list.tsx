@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useTransition } from "react";
+import { useRef, useTransition } from "react";
 import { useScroll, useTransform } from "motion/react";
 
 const { routes } = navbar;
@@ -80,15 +80,9 @@ function DesktopNavListDefaultVariant({
 
 function DesktopNavListHomeVariant() {
   const { scrollYProgress } = useScroll();
-  console.log(scrollYProgress);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0.3, 1], [0.5, 1]);
   return (
     <motion.div
-      initial={{
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "between",
-      }}
       // whenever the scroll progress is like 0.1 we can do something
       className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
     >
