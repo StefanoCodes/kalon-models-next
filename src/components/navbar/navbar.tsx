@@ -4,7 +4,7 @@ import DesktopNavList from "./nav-list";
 
 export default function Navbar() {
   return (
-    <header className="z-50">
+    <header className="z-40">
       <nav
         className={cn(
           "container px-4 py-4 sm:block xl:px-0",

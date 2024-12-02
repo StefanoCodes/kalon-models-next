@@ -107,10 +107,10 @@ function DesktopNavListHomeVariant() {
           </Button>
         </li>
       </motion.ul>
-      {/* Kalon Logo */}
+      {/* Kalon Logo Scale Animation */}
       <motion.div
         style={{ scale }}
-        className="hidden flex-col items-center justify-center sm:flex"
+        className="flex flex-col items-center justify-center"
       >
         <Image
           src="/Kalon.svg"
@@ -120,15 +120,6 @@ function DesktopNavListHomeVariant() {
           className="w-full"
         />
       </motion.div>
-      <div className="flex flex-col items-center justify-center sm:hidden">
-        <Image
-          src="/Kalon.svg"
-          alt="Kalon Logo"
-          width={1280}
-          height={260}
-          className="w-full"
-        />
-      </div>
     </motion.div>
   );
 }

@@ -19,11 +19,16 @@ export default function MobileNavList() {
   const toggleNavigation = () => setIsOpen((previsOpen) => !previsOpen);
   return (
     <>
-      <div className="z-20 flex w-full items-center justify-between sm:hidden">
-        <NavLogo className={cn(isOpen && `text-whiteColor`)} />
+      <div className="z-30 flex w-full items-center justify-between sm:hidden">
+        <NavLogo
+          onClick={() => {
+            return isOpen && toggleNavigation();
+          }}
+          className={cn(isOpen && `text-whiteColor`)}
+        />
         <div
           className={cn(
-            "z-20 cursor-pointer text-base text-blackColor sm:hidden",
+            "z-30 cursor-pointer text-base text-blackColor sm:hidden",
             isOpen && `text-whiteColor`,
           )}
           onClick={toggleNavigation}
@@ -39,7 +44,7 @@ export default function MobileNavList() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed left-0 top-0 z-50 h-[100dvh] w-full bg-blackColor p-4 text-whiteColor"
+            className="fixed left-0 top-0 z-20 h-[100dvh] w-full bg-blackColor p-4 text-whiteColor"
           >
             <nav className="flex h-full w-full pt-32">
               <div className="flex w-full flex-col justify-between gap-8">

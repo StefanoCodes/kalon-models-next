@@ -5,24 +5,19 @@ import { motion } from "framer-motion";
 
 export const Preloader = () => {
   const [showPreloader, setShowPreloader] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // avoid hydration error since we are using a browser api only can run on client side
     if (typeof window !== "undefined") {
-      const hasLoaded = localStorage.getItem("hasLoaded");
-
-      // Only show the preloader on a full refresh
-      if (!hasLoaded) {
-        localStorage.setItem("hasLoaded", "true");
+      if (!isMounted) {
+        setIsMounted(true);
         const timer = setTimeout(() => {
           setShowPreloader(false);
-        }, 2500); // Increased to 2.5 seconds for the animation
-        localStorage.removeItem("hasLoaded");
+        }, 2500);
         return () => {
           clearTimeout(timer);
-          // so that the preloader doesn't show again on a full refresh
         };
-      } else {
-        setShowPreloader(false); // Hide preloader immediately if already loaded
       }
     }
   }, []);
@@ -31,7 +26,7 @@ export const Preloader = () => {
     <>
       {showPreloader && (
         <motion.div
-          className="min-h-screen-mobile md:min-h-screen-desktop fixed inset-0 z-50 flex flex-col items-center justify-center bg-white"
+          className="fixed inset-0 z-50 flex min-h-screen-mobile flex-col items-center justify-center bg-white md:min-h-screen-desktop"
           initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 1.7 }}

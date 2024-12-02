@@ -3,10 +3,18 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
-export default function NavLogo({ className }: { className?: string }) {
+export default function NavLogo({
+  onClick,
+  className,
+}: {
+  onClick?: () => void;
+  className?: string;
+}) {
   return (
     <Heading headingSize="h2" className={cn("font-light uppercase", className)}>
-      <Link href="/">Kalon</Link>
+      <Link href="/" onClick={onClick}>
+        Kalon
+      </Link>
     </Heading>
   );
 }
