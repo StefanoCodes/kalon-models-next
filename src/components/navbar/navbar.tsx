@@ -11,7 +11,7 @@ export default function Navbar() {
           "max-w-screen-xl",
         )}
       >
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-col-reverse items-center justify-between sm:flex-row">
           {/* DESKTOP NAV HIDDEN ON mobile SHOWN AT SM */}
           <DesktopNavList />
           {/* MOBILE NAV HIDDEN ON SHOWN AT MOBILE SM: */}
