@@ -15,7 +15,7 @@ export default function Home() {
             <span className="text-kalon-primary">Starts Here</span>
           </Heading>
           <Button variant="kalon" asChild className="w-fit bg-transparent px-0">
-            <Link href="/register">Explore Kalon &rarr;</Link>
+            <Link href="/about">Explore Kalon &rarr;</Link>
           </Button>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function LatestWork() {
         Latest Work
       </Heading>
 
-      <div className="flex flex-col gap-4 xl:flex-row">
+      <div className="flex flex-col gap-4 xl:flex-row xl:gap-8">
         <LatestWorkCard
           title={latestWorkRecent.title}
           coverImage={latestWorkRecent.coverImage}
