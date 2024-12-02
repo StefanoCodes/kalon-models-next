@@ -24,7 +24,7 @@ export default function GalleryListItem({
             src={coverImage}
             width={1000}
             height={1000}
-            className="aspect-square min-h-[450px] w-full rounded-md object-cover object-top brightness-75 filter lg:max-h-[550px]"
+            className="aspect-square min-h-[450px] w-full rounded-md object-cover brightness-75 filter lg:max-h-[550px]"
             alt="placeholder"
           />
         </div>

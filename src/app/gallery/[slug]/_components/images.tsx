@@ -12,9 +12,9 @@ export default function GallerySlugImages({
   alt: string;
 }) {
   return (
-    <div className={cn("relative h-[400px] w-full md:flex-1", className)}>
+    <div className={"relative h-[400px] w-full md:flex-1"}>
       <Image
-        className="h-full w-full rounded-md object-cover"
+        className={cn("h-full w-full rounded-md object-cover", className)}
         fill
         src={image}
         alt={alt}

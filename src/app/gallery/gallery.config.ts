@@ -27,30 +27,33 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/ineffeable/third.webp",
-
       images: [
         {
-          src: "/gallery/ineffeable/inner-wide.webp",
+          src: "/gallery/vintage-tennis/inner-wide.webp",
           alt: "inner-wide",
+          styles: "",
         },
         {
-          src: "/gallery/ineffeable/second.webp",
+          src: "/gallery/vintage-tennis/second.webp",
           alt: "second",
+          styles: "object-top",
         },
         {
-          src: "/gallery/ineffeable/third.webp",
+          src: "/gallery/vintage-tennis/third.webp",
           alt: "third",
+          styles: "object-top",
         },
         {
-          src: "/gallery/ineffeable/fourth.webp",
+          src: "/gallery/vintage-tennis/fourth.webp",
           alt: "fourth",
+          styles: "object-top",
         },
         {
-          src: "/gallery/ineffeable/fifth.webp",
+          src: "/gallery/vintage-tennis/fifth.webp",
           alt: "fifth",
         },
       ],
+      coverImage: "/gallery/vintage-tennis/inner-wide.webp",
     },
     {
       id: 2,
@@ -76,11 +79,12 @@ export const galleryContent: GalleryContent[][] = [
           name: "Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/power-of-wearing-flowers/cover.webp",
+      coverImage: "/gallery/power-of-wearing-flowers/inner-wide.webp",
       images: [
         {
           src: "/gallery/power-of-wearing-flowers/inner-wide.webp",
           alt: "inner-wide",
+          styles: "object-cover",
         },
         {
           src: "/gallery/power-of-wearing-flowers/second.webp",
@@ -124,7 +128,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Don Eros & Manana Baloyi",
         },
       ],
-      coverImage: "/gallery/ineffeable/second.webp",
+      coverImage: "/gallery/ineffeable/inner-wide.webp",
       images: [
         {
           src: "/gallery/ineffeable/inner-wide.webp",
@@ -181,6 +185,7 @@ export const galleryContent: GalleryContent[][] = [
         {
           src: "/gallery/eutierria/second.webp",
           alt: "second",
+          styles: "object-top",
         },
         {
           src: "/gallery/eutierria/third.webp",
@@ -189,13 +194,14 @@ export const galleryContent: GalleryContent[][] = [
         {
           src: "/gallery/eutierria/fourth.webp",
           alt: "fourth",
+          styles: "object-top",
         },
         {
           src: "/gallery/eutierria/fifth.webp",
           alt: "fifth",
         },
       ],
-      coverImage: "/gallery/eutierria/cover.webp",
+      coverImage: "/gallery/eutierria/inner-wide.webp",
     },
     {
       id: 5,
@@ -221,11 +227,12 @@ export const galleryContent: GalleryContent[][] = [
       images: [
         {
           src: "/gallery/pose/inner-wide.webp",
-          alt: "inner-wide ",
+          alt: "inner-wide",
         },
         {
           src: "/gallery/pose/second.webp",
           alt: "second",
+          styles: "object-top",
         },
         {
           src: "/gallery/pose/third.webp",
@@ -240,7 +247,7 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
-      coverImage: "/gallery/pose/second.webp",
+      coverImage: "/gallery/pose/inner-wide.webp",
     },
   ],
 

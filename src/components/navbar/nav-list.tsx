@@ -6,6 +6,9 @@ import NavLogo from "./nav-logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useTransition } from "react";
+import { useTransform } from "motion/react";
 
 const { routes } = navbar;
 
@@ -77,9 +80,36 @@ function DesktopNavListDefaultVariant({
 
 function DesktopNavListHomeVariant() {
   return (
-    <div className="mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex">
+    <motion.div
+      initial={{
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "between",
+      }}
+      whileInView={{
+        flexDirection: "row-reverse",
+        alignItems: "center",
+        justifyContent: "between",
+      }}
+      transition={{
+        duration: 0.5,
+      }}
+      className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
+    >
       {/* Navbar */}
-      <ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
+      <motion.ul
+        whileInView={{
+          opacity: 1,
+          width: "auto",
+        }}
+        transition={{
+          duration: 0.5,
+          bounce: 0.2,
+          damping: 10,
+          stiffness: 100,
+        }}
+        className="hidden w-full flex-row items-center justify-between gap-8 sm:flex"
+      >
         {routes.map((route) => (
           <li key={route.href}>
             <Link href={route.href}>{route.title}</Link>
@@ -90,15 +120,35 @@ function DesktopNavListHomeVariant() {
             <Link href="/register">Register</Link>
           </Button>
         </li>
-      </ul>
+      </motion.ul>
       {/* Kalon Logo */}
-      <Image
-        src="/Kalon.svg"
-        alt="Kalon Logo"
-        width={1280}
-        height={260}
-        className="w-full"
-      />
-    </div>
+      <motion.div
+        whileInView={{
+          width: "100px",
+          height: "20px",
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        className="hidden flex-col items-center justify-center xl:flex"
+      >
+        <Image
+          src="/Kalon.svg"
+          alt="Kalon Logo"
+          width={1280}
+          height={260}
+          className="w-full"
+        />
+      </motion.div>
+      <div className="flex flex-col items-center justify-center sm:hidden">
+        <Image
+          src="/Kalon.svg"
+          alt="Kalon Logo"
+          width={1280}
+          height={260}
+          className="w-full"
+        />
+      </div>
+    </motion.div>
   );
 }

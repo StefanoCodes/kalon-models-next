@@ -17,4 +17,5 @@ export type Credits = {
 export type GalleryImage = {
   src: string;
   alt: string;
+  styles?: string;
 };
