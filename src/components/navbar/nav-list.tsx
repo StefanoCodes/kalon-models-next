@@ -93,7 +93,7 @@ function DesktopNavListHomeVariant() {
       </ul>
       {/* Kalon Logo */}
       <Image
-        src="/kalon.svg"
+        src="/Kalon.svg"
         alt="Kalon Logo"
         width={1280}
         height={1280}
