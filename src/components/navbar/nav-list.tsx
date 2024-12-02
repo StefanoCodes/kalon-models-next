@@ -96,7 +96,7 @@ function DesktopNavListHomeVariant() {
         src="/Kalon.svg"
         alt="Kalon Logo"
         width={1280}
-        height={1280}
+        height={260}
         className="w-full"
       />
     </div>

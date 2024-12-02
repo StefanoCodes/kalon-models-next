@@ -5,7 +5,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-dvh w-full px-4 py-10 pt-32 md:px-10 md:pt-40">
-      <section id="home" className="container flex flex-col gap-10 self-end">
+      {/* <section id="home" className="container flex flex-col gap-10 self-end"> */}
+      <div className="flex- flex">
         <div className="flex flex-col gap-0 self-end">
           <Heading
             headingSize="h2"
@@ -18,7 +19,8 @@ export default function Home() {
             <Link href="/register">Explore Kalon &rarr;</Link>
           </Button>
         </div>
-      </section>
+      </div>
+      {/* </section> */}
     </main>
   );
 }
