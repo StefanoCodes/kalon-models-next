@@ -95,7 +95,7 @@ export default function ContactForm() {
                     autoComplete="email"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="mt-2" />
               </FormItem>
             )}
           />
