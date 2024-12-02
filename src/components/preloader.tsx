@@ -16,12 +16,8 @@ export const Preloader = () => {
         setShowPreloader(false);
       }, 2500); // Increased to 2.5 seconds to allow for the full animation
       return () => clearTimeout(timer);
-    } else {
-      setShowPreloader(false);
     }
   }, []);
-
-  if (!showPreloader) return null;
 
   return (
     <motion.div
