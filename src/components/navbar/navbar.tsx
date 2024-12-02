@@ -13,7 +13,10 @@ export default function Navbar() {
       >
         <div className="flex flex-col-reverse items-center justify-between sm:flex-row">
           {/* DESKTOP NAV HIDDEN ON mobile SHOWN AT SM */}
-          <DesktopNavList />
+          <div className="container">
+            <DesktopNavList />
+          </div>
+
           {/* MOBILE NAV HIDDEN ON SHOWN AT MOBILE SM: */}
           <MobileNavList />
         </div>
