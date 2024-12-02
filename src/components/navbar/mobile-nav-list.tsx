@@ -39,7 +39,7 @@ export default function MobileNavList() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed left-0 top-0 z-10 h-[100dvh] w-full bg-blackColor p-4 text-whiteColor"
+            className="fixed left-0 top-0 z-50 h-[100dvh] w-full bg-blackColor p-4 text-whiteColor"
           >
             <nav className="flex h-full w-full pt-32">
               <div className="flex w-full flex-col justify-between gap-8">
