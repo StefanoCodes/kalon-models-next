@@ -31,7 +31,7 @@ export const Preloader = () => {
     <>
       {showPreloader && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white"
+          className="min-h-screen-mobile md:min-h-screen-desktop fixed inset-0 z-50 flex flex-col items-center justify-center bg-white"
           initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 1.7 }}
