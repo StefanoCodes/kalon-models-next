@@ -17,7 +17,9 @@
     --color-gray-light: rgb(216, 216, 216);
     --color-black: rgb(10, 10, 10);
     --paragraph: rgb(61, 61, 61);
-
+    --header-size-mobile: 4rem;
+    --header-size-desktop: 4.5rem;
+    --footer-size: 3rem;
     /* SHADCN UI */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

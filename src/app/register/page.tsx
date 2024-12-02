@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Register() {
   return (
-    <main className="min-h-dvh w-full px-5 py-10 md:px-10">
+    <main className="min-h-screen-mobile md:min-h-screen-desktop w-full px-5 py-10 md:px-10">
       <div className="container flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col gap-4">

@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTransition } from "react";
-import { useTransform } from "motion/react";
+import { useScroll, useTransform } from "motion/react";
 
 const { routes } = navbar;
 
@@ -79,6 +79,9 @@ function DesktopNavListDefaultVariant({
 }
 
 function DesktopNavListHomeVariant() {
+  const { scrollYProgress } = useScroll();
+  console.log(scrollYProgress);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
   return (
     <motion.div
       initial={{
@@ -86,33 +89,22 @@ function DesktopNavListHomeVariant() {
         alignItems: "center",
         justifyContent: "between",
       }}
-      whileInView={{
-        flexDirection: "row-reverse",
-        alignItems: "center",
-        justifyContent: "between",
-      }}
-      transition={{
-        duration: 0.5,
-      }}
+      // whenever the scroll progress is like 0.1 we can do something
       className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
     >
       {/* Navbar */}
-      <motion.ul
-        whileInView={{
-          opacity: 1,
-          width: "auto",
-        }}
-        transition={{
-          duration: 0.5,
-          bounce: 0.2,
-          damping: 10,
-          stiffness: 100,
-        }}
-        className="hidden w-full flex-row items-center justify-between gap-8 sm:flex"
-      >
+      <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
         {routes.map((route) => (
-          <li key={route.href}>
-            <Link href={route.href}>{route.title}</Link>
+          <li
+            key={route.href}
+            className="group rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef]"
+          >
+            <Link
+              className="transition-colors group-hover:text-secondaryColor"
+              href={route.href}
+            >
+              {route.title}
+            </Link>
           </li>
         ))}
         <li>
@@ -123,13 +115,7 @@ function DesktopNavListHomeVariant() {
       </motion.ul>
       {/* Kalon Logo */}
       <motion.div
-        whileInView={{
-          width: "100px",
-          height: "20px",
-        }}
-        transition={{
-          duration: 0.5,
-        }}
+        style={{ scale }}
         className="hidden flex-col items-center justify-center xl:flex"
       >
         <Image

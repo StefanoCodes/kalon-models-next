@@ -92,6 +92,12 @@ export default {
       dropShadow: {
         button: "0 8px 10px rgba(80, 59, 137, 0.5)",
       },
+      minHeight: {
+        "screen-mobile":
+          "calc(100dvh - var(--header-size-mobile) - var(--footer-size))",
+        "screen-desktop":
+          "calc(100dvh - var(--header-size-desktop) - var(--footer-size))",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
