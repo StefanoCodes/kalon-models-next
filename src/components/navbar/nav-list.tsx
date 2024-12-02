@@ -110,7 +110,7 @@ function DesktopNavListHomeVariant() {
       {/* Kalon Logo */}
       <motion.div
         style={{ scale }}
-        className="hidden flex-col items-center justify-center xl:flex"
+        className="hidden flex-col items-center justify-center sm:flex"
       >
         <Image
           src="/Kalon.svg"
