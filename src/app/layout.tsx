@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Preloader } from "@/components/preloader";
 
 const ABCNormal = localFont({
   src: [
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body
         className={`${ABCNormal.className} ${ABCNormal.variable} bg-whiteColor text-blackColor antialiased`}
       >
+        <Preloader />
         <Navbar />
         {children}
         <Footer />
