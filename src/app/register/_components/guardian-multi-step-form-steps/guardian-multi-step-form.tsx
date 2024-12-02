@@ -1,44 +1,17 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { PhoneInput } from "@/components/ui/phone-input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Form } from "@/components/ui/form";
 import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "motion/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
-import Success from "./sucess";
-import Row from "@/components/row";
-import { cn } from "@/lib/utils";
-import { ageRangeTypes } from "./registration-dialog";
-import { format } from "date-fns";
-import {
-  DateField,
-  DateInput,
-  DateSegment,
-  FieldError,
-} from "react-aria-components";
-import StepOne from "./guardian-multi-step-form-steps/step-one";
-import StepTwo from "./guardian-multi-step-form-steps/step-two";
-import StepThree from "./guardian-multi-step-form-steps/step-three";
-import StepFour from "./guardian-multi-step-form-steps/step-four";
-import FormNav from "./adult-multi-step-form-steps/form-nav";
+import FormNav from "../form-nav";
+import { ageRangeTypes } from "../registration-dialog";
+import Success from "../sucess";
+import StepFour from "./step-four";
+import StepOne from "./step-one";
+import StepThree from "./step-three";
+import StepTwo from "./step-two";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 
@@ -108,11 +81,14 @@ export default function GuardianMultiStepForm({
 
   const processForm: SubmitHandler<Inputs> = (data) => {
     // we will check for any empty fields and preset them with n/a
+    const isDataValid = guardianRegistriationFormSchema.safeParse(data);
+    if (!isDataValid.success) return;
     const formData = {
-      ...data,
-      studentEmail: data.studentEmail || "n/a",
-      studentPhoneNumber: data.studentPhoneNumber || "n/a",
-      studentInstagramUsername: data.studentInstagramUsername || "n/a",
+      ...isDataValid.data,
+      studentEmail: isDataValid.data.studentEmail || "n/a",
+      studentPhoneNumber: isDataValid.data.studentPhoneNumber || "n/a",
+      studentInstagramUsername:
+        isDataValid.data.studentInstagramUsername || "n/a",
     };
     console.log(formData);
     form.reset();

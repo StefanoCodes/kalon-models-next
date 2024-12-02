@@ -5,11 +5,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
-import FormNav from "./adult-multi-step-form-steps/form-nav";
-import StepOne from "./adult-multi-step-form-steps/step-one";
-import StepThree from "./adult-multi-step-form-steps/step-three";
-import StepTwo from "./adult-multi-step-form-steps/step-two";
-import Success from "./sucess";
+import FormNav from "../form-nav";
+import StepOne from "./step-one";
+import StepThree from "./step-three";
+import StepTwo from "./step-two";
+import Success from "../sucess";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [

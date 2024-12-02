@@ -7,8 +7,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import GuardianMultiStepForm from "./guardian-multi-step-form";
-import AdultMultiStepForm from "./adult-multi-step-form";
+import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
+import AdultMultiStepForm from "./adult-multi-step-form-steps/adult-multi-step-form";
 import { useState } from "react";
 import { motion } from "framer-motion";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
