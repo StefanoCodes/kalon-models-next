@@ -80,7 +80,7 @@ function DesktopNavListDefaultVariant({
 
 function DesktopNavListHomeVariant() {
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0.3, 1], [0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   return (
     <motion.div
       // whenever the scroll progress is like 0.1 we can do something
