@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export const Preloader = () => {
+  // to avoid getting a hydration error
+  if (typeof window === "undefined") return null;
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
