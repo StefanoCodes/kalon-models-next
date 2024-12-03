@@ -202,7 +202,7 @@ export const courses = {
       },
     },
   ],
-  general: [
+  masterclass: [
     {
       masterclass: {
         heading: `The Masterclass`,

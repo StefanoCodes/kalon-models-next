@@ -10,7 +10,7 @@ export default async function PricingPage({ params }: { params: Params }) {
   const config = {
     adult: AdultCourseWrapper,
     kids: KidsCourseWrapper,
-    general: GeneralCourseWrapper,
+    masterclass: GeneralCourseWrapper,
   };
   const Component = config[slug as keyof typeof config];
   if (!Component) {
