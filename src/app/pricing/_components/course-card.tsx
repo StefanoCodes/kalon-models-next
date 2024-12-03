@@ -31,7 +31,7 @@ export function CourseCard({
   link,
 }: CourseCardProps) {
   return (
-    <Card className="w-full flex-1 overflow-hidden md:min-h-[28rem]">
+    <Card className="w-full flex-1 overflow-hidden">
       <div className="relative aspect-video w-full">
         <Image
           src={image}
