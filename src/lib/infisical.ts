@@ -14,3 +14,5 @@ const allSecrets = await client.secrets().listSecrets({
 });
 
 console.log("Fetched secrets", allSecrets);
+
+export default client;
