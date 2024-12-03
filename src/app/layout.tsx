@@ -38,6 +38,21 @@ export const metadata: Metadata = {
   title: "Kalon | The modelling academy for all",
   description:
     "An introduction to Kalon Models, where we empower aspiring models to kickstart their careers with expert training, development, and opportunities in the modeling industry.",
+  openGraph: {
+    title: "Kalon | The modelling academy for all",
+    description:
+      "An introduction to Kalon Models, where we empower aspiring models to kickstart their careers with expert training, development, and opportunities in the modeling industry.",
+    images: ["/og.image.webp"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kalon | The modelling academy for all",
+    description:
+      "An introduction to Kalon Models, where we empower aspiring models to kickstart their careers with expert training, development, and opportunities in the modeling industry.",
+    images: ["/og.image.webp"],
+    creator: "@kalonmodels",
+  },
 };
 
 export default function RootLayout({
