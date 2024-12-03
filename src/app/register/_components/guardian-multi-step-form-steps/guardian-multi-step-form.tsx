@@ -82,6 +82,7 @@ export default function GuardianMultiStepForm() {
     setError,
     trigger,
     reset,
+    getValues,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
@@ -109,7 +110,6 @@ export default function GuardianMultiStepForm() {
   );
 
   type FieldName = keyof Inputs;
-
   const next = async () => {
     const fields = steps[currentStep].fields;
     const output = await trigger(fields as FieldName[], {
@@ -120,9 +120,28 @@ export default function GuardianMultiStepForm() {
 
     if (currentStep < finalStep) {
       if (currentStep === finalStep - 1) {
-        await handleSubmit(submit)();
+        // running zod safe parse to check if the form is valid at the end of the form to make sure no spoofing or any games are being played
+        const { success } =
+          guardianRegistriationFormSchema.safeParse(getValues());
+        // if its successful we will run this function
+        if (success) {
+          try {
+            await handleSubmit(async (data) => {
+              // this way we are making sure that the data we are using is the first being validated again upon final submission
+              const formData = {
+                ...data,
+                studentEmail: data.studentEmail || "n/a",
+                studentPhoneNumber: data.studentPhoneNumber || "n/a",
+                studentInstagramUsername:
+                  data.studentInstagramUsername || "n/a",
+              };
+              await submit(formData);
+            })();
+          } catch (error) {
+            console.error(error);
+          }
+        }
       }
-
       setPreviousStep(currentStep);
       setCurrentStep((prevStep) => prevStep + 1);
     }

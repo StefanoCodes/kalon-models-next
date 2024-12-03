@@ -68,6 +68,8 @@ export default function AdultMultiStepForm() {
     setError,
     trigger,
     reset,
+    getValues,
+
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
@@ -105,8 +107,18 @@ export default function AdultMultiStepForm() {
     if (!output) return;
 
     if (currentStep < finalStep) {
+      // final form submission
       if (currentStep === finalStep - 1) {
-        await handleSubmit(submit)();
+        const { success } = registriationFormSchema.safeParse(getValues());
+        if (success) {
+          try {
+            await handleSubmit(async (data) => {
+              await submit(data);
+            })();
+          } catch (error) {
+            console.error(error);
+          }
+        }
       }
       setPreviousStep(currentStep);
       setCurrentStep((prevStep) => prevStep + 1);

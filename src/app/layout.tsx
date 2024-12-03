@@ -71,7 +71,9 @@ export default function RootLayout({
       >
         <Preloader />
         <Navbar />
-        {children}
+        <main className="min-h-screen-mobile md:min-h-screen-desktop">
+          {children}
+        </main>
         <Footer />
         <Toaster />
       </body>
