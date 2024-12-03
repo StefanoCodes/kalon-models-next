@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
 import { navbar } from "./navbar.config";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const { routes } = navbar;
 
@@ -63,7 +63,7 @@ function DesktopNavListDefaultVariant({
         {routes.map((route) => (
           <li
             key={route.href}
-            className={cn(`text-navLinkColor text-sm`, listItemClasses)}
+            className={cn(`text-sm text-navLinkColor`, listItemClasses)}
           >
             <Link className={cn(linkItemClasses)} href={route.href}>
               {route.title}
@@ -75,7 +75,7 @@ function DesktopNavListDefaultVariant({
             variant="kalon"
             asChild
             className={cn(
-              "text-navLinkColor h-8 text-base",
+              "h-8 text-base text-navLinkColor",
               callToActionClasses,
             )}
           >
@@ -88,55 +88,171 @@ function DesktopNavListDefaultVariant({
 }
 // HOME PAGE NAV LIST
 function DesktopNavListHomeVariant() {
-  const { scrollYProgress } = useScroll();
-  // const [scrollProgress, setScrollProgress] = useState(0);
-  // how can we keep track of the scroll progress everytime it changes
-  // we want to keep track of the scroll progress and use it to determine the flex direction of the flex container
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-  // useMotionValueEvent(scrollYProgress, "change", (current) => {
-  //   setScrollProgress(current);
-  // });
-  // so what we want is the flex container to become a row on scroll instead of coloum based on the y progress
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const scale = useTransform(scrollYProgress, [0.5, 1], [0, 1]);
+
+  useMotionValueEvent(scrollYProgress, "change", (current) => {
+    console.log(current);
+    setScrollProgress(current);
+  });
   return (
     <motion.div
-      // animate={{
-      //   flexDirection: scrollProgress > 0 ? "row-reverse" : "column",
-      //   alignItems: scrollProgress > 0.1 ? "center" : "flex-start",
-      //   transition: {
-      //     duration: 0.3,
-      //     ease: [0.16, 1, 0.3, 1],
-      //   },
-      // }}
-      className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
+      ref={containerRef}
+      layout
+      style={{
+        flexDirection: scrollProgress > 0.87 ? "row-reverse" : "column",
+        justifyContent: scrollProgress > 0.87 ? "flex-end" : "center",
+        alignItems: scrollProgress > 0.87 ? "flex-end" : "center",
+      }}
+      transition={{
+        duration: 0.3,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="container mt-10 h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 sm:flex"
     >
       {/* Navbar */}
-      <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
+      <motion.ul
+        layout="preserve-aspect"
+        style={{
+          justifyContent: scrollProgress > 0.87 ? "flex-end" : "space-between",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="hidden w-full flex-row items-center gap-8 sm:flex"
+      >
         {routes.map((route) => (
           <Link className="group" key={route.href} href={route.href}>
-            <li className="text-navLinkColor rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
+            <li className="rounded-sm px-4 py-1 text-navLinkColor transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
               {route.title}
             </li>
           </Link>
         ))}
         <li>
-          <Button variant="kalon" className="text-navLinkColor h-8" asChild>
+          <Button variant="kalon" className="h-8 text-navLinkColor" asChild>
             <Link href="/register">Register</Link>
           </Button>
         </li>
       </motion.ul>
-      {/* Kalon Logo Scale Animation */}
       <motion.div
         style={{ scale }}
+        layout
+        transition={{
+          duration: 0.3,
+          ease: [0.16, 1, 0.3, 1],
+        }}
         className="flex flex-col items-center justify-center"
       >
-        <Image
-          src="/Kalon.svg"
-          alt="Kalon Logo"
-          width={1280}
-          height={260}
-          className="w-full"
-        />
+        <motion.h1
+          layout
+          style={{ fontSize: "6rem" }}
+          transition={{
+            duration: 0.3,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="text-9xl font-bold"
+        >
+          Kalon
+        </motion.h1>
       </motion.div>
     </motion.div>
   );
 }
+// function DesktopNavListHomeVariant() {
+//   const containerRef = useRef<HTMLDivElement>(null);
+//   const { scrollYProgress } = useScroll({
+//     target: containerRef,
+//     offset: ["start end", "end start"],
+//   });
+//   const [scrollProgress, setScrollProgress] = useState(0);
+//   const scale = useTransform(scrollYProgress, [1, 0.5], [1, 0]);
+
+//   useMotionValueEvent(scrollYProgress, "change", (current) => {
+//     setScrollProgress(current);
+//   });
+
+//   const navWidth = useTransform(scrollYProgress, [1, 0.87], ["100%", "auto"]);
+//   const navJustify = useTransform(
+//     scrollYProgress,
+//     [1, 0.87],
+//     ["space-between", "flex-end"],
+//   );
+//   const navGap = useTransform(scrollYProgress, [1, 0.87], ["2rem", "0.5rem"]);
+
+//   return (
+//     <motion.div
+//       ref={containerRef}
+//       layout
+//       style={{
+//         flexDirection: scrollProgress > 0.87 ? "row-reverse" : "column",
+//         justifyContent: scrollProgress > 0.87 ? "flex-end" : "center",
+//         alignItems: scrollProgress > 0.87 ? "center" : "center",
+//       }}
+//       transition={{
+//         duration: 0.3,
+//         ease: [0.16, 1, 0.3, 1],
+//       }}
+//       className="container mt-10 h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 sm:flex"
+//     >
+//       {/* Navbar */}
+//       <motion.ul
+//         layout
+//         style={{
+//           width: navWidth,
+//           justifyContent: navJustify,
+//           gap: navGap,
+//         }}
+//         transition={{
+//           duration: 0.3,
+//           ease: [0.16, 1, 0.3, 1],
+//         }}
+//         className="hidden w-full flex-row items-center justify-between sm:flex"
+//       >
+//         {routes.map((route) => (
+//           <motion.li
+//             key={route.href}
+//             layout
+//             transition={{
+//               duration: 0.3,
+//               ease: [0.16, 1, 0.3, 1],
+//             }}
+//           >
+//             <Link className="group" href={route.href}>
+//               <span className="rounded-sm px-4 py-1 text-navLinkColor transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
+//                 {route.title}
+//               </span>
+//             </Link>
+//           </motion.li>
+//         ))}
+//         <motion.li
+//           layout
+//           transition={{
+//             duration: 0.3,
+//             ease: [0.16, 1, 0.3, 1],
+//           }}
+//         >
+//           <Button variant="kalon" className="h-8 text-navLinkColor" asChild>
+//             <Link href="/register">Register</Link>
+//           </Button>
+//         </motion.li>
+//       </motion.ul>
+//       <motion.div
+//         style={{ scale }}
+//         layout
+//         transition={{
+//           duration: 0.3,
+//           ease: [0.16, 1, 0.3, 1],
+//         }}
+//         className="flex flex-col items-center justify-center"
+//       >
+//         <h1 className="text-8xl font-bold">Kalon</h1>
+//       </motion.div>
+//     </motion.div>
+//   );
+// }
