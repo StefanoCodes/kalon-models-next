@@ -129,7 +129,7 @@ export default function AdultMultiStepForm() {
   };
 
   return (
-    <div className="flex flex-col gap-8 py-8 md:gap-12 md:py-12">
+    <div className="flex flex-col gap-8 overflow-hidden py-0 md:gap-12 md:py-4">
       {/* FORM */}
       <Form {...form}>
         <form onSubmit={handleSubmit(submit)}>
