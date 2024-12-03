@@ -8,10 +8,6 @@ export default function KalonSvgAnimation() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
     },
   };
 
@@ -26,14 +22,14 @@ export default function KalonSvgAnimation() {
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration: 0.6,
+        duration: 0.3,
       },
     },
   };
 
   return (
     <motion.div
-      className="flex items-center justify-center tracking-widest"
+      className="z-[9999] flex items-center justify-center tracking-widest"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -42,7 +38,7 @@ export default function KalonSvgAnimation() {
         <motion.span
           key={index}
           variants={letterVariants}
-          className="font-abcNormal text-6xl font-normal md:text-7xl"
+          className="font-abcNormal text-6xl font-normal text-white md:text-7xl"
         >
           {letter}
         </motion.span>

@@ -69,32 +69,28 @@ export default function AdultMultiStepForm() {
     trigger,
     reset,
     getValues,
-
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
-  const submit = useSubmit<Inputs>(
-    process.env.REACT_APP_REACT_HOOK_FORM_ID as string,
-    {
-      onError(errs) {
-        const formErrs = errs.getFormErrors();
-        setFormErrors(formErrs.map((e) => e.message));
-        for (const { code, message } of formErrs) {
-          setError(`root.${code}`, {
-            type: code,
-            message,
-          });
-        }
+  const submit = useSubmit<Inputs>(`tobeadded`, {
+    onError(errs) {
+      const formErrs = errs.getFormErrors();
+      setFormErrors(formErrs.map((e) => e.message));
+      for (const { code, message } of formErrs) {
+        setError(`root.${code}`, {
+          type: code,
+          message,
+        });
+      }
 
-        const fieldErrs = errs.getAllFieldErrors();
-        for (const [field, errs] of fieldErrs) {
-          setError(field, {
-            message: errs.map((e) => e.message).join(", "),
-          });
-        }
-      },
+      const fieldErrs = errs.getAllFieldErrors();
+      for (const [field, errs] of fieldErrs) {
+        setError(field, {
+          message: errs.map((e) => e.message).join(", "),
+        });
+      }
     },
-  );
+  });
 
   type FieldName = keyof Inputs;
 

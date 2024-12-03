@@ -87,7 +87,7 @@ function DesktopNavListHomeVariant() {
       <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
         {routes.map((route) => (
           <Link className="group" key={route.href} href={route.href}>
-            <li className="rounded-sm px-4 py-1 transition-all transition-colors duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
+            <li className="rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
               {route.title}
             </li>
           </Link>

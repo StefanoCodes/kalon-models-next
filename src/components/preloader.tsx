@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import KalonSvgAnimation from "./kalon-svg-animation";
+import FlickeringGrid from "./shimmer-dot-concept";
 
 export const Preloader = () => {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -19,7 +20,7 @@ export const Preloader = () => {
     <AnimatePresence>
       {showPreloader && (
         <motion.div
-          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100"
+          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-black"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -30,11 +31,20 @@ export const Preloader = () => {
           }}
         >
           <motion.div
-            className="relative flex flex-col items-center justify-center"
+            className="relative flex h-full w-full flex-col items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
+            {/* <KalonSvgAnimation /> */}
+            <FlickeringGrid
+              className="absolute inset-0 z-10 size-full"
+              squareSize={6}
+              gridGap={6}
+              color="#e7dfef"
+              maxOpacity={0.2}
+              flickerChance={0.5}
+            />
             <KalonSvgAnimation />
           </motion.div>
         </motion.div>

@@ -35,7 +35,6 @@ import { format } from "date-fns";
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 export default function StepTwo({ delta }: { delta: number }) {
   const { control } = useFormContext<Inputs>();
-
   return (
     <motion.div
       initial={{
@@ -44,8 +43,9 @@ export default function StepTwo({ delta }: { delta: number }) {
       }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="overflow-hidden"
     >
-      <div className="flex min-h-[18rem] flex-col gap-4 md:min-h-0 md:gap-8">
+      <div className="flex flex-col gap-4 overflow-hidden md:min-h-0 md:gap-8">
         <Row className="flex-col gap-4 md:flex-row">
           {/* Guardian Prefered Method Of Contact */}
           <div className="md:flex-1">

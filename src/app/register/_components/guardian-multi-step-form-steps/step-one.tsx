@@ -29,8 +29,9 @@ export default function StepOne({ delta }: { delta: number }) {
       }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="overflow-hidden"
     >
-      <div className="flex min-h-[18rem] flex-col gap-4 md:min-h-0 md:gap-8">
+      <div className="flex min-h-[18rem] flex-col gap-4 overflow-hidden md:min-h-0 md:gap-8">
         <Row className="flex-col gap-4 md:flex-row">
           {/* NAME */}
           <div className="md:flex-1">

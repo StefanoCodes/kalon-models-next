@@ -81,33 +81,29 @@ export default function GuardianMultiStepForm() {
     handleSubmit,
     setError,
     trigger,
-    reset,
     getValues,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
-  const submit = useSubmit<Inputs>(
-    process.env.REACT_APP_REACT_HOOK_FORM_ID as string,
-    {
-      onError(errs) {
-        const formErrs = errs.getFormErrors();
-        setFormErrors(formErrs.map((e) => e.message));
-        for (const { code, message } of formErrs) {
-          setError(`root.${code}`, {
-            type: code,
-            message,
-          });
-        }
+  const submit = useSubmit<Inputs>(`tobeadded`, {
+    onError(errs) {
+      const formErrs = errs.getFormErrors();
+      setFormErrors(formErrs.map((e) => e.message));
+      for (const { code, message } of formErrs) {
+        setError(`root.${code}`, {
+          type: code,
+          message,
+        });
+      }
 
-        const fieldErrs = errs.getAllFieldErrors();
-        for (const [field, errs] of fieldErrs) {
-          setError(field, {
-            message: errs.map((e) => e.message).join(", "),
-          });
-        }
-      },
+      const fieldErrs = errs.getAllFieldErrors();
+      for (const [field, errs] of fieldErrs) {
+        setError(field, {
+          message: errs.map((e) => e.message).join(", "),
+        });
+      }
     },
-  );
+  });
 
   type FieldName = keyof Inputs;
   const next = async () => {
@@ -120,7 +116,7 @@ export default function GuardianMultiStepForm() {
 
     if (currentStep < finalStep) {
       if (currentStep === finalStep - 1) {
-        // running zod safe parse to check if the form is valid at the end of the form to make sure no spoofing or any games are being played
+        // running zod safe parse to check if the forti is valid at the end of the form to make sure no spoofing or any games are being played
         const { success } =
           guardianRegistriationFormSchema.safeParse(getValues());
         // if its successful we will run this function
