@@ -20,6 +20,7 @@
     --header-size-mobile: 4rem;
     --header-size-desktop: 4.5rem;
     --footer-size: 3rem;
+    --color-nav-links: rgb(61, 61, 61);
     /* SHADCN UI */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

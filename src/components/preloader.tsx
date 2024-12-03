@@ -37,14 +37,14 @@ export const Preloader = () => {
             transition={{ duration: 0.3 }}
           >
             {/* <KalonSvgAnimation /> */}
-            <FlickeringGrid
+            {/* <FlickeringGrid
               className="absolute inset-0 z-10 size-full"
               squareSize={6}
               gridGap={6}
               color="#e7dfef"
               maxOpacity={0.2}
               flickerChance={0.5}
-            />
+            /> */}
             <KalonSvgAnimation />
           </motion.div>
         </motion.div>

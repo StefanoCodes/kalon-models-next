@@ -34,7 +34,7 @@ export default function DesktopNavList({
     />
   );
 }
-
+// OTHER PAGES NAV LIST
 function DesktopNavListDefaultVariant({
   wrapperClasses,
   listItemClasses,
@@ -48,7 +48,10 @@ function DesktopNavListDefaultVariant({
 }) {
   return (
     <div
-      className={cn("hidden w-full justify-between sm:flex", wrapperClasses)}
+      className={cn(
+        "container hidden w-full justify-between sm:flex",
+        wrapperClasses,
+      )}
     >
       <NavLogo />
       <ul
@@ -57,7 +60,10 @@ function DesktopNavListDefaultVariant({
         )}
       >
         {routes.map((route) => (
-          <li key={route.href} className={cn(`text-sm`, listItemClasses)}>
+          <li
+            key={route.href}
+            className={cn(`text-navLinkColor text-sm`, listItemClasses)}
+          >
             <Link className={cn(linkItemClasses)} href={route.href}>
               {route.title}
             </Link>
@@ -67,18 +73,19 @@ function DesktopNavListDefaultVariant({
           <Button
             variant="kalon"
             asChild
-            className={cn("text-base", callToActionClasses)}
+            className={cn(
+              "text-navLinkColor h-8 text-base",
+              callToActionClasses,
+            )}
           >
-            <Link href="/register" className="h-8">
-              Register
-            </Link>
+            <Link href="/register">Register</Link>
           </Button>
         </li>
       </ul>
     </div>
   );
 }
-
+// HOME PAGE NAV LIST
 function DesktopNavListHomeVariant() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
@@ -88,13 +95,13 @@ function DesktopNavListHomeVariant() {
       <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
         {routes.map((route) => (
           <Link className="group" key={route.href} href={route.href}>
-            <li className="rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
+            <li className="text-navLinkColor rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
               {route.title}
             </li>
           </Link>
         ))}
         <li>
-          <Button variant="kalon" className="h-8" asChild>
+          <Button variant="kalon" className="text-navLinkColor h-8" asChild>
             <Link href="/register">Register</Link>
           </Button>
         </li>

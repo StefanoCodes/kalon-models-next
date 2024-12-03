@@ -1,18 +1,23 @@
-import AdultCourseWrapper from "./_components/adult-course-wrapper";
-import GeneralCourseWrapper from "./_components/general-course-wrapper";
-import KidsCourseWrapper from "./_components/kids-course-wrapper";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Heading from "../about/_components/heading";
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="container px-5 py-10 md:px-0">
-      <div className="flex flex-col gap-8 md:gap-16">
-        {/* ADULT COURSES */}
-        <AdultCourseWrapper />
-        {/* KIDS COURSES */}
-        <KidsCourseWrapper />
-        {/* GENERAL COURSES */}
-        <GeneralCourseWrapper />
+    <div className="flex flex-col gap-8 md:gap-16">
+      <Heading headingSize="h1">Pricing</Heading>
+
+      <div className="flex flex-col items-start justify-start gap-4 md:flex-row md:items-center md:gap-8">
+        <Button asChild variant={"outline"} className="min-w-36">
+          <Link href="/pricing/adult">Adult Courses</Link>
+        </Button>
+        <Button asChild variant={"outline"} className="min-w-36">
+          <Link href="/pricing/kids">Kids Courses</Link>
+        </Button>
+        <Button asChild variant={"outline"} className="min-w-36">
+          <Link href="/pricing/general">General Courses</Link>
+        </Button>
       </div>
-    </section>
+    </div>
   );
 }

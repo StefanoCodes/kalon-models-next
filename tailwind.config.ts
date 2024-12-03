@@ -34,7 +34,7 @@ export default {
         grayLightColor: "var(--color-gray-light)",
         blackColor: "var(--color-black)",
         paragraph: "var(--paragraph)",
-
+        navLinkColor: "var(--color-nav-links)",
         // SHADCN UI
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
