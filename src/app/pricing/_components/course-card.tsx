@@ -37,8 +37,8 @@ export function CourseCard({
           src={image}
           alt={title}
           className="h-full w-full object-cover"
-          width={200}
-          height={200}
+          width={1000}
+          height={1000}
         />
       </div>
       <CardHeader>
