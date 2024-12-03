@@ -81,7 +81,7 @@
     @apply border-border;
   }
   body {
-    @apply text-balance bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
   .body-text {
     @apply text-base leading-[1.5] tracking-[0.4px] text-blackColor md:text-lg md:leading-[1.7];

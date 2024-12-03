@@ -1,13 +1,14 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useScroll, useTransform } from "motion/react";
+import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
 import { navbar } from "./navbar.config";
+import { useState } from "react";
 
 const { routes } = navbar;
 
@@ -88,9 +89,26 @@ function DesktopNavListDefaultVariant({
 // HOME PAGE NAV LIST
 function DesktopNavListHomeVariant() {
   const { scrollYProgress } = useScroll();
+  // const [scrollProgress, setScrollProgress] = useState(0);
+  // how can we keep track of the scroll progress everytime it changes
+  // we want to keep track of the scroll progress and use it to determine the flex direction of the flex container
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  // useMotionValueEvent(scrollYProgress, "change", (current) => {
+  //   setScrollProgress(current);
+  // });
+  // so what we want is the flex container to become a row on scroll instead of coloum based on the y progress
   return (
-    <motion.div className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex">
+    <motion.div
+      // animate={{
+      //   flexDirection: scrollProgress > 0 ? "row-reverse" : "column",
+      //   alignItems: scrollProgress > 0.1 ? "center" : "flex-start",
+      //   transition: {
+      //     duration: 0.3,
+      //     ease: [0.16, 1, 0.3, 1],
+      //   },
+      // }}
+      className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
+    >
       {/* Navbar */}
       <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
         {routes.map((route) => (

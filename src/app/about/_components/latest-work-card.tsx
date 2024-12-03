@@ -15,7 +15,7 @@ export default function LatestWorkCard({
 }) {
   const shortDescription = description.slice(0, 99);
   return (
-    <div className="flex items-center gap-4 rounded-md bg-backgroundLightAltColor p-2 py-4 lg:items-start lg:gap-8 lg:px-4">
+    <div className="flex items-center gap-4 rounded-md bg-backgroundLightAltColor p-2 py-4 md:flex-1 lg:items-start lg:gap-8 lg:px-4">
       {/* left */}
       <div className="h-[100px] md:h-[150px] lg:h-[200px]">
         <Image

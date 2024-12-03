@@ -19,7 +19,7 @@ export default function ServicesList() {
           <ServicesCard title={services[2].title} />
           <ServicesCard title={services[5].title} />
         </div>
-        <div className="flex flex-col gap-1 sm:gap-2">
+        <div className="flex flex-col gap-1 sm:gap-2 md:self-end md:text-right">
           <ServicesCard title={services[4].title} />
           <ServicesCard title={services[1].title} />
         </div>
