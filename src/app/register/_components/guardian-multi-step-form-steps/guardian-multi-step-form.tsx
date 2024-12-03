@@ -4,7 +4,6 @@ import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
 import { useSubmit } from "@formspree/react";
 import { z } from "zod";
 import FormNav from "../form-nav";
@@ -85,25 +84,28 @@ export default function GuardianMultiStepForm() {
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
-  const submit = useSubmit<Inputs>(`tobeadded`, {
-    onError(errs) {
-      const formErrs = errs.getFormErrors();
-      setFormErrors(formErrs.map((e) => e.message));
-      for (const { code, message } of formErrs) {
-        setError(`root.${code}`, {
-          type: code,
-          message,
-        });
-      }
+  const submit = useSubmit<Inputs>(
+    process.env.NEXT_PUBLIC_REACT_APP_REACT_HOOK_FORM_ID!!,
+    {
+      onError(errs) {
+        const formErrs = errs.getFormErrors();
+        setFormErrors(formErrs.map((e) => e.message));
+        for (const { code, message } of formErrs) {
+          setError(`root.${code}`, {
+            type: code,
+            message,
+          });
+        }
 
-      const fieldErrs = errs.getAllFieldErrors();
-      for (const [field, errs] of fieldErrs) {
-        setError(field, {
-          message: errs.map((e) => e.message).join(", "),
-        });
-      }
+        const fieldErrs = errs.getAllFieldErrors();
+        for (const [field, errs] of fieldErrs) {
+          setError(field, {
+            message: errs.map((e) => e.message).join(", "),
+          });
+        }
+      },
     },
-  });
+  );
 
   type FieldName = keyof Inputs;
   const next = async () => {
