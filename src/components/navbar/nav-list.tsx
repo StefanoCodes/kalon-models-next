@@ -1,14 +1,13 @@
 "use client";
-import { navbar } from "./navbar.config";
 import { cn } from "@/lib/utils";
-import { Button } from "../ui/button";
-import NavLogo from "./nav-logo";
+import { motion } from "framer-motion";
+import { useScroll, useTransform } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { useRef, useTransition } from "react";
-import { useScroll, useTransform } from "motion/react";
+import { Button } from "../ui/button";
+import NavLogo from "./nav-logo";
+import { navbar } from "./navbar.config";
 
 const { routes } = navbar;
 
@@ -58,7 +57,7 @@ function DesktopNavListDefaultVariant({
         )}
       >
         {routes.map((route) => (
-          <li key={route.href} className={cn(listItemClasses)}>
+          <li key={route.href} className={cn(``, listItemClasses)}>
             <Link className={cn(linkItemClasses)} href={route.href}>
               {route.title}
             </Link>

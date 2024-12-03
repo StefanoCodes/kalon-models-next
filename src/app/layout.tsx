@@ -9,43 +9,24 @@ import { Preloader } from "@/components/preloader";
 const ABCNormal = localFont({
   src: [
     {
-      path: "./fonts/ABCNormal-Thin.ttf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "./fonts/ABCNormal-Light.ttf",
+      path: "./fonts/ABCNormal-Normal.ttf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "./fonts/ABCNormal-Normal.ttf",
+      path: "./fonts/ABCNormal-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/ABCNormal-Neutral.ttf",
+      path: "./fonts/ABCNormal-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/ABCNormal-Medium.ttf",
+      path: "./fonts/ABCNormal-Neutral.ttf",
       weight: "600",
       style: "normal",
-    },
-    {
-      path: "./fonts/ABCNormal-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/ABCNormal-Heavy.ttf",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "./fonts/ABCNormal-Super.ttf",
-      weight: "900",
     },
   ],
   fallback: ["sans-serif"],
