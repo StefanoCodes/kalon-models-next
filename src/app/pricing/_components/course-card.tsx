@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Calendar } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CourseCardProps {
   title: string;
@@ -32,7 +33,13 @@ export function CourseCard({
   return (
     <Card className="w-full flex-1 overflow-hidden md:min-h-[28rem]">
       <div className="relative aspect-video w-full">
-        <img src={image} alt={title} className="h-full w-full object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          className="h-full w-full object-cover"
+          width={200}
+          height={200}
+        />
       </div>
       <CardHeader>
         <CardTitle>{title}</CardTitle>

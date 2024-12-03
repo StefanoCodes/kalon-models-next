@@ -1,14 +1,10 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import Heading from "../about/_components/heading";
 import { CourseCard } from "./_components/course-card";
-import { courses } from "./pricing.config";
 
 export default function Pricing() {
   return (
     <div className="flex flex-col gap-8 md:gap-16">
       <Heading headingSize="h1">Pricing</Heading>
-
       <div className="flex flex-col items-start justify-start gap-4 md:flex-row md:items-center md:justify-between">
         <CourseCard
           title="Adults"
