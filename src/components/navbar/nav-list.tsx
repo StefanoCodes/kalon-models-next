@@ -57,7 +57,7 @@ function DesktopNavListDefaultVariant({
         )}
       >
         {routes.map((route) => (
-          <li key={route.href} className={cn(``, listItemClasses)}>
+          <li key={route.href} className={cn(`text-sm`, listItemClasses)}>
             <Link className={cn(linkItemClasses)} href={route.href}>
               {route.title}
             </Link>
@@ -69,7 +69,9 @@ function DesktopNavListDefaultVariant({
             asChild
             className={cn("text-base", callToActionClasses)}
           >
-            <Link href="/register">Register</Link>
+            <Link href="/register" className="h-8">
+              Register
+            </Link>
           </Button>
         </li>
       </ul>
@@ -92,7 +94,7 @@ function DesktopNavListHomeVariant() {
           </Link>
         ))}
         <li>
-          <Button variant="kalon" asChild>
+          <Button variant="kalon" className="h-8" asChild>
             <Link href="/register">Register</Link>
           </Button>
         </li>

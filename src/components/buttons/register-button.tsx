@@ -16,7 +16,7 @@ export default function RegisterButton({
       <Button asChild onClick={toggleNavigation}>
         <Link
           href="/register"
-          className="w-full rounded-sm bg-gradient-to-b from-[#6e3bff] to-[#7e51ff] text-xl font-normal tracking-[0.4px] text-whiteColor"
+          className="w-full rounded-sm bg-gradient-to-b from-[#6e3bff] to-[#7e51ff] py-2 text-xl font-normal tracking-[0.4px] text-whiteColor"
         >
           {children}
         </Link>
