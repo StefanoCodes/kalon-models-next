@@ -8,10 +8,10 @@ export default function Home() {
       className="container flex flex-col gap-10 px-5 pt-32 md:px-0 md:pt-40"
       id="home"
     >
-      <div className="flex flex-col gap-0 self-end">
+      <div className="flex flex-col gap-2 md:gap-0 xl:self-end">
         <Heading
           headingSize="h2"
-          className="font-normal text-muted-foreground lg:text-6xl lg:leading-[1.2]"
+          className="text-[2.5rem] font-normal leading-[48px] text-muted-foreground md:text-[3.5rem] md:leading-[64px] lg:text-6xl lg:leading-[1.2]"
         >
           Your Modelling Journey <br />
           <span className="text-kalon-primary">Starts Here</span>
