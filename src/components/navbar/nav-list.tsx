@@ -82,24 +82,15 @@ function DesktopNavListHomeVariant() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   return (
-    <motion.div
-      // whenever the scroll progress is like 0.1 we can do something
-      className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex"
-    >
+    <motion.div className="container mt-10 w-full flex-col items-center justify-between gap-8 sm:mt-0 sm:flex">
       {/* Navbar */}
       <motion.ul className="hidden w-full flex-row items-center justify-between gap-8 sm:flex">
         {routes.map((route) => (
-          <li
-            key={route.href}
-            className="group rounded-sm px-4 py-1 transition-all duration-300 hover:bg-[#e7dfef]"
-          >
-            <Link
-              className="transition-colors group-hover:text-secondaryColor"
-              href={route.href}
-            >
+          <Link className="group" key={route.href} href={route.href}>
+            <li className="rounded-sm px-4 py-1 transition-all transition-colors duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
               {route.title}
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
         <li>
           <Button variant="kalon" asChild>

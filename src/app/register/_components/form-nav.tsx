@@ -5,10 +5,12 @@ export default function FormNav({
   prev,
   next,
   steps,
+  isPending,
 }: {
   currentStep: number;
   prev: () => void;
   next: () => void;
+  isPending: boolean;
   steps: (
     | {
         id: string;
@@ -36,9 +38,9 @@ export default function FormNav({
         variant={"kalon"}
         className="bg-tertiaryColorRgba px-8 disabled:cursor-not-allowed disabled:opacity-50"
         onClick={next}
-        disabled={currentStep === steps.length - 1}
+        disabled={currentStep === steps.length - 1 || isPending}
       >
-        Next
+        {isPending ? "Submitting..." : "Next"}
       </Button>
     </>
   );
