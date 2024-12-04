@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Clock, Users, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import InterestedButton from "@/components/buttons/interested";
 
 interface CourseCardProps {
   title: string;
@@ -19,6 +20,7 @@ interface CourseCardProps {
   spots: number;
   image: string;
   link: string;
+  slug: string;
 }
 
 export function CourseCard({
@@ -29,7 +31,9 @@ export function CourseCard({
   spots,
   image,
   link,
+  slug,
 }: CourseCardProps) {
+  const searchQuery = `?course=${slug}`;
   return (
     <Card className="w-full flex-1 overflow-hidden">
       <div className="relative aspect-video w-full">
@@ -61,7 +65,7 @@ export function CourseCard({
           </div>
         </div>
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-col gap-4">
         <Button
           className="w-full font-normal tracking-wide"
           variant={"outline"}
@@ -69,6 +73,7 @@ export function CourseCard({
         >
           <Link href={link}>Learn More</Link>
         </Button>
+        <InterestedButton href={`/register${searchQuery}`} />
       </CardFooter>
     </Card>
   );

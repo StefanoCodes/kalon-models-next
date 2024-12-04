@@ -11,6 +11,7 @@ import StepThree from "./step-three";
 import StepTwo from "./step-two";
 import Success from "../sucess";
 import { useSubmit } from "@formspree/react";
+import { courseTypes } from "../registration-dialog";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -32,6 +33,7 @@ const steps = [
       "instagramUsername",
       "howDidYouHearAboutUs",
       "whyWouldYouLikeToJoinKalonModels",
+      "selectedCourse",
     ],
   },
 
@@ -61,6 +63,7 @@ export default function AdultMultiStepForm() {
       instagramUsername: "",
       howDidYouHearAboutUs: "",
       whyWouldYouLikeToJoinKalonModels: "",
+      selectedCourse: undefined,
     },
   });
   const {
@@ -148,13 +151,7 @@ export default function AdultMultiStepForm() {
           )}
           {currentStep === finalStep && !isSubmitSuccessful && (
             <div className="flex flex-col gap-4">
-              <p>did not process because we will still add the form id </p>
-              <pre>
-                Errors:{" "}
-                <span className="text-red-500">
-                  {formErrors.map((e) => e).join(", ")}
-                </span>
-              </pre>
+              <pre>Something went wrong, please try again</pre>
             </div>
           )}
         </form>

@@ -41,6 +41,7 @@ export const coursesMetaData = {
     link: `/pricing/adult`,
     duration: `10 weeks`,
     spots: 10,
+    slug: `adults`,
   },
   kids: {
     title: `Kids Courses`,
@@ -50,6 +51,7 @@ export const coursesMetaData = {
     link: `/pricing/kids`,
     duration: `10 weeks`,
     spots: 10,
+    slug: `kids`,
   },
   masterclass: {
     title: `The Masterclass`,
@@ -59,6 +61,7 @@ export const coursesMetaData = {
     link: `/pricing/masterclass`,
     duration: `10 weeks`,
     spots: 10,
+    slug: `masterclass`,
   },
 };
 

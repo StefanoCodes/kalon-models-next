@@ -44,17 +44,18 @@ const steps = [
       "studentInstagramUsername",
       "studentPreferedMethodOfContact",
       "studentHowDidYouHearAboutUs",
+      "selectedCourse",
     ],
   },
   { id: "Step 5", name: "Complete" },
 ];
 
 export default function GuardianMultiStepForm() {
-  const finalStep = steps.length - 1;
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [formErrors, setFormErrors] = useState<string[]>([]);
   const delta = currentStep - previousStep;
+  const finalStep = steps.length - 1;
 
   const form = useForm<Inputs>({
     resolver: zodResolver(guardianRegistriationFormSchema),
@@ -74,6 +75,7 @@ export default function GuardianMultiStepForm() {
       studentInstagramUsername: "",
       studentPreferedMethodOfContact: "whatsapp",
       studentHowDidYouHearAboutUs: "",
+      selectedCourse: "kids",
     },
   });
   const {
@@ -132,6 +134,7 @@ export default function GuardianMultiStepForm() {
                 studentPhoneNumber: data.studentPhoneNumber || "n/a",
                 studentInstagramUsername:
                   data.studentInstagramUsername || "n/a",
+                course: `kids`,
               };
               await submit(formData);
             })();
@@ -165,23 +168,19 @@ export default function GuardianMultiStepForm() {
           {/* STEP 4 */}
           {currentStep === 3 && <StepFour delta={delta} />}
           {/* STEP 5 / SUCCESS PAGE / ERRORS */}
-          {currentStep === 4 && isSubmitSuccessful && <Success delta={delta} />}
-          {currentStep === 4 && !isSubmitSuccessful && (
+          {currentStep === finalStep && isSubmitSuccessful && (
+            <Success delta={delta} />
+          )}
+          {currentStep === finalStep && !isSubmitSuccessful && (
             <div className="flex flex-col gap-4">
-              <p>did not process because we will still add the form id </p>
-              <pre>
-                Errors:{" "}
-                <span className="text-red-500">
-                  {formErrors.map((e) => e).join(", ")}
-                </span>
-              </pre>
+              <pre>Something went wrong please try again</pre>
             </div>
           )}
         </form>
       </Form>
       {/* BUTTONS NEXT AND PREV */}
       <div className="flex w-full justify-end gap-4 md:max-w-[88%] md:items-center">
-        {currentStep !== steps.length - 1 && (
+        {currentStep !== finalStep && (
           <FormNav
             isPending={isSubmitting}
             currentStep={currentStep}

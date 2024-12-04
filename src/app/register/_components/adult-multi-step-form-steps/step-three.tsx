@@ -1,33 +1,24 @@
 "use client";
-import { motion } from "framer-motion";
 import Row from "@/components/row";
 import {
-  Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PhoneInput } from "@/components/ui/phone-input";
-import { useFormContext } from "react-hook-form";
-import { registriationFormSchema } from "@/lib/validations/schema";
-import { z } from "zod";
-import {
-  DateField,
-  DateInput,
-  DateSegment,
-  FieldError,
-} from "react-aria-components";
-import { format } from "date-fns";
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
+  SelectValue,
+  SelectTrigger,
 } from "@/components/ui/select";
+import { registriationFormSchema } from "@/lib/validations/schema";
+import { motion } from "framer-motion";
+import { useFormContext } from "react-hook-form";
+import { z } from "zod";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 export default function StepThree({ delta }: { delta: number }) {
@@ -107,6 +98,32 @@ export default function StepThree({ delta }: { delta: number }) {
                       className="form-input"
                       autoComplete="why-would-you-like-to-join-kalon-models"
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="md:flex-1">
+            <FormField
+              control={control}
+              name="selectedCourse"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Course</FormLabel>
+                  <FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger id="select-20" className="form-input px-0">
+                        <SelectValue placeholder="Select a course" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="adults">Adults</SelectItem>
+                        <SelectItem value="masterclass">Masterclass</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

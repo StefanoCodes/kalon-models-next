@@ -125,6 +125,36 @@ export default function StepFour({ delta }: { delta: number }) {
               )}
             />
           </div>
+          {/* Selected Course however disabled */}
+          <div className="md:flex-1">
+            <FormField
+              control={control}
+              name="selectedCourse"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Selected Course</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    disabled
+                  >
+                    <FormControl>
+                      <SelectTrigger
+                        className={cn("form-input px-0")}
+                        id="select-36"
+                      >
+                        <SelectValue placeholder="Selected Course" />
+                        <SelectContent>
+                          <SelectItem value="kids">Kids</SelectItem>
+                        </SelectContent>
+                      </SelectTrigger>
+                    </FormControl>
+                  </Select>
+                  <FormMessage className="mt-2" />
+                </FormItem>
+              )}
+            />
+          </div>
         </Row>
       </div>
     </motion.div>

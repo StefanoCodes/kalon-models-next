@@ -21,7 +21,6 @@ export default function Register() {
             application.
           </p>
         </div>
-        {/* Registration Form */}
         <RegistrationDialog />
       </div>
     </section>
