@@ -18,7 +18,7 @@ export default function AnimatedMobileNavLinks({
     <motion.li
       key={item.title}
       variants={linkVariants}
-      className="text-2xl transition-colors duration-300 ease-in-out hover:text-gray-300"
+      className="text-[2rem] font-normal transition-colors duration-300 ease-in-out hover:text-gray-300"
     >
       <Link href={item.href} onClick={onClick} className={cn(className)}>
         {item.title}

@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import NavLogo from "./nav-logo";
 import { AnimatePresence, motion, useCycle } from "motion/react";
 import { navbar } from "./navbar.config";
-import { menuVariants } from "../motion/motion.config";
+import { linkVariants, menuVariants } from "../motion/motion.config";
 import AnimatedMobileNavLinks from "./animated-mobile-nav-items";
 import RegisterButton from "../buttons/register-button";
+import Link from "next/link";
+import { contactConfig } from "@/app/contact/contact.config";
 const { email } = navbar.contact;
+const { instagram } = contactConfig.socials;
 export default function MobileNavList() {
   const [isOpen, toggleOpen] = useCycle(false, true);
   useEffect(() => {
@@ -44,16 +47,33 @@ export default function MobileNavList() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed left-0 top-0 z-20 h-[100dvh] w-full bg-accent-foreground p-4 text-whiteColor"
+            className="fixed left-0 top-0 z-20 h-[100dvh] w-full bg-black p-4 text-whiteColor"
           >
-            <nav className="flex h-full w-full pt-32">
-              <div className="flex w-full flex-col justify-between gap-8">
-                <ul className="flex flex-col gap-4">
+            <nav className="flex min-h-[calc(100dvh-4rem)] pb-44 pt-32">
+              <div className="min-h flex w-full flex-col justify-between gap-8">
+                <ul className="flex flex-col gap-8">
                   <AnimatedMobileNavLinks onClick={toggleNavigation} />
                 </ul>
-                <div className="flex w-full flex-row items-center justify-between">
-                  <RegisterButton toggleNavigation={toggleNavigation} />
-                </div>
+                <motion.div
+                  variants={linkVariants}
+                  className="flex flex-col gap-2"
+                >
+                  <p className="text-xs">hello@kalon.com.au</p>
+                  <div className="flex items-center gap-8">
+                    <Link
+                      href={instagram.url}
+                      className="text-xs font-light capitalize"
+                    >
+                      in
+                    </Link>
+                    <Link
+                      href={instagram.url}
+                      className="text-xs font-light capitalize"
+                    >
+                      ti
+                    </Link>
+                  </div>
+                </motion.div>
               </div>
             </nav>
           </motion.div>
