@@ -47,34 +47,34 @@ export default function MobileNavList() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed left-0 top-0 z-20 min-h-dvh w-full bg-black p-4 pb-44 pt-32 text-whiteColor"
+            className="fixed left-0 top-0 z-20 min-h-dvh w-full bg-black p-4 pb-4 pt-32 text-whiteColor"
           >
-            <nav className="flex">
-              <div className="flex min-h-[calc(100dvh-23rem)] w-full flex-col justify-between gap-8">
-                <ul className="flex flex-col gap-8">
-                  <AnimatedMobileNavLinks onClick={toggleNavigation} />
-                </ul>
-                <motion.div
-                  variants={linkVariants}
-                  className="flex flex-col gap-2"
-                >
-                  <p className="text-xs">hello@kalon.com.au</p>
-                  <div className="flex items-center gap-8">
-                    <Link
-                      href={instagram.url}
-                      className="text-xs font-light capitalize"
-                    >
-                      in
-                    </Link>
-                    <Link
-                      href={instagram.url}
-                      className="text-xs font-light capitalize"
-                    >
-                      ti
-                    </Link>
-                  </div>
-                </motion.div>
-              </div>
+            <nav className="flex min-h-[calc(100dvh-4rem-8rem)] w-full flex-col justify-between gap-8">
+              <ul className="flex flex-col gap-8">
+                <AnimatedMobileNavLinks onClick={toggleNavigation} />
+              </ul>
+              <motion.div
+                variants={linkVariants}
+                className="flex flex-col gap-2"
+              >
+                <p className="text-xs font-light text-muted-foreground">
+                  hello@kalon.com.au
+                </p>
+                <div className="flex items-center gap-4">
+                  <Link
+                    href={instagram.url}
+                    className="text-xs font-light capitalize text-muted-foreground"
+                  >
+                    in
+                  </Link>
+                  <Link
+                    href={instagram.url}
+                    className="text-xs font-light capitalize text-muted-foreground"
+                  >
+                    ti
+                  </Link>
+                </div>
+              </motion.div>
             </nav>
           </motion.div>
         )}
