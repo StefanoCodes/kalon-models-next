@@ -87,18 +87,23 @@ function DesktopNavListDefaultVariant({
             )}
           </li>
         ))}
-        <li>
+        <li className="relative">
           <Button
             variant="kalon"
             asChild
             className={cn(
-              "h-8 text-base text-navLinkColor hover:bg-purple-500 hover:text-white",
+              "h-8 text-base text-navLinkColor",
               callToActionClasses,
-              pathname.startsWith("/register") && "bg-purple-500 text-white",
             )}
           >
             <Link href="/register">Register</Link>
           </Button>
+          {pathname.startsWith("/register") && (
+            <motion.div
+              layoutId="underline"
+              className="absolute left-0 right-0 top-0 h-full cursor-pointer rounded-sm bg-purple-500/40"
+            />
+          )}
         </li>
       </ul>
     </div>
