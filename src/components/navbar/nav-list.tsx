@@ -2,13 +2,12 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
 import { navbar } from "./navbar.config";
-import { useRef, useState } from "react";
 
 const { routes } = navbar;
 
@@ -120,6 +119,7 @@ function DesktopNavListHomeVariant() {
         layout="preserve-aspect"
         style={{
           justifyContent: scrollProgress > 0.87 ? "flex-end" : "space-between",
+          gap: scrollProgress > 0.87 ? "0.5rem" : "1rem",
         }}
         transition={{
           duration: 0.3,

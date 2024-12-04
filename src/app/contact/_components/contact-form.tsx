@@ -37,28 +37,22 @@ export default function ContactForm() {
   const processForm: SubmitHandler<Inputs> = (data) => {
     const isValidData = contactFormSchema.safeParse(data);
     if (!isValidData.success) {
-      toast({
+      return toast({
         title: "Form Error",
         description: "Please check your form for errors",
         duration: 5000,
       });
-      return;
     }
-    // business logic here
-    console.log(data);
     toast({
       title: "Message Sent",
       description: "We will get back to you as soon as possible",
     });
     form.reset();
   };
-
-  type FieldName = keyof Inputs;
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(processForm)}>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col justify-start gap-6">
           <FormField
             control={form.control}
             name="name"
@@ -178,9 +172,9 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <div className="flex justify-end">
-            <Button variant="kalon">Get In Touch</Button>
-          </div>
+          <Button variant="kalon" className="self-end xl:w-fit">
+            Get In Touch
+          </Button>
         </div>
       </form>
     </Form>
