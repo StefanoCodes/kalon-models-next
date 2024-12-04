@@ -46,10 +46,12 @@ function DesktopNavListDefaultVariant({
   linkItemClasses?: string;
   callToActionClasses?: string;
 }) {
+  const pathname = usePathname();
+
   return (
     <div
       className={cn(
-        "container hidden min-h-[700px] w-full justify-between sm:flex",
+        "container hidden w-full justify-between sm:flex",
         wrapperClasses,
       )}
     >
@@ -62,7 +64,11 @@ function DesktopNavListDefaultVariant({
         {routes.map((route) => (
           <li
             key={route.href}
-            className={cn(`text-sm text-navLinkColor`, listItemClasses)}
+            className={cn(
+              `text-sm text-navLinkColor`,
+              pathname.startsWith(route.href) && "text-kalon-primary",
+              listItemClasses,
+            )}
           >
             <Link className={cn(linkItemClasses)} href={route.href}>
               {route.title}
