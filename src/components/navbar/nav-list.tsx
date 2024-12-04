@@ -65,14 +65,25 @@ function DesktopNavListDefaultVariant({
           <li
             key={route.href}
             className={cn(
-              `text-sm text-navLinkColor`,
-              pathname.startsWith(route.href) && "text-kalon-primary",
+              `relative px-2 py-1 text-sm text-navLinkColor`,
               listItemClasses,
             )}
           >
-            <Link className={cn(linkItemClasses)} href={route.href}>
+            <Link
+              className={cn(
+                linkItemClasses,
+                pathname.startsWith(route.href) && "relative",
+              )}
+              href={route.href}
+            >
               {route.title}
             </Link>
+            {pathname.startsWith(route.href) && (
+              <motion.div
+                layoutId="underline"
+                className="absolute left-0 right-0 top-0 h-full rounded-sm bg-purple-500/15"
+              />
+            )}
           </li>
         ))}
         <li>
