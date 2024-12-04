@@ -13,7 +13,6 @@ export default function Contact() {
             <ContactForm />
           </div>
         </div>
-        <Hr gradient="light" />
         <Socials />
       </div>
     </section>
