@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-whiteColor">
       <div className="container flex items-center justify-between px-4 py-4 xl:px-0">
-        <span className="block text-xs text-paragraph">
+        <span className="block text-sm text-mutedColor">
           Creating Experiences Since {foundedYear}
         </span>
 
