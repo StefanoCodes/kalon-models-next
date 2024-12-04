@@ -19,7 +19,7 @@ export default function MobileNavList() {
   const toggleNavigation = () => toggleOpen();
   return (
     <>
-      <div className="z-30 flex w-full items-center justify-between md:hidden">
+      <div className="z-30 flex w-full items-center justify-between sm:hidden">
         <NavLogo
           onClick={() => {
             return isOpen && toggleNavigation();
