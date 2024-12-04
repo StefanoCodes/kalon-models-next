@@ -72,6 +72,7 @@ function DesktopNavListDefaultVariant({
             <Link
               className={cn(
                 linkItemClasses,
+                "hover:opacity-80",
                 pathname.startsWith(route.href) && "relative",
               )}
               href={route.href}
@@ -81,7 +82,7 @@ function DesktopNavListDefaultVariant({
             {pathname.startsWith(route.href) && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 right-0 top-0 h-full rounded-sm bg-purple-500/15"
+                className="absolute left-0 right-0 top-0 h-full cursor-pointer rounded-sm bg-purple-500/15"
               />
             )}
           </li>
@@ -91,8 +92,9 @@ function DesktopNavListDefaultVariant({
             variant="kalon"
             asChild
             className={cn(
-              "h-8 text-base text-navLinkColor",
+              "h-8 text-base text-navLinkColor hover:bg-purple-500 hover:text-white",
               callToActionClasses,
+              pathname.startsWith("/register") && "bg-purple-500 text-white",
             )}
           >
             <Link href="/register">Register</Link>
