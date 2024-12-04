@@ -15,7 +15,7 @@ export default function AnimatedMobileNavLinks({
   className?: string;
 }) {
   return navItems.map((item, i) => (
-    <motion.div
+    <motion.li
       key={item.title}
       variants={linkVariants}
       className="text-2xl transition-colors duration-300 ease-in-out hover:text-gray-300"
@@ -23,6 +23,6 @@ export default function AnimatedMobileNavLinks({
       <Link href={item.href} onClick={onClick} className={cn(className)}>
         {item.title}
       </Link>
-    </motion.div>
+    </motion.li>
   ));
 }

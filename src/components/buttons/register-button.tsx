@@ -13,13 +13,13 @@ export default function RegisterButton({
 }) {
   return (
     <motion.div variants={linkVariants} className="w-full">
-      <Button asChild onClick={toggleNavigation}>
-        <Link
-          href="/register"
-          className="w-full rounded-sm bg-gradient-to-b from-[#6e3bff] to-[#7e51ff] py-2 text-xl font-normal tracking-[0.4px] text-whiteColor"
-        >
-          {children}
-        </Link>
+      <Button
+        asChild
+        onClick={toggleNavigation}
+        className="w-full text-base font-normal"
+        variant={"kalon"}
+      >
+        <Link href="/register">{children}</Link>
       </Button>
     </motion.div>
   );
