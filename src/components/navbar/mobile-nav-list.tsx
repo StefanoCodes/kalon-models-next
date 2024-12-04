@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useCycle } from "motion/react";
 import { navbar } from "./navbar.config";
 import { linkVariants, menuVariants } from "../motion/motion.config";
 import AnimatedMobileNavLinks from "./animated-mobile-nav-items";
-import RegisterButton from "../buttons/register-button";
 import Link from "next/link";
 import { contactConfig } from "@/app/contact/contact.config";
 const { email } = navbar.contact;
