@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import KalonSvgAnimation from "./kalon-svg-animation";
 import FlickeringGrid from "./shimmer-dot-concept";
 
-export const Preloader = () => {
+export const Preloader = ({ duration = 1500 }: { duration?: number }) => {
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPreloader(false);
-    }, 1500);
+    }, duration);
 
     return () => clearTimeout(timer);
   }, []);
