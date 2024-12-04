@@ -1,6 +1,7 @@
 import Hr from "@/components/hr";
 import ContactForm from "./_components/contact-form";
 import ContactHeading from "./_components/heading";
+import Socials from "./_components/socials";
 
 export default function Contact() {
   return (
@@ -12,8 +13,8 @@ export default function Contact() {
             <ContactForm />
           </div>
         </div>
-        <Hr gradient="tertiary" />
-        {/* Social List  whatsapp, email and instragram */}
+        <Hr gradient="light" />
+        <Socials />
       </div>
     </section>
   );

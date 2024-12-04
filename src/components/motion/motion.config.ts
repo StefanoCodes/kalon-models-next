@@ -3,6 +3,7 @@ import { Variants } from "framer-motion";
 const easing = [0.6, -0.05, 0.01, 0.99];
 
 export const menuVariants: Variants = {
+  // end of animation look
   open: {
     opacity: 1,
     y: "0",
@@ -15,6 +16,7 @@ export const menuVariants: Variants = {
       ease: easing,
     },
   },
+  // start of animation look
   closed: {
     opacity: 1,
     y: "-100%",
@@ -24,7 +26,6 @@ export const menuVariants: Variants = {
       when: "afterChildren",
       staggerChildren: 0.05,
       staggerDirection: -1,
-      delayChildren: 0.1,
       ease: easing,
     },
   },

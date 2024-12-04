@@ -136,7 +136,7 @@ function DesktopNavListHomeVariant() {
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="container mt-10 flex h-full w-full flex-col items-center justify-center gap-8 sm:mt-0"
+      className="container mt-10 flex hidden h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 md:flex"
     >
       {/* Navbar */}
       <motion.ul
@@ -191,95 +191,3 @@ function DesktopNavListHomeVariant() {
     </motion.div>
   );
 }
-// function DesktopNavListHomeVariant() {
-//   const containerRef = useRef<HTMLDivElement>(null);
-//   const { scrollYProgress } = useScroll({
-//     target: containerRef,
-//     offset: ["start end", "end start"],
-//   });
-//   const [scrollProgress, setScrollProgress] = useState(0);
-//   const scale = useTransform(scrollYProgress, [1, 0.5], [1, 0]);
-
-//   useMotionValueEvent(scrollYProgress, "change", (current) => {
-//     setScrollProgress(current);
-//   });
-
-//   const navWidth = useTransform(scrollYProgress, [1, 0.87], ["100%", "auto"]);
-//   const navJustify = useTransform(
-//     scrollYProgress,
-//     [1, 0.87],
-//     ["space-between", "flex-end"],
-//   );
-//   const navGap = useTransform(scrollYProgress, [1, 0.87], ["2rem", "0.5rem"]);
-
-//   return (
-//     <motion.div
-//       ref={containerRef}
-//       layout
-//       style={{
-//         flexDirection: scrollProgress > 0.87 ? "row-reverse" : "column",
-//         justifyContent: scrollProgress > 0.87 ? "flex-end" : "center",
-//         alignItems: scrollProgress > 0.87 ? "center" : "center",
-//       }}
-//       transition={{
-//         duration: 0.3,
-//         ease: [0.16, 1, 0.3, 1],
-//       }}
-//       className="container mt-10 h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 sm:flex"
-//     >
-//       {/* Navbar */}
-//       <motion.ul
-//         layout
-//         style={{
-//           width: navWidth,
-//           justifyContent: navJustify,
-//           gap: navGap,
-//         }}
-//         transition={{
-//           duration: 0.3,
-//           ease: [0.16, 1, 0.3, 1],
-//         }}
-//         className="hidden w-full flex-row items-center justify-between sm:flex"
-//       >
-//         {routes.map((route) => (
-//           <motion.li
-//             key={route.href}
-//             layout
-//             transition={{
-//               duration: 0.3,
-//               ease: [0.16, 1, 0.3, 1],
-//             }}
-//           >
-//             <Link className="group" href={route.href}>
-//               <span className="rounded-sm px-4 py-1 text-navLinkColor transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
-//                 {route.title}
-//               </span>
-//             </Link>
-//           </motion.li>
-//         ))}
-//         <motion.li
-//           layout
-//           transition={{
-//             duration: 0.3,
-//             ease: [0.16, 1, 0.3, 1],
-//           }}
-//         >
-//           <Button variant="kalon" className="h-8 text-navLinkColor" asChild>
-//             <Link href="/register">Register</Link>
-//           </Button>
-//         </motion.li>
-//       </motion.ul>
-//       <motion.div
-//         style={{ scale }}
-//         layout
-//         transition={{
-//           duration: 0.3,
-//           ease: [0.16, 1, 0.3, 1],
-//         }}
-//         className="flex flex-col items-center justify-center"
-//       >
-//         <h1 className="text-8xl font-bold">Kalon</h1>
-//       </motion.div>
-//     </motion.div>
-//   );
-// }
