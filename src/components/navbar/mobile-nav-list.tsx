@@ -47,10 +47,10 @@ export default function MobileNavList() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed left-0 top-0 z-20 h-[100dvh] w-full bg-black p-4 text-whiteColor"
+            className="fixed left-0 top-0 z-20 min-h-dvh w-full bg-black p-4 pb-44 pt-32 text-whiteColor"
           >
-            <nav className="flex min-h-[calc(100dvh-4rem)] pb-44 pt-32">
-              <div className="min-h flex w-full flex-col justify-between gap-8">
+            <nav className="flex">
+              <div className="flex min-h-[calc(100dvh-23rem)] w-full flex-col justify-between gap-8">
                 <ul className="flex flex-col gap-8">
                   <AnimatedMobileNavLinks onClick={toggleNavigation} />
                 </ul>
