@@ -104,9 +104,9 @@ function DesktopNavListHomeVariant() {
       ref={containerRef}
       layout
       style={{
-        flexDirection: scrollProgress > 0.85 ? "row-reverse" : "column",
-        justifyContent: scrollProgress > 0.85 ? "flex-end" : "center",
-        alignItems: scrollProgress > 0.85 ? "flex-end" : "center",
+        flexDirection: scrollProgress > 0.87 ? "row-reverse" : "column",
+        justifyContent: scrollProgress > 0.87 ? "flex-end" : "center",
+        alignItems: scrollProgress > 0.87 ? "flex-end" : "center",
       }}
       transition={{
         duration: 0.3,
@@ -118,8 +118,8 @@ function DesktopNavListHomeVariant() {
       <motion.ul
         layout="preserve-aspect"
         style={{
-          justifyContent: scrollProgress > 0.85 ? "flex-end" : "space-between",
-          gap: scrollProgress > 0.85 ? "0.5rem" : "1rem",
+          justifyContent: scrollProgress > 0.87 ? "flex-end" : "space-between",
+          gap: scrollProgress > 0.87 ? "0.5rem" : "1rem",
         }}
         transition={{
           duration: 0.3,
