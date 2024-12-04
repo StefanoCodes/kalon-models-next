@@ -1,7 +1,7 @@
 "use client";
 
 import { contactFormSchema } from "@/lib/validations/schema";
-
+import TextureButton from "@/components/buttons/primary-button";
 import {
   Form,
   FormControl,
@@ -16,7 +16,6 @@ import { Input } from "@/components/ui/input";
 import { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { TextArea } from "react-aria-components";
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 type Inputs = z.infer<typeof contactFormSchema>;
@@ -172,9 +171,14 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Button variant="kalon" className="w-full self-end xl:w-fit">
+          <TextureButton
+            variant="kalon"
+            size="sm"
+            className="w-full self-end xl:w-fit"
+          >
+            {/* <Link href="/contact">Get In Touch</Link> */}
             Get In Touch
-          </Button>
+          </TextureButton>
         </div>
       </form>
     </Form>

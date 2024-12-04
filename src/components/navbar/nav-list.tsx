@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import NavLogo from "./nav-logo";
 import { navbar } from "./navbar.config";
+import TextureButton from "../buttons/primary-button";
 
 const { routes } = navbar;
 
@@ -80,16 +81,9 @@ function DesktopNavListDefaultVariant({
           </li>
         ))}
         <li>
-          <Button
-            variant="kalon"
-            asChild
-            className={cn(
-              "h-8 text-base text-navLinkColor",
-              callToActionClasses,
-            )}
-          >
+          <TextureButton size="sm" variant="kalon">
             <Link href="/register">Register</Link>
-          </Button>
+          </TextureButton>
         </li>
       </ul>
     </div>
@@ -122,7 +116,7 @@ function DesktopNavListHomeVariant() {
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="container mt-10 hidden h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 md:flex"
+      className="container mt-10 hidden h-full w-full flex-col items-center justify-center gap-8 md:mt-0 md:flex"
     >
       {/* Navbar */}
       <motion.ul
@@ -135,7 +129,7 @@ function DesktopNavListHomeVariant() {
           duration: 0.3,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="hidden w-full flex-row items-center gap-8 sm:flex"
+        className="hidden w-full flex-row items-center gap-8 md:flex"
       >
         {routes.map((route) => (
           <Link className="group" key={route.href} href={route.href}>
@@ -145,9 +139,9 @@ function DesktopNavListHomeVariant() {
           </Link>
         ))}
         <li>
-          <Button variant="kalon" className="h-8 text-navLinkColor" asChild>
-            <Link href="/register">Register</Link>
-          </Button>
+          <TextureButton variant="kalon" size="sm">
+            Register
+          </TextureButton>
         </li>
       </motion.ul>
       <h1 className="text-8xl font-bold tracking-wider xs:text-9xl md:hidden">
