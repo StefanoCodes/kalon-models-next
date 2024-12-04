@@ -81,8 +81,8 @@ function DesktopNavListDefaultVariant({
           </li>
         ))}
         <li>
-          <TextureButton size="sm" variant="kalon">
-            <Link href="/register">Register</Link>
+          <TextureButton size="sm" variant="kalon" href="/register">
+            Register
           </TextureButton>
         </li>
       </ul>
@@ -139,7 +139,7 @@ function DesktopNavListHomeVariant() {
           </Link>
         ))}
         <li>
-          <TextureButton variant="kalon" size="sm">
+          <TextureButton variant="kalon" size="sm" href="/register">
             Register
           </TextureButton>
         </li>

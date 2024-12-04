@@ -3,14 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import KalonSvgAnimation from "./kalon-svg-animation";
+import { PRELOADER_DURATION } from "@/lib/constants";
 
-export const Preloader = ({ duration = 1500 }: { duration?: number }) => {
+export const Preloader = () => {
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPreloader(false);
-    }, duration);
+    }, PRELOADER_DURATION);
 
     return () => clearTimeout(timer);
   }, []);
@@ -35,15 +36,6 @@ export const Preloader = ({ duration = 1500 }: { duration?: number }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            {/* <KalonSvgAnimation /> */}
-            {/* <FlickeringGrid
-              className="absolute inset-0 z-10 size-full"
-              squareSize={6}
-              gridGap={6}
-              color="#e7dfef"
-              maxOpacity={0.2}
-              flickerChance={0.5}
-            /> */}
             <KalonSvgAnimation />
           </motion.div>
         </motion.div>

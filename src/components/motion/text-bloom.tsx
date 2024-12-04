@@ -7,6 +7,7 @@ import {
   useAnimation,
   useInView,
 } from "framer-motion";
+import { PRELOADER_DURATION } from "@/lib/constants";
 
 type AnimationType =
   | "fadeIn"
@@ -67,7 +68,7 @@ const animationVariants = {
         scale: 1,
         transition: {
           staggerChildren: 0.05,
-          delayChildren: 1.75,
+          delayChildren: PRELOADER_DURATION / 1000 + 0.25,
         },
       },
     },

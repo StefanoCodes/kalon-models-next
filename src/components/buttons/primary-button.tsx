@@ -5,6 +5,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const buttonVariantsOuter = cva("", {
   variants: {
@@ -21,7 +22,7 @@ const buttonVariantsOuter = cva("", {
         "group  w-full border-[1px] dark:border-[2px] border-black/20 bg-white/50 dark:border-neutral-950 dark:bg-neutral-600/80 p-[1px]  active:bg-neutral-200 dark:active:bg-neutral-800 hover:bg-gradient-to-t hover:from-neutral-100 to-white dark:hover:from-neutral-600/50 dark:hover:to-neutral-600/70 active:bg-neutral-200 dark:active:bg-neutral-800",
       icon: "group rounded-full border dark:border-neutral-950 border-black/10 dark:bg-neutral-600/50 bg-white/50 p-[1px] active:bg-neutral-200 dark:active:bg-neutral-800 hover:bg-gradient-to-t hover:from-neutral-100 to-white dark:hover:from-neutral-700 dark:hover:to-neutral-600 active:bg-neutral-200 dark:active:bg-neutral-800",
       kalon:
-        "w-full h-9 group rounded-full border-2 border-[#572ecc]  bg-[#7440ff] text-2xl",
+        "w-full h-9 group rounded-full border-2 border-[#572ecc] bg-[#7440ff] hover:scale-105 transition duration-300 ease-in-out",
     },
     size: {
       sm: "rounded-[6px]",
@@ -53,7 +54,7 @@ const innerDivVariants = cva(
           "bg-gradient-to-b from-white to-neutral-50/50 dark:from-neutral-800 dark:to-neutral-700/50 text-sm transition duration-300 ease-in-out group-hover:bg-gradient-to-b group-hover:from-neutral-50/50 group-hover:to-neutral-100/60 dark:group-hover:from-neutral-700 dark:group-hover:to-neutral-700/60 group-active:bg-gradient-to-b group-active:from-neutral-100/60 group-active:to-neutral-100/90 dark:group-active:from-neutral-800 dark:group-active:to-neutral-700",
         icon: "bg-gradient-to-b from-white to-neutral-50/50 dark:from-neutral-800 dark:to-neutral-700/50 group-active:bg-neutral-200 dark:group-active:bg-neutral-800 rounded-full",
         kalon:
-          "bg-gradient-to-b border border-[#9d72fe] from-[#6e3bff] to-[#7e51ff] h-8 w-full text-shadow-white  ",
+          "bg-gradient-to-b border border-[#9d72fe] from-[#6e3bff] to-[#7e51ff] h-8 w-full text-shadow-white",
       },
       size: {
         sm: "text-sm rounded-[4px] px-4 py-1",
@@ -81,6 +82,7 @@ export interface UnifiedButtonProps
     | "kalon";
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean;
+  href?: string;
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
@@ -90,6 +92,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
       variant = "primary",
       size = "default",
       asChild = false,
+      href,
       className,
       ...props
     },
@@ -103,9 +106,17 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
         ref={ref}
         {...props}
       >
-        <div className={cn(innerDivVariants({ variant, size }))}>
-          {children}
-        </div>
+        {href ? (
+          <Link href={href}>
+            <div className={cn(innerDivVariants({ variant, size }))}>
+              {children}
+            </div>
+          </Link>
+        ) : (
+          <div className={cn(innerDivVariants({ variant, size }))}>
+            {children}
+          </div>
+        )}
       </Comp>
     );
   },
