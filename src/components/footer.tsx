@@ -9,7 +9,7 @@ export default function Footer() {
   const instagramLink = socials[0].link;
   return (
     <footer className="bg-whiteColor">
-      <div className="container flex items-center justify-between px-4 py-4">
+      <div className="container flex items-center justify-between px-4 py-4 xl:px-0">
         <span className="block text-xs text-paragraph">
           Creating Experiences Since {foundedYear}
         </span>
