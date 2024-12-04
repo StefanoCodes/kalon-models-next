@@ -9,7 +9,7 @@ export default function ServicesList() {
       <Heading headingSize="h2" className="text-xl font-normal lg:text-2xl">
         Services
       </Heading>
-      <div className="hidden flex-col gap-4 sm:flex sm:flex-row sm:justify-between sm:gap-6">
+      <div className="hidden flex-col flex-wrap gap-4 sm:flex sm:flex-row sm:justify-between">
         {/* DESKTOP 2 ROWS */}
         <div className="flex flex-col gap-1 sm:gap-2">
           <ServicesCard title={services[0].title} />
@@ -19,7 +19,7 @@ export default function ServicesList() {
           <ServicesCard title={services[2].title} />
           <ServicesCard title={services[5].title} />
         </div>
-        <div className="flex flex-col gap-1 sm:gap-2 md:self-end md:text-right">
+        <div className="flex flex-col gap-1 sm:gap-2 xl:self-end xl:text-right">
           <ServicesCard title={services[4].title} />
           <ServicesCard title={services[1].title} />
         </div>

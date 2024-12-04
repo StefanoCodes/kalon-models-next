@@ -172,7 +172,7 @@ export default function ContactForm() {
               </FormItem>
             )}
           />
-          <Button variant="kalon" className="self-end xl:w-fit">
+          <Button variant="kalon" className="w-full self-end xl:w-fit">
             Get In Touch
           </Button>
         </div>

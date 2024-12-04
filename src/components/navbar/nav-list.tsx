@@ -49,7 +49,7 @@ function DesktopNavListDefaultVariant({
   return (
     <div
       className={cn(
-        "container hidden w-full justify-between sm:flex",
+        "container hidden min-h-[700px] w-full justify-between sm:flex",
         wrapperClasses,
       )}
     >
@@ -104,22 +104,22 @@ function DesktopNavListHomeVariant() {
       ref={containerRef}
       layout
       style={{
-        flexDirection: scrollProgress > 0.87 ? "row-reverse" : "column",
-        justifyContent: scrollProgress > 0.87 ? "flex-end" : "center",
-        alignItems: scrollProgress > 0.87 ? "flex-end" : "center",
+        flexDirection: scrollProgress > 0.85 ? "row-reverse" : "column",
+        justifyContent: scrollProgress > 0.85 ? "flex-end" : "center",
+        alignItems: scrollProgress > 0.85 ? "flex-end" : "center",
       }}
       transition={{
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="container mt-10 h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 sm:flex"
+      className="container mt-10 flex h-full w-full flex-col items-center justify-center gap-8 sm:mt-0"
     >
       {/* Navbar */}
       <motion.ul
         layout="preserve-aspect"
         style={{
-          justifyContent: scrollProgress > 0.87 ? "flex-end" : "space-between",
-          gap: scrollProgress > 0.87 ? "0.5rem" : "1rem",
+          justifyContent: scrollProgress > 0.85 ? "flex-end" : "space-between",
+          gap: scrollProgress > 0.85 ? "0.5rem" : "1rem",
         }}
         transition={{
           duration: 0.3,
@@ -140,6 +140,9 @@ function DesktopNavListHomeVariant() {
           </Button>
         </li>
       </motion.ul>
+      <h1 className="text-8xl font-bold tracking-wider xs:text-9xl md:hidden">
+        Kalon
+      </h1>
       <motion.div
         style={{ scale }}
         layout
@@ -147,7 +150,7 @@ function DesktopNavListHomeVariant() {
           duration: 0.3,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="flex flex-col items-center justify-center"
+        className="hidden flex-col items-center justify-center md:flex"
       >
         <motion.h1
           layout

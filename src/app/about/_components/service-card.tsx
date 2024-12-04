@@ -10,7 +10,7 @@ export default function ServicesCard({
   className?: string;
 }) {
   return (
-    <div className={cn("md:min-w-[280px]", className)}>
+    <div className={cn("xl:min-w-[280px]", className)}>
       <p className="body-text">{title}</p>
     </div>
   );

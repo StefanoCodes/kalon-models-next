@@ -11,7 +11,7 @@ export default function GalleryLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section id="gallery" className="container px-5 py-10 md:px-0">
+    <section id="gallery" className="container px-4 py-10 xl:px-0">
       {children}
     </section>
   );

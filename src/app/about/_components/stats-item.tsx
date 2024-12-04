@@ -22,7 +22,7 @@ export const StatItem: React.FC<StatItemProps> = ({ title, value }) => {
 
   return (
     <motion.div
-      className="flex flex-col gap-1 md:min-w-[280px] last:md:self-end last:md:text-right"
+      className="flex flex-col gap-1 xl:min-w-[280px] last:xl:self-end last:xl:text-right"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

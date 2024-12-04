@@ -11,10 +11,9 @@ export default {
     extend: {
       container: {
         center: true,
+        // padding: "1rem",
         screens: {
-          // sm: "31.25rem",
-          md: "48rem",
-          lg: "80rem",
+          xl: "80rem",
         },
       },
       screens: {

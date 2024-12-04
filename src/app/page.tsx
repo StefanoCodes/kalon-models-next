@@ -5,10 +5,10 @@ import Link from "next/link";
 export default function Home() {
   return (
     <section
-      className="container flex flex-col gap-10 px-5 pt-32 md:px-0 md:pt-40"
+      className="container flex flex-col gap-10 px-4 pb-64 pt-48 xl:px-0 xl:pt-40"
       id="home"
     >
-      <div className="flex flex-col gap-2 md:gap-0 xl:self-end">
+      <div className="flex flex-col gap-2 md:gap-0 lg:self-end">
         <Heading
           headingSize="h2"
           className="text-[2.5rem] font-normal leading-[48px] text-muted-foreground md:text-[3.5rem] md:leading-[64px] lg:text-6xl lg:leading-[1.2]"
