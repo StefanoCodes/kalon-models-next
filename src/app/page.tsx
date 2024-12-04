@@ -5,18 +5,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="container px-4 xl:px-0 xl:pt-40" id="home">
-      <div className="flex min-h-screen-mobile flex-col justify-between">
-        <div className="md:hidden">
-          <Image
-            src={"/Kalon.svg"}
-            height={1000}
-            width={1000}
-            className="w-full"
-            alt="Kalon Logo"
-          />
-        </div>
-        <div className="flex flex-col gap-2 pb-12 md:gap-0 lg:self-end">
+    <section className="container px-4 xl:px-0" id="home">
+      <div className="flex h-full min-h-screen-mobile justify-end">
+        <div className="flex flex-col justify-end gap-2 pb-12 md:gap-0 lg:self-end">
           <Heading
             headingSize="h2"
             className="text-[2.5rem] font-normal leading-[48px] text-muted-foreground md:text-[3.5rem] md:leading-[64px] lg:text-6xl lg:leading-[1.2]"

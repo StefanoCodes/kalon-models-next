@@ -136,7 +136,7 @@ function DesktopNavListHomeVariant() {
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="container mt-10 flex hidden h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 md:flex"
+      className="container mt-10 hidden h-full w-full flex-col items-center justify-center gap-8 sm:mt-0 md:flex"
     >
       {/* Navbar */}
       <motion.ul
