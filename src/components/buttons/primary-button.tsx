@@ -38,7 +38,7 @@ const buttonVariantsOuter = cva("", {
 });
 
 const innerDivVariants = cva(
-  "w-full h-fit flex items-center justify-center text-muted-foreground ",
+  "w-full h-fit flex items-center justify-center text-muted-foreground select-none",
   {
     variants: {
       variant: {

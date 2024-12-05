@@ -71,7 +71,7 @@ function DesktopNavListDefaultVariant({
             )}
           >
             <Link
-              className={cn(linkItemClasses, "hover:opacity-80", {
+              className={cn(linkItemClasses, "select-none hover:opacity-80", {
                 "text-secondaryColor": pathname.startsWith(route.href),
               })}
               href={route.href}
@@ -132,8 +132,12 @@ function DesktopNavListHomeVariant() {
         className="hidden w-full flex-row items-center gap-8 md:flex"
       >
         {routes.map((route) => (
-          <Link className="group" key={route.href} href={route.href}>
-            <li className="rounded-sm px-4 py-1 text-navLinkColor transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
+          <Link
+            className="group select-none"
+            key={route.href}
+            href={route.href}
+          >
+            <li className="select-none rounded-sm px-4 py-1 text-navLinkColor transition-all duration-300 hover:bg-[#e7dfef] group-hover:text-secondaryColor">
               {route.title}
             </li>
           </Link>
