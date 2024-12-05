@@ -10,7 +10,12 @@ export const metadata: Metadata = {
     "Register with Kalon Models today and begin your journey to becoming a professional model.",
 };
 
-export default async function Register() {
+export default async function Register({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const { course } = await searchParams;
   return (
     <section className="container px-4 py-10 xl:px-0" id="register">
       <div className="flex flex-col gap-8">
@@ -24,7 +29,7 @@ export default async function Register() {
           </p>
         </div>
         <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-          <RegistrationDialog />
+          <RegistrationDialog course={course} />
         </Suspense>
       </div>
     </section>

@@ -13,9 +13,11 @@ import { use, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
-export default function RegistrationDialog() {
-  const searchParams = useSearchParams();
-  const course = searchParams.get(`course`);
+export default function RegistrationDialog({
+  course,
+}: {
+  course: string | string[] | undefined;
+}) {
   const [selectedAge, setSelectedAge] = useState<ageRangeTypes>(undefined);
   const [query, setQuery] = useState<courseTypes>(undefined);
   const isQueryValid =
