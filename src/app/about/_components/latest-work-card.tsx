@@ -16,7 +16,7 @@ export default function LatestWorkCard({
   description: GalleryContent["overview"][0];
   slug: GalleryContent["slug"];
 }) {
-  const shortDescription = description.slice(0, 200);
+  const shortDescription = description.slice(0, 196);
   return (
     <div className="flex items-center gap-4 rounded-md bg-backgroundLightAltColor px-3 py-2 md:flex-1 lg:items-start lg:gap-8 lg:pt-4">
       {/* left */}
@@ -47,7 +47,7 @@ export default function LatestWorkCard({
             </Link>
           </Button>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="">
           <p className="inline-block bg-gradient-to-b from-paragraph via-navLinkColor to-transparent bg-clip-text text-xs text-transparent dark:to-transparent sm:text-sm lg:text-base">
             <span className="line-clamp-2 max-w-prose md:line-clamp-3 lg:line-clamp-none">
               {shortDescription}
