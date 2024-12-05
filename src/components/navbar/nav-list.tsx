@@ -23,17 +23,18 @@ export default function DesktopNavList({
   linkItemClasses?: string;
   callToActionClasses?: string;
 }) {
-  const pathname = usePathname();
-  return pathname === "/" ? (
-    <DesktopNavListHomeVariant />
-  ) : (
-    <DesktopNavListDefaultVariant
-      wrapperClasses={wrapperClasses}
-      listItemClasses={listItemClasses}
-      linkItemClasses={linkItemClasses}
-      callToActionClasses={callToActionClasses}
-    />
-  );
+  // const pathname = usePathname();
+  // return pathname === "/" ? (
+  //   <DesktopNavListHomeVariant />
+  // ) : (
+  //   <DesktopNavListDefaultVariant
+  //     wrapperClasses={wrapperClasses}
+  //     listItemClasses={listItemClasses}
+  //     linkItemClasses={linkItemClasses}
+  //     callToActionClasses={callToActionClasses}
+  //   />
+  // );
+  return <DesktopNavListDefaultVariant />;
 }
 // OTHER PAGES NAV LIST
 function DesktopNavListDefaultVariant({

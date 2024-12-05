@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <section className="container px-4 xl:px-0" id="home">
-      <div className="flex h-full min-h-screen-mobile">
+      <div className="flex h-full min-h-screen-mobile md:min-h-screen-desktop">
         {/* <div className="flex flex-col justify-end gap-2 pb-12 md:gap-0 lg:self-end">
           <Heading
             headingSize="h2"
