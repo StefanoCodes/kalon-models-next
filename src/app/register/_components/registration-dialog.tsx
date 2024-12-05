@@ -13,12 +13,15 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
-export default function RegistrationDialog() {
+export default function RegistrationDialog({
+  course,
+}: {
+  course: string | string[] | undefined;
+}) {
   const [selectedAge, setSelectedAge] = useState<ageRangeTypes>(undefined);
   const [query, setQuery] = useState<courseTypes>(undefined);
-  const searchParams = useSearchParams();
-  const course = searchParams.get(`course`);
-  const isQueryValid = course === `adults` || course === `kids`;
+  const isQueryValid =
+    course === `adults` || course === `kids` || course === `masterclass`;
   // we need to check that the query is valid and if it is we set the query to the course type
   useEffect(() => {
     if (course) {
@@ -26,7 +29,7 @@ export default function RegistrationDialog() {
     } else {
       setQuery(undefined);
     }
-  }, [searchParams]);
+  }, [course]);
 
   return (
     <>

@@ -8,7 +8,13 @@ export const metadata: Metadata = {
     "Register with Kalon Models today and begin your journey to becoming a professional model.",
 };
 
-export default function Register() {
+export default async function Register({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const course = searchParams.course;
+  console.log(course);
   return (
     <section className="container px-4 py-10 xl:px-0" id="register">
       <div className="flex flex-col gap-8">
@@ -21,7 +27,7 @@ export default function Register() {
             application.
           </p>
         </div>
-        <RegistrationDialog />
+        <RegistrationDialog course={course} />
       </div>
     </section>
   );
