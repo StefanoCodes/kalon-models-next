@@ -53,7 +53,7 @@ function DesktopNavListDefaultVariant({
   return (
     <div
       className={cn(
-        "container hidden w-full items-center justify-between sm:flex",
+        "hidden w-full items-center justify-between sm:flex",
         wrapperClasses,
       )}
     >

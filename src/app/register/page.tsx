@@ -17,7 +17,7 @@ export default async function Register({
 }) {
   const { course } = await searchParams;
   return (
-    <section className="container px-4 py-10 xl:px-0" id="register">
+    <section className="container py-10" id="register">
       <div className="flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col gap-4">

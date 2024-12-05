@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <section id="about" className="container px-4 py-10 xl:px-0">
+    <section id="about" className="container py-10">
       <div className="flex flex-col gap-16">
         <Header />
         <div className="flex flex-col gap-16">

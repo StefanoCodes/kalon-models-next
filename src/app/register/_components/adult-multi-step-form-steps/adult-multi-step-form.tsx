@@ -80,7 +80,7 @@ export default function AdultMultiStepForm({
   } = form;
 
   const submit = useSubmit<Inputs>(
-    process.env.NEXT_PUBLIC_REACT_APP_REACT_HOOK_FORM_ID!,
+    process.env.NEXT_PUBLIC_REACT_APP_REACT_HOOK_FORM_ID_REGISTRATION_FORM!,
     {
       onError(errs) {
         const formErrs = errs.getFormErrors();

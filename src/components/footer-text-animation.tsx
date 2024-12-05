@@ -7,7 +7,7 @@ export default function FooterTextAnimation() {
     <TextAnimate
       type="popIn"
       text={text}
-      className="block text-sm text-mutedColor"
+      className="block select-none text-sm text-mutedColor"
     />
   );
 }
