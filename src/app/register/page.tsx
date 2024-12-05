@@ -10,12 +10,7 @@ export const metadata: Metadata = {
     "Register with Kalon Models today and begin your journey to becoming a professional model.",
 };
 
-export default async function Register({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const course = searchParams.course;
+export default async function Register() {
   return (
     <section className="container px-4 py-10 xl:px-0" id="register">
       <div className="flex flex-col gap-8">

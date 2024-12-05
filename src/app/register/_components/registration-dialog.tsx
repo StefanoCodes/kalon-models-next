@@ -14,7 +14,6 @@ import { useSearchParams } from "next/navigation";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
 export default function RegistrationDialog() {
-  // we will use this to consume the promise
   const searchParams = useSearchParams();
   const course = searchParams.get(`course`);
   const [selectedAge, setSelectedAge] = useState<ageRangeTypes>(undefined);
