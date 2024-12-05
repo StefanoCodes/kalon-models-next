@@ -52,7 +52,7 @@ function DesktopNavListDefaultVariant({
   return (
     <div
       className={cn(
-        "container hidden w-full justify-between sm:flex",
+        "container hidden w-full items-center justify-between sm:flex",
         wrapperClasses,
       )}
     >
@@ -116,7 +116,7 @@ function DesktopNavListHomeVariant() {
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="container mt-10 hidden h-full w-full flex-col items-center justify-center gap-8 md:mt-0 md:flex"
+      className="container mt-10 hidden h-full w-full flex-col items-center justify-center gap-8 sm:flex md:mt-0"
     >
       {/* Navbar */}
       <motion.ul
@@ -129,7 +129,7 @@ function DesktopNavListHomeVariant() {
           duration: 0.3,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="hidden w-full flex-row items-center gap-8 md:flex"
+        className="hidden w-full flex-row items-center gap-8 sm:flex"
       >
         {routes.map((route) => (
           <Link
