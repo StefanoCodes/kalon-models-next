@@ -2,6 +2,7 @@
 
 import { contactFormSchema } from "@/lib/validations/schema";
 import TextureButton from "@/components/buttons/primary-button";
+import { useSubmit } from "@formspree/react";
 import {
   Form,
   FormControl,
@@ -17,6 +18,8 @@ import { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { TextArea } from "react-aria-components";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 type Inputs = z.infer<typeof contactFormSchema>;
 export default function ContactForm() {
@@ -33,24 +36,66 @@ export default function ContactForm() {
     },
   });
 
-  const processForm: SubmitHandler<Inputs> = (data) => {
-    const isValidData = contactFormSchema.safeParse(data);
-    if (!isValidData.success) {
+  const {
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitSuccessful, isSubmitting },
+  } = form;
+
+  const submit = useSubmit<Inputs>(
+    process.env.NEXT_PUBLIC_REACT_APP_REACT_HOOK_FORM_ID!,
+    {
+      onError(errs) {
+        const formErrs = errs.getFormErrors();
+        for (const { code, message } of formErrs) {
+          setError(`root.${code}`, {
+            type: code,
+            message,
+          });
+        }
+
+        const fieldErrs = errs.getAllFieldErrors();
+        for (const [field, errs] of fieldErrs) {
+          setError(field, {
+            message: errs.map((e) => e.message).join(", "),
+          });
+        }
+      },
+    },
+  );
+
+  const submitForm: SubmitHandler<Inputs> = async (data) => {
+    const { success } = contactFormSchema.safeParse(data);
+
+    if (!success) {
+      console.log(errors);
       return toast({
         title: "Form Error",
         description: "Please check your form for errors",
         duration: 5000,
       });
     }
-    toast({
-      title: "Message Sent",
-      description: "We will get back to you as soon as possible",
-    });
+
+    if (success) {
+      try {
+        await submit(data);
+        toast({
+          title: "Message Sent",
+          description: "We will get back to you as soon as possible",
+        });
+      } catch (error) {
+        console.error(error);
+        toast({
+          title: "Error",
+          description: "Something went wrong",
+        });
+      }
+    }
     form.reset();
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(processForm)}>
+      <form onSubmit={handleSubmit(submitForm)}>
         <div className="flex flex-col justify-start gap-6">
           <FormField
             control={form.control}
@@ -174,10 +219,16 @@ export default function ContactForm() {
           <TextureButton
             variant="kalon"
             size="sm"
-            className="w-full self-end xl:w-fit"
+            disabled={isSubmitting}
+            className={cn(
+              "w-full self-end xl:w-fit",
+              isSubmitting && "opacity-75",
+              isSubmitting && "cursor-not-allowed",
+            )}
           >
-            {/* <Link href="/contact">Get In Touch</Link> */}
-            Get In Touch
+            {isSubmitting ? "Sending..." : "Get In Touch"}
+            {/* {isSubmitSuccessful && "Sent"} */}
+            {/* on submit will have a cool checkmark animation */}
           </TextureButton>
         </div>
       </form>

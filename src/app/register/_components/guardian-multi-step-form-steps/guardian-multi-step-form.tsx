@@ -1,10 +1,10 @@
 "use client";
 import { Form } from "@/components/ui/form";
 import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
+import { useSubmit } from "@formspree/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useSubmit } from "@formspree/react";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import FormNav from "../form-nav";
 import Success from "../sucess";
