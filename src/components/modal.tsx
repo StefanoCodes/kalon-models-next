@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Close } from "@radix-ui/react-dialog";
 import { CheckCircle, X as CloseIcon } from "lucide-react";
+import { ScrollArea } from "./ui/scroll-area";
 
 export default function Modal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +22,10 @@ export default function Modal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-            onClick={toggleModal}
+            // onClick={toggleModal}
           >
             <motion.div
-              className="relative z-[9999] h-full min-h-[50vh] w-full max-w-7xl rounded-none border border-border bg-white md:m-4 md:min-h-[95vh] md:rounded-lg"
+              className="relative z-[9999] h-full min-h-[50vh] w-full max-w-7xl overflow-y-auto rounded-none border border-border bg-white md:m-4 md:min-h-[95vh] md:rounded-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -35,7 +36,10 @@ export default function Modal() {
               }}
             >
               <div className="flex flex-col gap-4">
-                <CloseIcon className="mr-3 mt-3 h-4 w-4 cursor-pointer self-end" />
+                <CloseIcon
+                  className="sticky top-2 mr-3 mt-3 h-4 w-4 cursor-pointer self-end"
+                  onClick={toggleModal}
+                />
                 <div className="flex flex-col items-center justify-between gap-4 p-10 pt-0">
                   <h1 className="text-4xl">Pricing</h1>
                   <div className="flex flex-col gap-2 self-start">
