@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import Heading from "../about/_components/heading";
 import RegistrationDialog from "./_components/registration-dialog";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const metadata: Metadata = {
   title: "Register | #1 modelling academy in South Africa",
@@ -14,7 +16,6 @@ export default async function Register({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const course = searchParams.course;
-  console.log(course);
   return (
     <section className="container px-4 py-10 xl:px-0" id="register">
       <div className="flex flex-col gap-8">
@@ -27,7 +28,9 @@ export default async function Register({
             application.
           </p>
         </div>
-        <RegistrationDialog course={course} />
+        <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+          <RegistrationDialog />
+        </Suspense>
       </div>
     </section>
   );

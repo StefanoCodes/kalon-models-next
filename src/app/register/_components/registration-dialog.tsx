@@ -9,15 +9,14 @@ import {
 import { cn } from "@/lib/utils";
 import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
 import AdultMultiStepForm from "./adult-multi-step-form-steps/adult-multi-step-form";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
-export default function RegistrationDialog({
-  course,
-}: {
-  course: string | string[] | undefined;
-}) {
+export default function RegistrationDialog() {
+  // we will use this to consume the promise
+  const searchParams = useSearchParams();
+  const course = searchParams.get(`course`);
   const [selectedAge, setSelectedAge] = useState<ageRangeTypes>(undefined);
   const [query, setQuery] = useState<courseTypes>(undefined);
   const isQueryValid =
