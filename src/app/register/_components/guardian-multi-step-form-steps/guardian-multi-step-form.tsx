@@ -50,7 +50,7 @@ const steps = [
   { id: "Step 5", name: "Complete" },
 ];
 
-export default function GuardianMultiStepForm() {
+export default function GuardianMultiStepForm({ course }: { course?: "kids" }) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [formErrors, setFormErrors] = useState<string[]>([]);
@@ -75,7 +75,7 @@ export default function GuardianMultiStepForm() {
       studentInstagramUsername: "",
       studentPreferedMethodOfContact: "whatsapp",
       studentHowDidYouHearAboutUs: "",
-      selectedCourse: "kids",
+      selectedCourse: course,
     },
   });
   const {
@@ -166,7 +166,7 @@ export default function GuardianMultiStepForm() {
           {/* STEP 3  */}
           {currentStep === 2 && <StepThree delta={delta} />}
           {/* STEP 4 */}
-          {currentStep === 3 && <StepFour delta={delta} />}
+          {currentStep === 3 && <StepFour delta={delta} course={course} />}
           {/* STEP 5 / SUCCESS PAGE / ERRORS */}
           {currentStep === finalStep && isSubmitSuccessful && (
             <Success delta={delta} />

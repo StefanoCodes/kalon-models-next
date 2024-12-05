@@ -21,7 +21,13 @@ import { useFormContext } from "react-hook-form";
 import { z } from "zod";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
-export default function StepThree({ delta }: { delta: number }) {
+export default function StepThree({
+  delta,
+  course,
+}: {
+  delta: number;
+  course?: "adults" | "masterclass";
+}) {
   const { control } = useFormContext<Inputs>();
 
   return (
@@ -95,7 +101,7 @@ export default function StepThree({ delta }: { delta: number }) {
                       {...field}
                       name="whyWouldYouLikeToJoinKalonModels"
                       placeholder="I want to be a model"
-                      className="form-input"
+                      className="form-input max-w-[88%]"
                       autoComplete="why-would-you-like-to-join-kalon-models"
                     />
                   </FormControl>
@@ -104,32 +110,39 @@ export default function StepThree({ delta }: { delta: number }) {
               )}
             />
           </div>
-          <div className="md:flex-1">
-            <FormField
-              control={control}
-              name="selectedCourse"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Course</FormLabel>
-                  <FormControl>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <SelectTrigger id="select-20" className="form-input px-0">
-                        <SelectValue placeholder="Select a course" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="adults">Adults</SelectItem>
-                        <SelectItem value="masterclass">Masterclass</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+          {!course && (
+            <div className="md:flex-1">
+              <FormField
+                control={control}
+                name="selectedCourse"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Course</FormLabel>
+                    <FormControl>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger
+                          id="select-20"
+                          className="form-input px-0"
+                        >
+                          <SelectValue placeholder="Select a course" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="adults">Adults</SelectItem>
+                          <SelectItem value="masterclass">
+                            Masterclass
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          )}
         </Row>
       </div>
     </motion.div>

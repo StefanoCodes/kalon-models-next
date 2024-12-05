@@ -7,10 +7,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
+import { useEffect, useState } from "react";
 import AdultMultiStepForm from "./adult-multi-step-form-steps/adult-multi-step-form";
-import { use, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
 export default function RegistrationDialog({
@@ -59,6 +58,15 @@ export default function RegistrationDialog({
           </Select>
         </div>
       )}
+      {query && (
+        <p>
+          Registering for the
+          <span className="capitalize">
+            {" "}
+            {query.charAt(0).toUpperCase() + query.slice(1)} course
+          </span>
+        </p>
+      )}
 
       {/* once they select an age we will render out the form */}
       {selectedAge && selectedAge === "lessThan18" && <GuardianMultiStepForm />}
@@ -67,9 +75,11 @@ export default function RegistrationDialog({
 
       {/* if they are coming from the pricing page */}
       <>
-        {query === `kids` && <GuardianMultiStepForm />}
-        {query === `adults` && <AdultMultiStepForm />}
-        {query === `masterclass` && <AdultMultiStepForm />}
+        {/* if there is a query we want to pass that down to the form component so that we dont need to show the select button in the end if they already selected a course there */}
+        {/* render out the last input of the form based on the query */}
+        {query === `kids` && <GuardianMultiStepForm course={query} />}
+        {query === `adults` && <AdultMultiStepForm course={query} />}
+        {query === `masterclass` && <AdultMultiStepForm course={query} />}
       </>
     </>
   );

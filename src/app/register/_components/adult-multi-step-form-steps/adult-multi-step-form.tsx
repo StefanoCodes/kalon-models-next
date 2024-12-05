@@ -42,7 +42,11 @@ const steps = [
   { id: "Step 4", name: "Complete" },
 ];
 
-export default function AdultMultiStepForm() {
+export default function AdultMultiStepForm({
+  course,
+}: {
+  course?: "adults" | "masterclass";
+}) {
   const finalStep = steps.length - 1;
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
@@ -144,7 +148,7 @@ export default function AdultMultiStepForm() {
           {/* STEP 2 */}
           {currentStep === 1 && <StepTwo delta={delta} />}
           {/* STEP 3 */}
-          {currentStep === 2 && <StepThree delta={delta} />}
+          {currentStep === 2 && <StepThree delta={delta} course={course} />}
           {/* STEP 4 / SUCCESS PAGE */}
           {currentStep === finalStep && isSubmitSuccessful && (
             <Success delta={delta} />
