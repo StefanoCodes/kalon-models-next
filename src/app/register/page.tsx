@@ -23,7 +23,9 @@ export default async function Register() {
             application.
           </p>
         </div>
-        <RegistrationDialog />
+        <Suspense fallback={<Skeleton className="h-[20rem] w-full" />}>
+          <RegistrationDialog />
+        </Suspense>
       </div>
     </section>
   );

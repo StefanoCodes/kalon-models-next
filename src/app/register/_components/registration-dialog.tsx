@@ -58,7 +58,7 @@ export default function RegistrationDialog() {
         </div>
       )}
       {query && (
-        <p>
+        <p className="h-[3rem]">
           Registering for the
           <span className="capitalize">
             {" "}
