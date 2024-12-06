@@ -83,8 +83,8 @@ const content = {
   },
   latestWork: {
     latestWorkTitle: "Latest Work",
-    latestWorkRecent: galleryContent[0][1],
-    latestWorkSecond: galleryContent[0][3],
+    latestWorkRecent: galleryContent[0][0],
+    latestWorkSecond: galleryContent[0][1],
   },
 };
 

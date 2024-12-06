@@ -10,27 +10,34 @@ export default function LatestWorkCard({
   coverImage,
   description,
   slug,
+  className,
 }: {
   title: GalleryContent["title"];
   coverImage: GalleryContent["coverImage"];
   description: GalleryContent["overview"][0];
   slug: GalleryContent["slug"];
+  className?: string;
 }) {
   const shortDescription = description.slice(0, 196);
   return (
-    <div className="flex items-center gap-4 rounded-md bg-backgroundLightAltColor px-3 py-2 md:flex-1 lg:items-start lg:gap-8 lg:pt-4">
+    <div
+      className={cn(
+        "flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 pt-0 lg:items-start lg:gap-8 lg:pt-4",
+        className,
+      )}
+    >
       {/* left */}
-      <div className="h-[100px] md:h-[150px] lg:h-[200px]">
+      <div className="h-[200px] w-full md:h-[150px] lg:h-[200px]">
         <Image
           src={coverImage}
           alt={title}
-          className="aspect-square h-full w-full rounded-md object-cover lg:h-[200px] lg:w-[200px]"
+          className="aspect-square h-full w-full rounded-md object-cover"
           width={1000}
           height={1000}
         />
       </div>
       {/* right */}
-      <div className="flex h-full flex-1 flex-col justify-between gap-3 md:gap-0">
+      <div className="flex h-full flex-1 flex-col justify-between gap-3 px-3 md:gap-0">
         <div className="flex items-center justify-between">
           <h3 className="max-w-prose text-sm font-medium sm:text-base">
             {title}
