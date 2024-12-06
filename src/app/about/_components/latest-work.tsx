@@ -17,6 +17,7 @@ export default function LatestWork() {
           coverImage={latestWorkRecent.coverImage}
           description={latestWorkRecent.overview[0]}
           slug={latestWorkRecent.slug}
+          imageClassName="object-top"
         />
 
         <LatestWorkCard
