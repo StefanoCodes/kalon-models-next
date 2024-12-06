@@ -75,7 +75,7 @@ const animationVariants = {
     child: {
       visible: {
         opacity: 1,
-        scale: 1.1,
+        scale: 1,
         transition: { type: "spring", damping: 15, stiffness: 400 },
       },
       hidden: { opacity: 0, scale: 0 },
