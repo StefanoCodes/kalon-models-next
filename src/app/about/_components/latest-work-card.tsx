@@ -18,7 +18,7 @@ export default function LatestWorkCard({
   slug: GalleryContent["slug"];
   className?: string;
 }) {
-  const shortDescription = description.slice(0, 196);
+  const shortDescription = description.slice(0, 186);
   return (
     <div
       className={cn(
