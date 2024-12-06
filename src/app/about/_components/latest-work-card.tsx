@@ -22,22 +22,22 @@ export default function LatestWorkCard({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 pt-0 md:flex-row lg:items-start lg:gap-8 lg:pt-4",
+        "flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 md:flex-row md:pt-3 lg:items-start lg:gap-8 lg:pt-4",
         className,
       )}
     >
       {/* left */}
-      <div className="h-[200px] w-full flex-1 md:h-[150px] lg:h-[200px]">
+      <div className="h-[200px] w-full flex-1 px-3 md:h-[150px] lg:h-[200px]">
         <Image
           src={coverImage}
           alt={title}
-          className="aspect-square h-full w-full rounded-md object-cover"
+          className="aspect-square h-full w-full rounded-t-md object-cover md:rounded-md"
           width={1000}
           height={1000}
         />
       </div>
       {/* right */}
-      <div className="flex h-full flex-1 flex-col justify-between gap-3 px-3 md:gap-0">
+      <div className="flex h-full flex-1 flex-col justify-between gap-3 px-3 md:gap-2">
         <div className="flex items-center justify-between">
           <h3 className="max-w-prose text-sm font-medium sm:text-base">
             {title}

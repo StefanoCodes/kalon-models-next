@@ -11,7 +11,7 @@ export default function LatestWork() {
         {latestWorkTitle}
       </Heading>
 
-      <div className="flex flex-col gap-4 md:flex-row xl:gap-8">
+      <div className="flex flex-col justify-between gap-4 md:flex-row xl:gap-8">
         <LatestWorkCard
           title={latestWorkRecent.title}
           coverImage={latestWorkRecent.coverImage}
