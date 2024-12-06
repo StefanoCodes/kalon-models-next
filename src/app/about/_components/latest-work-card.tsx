@@ -24,7 +24,7 @@ export default function LatestWorkCard({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 md:flex-row md:gap-0 md:pt-3 lg:items-start lg:pt-4",
+        "flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 pt-0 md:flex-row md:gap-0 md:pt-3 lg:items-start lg:pt-4",
         className,
       )}
     >
