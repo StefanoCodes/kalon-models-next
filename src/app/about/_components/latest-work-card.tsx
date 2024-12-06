@@ -27,7 +27,7 @@ export default function LatestWorkCard({
       )}
     >
       {/* left */}
-      <div className="h-[200px] w-full md:h-[150px] lg:h-[200px]">
+      <div className="h-[200px] w-full flex-1 md:h-[150px] lg:h-[200px]">
         <Image
           src={coverImage}
           alt={title}
