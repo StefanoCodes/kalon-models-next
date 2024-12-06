@@ -10,15 +10,14 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import AdultMultiStepForm from "./adult-multi-step-form-steps/adult-multi-step-form";
 import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
+import { useSearchParams } from "next/dist/client/components/navigation";
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 export type courseTypes = "adults" | "kids" | "masterclass" | undefined;
-export default function RegistrationDialog({
-  course,
-}: {
-  course: string | string[] | undefined;
-}) {
+export default function RegistrationDialog() {
   const [selectedAge, setSelectedAge] = useState<ageRangeTypes>(undefined);
   const [query, setQuery] = useState<courseTypes>(undefined);
+  const searchParams = useSearchParams();
+  const course = searchParams.get("course");
   const isQueryValid =
     course === `adults` || course === `kids` || course === `masterclass`;
   // we need to check that the query is valid and if it is we set the query to the course type
