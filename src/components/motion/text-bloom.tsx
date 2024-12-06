@@ -68,7 +68,7 @@ const animationVariants = {
         scale: 1,
         transition: {
           staggerChildren: 0.05,
-          delayChildren: PRELOADER_DURATION / 1000 + 0.25,
+          delayChildren: PRELOADER_DURATION / 1000 + 0.5,
         },
       },
     },
