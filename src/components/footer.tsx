@@ -12,7 +12,12 @@ export default function Footer() {
       <div className="container flex items-center justify-between py-4 xl:px-0">
         <FooterTextAnimation />
 
-        <Link href={instagramLink} target="_blank">
+        <Link
+          href={instagramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram link to Kalon"
+        >
           <InstagramIcon className="h-[18px] w-[18px] text-mutedColor" />
         </Link>
       </div>

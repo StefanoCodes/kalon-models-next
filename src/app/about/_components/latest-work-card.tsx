@@ -4,6 +4,7 @@ import { GalleryContent } from "@/app/gallery/types/type";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import PrimaryButton from "@/components/buttons/primary-button";
 
 export default function LatestWorkCard({
   title,
@@ -48,7 +49,7 @@ export default function LatestWorkCard({
             {title}
           </h3>
 
-          <Button
+          {/* <Button
             size={"sm"}
             variant={"default"}
             className="flex h-5 w-5 md:h-8 md:w-8"
@@ -57,7 +58,14 @@ export default function LatestWorkCard({
             <Link href={`/gallery/${slug}`}>
               <ArrowUpRight className="h-full w-full" />
             </Link>
-          </Button>
+          </Button> */}
+          <PrimaryButton
+            href={`/gallery/${slug}`}
+            className="w-fit rounded-sm px-0"
+            innerClassName="w-fit px-2 py-1 rounded-sm"
+          >
+            <ArrowUpRight className="h-4 w-4" />
+          </PrimaryButton>
         </div>
         <div>
           <p className="inline-block bg-gradient-to-b from-paragraph via-navLinkColor to-transparent bg-clip-text text-xs text-transparent dark:to-transparent sm:text-sm lg:text-base">
