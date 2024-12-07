@@ -20,7 +20,7 @@ export default function LatestWorkCard({
   className?: string;
   imageClassName?: string;
 }) {
-  const shortDescription = description.slice(0, 200);
+  const shortDescription = description.slice(0, 210);
   return (
     <div
       className={cn(
