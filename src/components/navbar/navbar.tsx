@@ -5,7 +5,7 @@ import DesktopNavList from "./nav-list";
 export default function Navbar() {
   return (
     <header className="z-50">
-      <nav className={cn("container relative z-10 py-4 sm:block")}>
+      <nav className={cn("container relative z-10 py-4 sm:block xl:px-0")}>
         <div className="flex flex-col-reverse items-center justify-between sm:flex-row">
           {/* DESKTOP NAV HIDDEN ON mobile SHOWN AT SM */}
           <DesktopNavList />

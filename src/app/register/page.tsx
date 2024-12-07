@@ -12,8 +12,11 @@ export const metadata: Metadata = {
 
 export default async function Register() {
   return (
-    <section className="container py-10 md:py-0" id="register">
-      <div className="flex flex-col gap-8">
+    <section
+      className="container flex min-h-screen-mobile flex-col py-10 md:min-h-screen-desktop xl:px-0"
+      id="register"
+    >
+      <div className="flex w-full flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col gap-4">
           <Heading headingSize="h1">Registration</Heading>

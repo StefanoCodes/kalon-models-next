@@ -1,3 +1,5 @@
+import PrimaryButton from "@/components/buttons/primary-button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,11 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Clock, Users, Calendar } from "lucide-react";
-import Link from "next/link";
+import { Calendar, Clock, Users } from "lucide-react";
 import Image from "next/image";
-import InterestedButton from "@/components/buttons/interested";
+import Link from "next/link";
 
 interface CourseCardProps {
   title: string;
@@ -73,7 +73,14 @@ export function CourseCard({
         >
           <Link href={link}>Learn More</Link>
         </Button>
-        <InterestedButton href={`/register${searchQuery}`} />
+        <PrimaryButton
+          variant={"kalon"}
+          href={`/register${searchQuery}`}
+          className="w-full rounded-sm font-normal tracking-wide"
+          innerClassName="rounded-sm"
+        >
+          Register
+        </PrimaryButton>
       </CardFooter>
     </Card>
   );

@@ -22,7 +22,7 @@ const buttonVariantsOuter = cva("", {
         "group  w-full border-[1px] dark:border-[2px] border-black/20 bg-white/50 dark:border-neutral-950 dark:bg-neutral-600/80 p-[1px]  active:bg-neutral-200 dark:active:bg-neutral-800 hover:bg-gradient-to-t hover:from-neutral-100 to-white dark:hover:from-neutral-600/50 dark:hover:to-neutral-600/70 active:bg-neutral-200 dark:active:bg-neutral-800",
       icon: "group rounded-full border dark:border-neutral-950 border-black/10 dark:bg-neutral-600/50 bg-white/50 p-[1px] active:bg-neutral-200 dark:active:bg-neutral-800 hover:bg-gradient-to-t hover:from-neutral-100 to-white dark:hover:from-neutral-700 dark:hover:to-neutral-600 active:bg-neutral-200 dark:active:bg-neutral-800",
       kalon:
-        "w-full h-9 group rounded-full border-2 border-[#572ecc] bg-[#7440ff] hover:scale-105 transition duration-300 ease-in-out",
+        "w-full h-9 group rounded-full border-2 border-[#572ecc] bg-[#7440ff] hover:opacity-90 transition duration-300 ease-in-out",
     },
     size: {
       sm: "rounded-[6px]",
@@ -83,6 +83,8 @@ export interface UnifiedButtonProps
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean;
   href?: string;
+  className?: string;
+  innerClassName?: string;
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
@@ -94,6 +96,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
       asChild = false,
       href,
       className,
+      innerClassName,
       ...props
     },
     ref,
@@ -108,12 +111,19 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
       >
         {href ? (
           <Link href={href}>
-            <div className={cn(innerDivVariants({ variant, size }))}>
+            <div
+              className={cn(
+                innerDivVariants({ variant, size }),
+                innerClassName,
+              )}
+            >
               {children}
             </div>
           </Link>
         ) : (
-          <div className={cn(innerDivVariants({ variant, size }))}>
+          <div
+            className={cn(innerDivVariants({ variant, size }), innerClassName)}
+          >
             {children}
           </div>
         )}
