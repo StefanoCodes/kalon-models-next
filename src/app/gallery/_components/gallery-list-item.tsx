@@ -31,7 +31,7 @@ export default function GalleryListItem({
           />
           <ExternalLink
             href={`/gallery/${slug}`}
-            className="absolute right-3 top-3 z-10 self-start text-backgroundLightAltColor transition-colors hover:text-grayLightColor"
+            className="absolute right-3 top-3 z-[1] self-start text-backgroundLightAltColor transition-colors hover:text-grayLightColor"
             iconClassName="size-4"
             text="View More"
             textClassName="text-sm font-normal tracking-wide md:text-[15px]"

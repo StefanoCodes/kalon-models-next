@@ -5,52 +5,6 @@ export const galleryContent: GalleryContent[][] = [
   [
     {
       id: 1,
-      slug: "pose",
-      title: "Pose",
-      overview: [
-        "Pose is a vivid celebration of creativity and individuality, inviting Kalon Models to step beyond their comfort zones. Bright, bold outfits add a striking contrast to the minimalist set, highlighting each model’s dynamic energy and unique presence.",
-        "Through innovative poses and fearless experimentation, the shoot captures moments of transformation and growth. The vibrant wardrobe symbolizes confidence and the power of embracing new challenges, making each image a testament to the beauty of bold self-expression.",
-        "This project is a statement of empowerment, showing that stepping outside the ordinary creates extraordinary results.",
-      ],
-      sectors: ["Fashion", "Art", "Performance"],
-      timeline: "July 2024",
-      credits: [
-        {
-          title: "Photographer",
-          name: "Tshiamo Ramatlhape",
-        },
-        {
-          title: "Stylist & Creative Director",
-          name: "Manana Baloyi",
-        },
-      ],
-      images: [
-        {
-          src: "/gallery/pose/inner-wide.webp",
-          alt: "inner-wide",
-        },
-        {
-          src: "/gallery/pose/second.webp",
-          alt: "second",
-          styles: "object-top",
-        },
-        {
-          src: "/gallery/pose/third.webp",
-          alt: "third",
-        },
-        {
-          src: "/gallery/pose/fourth.webp",
-          alt: "fourth",
-        },
-        {
-          src: "/gallery/pose/fifth.webp",
-          alt: "fifth",
-        },
-      ],
-      coverImage: "/gallery/pose/inner-wide.webp",
-    },
-    {
-      id: 2,
       slug: "eutierria",
       title: "Eutierria",
       overview: [
@@ -101,7 +55,7 @@ export const galleryContent: GalleryContent[][] = [
       coverImage: "/gallery/eutierria/inner-wide.webp",
     },
     {
-      id: 3,
+      id: 2,
       slug: "ineffable",
       title: "Ineffable",
       overview: [
@@ -148,8 +102,9 @@ export const galleryContent: GalleryContent[][] = [
         },
       ],
     },
+
     {
-      id: 4,
+      id: 3,
       slug: "power-of-wearing-flowers",
       title: "The Power of Wearing Flowers",
       overview: [
@@ -198,7 +153,7 @@ export const galleryContent: GalleryContent[][] = [
       ],
     },
     {
-      id: 5,
+      id: 4,
       slug: "vintage-tennis",
       title: "Vintage Tennis",
       overview: [
@@ -248,6 +203,56 @@ export const galleryContent: GalleryContent[][] = [
         },
       ],
       coverImage: "/gallery/vintage-tennis/inner-wide.webp",
+    },
+    {
+      id: 5,
+      slug: "pose",
+      title: "Pose",
+      overview: [
+        "Pose is a photoshoot that challenges models to step outside their comfort zones by embracing vibrant, bold outfits—something they wouldn’t typically choose. The shoot captures each model’s willingness to experiment with new poses and styles, pushing them beyond their usual boundaries.",
+        "The bright, energetic outfits inject a sense of confidence and playfulness, while the models’ dynamic poses express courage and a break from the norm. Set against clean, minimalist backdrops, the images highlight the models’ ability to transform and reinvent themselves, embracing the power of stepping into the unfamiliar.",
+        "Pose celebrates growth and the strength found in embracing challenges, turning the unexpected into a statement of individuality and boldness.",
+      ],
+      sectors: ["Fashion", "Urban Art", "Photography"],
+      timeline: "February 2021",
+      credits: [
+        {
+          title: "Photographer",
+          name: "Tshiamo Ramatlhape",
+        },
+        {
+          title: "Make Up Artist",
+          name: "Mischa Henry (Goy Artistry)",
+        },
+        {
+          title: "Mischa Henry",
+          name: "Don Eros & Manana Baloyi",
+        },
+      ],
+      images: [
+        {
+          src: "/gallery/pose/inner-wide.webp",
+          alt: "inner-wide",
+        },
+        {
+          src: "/gallery/pose/second.webp",
+          alt: "second",
+          styles: "object-top",
+        },
+        {
+          src: "/gallery/pose/third.webp",
+          alt: "third",
+        },
+        {
+          src: "/gallery/pose/fourth.webp",
+          alt: "fourth",
+        },
+        {
+          src: "/gallery/pose/fifth.webp",
+          alt: "fifth",
+        },
+      ],
+      coverImage: "/gallery/pose/inner-wide.webp",
     },
   ],
 

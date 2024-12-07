@@ -21,7 +21,7 @@ export default function MobileNavList() {
   const toggleNavigation = () => toggleOpen();
   return (
     <>
-      <div className="z-50 flex w-full items-center justify-between sm:hidden">
+      <div className="z-30 flex w-full items-center justify-between sm:hidden">
         <NavLogo
           onClick={() => {
             return isOpen && toggleNavigation();
@@ -30,7 +30,7 @@ export default function MobileNavList() {
         />
         <div
           className={cn(
-            "z-30 cursor-pointer text-base text-blackColor md:hidden",
+            "z-20 cursor-pointer text-base text-blackColor md:hidden",
             isOpen && `text-whiteColor`,
           )}
           onClick={toggleNavigation}
