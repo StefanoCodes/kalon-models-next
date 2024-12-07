@@ -107,3 +107,8 @@
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
   color: white;
 }
+
+.text-shadow-white-variant-2 {
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  color: white;
+}

@@ -61,8 +61,9 @@ export default function LatestWorkCard({
           </Button> */}
           <PrimaryButton
             href={`/gallery/${slug}`}
-            className="w-fit rounded-sm px-0"
-            innerClassName="w-fit px-2 py-1 rounded-sm"
+            className="w-fit px-0"
+            innerClassName="w-fit px-2 py-1 "
+            variant="kalonBlack"
           >
             <ArrowUpRight className="h-4 w-4" />
           </PrimaryButton>

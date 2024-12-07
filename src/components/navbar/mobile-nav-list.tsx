@@ -1,43 +1,50 @@
 "use client";
+import { contactConfig } from "@/app/contact/contact.config";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, useCycle, useScroll } from "motion/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import NavLogo from "./nav-logo";
-import { AnimatePresence, motion, useCycle } from "motion/react";
-import { navbar } from "./navbar.config";
 import { linkVariants, menuVariants } from "../motion/motion.config";
 import AnimatedMobileNavLinks from "./animated-mobile-nav-items";
-import Link from "next/link";
-import { contactConfig } from "@/app/contact/contact.config";
-const { email } = navbar.contact;
+import NavLogo from "./nav-logo";
+import { usePathname } from "next/navigation";
 const { instagram } = contactConfig.socials;
+import { useMotionValueEvent } from "motion/react";
+type bgColorType = "white" | "transparent";
+
 export default function MobileNavList() {
   const [isOpen, toggleOpen] = useCycle(false, true);
+  const [bgColor, setBgColor] = useState<bgColorType>("transparent");
+  const { scrollYProgress } = useScroll();
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest > 0) {
+      setBgColor("white");
+    } else {
+      setBgColor("transparent");
+    }
+  });
+
+  const pathname = usePathname();
+  // set the body overflow to hidden when the menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-  const toggleNavigation = () => toggleOpen();
+
   return (
     <>
-      <div className="z-30 flex w-full items-center justify-between sm:hidden">
-        <NavLogo
-          onClick={() => {
-            return isOpen && toggleNavigation();
-          }}
-          className={cn(isOpen && `text-whiteColor`)}
+      {pathname === "/about" ? (
+        <MobileNavListAboutVariant
+          isOpen={isOpen}
+          toggleOpen={toggleOpen}
+          bgColor={bgColor}
         />
-        <div
-          className={cn(
-            "z-20 cursor-pointer text-base text-blackColor md:hidden",
-            isOpen && `text-whiteColor`,
-          )}
-          onClick={toggleNavigation}
-        >
-          {isOpen ? "close" : "menu"}
-        </div>
-      </div>
+      ) : (
+        <MobileNavListDefaultVariant isOpen={isOpen} toggleOpen={toggleOpen} />
+      )}
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -50,7 +57,7 @@ export default function MobileNavList() {
           >
             <nav className="flex min-h-[calc(100dvh-4rem-8rem)] w-full flex-col justify-between gap-8">
               <ul className="flex flex-col gap-8">
-                <AnimatedMobileNavLinks onClick={toggleNavigation} />
+                <AnimatedMobileNavLinks onClick={toggleOpen} />
               </ul>
               <motion.div
                 variants={linkVariants}
@@ -79,5 +86,83 @@ export default function MobileNavList() {
         )}
       </AnimatePresence>
     </>
+  );
+}
+// Default Mobile Navbar
+function MobileNavListDefaultVariant({
+  isOpen,
+  toggleOpen,
+}: {
+  isOpen: boolean;
+  toggleOpen: () => void;
+}) {
+  return (
+    <header className="sm:hidden">
+      <nav className={cn("container py-4 xl:px-0")}>
+        <div className="flex w-full items-center justify-between">
+          <NavLogo
+            onClick={() => {
+              return isOpen && toggleOpen();
+            }}
+            className={cn(isOpen && `z-40 text-whiteColor`)}
+          />
+          <div
+            className={cn(
+              "z-40 cursor-pointer text-base text-blackColor",
+              isOpen && `text-whiteColor`,
+            )}
+            onClick={toggleOpen}
+          >
+            {isOpen ? "close" : "menu"}
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
+// About Mobile Navbar
+function MobileNavListAboutVariant({
+  isOpen,
+  toggleOpen,
+  bgColor,
+}: {
+  isOpen: boolean;
+  toggleOpen: () => void;
+  bgColor: bgColorType;
+}) {
+  return (
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 bg-transparent transition-colors duration-300 sm:hidden",
+        {
+          "bg-whiteColor": bgColor === "white",
+        },
+        isOpen && `bg-transparent`,
+      )}
+    >
+      <nav className={cn("container py-4 xl:px-0")}>
+        <div className="flex w-full items-center justify-between">
+          <NavLogo
+            onClick={() => {
+              return isOpen && toggleOpen();
+            }}
+            className={cn(
+              isOpen && `z-40 text-whiteColor`,
+              bgColor !== "white" && `text-whiteColor`,
+            )}
+          />
+          <div
+            className={cn(
+              "z-40 cursor-pointer text-base text-blackColor",
+              isOpen && `text-whiteColor`,
+              bgColor !== "white" && `text-whiteColor`,
+            )}
+            onClick={toggleOpen}
+          >
+            {isOpen ? "close" : "menu"}
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 }

@@ -23,6 +23,8 @@ const buttonVariantsOuter = cva("", {
       icon: "group rounded-full border dark:border-neutral-950 border-black/10 dark:bg-neutral-600/50 bg-white/50 p-[1px] active:bg-neutral-200 dark:active:bg-neutral-800 hover:bg-gradient-to-t hover:from-neutral-100 to-white dark:hover:from-neutral-700 dark:hover:to-neutral-600 active:bg-neutral-200 dark:active:bg-neutral-800",
       kalon:
         "w-full h-9 group rounded-full border-2 border-[#572ecc] bg-[#7440ff] hover:opacity-90 transition duration-300 ease-in-out",
+      kalonBlack:
+        "w-full h-9 group rounded-full border-2 border-[#e7e7e7] bg-[#000000] hover:opacity-90 transition duration-300 ease-in-out",
     },
     size: {
       sm: "rounded-[6px]",
@@ -55,6 +57,8 @@ const innerDivVariants = cva(
         icon: "bg-gradient-to-b from-white to-neutral-50/50 dark:from-neutral-800 dark:to-neutral-700/50 group-active:bg-neutral-200 dark:group-active:bg-neutral-800 rounded-full",
         kalon:
           "bg-gradient-to-b border border-[#9d72fe] from-[#6e3bff] to-[#7e51ff] h-8 w-full text-shadow-white",
+        kalonBlack:
+          "bg-gradient-to-b from-black to-[#353535] border border-[#303030]  h-8 w-full text-shadow-white-variant-2",
       },
       size: {
         sm: "text-sm rounded-[4px] px-4 py-1",
@@ -79,7 +83,8 @@ export interface UnifiedButtonProps
     | "destructive"
     | "minimal"
     | "icon"
-    | "kalon";
+    | "kalon"
+    | "kalonBlack";
   size?: "default" | "sm" | "lg" | "icon";
   asChild?: boolean;
   href?: string;

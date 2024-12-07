@@ -20,14 +20,14 @@ export default function About() {
           src="/kalon-cover-home.jpg"
           alt="About Hero"
           fill
-          className="mx-auto max-w-[1920px] object-cover"
-          quality={100}
+          className="mx-auto max-w-[1920px] object-cover brightness-50"
+          quality={95}
           priority
         />
       </div>
       <section
         id="about"
-        className="container min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
+        className="container relative min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
       >
         <div className="flex flex-col gap-16">
           <Header />
