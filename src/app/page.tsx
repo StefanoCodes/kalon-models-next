@@ -21,7 +21,7 @@ export default function Home() {
     <section className="container relative" id="home">
       <div className="flex h-full min-h-screen-mobile md:hidden md:min-h-screen-desktop">
         {/* content goes here */}
-        <Image
+        {/* <Image
           src="/kalon-cover-home.jpg"
           alt="Kalon Models Group"
           fill
@@ -47,7 +47,7 @@ export default function Home() {
               </Link>
             </Button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
