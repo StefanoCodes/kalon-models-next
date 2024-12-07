@@ -1,17 +1,16 @@
 "use client";
 import { Form } from "@/components/ui/form";
 import { registriationFormSchema } from "@/lib/validations/schema";
+import { useSubmit } from "@formspree/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import FormNav from "../form-nav";
+import Success from "../sucess";
 import StepOne from "./step-one";
 import StepThree from "./step-three";
 import StepTwo from "./step-two";
-import Success from "../sucess";
-import { useSubmit } from "@formspree/react";
-import { courseTypes } from "../registration-dialog";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -47,10 +46,9 @@ export default function AdultMultiStepForm({
 }: {
   course?: "adults" | "masterclass";
 }) {
-  const finalStep = steps.length - 1;
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
-  const [formErrors, setFormErrors] = useState<string[]>([]);
+  const finalStep = steps.length - 1;
 
   const delta = currentStep - previousStep;
   const form = useForm<z.infer<typeof registriationFormSchema>>({
@@ -67,14 +65,13 @@ export default function AdultMultiStepForm({
       instagramUsername: "",
       howDidYouHearAboutUs: "",
       whyWouldYouLikeToJoinKalonModels: "",
-      selectedCourse: undefined,
+      selectedCourse: course,
     },
   });
   const {
     handleSubmit,
     setError,
     trigger,
-    reset,
     getValues,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
@@ -84,7 +81,6 @@ export default function AdultMultiStepForm({
     {
       onError(errs) {
         const formErrs = errs.getFormErrors();
-        setFormErrors(formErrs.map((e) => e.message));
         for (const { code, message } of formErrs) {
           setError(`root.${code}`, {
             type: code,
