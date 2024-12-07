@@ -40,7 +40,7 @@ export default function StepThree({
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="flex flex-col gap-4 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Instagram UserName */}
           <div className="md:flex-1">
             <FormField
@@ -88,7 +88,7 @@ export default function StepThree({
           </div>
         </Row>
         {/* Why Join Kalon */}
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           <div className="md:flex-1">
             <FormField
               control={control}
@@ -101,7 +101,7 @@ export default function StepThree({
                       {...field}
                       name="whyWouldYouLikeToJoinKalonModels"
                       placeholder="I want to be a model"
-                      className="form-input max-w-[88%]"
+                      className="form-input"
                       autoComplete="why-would-you-like-to-join-kalon-models"
                     />
                   </FormControl>

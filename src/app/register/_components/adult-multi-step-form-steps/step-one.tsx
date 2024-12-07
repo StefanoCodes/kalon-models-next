@@ -28,7 +28,7 @@ export default function StepOne({ delta }: { delta: number }) {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="flex flex-col gap-4 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* NAME */}
           <div className="md:flex-1">
             <FormField
@@ -76,7 +76,7 @@ export default function StepOne({ delta }: { delta: number }) {
             />
           </div>
         </Row>
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* EMAIL */}
           <div className="md:flex-1">
             <FormField

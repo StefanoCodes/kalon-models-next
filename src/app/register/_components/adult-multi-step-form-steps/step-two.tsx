@@ -1,33 +1,31 @@
 "use client";
-import { motion } from "framer-motion";
 import Row from "@/components/row";
 import {
-  Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PhoneInput } from "@/components/ui/phone-input";
-import { useFormContext } from "react-hook-form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { registriationFormSchema } from "@/lib/validations/schema";
-import { z } from "zod";
+import { format } from "date-fns";
+import { motion } from "framer-motion";
 import {
   DateField,
   DateInput,
   DateSegment,
   FieldError,
 } from "react-aria-components";
-import { format } from "date-fns";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
+import { useFormContext } from "react-hook-form";
+import { z } from "zod";
 
 type Inputs = z.infer<typeof registriationFormSchema>;
 export default function StepTwo({ delta }: { delta: number }) {
@@ -44,7 +42,7 @@ export default function StepTwo({ delta }: { delta: number }) {
     >
       {/* START FROM HERE APPLYING THE SAME CLASSES APPLIED YESTERDAY */}
       <div className="flex flex-col gap-4 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Date of Birth */}
           <div className="md:flex-1">
             <FormField
@@ -133,7 +131,7 @@ export default function StepTwo({ delta }: { delta: number }) {
           </div>
         </Row>
         {/* City Residing In */}
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           <div className="md:flex-1">
             <FormField
               control={control}

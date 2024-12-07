@@ -1,28 +1,13 @@
 "use client";
-import { motion } from "framer-motion";
 import Row from "@/components/row";
 import {
-  Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PhoneInput } from "@/components/ui/phone-input";
-import { useFormContext } from "react-hook-form";
-import {
-  guardianRegistriationFormSchema,
-  registriationFormSchema,
-} from "@/lib/validations/schema";
-import { z } from "zod";
-import {
-  DateField,
-  DateInput,
-  DateSegment,
-  FieldError,
-} from "react-aria-components";
 import {
   Select,
   SelectContent,
@@ -31,7 +16,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns";
+import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
+import { motion } from "framer-motion";
+import { useFormContext } from "react-hook-form";
+import { z } from "zod";
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 export default function StepFour({
   delta,
@@ -52,7 +40,7 @@ export default function StepFour({
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="flex flex-col gap-4 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Instagram UserName */}
           <div className="md:flex-1">
             <FormField
@@ -108,7 +96,7 @@ export default function StepFour({
           </div>
         </Row>
 
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* How Did you Hear About Kalon */}
           <div className="md:flex-1">
             <FormField
@@ -122,7 +110,7 @@ export default function StepFour({
                       {...field}
                       name="studentHowDidYouHearAboutUs"
                       placeholder="I heard about Kalon through instagram"
-                      className="form-input md:max-w-[88%]"
+                      className="form-input"
                       autoComplete="how-did-you-hear-about-us"
                     />
                   </FormControl>

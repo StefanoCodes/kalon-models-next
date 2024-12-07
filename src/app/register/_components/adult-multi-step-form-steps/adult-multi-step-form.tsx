@@ -157,7 +157,7 @@ export default function AdultMultiStepForm({
         </form>
       </Form>
       {/* BUTTONS NEXT AND PREV */}
-      <div className="flex w-full justify-end gap-4 md:max-w-[88%] md:items-center">
+      <div className="flex w-full justify-end gap-4 md:items-center">
         {/* FORM NAV */}
         {currentStep !== steps.length - 1 && (
           <FormNav

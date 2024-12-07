@@ -107,7 +107,7 @@ export default function ContactForm() {
                     name="name"
                     type="text"
                     placeholder="e.g.James Kinfolk"
-                    className={`form-input max-w-full`}
+                    className={`form-input`}
                     autoComplete="name"
                   />
                 </FormControl>
@@ -127,7 +127,7 @@ export default function ContactForm() {
                     name="email"
                     type="email"
                     placeholder="e.g.james@kinfolk.com"
-                    className={`form-input max-w-full`}
+                    className={`form-input`}
                     autoComplete="email"
                   />
                 </FormControl>
@@ -147,7 +147,7 @@ export default function ContactForm() {
                     name="phoneNumber"
                     type="tel"
                     placeholder="e.g.+27641234567"
-                    className={`form-input max-w-full`}
+                    className={`form-input`}
                     autoComplete="phoneNumber"
                   />
                 </FormControl>
@@ -167,7 +167,7 @@ export default function ContactForm() {
                     name="companyName"
                     type="text"
                     placeholder="e.g.Kinfolk Inc."
-                    className={`form-input max-w-full`}
+                    className={`form-input`}
                     autoComplete="companyName"
                   />
                 </FormControl>
@@ -187,7 +187,7 @@ export default function ContactForm() {
                     name="country"
                     type="text"
                     placeholder="e.g.South Africa"
-                    className={`form-input max-w-full`}
+                    className={`form-input`}
                     autoComplete="country"
                   />
                 </FormControl>

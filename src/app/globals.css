@@ -90,7 +90,7 @@
     @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;
   }
   .form-input {
-    @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap px-0 py-2 text-paragraph outline-none transition-shadow md:max-w-[75%];
+    @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap px-0 py-2 text-paragraph outline-none transition-shadow;
   }
   .slug-content {
     @apply text-sm leading-[1.5] text-paragraph;

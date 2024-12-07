@@ -46,7 +46,7 @@ export default function StepTwo({ delta }: { delta: number }) {
       className="overflow-hidden"
     >
       <div className="flex flex-col gap-4 overflow-hidden md:min-h-0 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Guardian Prefered Method Of Contact */}
           <div className="md:flex-1">
             <FormField
@@ -61,7 +61,7 @@ export default function StepTwo({ delta }: { delta: number }) {
                   >
                     <FormControl>
                       <SelectTrigger
-                        className={cn("form-input px-0", `md:max-w-[88%]`)}
+                        className={cn("form-input px-0")}
                         id="select-16"
                       >
                         <SelectValue placeholder="Select a preferred method of contact" />
@@ -101,7 +101,7 @@ export default function StepTwo({ delta }: { delta: number }) {
             />
           </div>
         </Row>
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Student Surname */}
           <div className="md:flex-1">
             <FormField

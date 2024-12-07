@@ -46,7 +46,7 @@ export default function StepThree({ delta }: { delta: number }) {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <div className="flex min-h-[18rem] flex-col gap-4 md:min-h-0 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Student Gender */}
           <div className="md:flex-1">
             <FormField
@@ -99,7 +99,7 @@ export default function StepThree({ delta }: { delta: number }) {
             />
           </div>
         </Row>
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* Student Email */}
           <div className="md:flex-1">
             <FormField

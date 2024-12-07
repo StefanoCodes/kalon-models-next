@@ -63,11 +63,7 @@ const InputComponent = React.forwardRef<
   HTMLInputElement,
   React.ComponentProps<"input">
 >(({ className, ...props }, ref) => (
-  <Input
-    className={cn("form-input", className, "md:w-[calc(100%-25%-36px)]")}
-    {...props}
-    ref={ref}
-  />
+  <Input className={cn("form-input", className)} {...props} ref={ref} />
 ));
 InputComponent.displayName = "InputComponent";
 

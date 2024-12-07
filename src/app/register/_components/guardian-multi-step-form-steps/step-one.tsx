@@ -1,21 +1,17 @@
 "use client";
-import { motion } from "framer-motion";
 import Row from "@/components/row";
 import {
-  Form,
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
+import { guardianRegistriationFormSchema } from "@/lib/validations/schema";
+import { motion } from "framer-motion";
 import { useFormContext } from "react-hook-form";
-import {
-  guardianRegistriationFormSchema,
-  registriationFormSchema,
-} from "@/lib/validations/schema";
 import { z } from "zod";
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 export default function StepOne({ delta }: { delta: number }) {
@@ -32,7 +28,7 @@ export default function StepOne({ delta }: { delta: number }) {
       className="overflow-hidden"
     >
       <div className="flex min-h-[18rem] flex-col gap-4 overflow-hidden md:min-h-0 md:gap-8">
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* NAME */}
           <div className="md:flex-1">
             <FormField
@@ -80,7 +76,7 @@ export default function StepOne({ delta }: { delta: number }) {
             />
           </div>
         </Row>
-        <Row className="flex-col gap-4 md:flex-row">
+        <Row className="flex-col gap-4 md:flex-row md:gap-24">
           {/* EMAIL */}
           <div className="md:flex-1">
             <FormField
