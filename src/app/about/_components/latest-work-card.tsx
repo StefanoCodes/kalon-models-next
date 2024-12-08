@@ -49,21 +49,12 @@ export default function LatestWorkCard({
             {title}
           </h3>
 
-          {/* <Button
-            size={"sm"}
-            variant={"default"}
-            className="flex h-5 w-5 md:h-8 md:w-8"
-            asChild
-          >
-            <Link href={`/gallery/${slug}`}>
-              <ArrowUpRight className="h-full w-full" />
-            </Link>
-          </Button> */}
           <PrimaryButton
             href={`/gallery/${slug}`}
             className="w-fit px-0"
             innerClassName="w-fit px-2 py-1 "
             variant="kalonBlack"
+            size="xs"
           >
             <ArrowUpRight className="h-4 w-4" />
           </PrimaryButton>

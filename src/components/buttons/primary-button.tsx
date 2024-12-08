@@ -27,6 +27,7 @@ const buttonVariantsOuter = cva("", {
         "w-full h-9 group rounded-full border-2 border-[#e7e7e7] bg-[#000000] hover:opacity-90 transition duration-300 ease-in-out",
     },
     size: {
+      xs: "rounded-sm",
       sm: "rounded-[6px]",
       default: "rounded-[12px]",
       lg: "rounded-[12px]",
@@ -61,6 +62,7 @@ const innerDivVariants = cva(
           "bg-gradient-to-b from-black to-[#353535] border border-[#303030]  h-8 w-full text-shadow-white-variant-2",
       },
       size: {
+        xs: "rounded-sm text-sm px-2 py-1",
         sm: "text-sm rounded-[4px] px-4 py-1",
         default: "text-sm rounded-[10px] px-4 py-2",
         lg: "text-base rounded-[10px] px-4 py-2",
@@ -85,7 +87,7 @@ export interface UnifiedButtonProps
     | "icon"
     | "kalon"
     | "kalonBlack";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "xs" | "sm" | "default" | "lg" | "icon";
   asChild?: boolean;
   href?: string;
   className?: string;
