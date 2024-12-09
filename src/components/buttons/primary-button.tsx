@@ -6,6 +6,7 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const buttonVariantsOuter = cva("", {
   variants: {
@@ -116,11 +117,14 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
       <Comp
         className={cn(buttonVariantsOuter({ variant, size }), className)}
         ref={ref}
+        role="button"
         {...props}
       >
         {href ? (
           <Link href={href} onClick={onClick}>
             <div
+              role="button"
+              aria-roledescription="buttonDescription"
               className={cn(
                 innerDivVariants({ variant, size }),
                 innerClassName,
@@ -130,12 +134,12 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
             </div>
           </Link>
         ) : (
-          <div
+          <Button
             onClick={onClick}
             className={cn(innerDivVariants({ variant, size }), innerClassName)}
           >
             {children}
-          </div>
+          </Button>
         )}
       </Comp>
     );

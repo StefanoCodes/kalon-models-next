@@ -20,7 +20,7 @@ export default function About() {
           src="/kalon-cover-home.jpg"
           alt="About Hero"
           fill
-          className="mx-auto max-w-[1920px] object-cover brightness-50"
+          className="mx-auto max-w-[1920px] object-cover brightness-[0.4]"
           quality={95}
           priority
         />
