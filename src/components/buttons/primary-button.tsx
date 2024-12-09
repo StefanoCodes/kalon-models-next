@@ -26,6 +26,8 @@ const buttonVariantsOuter = cva("", {
         "w-full h-9 group rounded-full border-2 border-[#572ecc] bg-[#7440ff] hover:opacity-90 transition duration-300 ease-in-out",
       kalonBlack:
         "w-full h-9 group rounded-full border-2 border-[#e7e7e7] bg-[#000000] hover:opacity-90 transition duration-300 ease-in-out",
+      outline:
+        "w-full h-9 group rounded-full border border-[#e7ebec] bg-gradient-to-b from-[#fff] to-[#f5f5f5] hover:opacity-75  transition duration-300 ease-in-out drop-shadow-sm",
     },
     size: {
       xs: "rounded-sm",
@@ -61,6 +63,8 @@ const innerDivVariants = cva(
           "bg-gradient-to-b border border-[#9d72fe] from-[#6e3bff] to-[#7e51ff] h-8 w-full text-shadow-white",
         kalonBlack:
           "bg-gradient-to-b from-black to-[#353535] border border-[#303030]  h-8 w-full text-shadow-white-variant-2",
+        outline:
+          "bg-gradient-to-b from-[#fff] to-[#f5f5f5] text-black rounded-[8px] h-8 w-full",
       },
       size: {
         xs: "rounded-sm text-sm px-2 py-1",
@@ -87,7 +91,8 @@ export interface UnifiedButtonProps
     | "minimal"
     | "icon"
     | "kalon"
-    | "kalonBlack";
+    | "kalonBlack"
+    | "outline";
   size?: "xs" | "sm" | "default" | "lg" | "icon";
   asChild?: boolean;
   href?: string;
@@ -134,12 +139,12 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
             </div>
           </Link>
         ) : (
-          <Button
+          <div
             onClick={onClick}
             className={cn(innerDivVariants({ variant, size }), innerClassName)}
           >
             {children}
-          </Button>
+          </div>
         )}
       </Comp>
     );
