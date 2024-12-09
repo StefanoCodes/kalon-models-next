@@ -36,7 +36,7 @@ export function CourseCard({
   const searchQuery = `?course=${slug}`;
   return (
     <Card className="w-full flex-1 overflow-hidden">
-      <div className="relative aspect-video w-full">
+      {/* <div className="relative aspect-video w-full">
         <Image
           src={image}
           alt={title}
@@ -44,7 +44,7 @@ export function CourseCard({
           width={1000}
           height={1000}
         />
-      </div>
+      </div> */}
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
