@@ -92,6 +92,7 @@ export interface UnifiedButtonProps
   href?: string;
   className?: string;
   innerClassName?: string;
+  onClick?: () => void;
 }
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
@@ -104,6 +105,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
       href,
       className,
       innerClassName,
+      onClick,
       ...props
     },
     ref,
@@ -117,7 +119,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
         {...props}
       >
         {href ? (
-          <Link href={href}>
+          <Link href={href} onClick={onClick}>
             <div
               className={cn(
                 innerDivVariants({ variant, size }),
@@ -129,6 +131,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, UnifiedButtonProps>(
           </Link>
         ) : (
           <div
+            onClick={onClick}
             className={cn(innerDivVariants({ variant, size }), innerClassName)}
           >
             {children}

@@ -10,6 +10,7 @@ import NavLogo from "./nav-logo";
 import { usePathname } from "next/navigation";
 const { instagram } = contactConfig.socials;
 import { useMotionValueEvent } from "motion/react";
+import PrimaryButton from "../buttons/primary-button";
 type bgColorType = "white" | "transparent";
 
 export default function MobileNavList() {
@@ -61,24 +62,34 @@ export default function MobileNavList() {
               </ul>
               <motion.div
                 variants={linkVariants}
-                className="flex flex-col gap-2"
+                className="flex w-full flex-col gap-8"
               >
-                <p className="text-xs font-light text-muted-foreground">
-                  hello@kalon.com.au
-                </p>
-                <div className="flex items-center gap-4">
-                  <Link
-                    href={instagram.url}
-                    className="text-xs font-light capitalize text-muted-foreground"
-                  >
-                    in
-                  </Link>
-                  <Link
-                    href={instagram.url}
-                    className="text-xs font-light capitalize text-muted-foreground"
-                  >
-                    ti
-                  </Link>
+                <PrimaryButton
+                  onClick={toggleOpen}
+                  href="/register"
+                  variant="kalon"
+                  size="sm"
+                >
+                  Register
+                </PrimaryButton>
+                <div className="flex flex-row items-center justify-between">
+                  <p className="text-xs font-light text-muted-foreground">
+                    hello@kalon.com.au
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href={instagram.url}
+                      className="text-xs font-light capitalize text-muted-foreground"
+                    >
+                      in
+                    </Link>
+                    <Link
+                      href={instagram.url}
+                      className="text-xs font-light capitalize text-muted-foreground"
+                    >
+                      ti
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             </nav>
