@@ -71,7 +71,7 @@ export function CourseCard({
           variant={"outline"}
           asChild
         >
-          <Link href={link}>Learn More</Link>
+          <Link href={link}>Learn more</Link>
         </Button>
         <PrimaryButton
           variant={"kalon"}
