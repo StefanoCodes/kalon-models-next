@@ -21,7 +21,6 @@ export default function About() {
           alt="About Hero"
           fill
           className="mx-auto max-w-[1920px] object-cover brightness-[0.4]"
-          quality={95}
           priority
           loading="eager"
         />
