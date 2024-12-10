@@ -16,14 +16,12 @@ import Image from "next/image";
           </Button>
         </div> */
 }
-export default function Home() {
-  return (
-    <section
-      className="container relative min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
-      id="home"
-    >
-      {/* content goes here */}
-      {/* <Image
+
+{
+  /* content goes here */
+}
+{
+  /* <Image
           src="/kalon-cover-home.jpg"
           alt="Kalon Models Group"
           fill
@@ -49,7 +47,13 @@ export default function Home() {
               </Link>
             </Button>
           </div>
-        </div> */}
-    </section>
+        </div> */
+}
+export default function Home() {
+  return (
+    <section
+      className="container relative min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
+      id="home"
+    ></section>
   );
 }
