@@ -1,5 +1,5 @@
 import PrimaryButton from "@/components/buttons/primary-button";
-import { Button } from "@/components/ui/button";
+import Modal from "@/components/modal";
 import {
   Card,
   CardContent,
@@ -44,14 +44,7 @@ export function CourseCard({
         </div>
       </CardContent>
       <CardFooter className="flex flex-col gap-4">
-        <PrimaryButton
-          href={link}
-          variant="outline"
-          className="w-full rounded-sm font-normal tracking-wide"
-          innerClassName="rounded-sm"
-        >
-          Learn more
-        </PrimaryButton>
+        <Modal />
 
         <PrimaryButton
           variant={"kalon"}

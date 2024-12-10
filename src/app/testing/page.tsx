@@ -1,6 +1,6 @@
-import Modal from "@/components/modal";
-import Heading from "../about/_components/heading";
 import PrimaryButton from "@/components/buttons/primary-button";
+import Heading from "../about/_components/heading";
+import Modal from "@/components/modal";
 
 export default function Testing() {
   return (

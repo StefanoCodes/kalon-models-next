@@ -6,23 +6,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Close } from "@radix-ui/react-dialog";
 import { CheckCircle, X as CloseIcon } from "lucide-react";
 import { ScrollArea } from "./ui/scroll-area";
+import PrimaryButton from "./buttons/primary-button";
 
 export default function Modal() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => setIsOpen(!isOpen);
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
-      <Button onClick={toggleModal} className="w-fit">
-        Toggle Modal
-      </Button>
-      <AnimatePresence mode="wait">
+    <>
+      <PrimaryButton
+        variant="outline"
+        className="w-full rounded-sm font-normal tracking-wide"
+        innerClassName="rounded-sm"
+        onClick={toggleModal}
+      >
+        Learn more
+      </PrimaryButton>
+      <AnimatePresence mode="sync">
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-            // onClick={toggleModal}
           >
             <div className="flex h-full w-full items-center justify-center">
               <motion.div
@@ -137,6 +142,6 @@ export default function Modal() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
