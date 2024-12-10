@@ -24,7 +24,7 @@ export default async function Register({
   const isCourseNameValid =
     course === `adults` || course === `kids` || course === `masterclass`;
   return (
-    <div className="flex flex-col gap-8 md:gap-16">
+    <div className="flex flex-col gap-8">
       {isCourseNameValid && (
         <PrimaryButton
           variant="outline"
