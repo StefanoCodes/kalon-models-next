@@ -44,7 +44,12 @@ export function CourseCard({
         </div>
       </CardContent>
       <CardFooter className="flex flex-col gap-4">
-        <PrimaryButton href={link} variant="outline" size="sm">
+        <PrimaryButton
+          href={link}
+          variant="outline"
+          className="w-full rounded-sm font-normal tracking-wide"
+          innerClassName="rounded-sm"
+        >
           Learn more
         </PrimaryButton>
 
