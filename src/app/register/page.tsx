@@ -27,7 +27,7 @@ export default async function Register({
     <div className="flex flex-col gap-8 md:gap-16">
       {isCourseNameValid && (
         <PrimaryButton
-          variant="kalonBlack"
+          variant="outline"
           href="register"
           size="sm"
           className="w-fit"
