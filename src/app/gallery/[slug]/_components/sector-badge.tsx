@@ -4,8 +4,8 @@ export default function GallerySlugSectorBadge({ sector }: { sector: string }) {
   return (
     <PrimaryButton
       variant="outline"
-      className="w-fit rounded-[4px] font-normal drop-shadow-sm"
-      innerClassName="text-xs py-0 rounded-[4px] px-2"
+      className="w-fit select-none rounded-[4px] font-normal drop-shadow-sm hover:opacity-100"
+      innerClassName="text-xs py-0 rounded-[4px] px-2 select-none"
     >
       {sector}
     </PrimaryButton>
