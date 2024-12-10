@@ -5,15 +5,15 @@ export const metadata: Metadata = {
   description: "Explore our pricing plans.",
 };
 
-export default function GalleryLayout({
+export default function PricingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <section
-      id="pricing"
-      className="container min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
+      className="container flex min-h-screen-mobile flex-col py-10 md:min-h-screen-desktop xl:px-0"
+      id="register"
     >
       {children}
     </section>

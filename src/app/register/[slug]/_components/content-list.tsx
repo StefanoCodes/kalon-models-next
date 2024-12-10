@@ -1,4 +1,4 @@
-import { Content } from "../pricing.config";
+import { Content } from "../../register.config";
 
 export default function ContentList({ content }: { content: Content[] }) {
   return (

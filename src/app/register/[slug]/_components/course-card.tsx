@@ -9,8 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar, Clock, Users } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 
 interface CourseCardProps {
   title: string;
@@ -36,15 +34,6 @@ export function CourseCard({
   const searchQuery = `?course=${slug}`;
   return (
     <Card className="w-full flex-1 overflow-hidden">
-      {/* <div className="relative aspect-video w-full">
-        <Image
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover"
-          width={1000}
-          height={1000}
-        />
-      </div> */}
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

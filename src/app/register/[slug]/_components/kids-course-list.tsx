@@ -1,4 +1,4 @@
-import { courses } from "../pricing.config";
+import { courses } from "../../register.config";
 import KidCourseCard from "./kid-course-card";
 
 const { kids } = courses;

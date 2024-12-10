@@ -1,37 +1,48 @@
 import { Metadata } from "next";
 import Heading from "../about/_components/heading";
-import RegistrationDialog from "./_components/registration-dialog";
-import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
+import CoursesList from "./[slug]/_components/courses-list";
+import RegistrationForm from "./_components/registration";
+import { Button } from "@/components/ui/button";
+import PrimaryButton from "@/components/buttons/primary-button";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Register | #1 modelling academy in South Africa",
   description:
     "Register with Kalon Models today and begin your journey to becoming a professional model.",
 };
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-export default async function Register() {
+export default async function Register({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const params = await searchParams;
+  const { course } = params;
+  // decision to know what content to be displayed
+  const isCourseNameValid =
+    course === `adults` || course === `kids` || course === `masterclass`;
   return (
-    <section
-      className="container flex min-h-screen-mobile flex-col py-10 md:min-h-screen-desktop xl:px-0"
-      id="register"
-    >
-      <div className="flex w-full flex-col gap-8">
-        {/* Header */}
-        <div className="flex flex-col gap-4">
-          <Heading headingSize="h1">Registration</Heading>
-          <p className="body-text max-w-prose text-mutedColor">
-            Join Kalon Models and take the first step towards your modeling
-            career. Fill out the form below and our team will review your
-            application.
-          </p>
-        </div>
-        <Suspense
-          fallback={<Skeleton className="h-[25.5rem] w-full md:h-[20rem]" />}
+    <div className="flex flex-col gap-8 md:gap-16">
+      {isCourseNameValid && (
+        <PrimaryButton
+          variant="kalonBlack"
+          href="register"
+          size="sm"
+          className="w-fit"
         >
-          <RegistrationDialog />
-        </Suspense>
-      </div>
-    </section>
+          <span className="flex items-center gap-2">
+            <ArrowLeft className="size-4" />
+            Go back
+          </span>
+        </PrimaryButton>
+      )}
+      {!isCourseNameValid && (
+        <Heading headingSize="h1">Registration Info</Heading>
+      )}
+      {!isCourseNameValid && <CoursesList />}
+      <div>{isCourseNameValid && <RegistrationForm query={course} />}</div>
+    </div>
   );
 }

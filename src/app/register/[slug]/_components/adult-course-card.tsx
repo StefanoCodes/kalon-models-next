@@ -1,11 +1,11 @@
 import Heading from "@/app/about/_components/heading";
-import { GeneralCourseDetails } from "../pricing.config";
 import ContentList from "./content-list";
+import { AdultCourseDetails } from "../../register.config";
 
-export default function GeneralCourseCard({
+export default function AdultCourseCard({
   courseDetails,
 }: {
-  courseDetails: GeneralCourseDetails;
+  courseDetails: AdultCourseDetails;
 }) {
   const { heading, description, price, content } = courseDetails;
   return (

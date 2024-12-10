@@ -10,10 +10,6 @@ export const navbar = {
       href: "/gallery",
     },
     {
-      title: "Pricing",
-      href: "/pricing",
-    },
-    {
       title: "Contact",
       href: "/contact",
     },

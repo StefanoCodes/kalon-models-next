@@ -1,4 +1,4 @@
-import { courses } from "../pricing.config";
+import { courses } from "../../register.config";
 import GeneralCourseCard from "./general-course-card";
 
 const { masterclass } = courses;

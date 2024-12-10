@@ -1,4 +1,4 @@
-import { coursesMetaData } from "../pricing.config";
+import { coursesMetaData } from "../../register.config";
 import { CourseCard } from "./course-card";
 
 export default function CoursesList() {

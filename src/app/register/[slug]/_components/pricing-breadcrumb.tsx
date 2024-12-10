@@ -16,7 +16,7 @@ export default function PricingBreadcrumb({ title }: { title: string }) {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/pricing">Pricing</Link>
+            <Link href="/register">Info</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
