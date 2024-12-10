@@ -44,15 +44,10 @@ export function CourseCard({
         </div>
       </CardContent>
       <CardFooter className="flex flex-col gap-4">
-        <Button
-          className="w-full font-normal tracking-wide"
-          variant={"outline"}
-          asChild
-        >
-          <PrimaryButton href={link} variant="outline">
-            Learn more
-          </PrimaryButton>
-        </Button>
+        <PrimaryButton href={link} variant="outline" size="sm">
+          Learn more
+        </PrimaryButton>
+
         <PrimaryButton
           variant={"kalon"}
           href={`/register${searchQuery}`}
