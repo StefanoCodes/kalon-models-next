@@ -11,7 +11,6 @@
 - Hero Section
 - About Section
 - Gallery Section
-- Pricing Section
 - Contact Section
 - Custom Registration Form
 - Modern UI/UX Design

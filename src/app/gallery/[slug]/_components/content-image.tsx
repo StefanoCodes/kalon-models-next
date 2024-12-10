@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import GallerySlugPlaceholder from "./placeholder";
 import GallerySlugImages from "./images";
 
 export default function GallerySlugContentImage({

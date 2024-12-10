@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: "Explore our pricing plans.",
 };
 
-export default function PricingLayout({
+export default function RegisterLayout({
   children,
 }: {
   children: React.ReactNode;

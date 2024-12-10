@@ -31,13 +31,20 @@ export type Course = {
   kidsStandard?: KidCourseDetails;
   kidsExclusive?: KidCourseDetails;
 };
-
+export type CourseCardProps = {
+  title: string;
+  description: string;
+  duration: string;
+  startDate: string;
+  spots: number;
+  link: string;
+  slug: string;
+};
 export const coursesMetaData = {
   adults: {
     title: `Adults Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     startDate: `2024-01-01`,
-    image: `/gallery/ineffeable/inner-wide.webp`,
     link: `/register/adults`,
     duration: `10 weeks`,
     spots: 10,
@@ -47,7 +54,6 @@ export const coursesMetaData = {
     title: `Kids Courses`,
     description: `Kids Courses for beginners and intermediates who want to learn the basics of modelling.`,
     startDate: `2024-01-01`,
-    image: `/gallery/power-of-wearing-flowers/fifth.webp`,
     link: `/register/kids`,
     duration: `10 weeks`,
     spots: 10,
@@ -57,7 +63,6 @@ export const coursesMetaData = {
     title: `The Masterclass`,
     description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community.`,
     startDate: `2024-01-01`,
-    image: `/gallery/ineffeable/second.webp`,
     link: `/register/masterclass`,
     duration: `10 weeks`,
     spots: 10,

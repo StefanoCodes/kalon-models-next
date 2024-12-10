@@ -9,17 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Calendar, Clock, Users } from "lucide-react";
-
-interface CourseCardProps {
-  title: string;
-  description: string;
-  duration: string;
-  startDate: string;
-  spots: number;
-  image: string;
-  link: string;
-  slug: string;
-}
+import { CourseCardProps } from "../../register.config";
 
 export function CourseCard({
   title,
@@ -27,7 +17,6 @@ export function CourseCard({
   duration,
   startDate,
   spots,
-  image,
   link,
   slug,
 }: CourseCardProps) {
