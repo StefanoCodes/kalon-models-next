@@ -1,5 +1,4 @@
 import PrimaryButton from "@/components/buttons/primary-button";
-import Modal from "@/components/modal";
 import {
   Card,
   CardContent,

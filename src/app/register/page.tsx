@@ -1,10 +1,9 @@
+import PrimaryButton from "@/components/buttons/primary-button";
+import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 import Heading from "../about/_components/heading";
 import CoursesList from "./[slug]/_components/courses-list";
 import RegistrationForm from "./_components/registration";
-import { Button } from "@/components/ui/button";
-import PrimaryButton from "@/components/buttons/primary-button";
-import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Register | #1 modelling academy in South Africa",
@@ -21,8 +20,7 @@ export default async function Register({
   const params = await searchParams;
   const { course } = params;
   // decision to know what content to be displayed
-  const isCourseNameValid =
-    course === `adults` || course === `kids` || course === `masterclass`;
+  const isCourseNameValid = course === `adults` || course === `kids`;
   return (
     <div className="flex flex-col gap-8">
       {isCourseNameValid && (

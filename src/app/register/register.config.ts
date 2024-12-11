@@ -40,6 +40,7 @@ export type CourseCardProps = {
   link: string;
   slug: string;
 };
+
 export const coursesMetaData = {
   adults: {
     title: `Adults Courses`,
@@ -59,15 +60,16 @@ export const coursesMetaData = {
     spots: 10,
     slug: `kids`,
   },
-  masterclass: {
-    title: `The Masterclass`,
-    description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community.`,
-    startDate: `2024-01-01`,
-    link: `/register/masterclass`,
-    duration: `10 weeks`,
-    spots: 10,
-    slug: `masterclass`,
-  },
+  // to be toggled in future when needed
+  // masterclass: {
+  //   title: `The Masterclass`,
+  //   description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community.`,
+  //   startDate: `2024-01-01`,
+  //   link: `/register/masterclass`,
+  //   duration: `10 weeks`,
+  //   spots: 10,
+  //   slug: `masterclass`,
+  // },
 };
 
 export const courses = {
@@ -260,3 +262,12 @@ export const courses = {
     },
   ],
 };
+// TODO FIX THIS UP
+export const memberships = [
+  {
+    kids: ["standard", "exclusive"],
+  },
+  {
+    adult: ["standard", "premium", "exclusive"],
+  },
+];

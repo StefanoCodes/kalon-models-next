@@ -112,6 +112,7 @@ export default function StepThree({
           </div>
           {!course && (
             <div className="md:flex-1">
+              {/* TODO: this will be selectedMembership coming from the config*/}
               <FormField
                 control={control}
                 name="selectedCourse"
