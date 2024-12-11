@@ -116,3 +116,26 @@
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   color: black;
 } */
+@keyframes animateMask {
+  0% {
+    -webkit-mask-position: 0 0;
+  }
+  100% {
+    -webkit-mask-position: 1000px 1000px;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.dots-canvas {
+  animation:
+    fadeIn 3s cubic-bezier(0.65, 0, 0.35, 1),
+    animateMask 120s linear infinite;
+  -webkit-mask-image: url(/perlin-noise.svg);
+  mask-image: url(/perlin-noise.svg);
+}

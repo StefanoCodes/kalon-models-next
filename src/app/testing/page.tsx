@@ -1,6 +1,8 @@
 import PrimaryButton from "@/components/buttons/primary-button";
 import Heading from "../about/_components/heading";
 import Modal from "@/components/modal";
+import ShimmerDotConcept from "./_components/shimmer-dot";
+import ShimmerShapes from "./_components/shimmer-dot";
 
 export default function Testing() {
   return (
@@ -16,6 +18,15 @@ export default function Testing() {
           >
             Transfer
           </PrimaryButton>
+          <main
+            style={{
+              margin: 0,
+              padding: 0,
+              overflow: "hidden",
+            }}
+          >
+            <ShimmerShapes />
+          </main>
         </div>
       </div>
     </div>

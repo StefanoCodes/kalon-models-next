@@ -3,9 +3,9 @@ import GalleryListItem from "./gallery-list-item";
 import GalleryListRow from "./gallery-list-row";
 
 const gridCols = {
-  1: "col-span-12 md:col-span-8 xl:col-span-5",
-  2: "col-span-12 md:col-span-4",
-  3: "col-span-12 lg:col-span-12 xl:col-span-3",
+  1: "col-span-12 md:col-span-8 xl:col-span-4",
+  2: "col-span-12 md:col-span-4 xl:col-span-4",
+  3: "col-span-12 lg:col-span-12 xl:col-span-4",
   4: "col-span-12 md:col-span-8",
   5: "col-span-12 md:col-span-4 lg:col-span-4",
 };
