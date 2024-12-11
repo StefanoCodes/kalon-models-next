@@ -32,7 +32,7 @@ const steps = [
       "instagramUsername",
       "howDidYouHearAboutUs",
       "whyWouldYouLikeToJoinKalonModels",
-      "selectedCourse",
+      "membership",
     ],
   },
 
@@ -41,11 +41,7 @@ const steps = [
   { id: "Step 4", name: "Complete" },
 ];
 
-export default function AdultMultiStepForm({
-  course,
-}: {
-  course?: "adults" | "masterclass";
-}) {
+export default function AdultMultiStepForm({ course }: { course?: "adults" }) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const finalStep = steps.length - 1;
@@ -66,6 +62,7 @@ export default function AdultMultiStepForm({
       howDidYouHearAboutUs: "",
       whyWouldYouLikeToJoinKalonModels: "",
       selectedCourse: course,
+      membership: undefined,
     },
   });
   const {

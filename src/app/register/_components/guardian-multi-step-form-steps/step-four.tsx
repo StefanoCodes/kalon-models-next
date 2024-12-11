@@ -21,13 +21,7 @@ import { motion } from "framer-motion";
 import { useFormContext } from "react-hook-form";
 import { z } from "zod";
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
-export default function StepFour({
-  delta,
-  course,
-}: {
-  delta: number;
-  course: "kids" | undefined;
-}) {
+export default function StepFour({ delta }: { delta: number }) {
   const { control } = useFormContext<Inputs>();
 
   return (
@@ -119,38 +113,37 @@ export default function StepFour({
               )}
             />
           </div>
-          {/* Selected Course however disabled */}
-          {!course && (
-            <div className="md:flex-1">
-              <FormField
-                control={control}
-                name="selectedCourse"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Selected Course</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      disabled
-                    >
-                      <FormControl>
-                        <SelectTrigger
-                          className={cn("form-input px-0")}
-                          id="select-36"
-                        >
-                          <SelectValue placeholder="Kids" />
-                          <SelectContent>
-                            <SelectItem value="kids">Kids</SelectItem>
-                          </SelectContent>
-                        </SelectTrigger>
-                      </FormControl>
-                    </Select>
-                    <FormMessage className="mt-2" />
-                  </FormItem>
-                )}
-              />
-            </div>
-          )}
+          {/* membership */}
+          <div className="md:flex-1">
+            <FormField
+              control={control}
+              name="membership"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Select your membership</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger
+                        className={cn("form-input px-0")}
+                        id="select-43"
+                      >
+                        <SelectValue placeholder="Select your membership" />
+                        <SelectContent>
+                          <SelectItem value="standard">Standard</SelectItem>
+                          <SelectItem value="premium">Premium</SelectItem>
+                          <SelectItem value="exclusive">Exclusive</SelectItem>
+                        </SelectContent>
+                      </SelectTrigger>
+                    </FormControl>
+                  </Select>
+                  <FormMessage className="mt-2" />
+                </FormItem>
+              )}
+            />
+          </div>
         </Row>
       </div>
     </motion.div>

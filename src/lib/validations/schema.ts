@@ -5,17 +5,24 @@ import {
   STUDENT_MIN_AGE,
   STUDENT_MAX_AGE,
 } from "../constants";
+
 const genderEnum = z.enum(["male", "female", "other"], {
   message: "Gender is required",
 });
 const preferedMethodOfContactEnum = z.enum(["whatsapp", "email"], {
   message: "Prefered method of contact is required",
 });
-const adultCourseEnum = z.enum(["adults", "masterclass"], {
+const adultCourseEnum = z.enum(["adults"], {
   message: "Course is required",
 });
 const guardianCourseEnum = z.enum(["kids"], {
   message: "Course is required",
+});
+const guardianMemebershipsEnum = z.enum(["standard", "premium", "exclusive"], {
+  message: "Membership is required",
+});
+const adultMemebershipsEnum = z.enum(["standard", "exclusive"], {
+  message: "Membership is required",
 });
 // ADULT ZOD SCHEMA for the registration form
 export const registriationFormSchema = z.object({
@@ -67,6 +74,7 @@ export const registriationFormSchema = z.object({
     .trim()
     .min(2, { message: "Reason is required" }),
   selectedCourse: adultCourseEnum,
+  membership: adultMemebershipsEnum,
 });
 // GUARDIAN ZOD SCHEMA for the registartion form
 export const guardianRegistriationFormSchema = z.object({
@@ -112,6 +120,7 @@ export const guardianRegistriationFormSchema = z.object({
       },
     ),
   studentGender: genderEnum,
+
   studentCityResidingIn: z
     .string()
     .trim()
@@ -155,6 +164,7 @@ export const guardianRegistriationFormSchema = z.object({
     .trim()
     .min(2, { message: "How did you hear about us is required" }),
   selectedCourse: guardianCourseEnum,
+  membership: guardianMemebershipsEnum,
 });
 // CONTACT FORM ZOD SCHEMA
 export const contactFormSchema = z.object({

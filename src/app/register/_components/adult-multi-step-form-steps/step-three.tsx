@@ -15,6 +15,7 @@ import {
   SelectValue,
   SelectTrigger,
 } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 import { registriationFormSchema } from "@/lib/validations/schema";
 import { motion } from "framer-motion";
 import { useFormContext } from "react-hook-form";
@@ -110,40 +111,32 @@ export default function StepThree({
               )}
             />
           </div>
-          {!course && (
-            <div className="md:flex-1">
-              {/* TODO: this will be selectedMembership coming from the config*/}
-              <FormField
-                control={control}
-                name="selectedCourse"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Course</FormLabel>
-                    <FormControl>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <SelectTrigger
-                          id="select-20"
-                          className="form-input px-0"
-                        >
-                          <SelectValue placeholder="Select a course" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="adults">Adults</SelectItem>
-                          <SelectItem value="masterclass">
-                            Masterclass
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          )}
+          <div className="md:flex-1">
+            <FormField
+              control={control}
+              name="membership"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Membership</FormLabel>
+                  <FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <SelectTrigger id="select-43" className="form-input px-0">
+                        <SelectValue placeholder="Select a membership" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="standard">Standard</SelectItem>
+                        <SelectItem value="exclusive">Exclusive</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
         </Row>
       </div>
     </motion.div>

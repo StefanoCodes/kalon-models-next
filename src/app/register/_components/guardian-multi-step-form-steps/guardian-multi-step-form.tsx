@@ -44,7 +44,7 @@ const steps = [
       "studentInstagramUsername",
       "studentPreferedMethodOfContact",
       "studentHowDidYouHearAboutUs",
-      "selectedCourse",
+      "membership",
     ],
   },
   { id: "Step 5", name: "Complete" },
@@ -76,6 +76,7 @@ export default function GuardianMultiStepForm({ course }: { course?: "kids" }) {
       studentPreferedMethodOfContact: "whatsapp",
       studentHowDidYouHearAboutUs: "",
       selectedCourse: course,
+      membership: undefined,
     },
   });
   const {
@@ -166,7 +167,7 @@ export default function GuardianMultiStepForm({ course }: { course?: "kids" }) {
           {/* STEP 3  */}
           {currentStep === 2 && <StepThree delta={delta} />}
           {/* STEP 4 */}
-          {currentStep === 3 && <StepFour delta={delta} course={course} />}
+          {currentStep === 3 && <StepFour delta={delta} />}
           {/* STEP 5 / SUCCESS PAGE / ERRORS */}
           {currentStep === finalStep && isSubmitSuccessful && (
             <Success delta={delta} />
