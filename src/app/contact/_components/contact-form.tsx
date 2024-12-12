@@ -1,5 +1,4 @@
 "use client";
-
 import TextureButton from "@/components/buttons/primary-button";
 import {
   Form,
@@ -77,12 +76,10 @@ export default function ContactForm() {
     if (success) {
       try {
         await submit(data);
-        if (isSubmitSuccessful) {
-          toast({
-            title: "Message Sent",
-            description: "We will get back to you as soon as possible",
-          });
-        }
+        toast({
+          title: "Message Sent",
+          description: "We will get back to you as soon as possible",
+        });
       } catch (error) {
         console.error(error);
         toast({
@@ -227,8 +224,6 @@ export default function ContactForm() {
             )}
           >
             {isSubmitting ? "Sending..." : "Get In Touch"}
-            {/* {isSubmitSuccessful && "Sent"} */}
-            {/* on submit will have a cool checkmark animation */}
           </TextureButton>
         </div>
       </form>
