@@ -4,14 +4,17 @@ import GallerySlugImages from "./images";
 export default function GallerySlugContentImage({
   image,
   alt,
-  content,
+  contents = [
+    "Nightjar’s brief was to design and engineer a new platform that would consolidate the various stand alone sites into one mastersite, while still creating a consistent and cohesive brand experience. On the backend, the technical solution needed to be able to scale to handle this growth trajectory of acquiring up to 10 practices per year, while giving the NDC team full control of all the practice child-sites, as well as an easier way to maintain cybersecurity.",
+    "  As an additional UX and design challenge to overcome, some practices are NDC branded, West Coast practices are DB Dental branded, and recent acquisition practices needed to retain some of their own branding elements logos, colour palettes to be convinced convinced to move to the new mastersite.",
+  ],
   title,
   reverse,
   imageClassNames,
 }: {
   image: string;
   alt: string;
-  content?: string;
+  contents?: string[]; // todo make this not optional once the content is there to be used
   reverse?: boolean;
   title?: string;
   imageClassNames?: string;
@@ -22,23 +25,14 @@ export default function GallerySlugContentImage({
         <div className="flex flex-col gap-2">
           <h3 className="text-lg font-medium tracking-wide">{title}</h3>
           <div className="flex flex-col gap-4">
-            <p className="slug-content">
-              Nightjar’s brief was to design and engineer a new platform that
-              would consolidate the various stand alone sites into one
-              mastersite, while still creating a consistent and cohesive brand
-              experience. On the backend, the technical solution needed to be
-              able to scale to handle this growth trajectory of acquiring up to
-              10 practices per year, while giving the NDC team full control of
-              all the practice child-sites, as well as an easier way to maintain
-              cybersecurity.
-            </p>
-            <p className="slug-content">
-              As an additional UX and design challenge to overcome, some
-              practices are NDC branded, West Coast practices are DB Dental
-              branded, and recent acquisition practices needed to retain some of
-              their own branding elements logos, colour palettes to be convinced
-              convinced to move to the new mastersite.
-            </p>
+            {/* if the content is present roll it in other wise we show the default stuff untill the content is ready */}
+            {contents?.map((content, id) => {
+              return (
+                <p key={id} className="slug-content">
+                  {content}
+                </p>
+              );
+            })}
           </div>
         </div>
       </div>

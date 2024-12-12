@@ -52,6 +52,7 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      // contents:''
       coverImage: "/gallery/eutierria/inner-wide.webp",
     },
     {
@@ -101,6 +102,17 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      contents: {
+        left: [
+          "This shoot was a true introduction to the world of professional modeling. The day started bright and early, we all had to be up by 4 a.m. to meet at the Gautrain station in Hatfield at 6 a.m. By the time we arrived in Maboneng, everyone was running on adrenaline, coffee and vibes.",
+
+          "Once there, the pace was intense. We had a reserved spot where the team worked tirelessly to do makeup and style hair, but there was no room for hesitation. The schedule was tight, makeup, hair, outfit changes, and straight to the camera. Every moment mattered.",
+        ],
+        right: [
+          "Maboneng is more than just a location; it’s an art-filled space where every wall tells a story. The setting demanded energy and creativity. You couldn’t just show up and play it safe, posing in front of vibrant murals required boldness to match the environment.",
+          "Yes, it was a hectic day. There were moments of chaos, but it was also exhilarating. We worked hard, we laughed even harder, and by the end of it, we were exhausted but proud. That’s the beauty of doing what you love. No matter how challenging it gets, the passion and joy make it all worth it.",
+        ],
+      },
     },
 
     {
@@ -110,6 +122,7 @@ export const galleryContent: GalleryContent[][] = [
       overview: [
         "The Power of Wearing Flowers tells a quiet, beautiful story of connection and transformation. Each model is adorned with delicate floral arrangements that echo the intricate balance of strength and fragility in nature. Set against soft, tonal backdrops, the flowers and models come together in striking harmony.",
         "These aren’t mere accessories; they feel integrated into the identity of each subject, bridging the natural and human worlds in a way that feels effortless yet profound. This series reflects a deeper narrative—where beauty is not about perfection but about embracing the contrasts that make us whole.",
+        "Yes, it was a hectic day. There were moments of chaos, but it was also exhilarating. We worked hard, we laughed even harder, and by the end of it, we were exhausted but proud. That’s the beauty of doing what you love. No matter how challenging it gets, the passion and joy make it all worth it.",
       ],
       sectors: ["Fashion", "Sustainability", "Lifestyle"],
       timeline: "August 2021",
@@ -252,6 +265,16 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      contents: {
+        left: [
+          "The modeling industry demands more than just good looks, it’s about knowing your body and how to control it. For this shoot, our students discovered exactly what that means.",
+          "The brief was clear: bold, color-blocking outfits and unusual poses. But there was no support, no props, no walls, nothing to lean on. They had to balance on thin air, holding positions that pushed them to their limits.",
+        ],
+        right: [
+          "It didn’t take long for reality to hit. Tighten your core or fall. That was the unspoken rule. Every movement required focus and strength. Poses that looked effortless in concept became a challenge to hold steady.",
+          "By the end, the students didn’t just capture bold, striking images, they walked away with a new understanding of how much control and awareness modeling truly demands.",
+        ],
+      },
       coverImage: "/gallery/pose/inner-wide.webp",
     },
   ],

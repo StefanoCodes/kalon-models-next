@@ -8,6 +8,7 @@ export type GalleryContent = {
   credits: Credits[];
   coverImage: string;
   images: GalleryImage[];
+  contents?: Record<string, string[]>;
 };
 
 export type Credits = {

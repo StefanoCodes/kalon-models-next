@@ -56,14 +56,14 @@ export default async function GalleryInnerPage({ params }: { params: Params }) {
       </div>
       <div className="flex flex-col gap-8">
         <GallerySlugContentImage
-          title="Problem Overview"
+          contents={content.contents?.left}
           reverse
           image={content.images[3].src}
           alt={content.images[3].alt}
           imageClassNames={content.images[3]?.styles}
         />
         <GallerySlugContentImage
-          title="Solution Overview"
+          contents={content.contents?.right}
           image={content.images[4].src}
           alt={content.images[4].alt}
           imageClassNames={content.images[4]?.styles}
