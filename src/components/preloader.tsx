@@ -1,11 +1,32 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import KalonSvgAnimation from "./kalon-svg-animation";
+import React, { useEffect, useState } from "react";
+import FlickeringGrid from "./shimmer-dot";
 import { PRELOADER_DURATION } from "@/lib/constants";
+import { motion, AnimatePresence } from "motion/react";
 
-export const Preloader = () => {
+export default function Preloader() {
+  const [fillPercentage, setFillPercentage] = useState(0);
+  const [isFilled, setIsFilled] = useState(false);
+
+  useEffect(() => {
+    const animateFill = () => {
+      setFillPercentage((prev) => {
+        if (prev < 100) {
+          return prev + 1;
+        }
+        if (prev === 100 && !isFilled) {
+          setIsFilled(true);
+        }
+        return prev;
+      });
+    };
+
+    const intervalId = setInterval(animateFill, 40);
+
+    return () => clearInterval(intervalId);
+  }, [isFilled]);
+
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
@@ -20,7 +41,7 @@ export const Preloader = () => {
     <AnimatePresence>
       {showPreloader && (
         <motion.div
-          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-black"
+          className="fixed inset-0 z-[9999] flex min-h-screen items-center justify-center bg-black"
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
@@ -30,16 +51,58 @@ export const Preloader = () => {
             },
           }}
         >
-          <motion.div
-            className="relative flex h-full w-full flex-col items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <KalonSvgAnimation />
-          </motion.div>
+          <div className="relative h-[100px] w-[400px]">
+            <svg
+              width="400"
+              height="100"
+              viewBox="0 0 400 100"
+              className="absolute left-0 top-0 z-10"
+            >
+              <defs>
+                <clipPath id="text-clip">
+                  <text
+                    x="50%"
+                    y="50%"
+                    dy=".35em"
+                    textAnchor="middle"
+                    fontSize="80"
+                    fontFamily="Arial, sans-serif"
+                    fontWeight="bold"
+                  >
+                    KALON
+                  </text>
+                </clipPath>
+              </defs>
+              <text
+                x="50%"
+                y="50%"
+                dy=".35em"
+                textAnchor="middle"
+                fontSize="80"
+                fontFamily="Arial, sans-serif"
+                fontWeight="bold"
+                fill={isFilled ? "white" : "none"}
+                stroke="#333"
+                strokeWidth="2"
+              >
+                KALON
+              </text>
+            </svg>
+            <div className="absolute left-0 top-0 z-20 h-full w-full">
+              <FlickeringGrid
+                color="rgb(255, 255, 255)"
+                maxOpacity={0.6}
+                flickerChance={0.2}
+                squareSize={2}
+                gridGap={6}
+                clipPath="url(#text-clip)"
+                fillPercentage={fillPercentage}
+                isFilled={isFilled}
+              />
+            </div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
   );
-};
+}

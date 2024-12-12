@@ -5,4 +5,4 @@ export const STUDENT_MAX_AGE = 17;
 export const KALON_EMAIL = "hello@kalon.com.au";
 export const KALON_INSTAGRAM_URL = "https://www.instagram.com/kalon.au/";
 export const KALON_TIKTOK_URL = "https://www.tiktok.com/@kalon.au";
-export const PRELOADER_DURATION = 1500;
+export const PRELOADER_DURATION = 4500;

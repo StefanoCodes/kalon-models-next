@@ -16,8 +16,10 @@ interface FlickeringGridProps {
   width?: number;
   height?: number;
   className?: string;
-
   maxOpacity?: number;
+  clipPath?: string;
+  fillPercentage?: number;
+  isFilled?: boolean;
 }
 
 const FlickeringGrid: React.FC<FlickeringGridProps> = ({
@@ -29,6 +31,9 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   height,
   className,
   maxOpacity = 0.3,
+  clipPath,
+  fillPercentage = 100,
+  isFilled = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,12 +64,13 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
+
       const cols = Math.floor(width / (squareSize + gridGap));
       const rows = Math.floor(height / (squareSize + gridGap));
 
       const squares = new Float32Array(cols * rows);
       for (let i = 0; i < squares.length; i++) {
-        squares[i] = Math.random() * maxOpacity;
+        squares[i] = Math.random() < 0.3 ? Math.random() * maxOpacity : 0;
       }
 
       return { cols, rows, squares, dpr };
@@ -73,10 +79,26 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
   );
 
   const updateSquares = useCallback(
-    (squares: Float32Array, deltaTime: number) => {
-      for (let i = 0; i < squares.length; i++) {
-        if (Math.random() < flickerChance * deltaTime) {
-          squares[i] = Math.random() * maxOpacity;
+    (
+      squares: Float32Array,
+      deltaTime: number,
+      fillPercentage: number,
+      isFilled: boolean,
+    ) => {
+      const totalSquares = squares.length;
+      const filledSquares = Math.floor(totalSquares * (fillPercentage / 100));
+
+      for (let i = 0; i < totalSquares; i++) {
+        if (i < filledSquares) {
+          if (isFilled) {
+            squares[i] = maxOpacity;
+          } else if (squares[i] === 0 && Math.random() < flickerChance * 0.1) {
+            squares[i] = Math.random() * maxOpacity;
+          } else if (squares[i] > 0 && Math.random() < flickerChance) {
+            squares[i] = Math.random() * maxOpacity;
+          }
+        } else {
+          squares[i] = 0;
         }
       }
     },
@@ -94,19 +116,22 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       dpr: number,
     ) => {
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "transparent";
-      ctx.fillRect(0, 0, width, height);
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           const opacity = squares[i * rows + j];
-          ctx.fillStyle = `${memoizedColor}${opacity})`;
-          ctx.fillRect(
-            i * (squareSize + gridGap) * dpr,
-            j * (squareSize + gridGap) * dpr,
-            squareSize * dpr,
-            squareSize * dpr,
-          );
+          if (opacity > 0) {
+            ctx.fillStyle = `${memoizedColor}${opacity})`;
+            ctx.beginPath();
+            ctx.arc(
+              (i * (squareSize + gridGap) + squareSize / 2) * dpr,
+              (j * (squareSize + gridGap) + squareSize / 2) * dpr,
+              (squareSize / 2) * dpr,
+              0,
+              Math.PI * 2,
+            );
+            ctx.fill();
+          }
         }
       }
     },
@@ -140,7 +165,7 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       const deltaTime = (time - lastTime) / 1000;
       lastTime = time;
 
-      updateSquares(gridParams.squares, deltaTime);
+      updateSquares(gridParams.squares, deltaTime, fillPercentage, isFilled);
       drawGrid(
         ctx,
         canvas.width,
@@ -177,10 +202,23 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
     };
-  }, [setupCanvas, updateSquares, drawGrid, width, height, isInView]);
+  }, [
+    setupCanvas,
+    updateSquares,
+    drawGrid,
+    width,
+    height,
+    isInView,
+    fillPercentage,
+    isFilled,
+  ]);
 
   return (
-    <div ref={containerRef} className={`h-full w-full ${className}`}>
+    <div
+      ref={containerRef}
+      className={`h-full w-full ${className}`}
+      style={{ clipPath: clipPath }}
+    >
       <canvas
         ref={canvasRef}
         className="pointer-events-none"
@@ -192,5 +230,4 @@ const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     </div>
   );
 };
-
 export default FlickeringGrid;

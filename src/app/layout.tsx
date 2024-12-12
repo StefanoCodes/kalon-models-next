@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Preloader } from "@/components/preloader";
+import Preloader from "@/components/preloader";
 
 const ABCNormal = localFont({
   src: [

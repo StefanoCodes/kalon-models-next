@@ -10,12 +10,12 @@ export type AdultCourseDetails = {
   content: Content[];
 };
 
-export type KidCourseDetails = {
-  heading: string;
-  description: string;
-  price: string;
-  content: Content[];
-};
+// export type KidCourseDetails = {
+//   heading: string;
+//   description: string;
+//   price: string;
+//   content: Content[];
+// };
 
 export type GeneralCourseDetails = {
   heading: string;
@@ -28,8 +28,8 @@ export type Course = {
   standard?: AdultCourseDetails;
   premium?: AdultCourseDetails;
   exclusive?: AdultCourseDetails;
-  kidsStandard?: KidCourseDetails;
-  kidsExclusive?: KidCourseDetails;
+  // kidsStandard?: KidCourseDetails;
+  // kidsExclusive?: KidCourseDetails;
 };
 export type CourseCardProps = {
   title: string;
@@ -51,15 +51,15 @@ export const coursesMetaData = {
     spots: 10,
     slug: `adults`,
   },
-  kids: {
-    title: `Kids Courses`,
-    description: `Kids Courses for beginners and intermediates who want to learn the basics of modelling.`,
-    startDate: `2024-01-01`,
-    link: `/register/kids`,
-    duration: `10 weeks`,
-    spots: 10,
-    slug: `kids`,
-  },
+  // kids: {
+  //   title: `Kids Courses`,
+  //   description: `Kids Courses for beginners and intermediates who want to learn the basics of modelling.`,
+  //   startDate: `2024-01-01`,
+  //   link: `/register/kids`,
+  //   duration: `10 weeks`,
+  //   spots: 10,
+  //   slug: `kids`,
+  // },
   // to be toggled in future when needed
   // masterclass: {
   //   title: `The Masterclass`,
@@ -194,79 +194,79 @@ export const courses = {
       },
     },
   ],
-  kids: [
-    {
-      kidsStandard: {
-        heading: `Standard membership`,
-        description: `A great start for young models. Begin building confidence and learning the basics of modelling in a supportive environment.`,
-        price: `R530`,
-        content: [
-          {
-            title: `Pageant Training`,
-            description: `1 Session Per Month`,
-          },
-          {
-            title: `Casting Skills Training`,
-            description: `1 Session Per Month`,
-          },
-          {
-            title: `General Photoshoot`,
-            description: `1 Look Per Term`,
-          },
-        ],
-      },
-    },
-    {
-      kidsExclusive: {
-        heading: `Exclusive membership`,
-        description: `For kids who want to take their modelling to the next level. Enjoy more in-depth training and opportunities to shine on the runway and beyond.`,
-        price: `R915`,
-        content: [
-          {
-            title: `Pageant Training`,
-            description: `2 Sessions Per Month`,
-          },
-          {
-            title: `Casting Skills Training`,
-            description: `1 Session Per Month`,
-          },
-          {
-            title: `Content Creation`,
-            description: `1 Session Per Month`,
-          },
-          {
-            title: `Tailored Photoshoot`,
-            description: `2 Looks Per Term`,
-          },
-        ],
-      },
-    },
-  ],
-  masterclass: [
-    {
-      masterclass: {
-        heading: `The Masterclass`,
-        description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community to expand your network and deepen your industry knowledge.`,
-        price: `R1 200`,
-        content: [
-          {
-            title: `Skill Development`,
-            description: `Modelling Skills, Including Runway Training`,
-          },
-          {
-            title: `Industry Insight`,
-            description: `Provide Real-World Knowledge From Industry Professionals,`,
-          },
-        ],
-      },
-    },
-  ],
+  // kids: [
+  //   {
+  //     kidsStandard: {
+  //       heading: `Standard membership`,
+  //       description: `A great start for young models. Begin building confidence and learning the basics of modelling in a supportive environment.`,
+  //       price: `R530`,
+  //       content: [
+  //         {
+  //           title: `Pageant Training`,
+  //           description: `1 Session Per Month`,
+  //         },
+  //         {
+  //           title: `Casting Skills Training`,
+  //           description: `1 Session Per Month`,
+  //         },
+  //         {
+  //           title: `General Photoshoot`,
+  //           description: `1 Look Per Term`,
+  //         },
+  //       ],
+  //     },
+  //   },
+  //   {
+  //     kidsExclusive: {
+  //       heading: `Exclusive membership`,
+  //       description: `For kids who want to take their modelling to the next level. Enjoy more in-depth training and opportunities to shine on the runway and beyond.`,
+  //       price: `R915`,
+  //       content: [
+  //         {
+  //           title: `Pageant Training`,
+  //           description: `2 Sessions Per Month`,
+  //         },
+  //         {
+  //           title: `Casting Skills Training`,
+  //           description: `1 Session Per Month`,
+  //         },
+  //         {
+  //           title: `Content Creation`,
+  //           description: `1 Session Per Month`,
+  //         },
+  //         {
+  //           title: `Tailored Photoshoot`,
+  //           description: `2 Looks Per Term`,
+  //         },
+  //       ],
+  //     },
+  //   },
+  // ],
+  // masterclass: [
+  //   {
+  //     masterclass: {
+  //       heading: `The Masterclass`,
+  //       description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community to expand your network and deepen your industry knowledge.`,
+  //       price: `R1 200`,
+  //       content: [
+  //         {
+  //           title: `Skill Development`,
+  //           description: `Modelling Skills, Including Runway Training`,
+  //         },
+  //         {
+  //           title: `Industry Insight`,
+  //           description: `Provide Real-World Knowledge From Industry Professionals,`,
+  //         },
+  //       ],
+  //     },
+  //   },
+  // ],
 };
 // TODO FIX THIS UP
 export const memberships = [
-  {
-    kids: ["standard", "exclusive"],
-  },
+  // {
+  //   kids: ["standard", "exclusive"],
+  // },
   {
     adult: ["standard", "premium", "exclusive"],
   },
