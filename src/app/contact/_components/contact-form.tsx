@@ -40,27 +40,24 @@ export default function ContactForm() {
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = form;
 
-  const submit = useSubmit<Inputs>(
-    process.env.NEXT_PUBLIC_REACT_APP_REACT_HOOK_FORM_ID_CONTACT_FORM!,
-    {
-      onError(errs) {
-        const formErrs = errs.getFormErrors();
-        for (const { code, message } of formErrs) {
-          setError(`root.${code}`, {
-            type: code,
-            message,
-          });
-        }
+  const submit = useSubmit<Inputs>(process.env.KALON_CONTACT_FORM_ID!, {
+    onError(errs) {
+      const formErrs = errs.getFormErrors();
+      for (const { code, message } of formErrs) {
+        setError(`root.${code}`, {
+          type: code,
+          message,
+        });
+      }
 
-        const fieldErrs = errs.getAllFieldErrors();
-        for (const [field, errs] of fieldErrs) {
-          setError(field, {
-            message: errs.map((e) => e.message).join(", "),
-          });
-        }
-      },
+      const fieldErrs = errs.getAllFieldErrors();
+      for (const [field, errs] of fieldErrs) {
+        setError(field, {
+          message: errs.map((e) => e.message).join(", "),
+        });
+      }
     },
-  );
+  });
 
   const submitForm: SubmitHandler<Inputs> = async (data) => {
     const { success } = contactFormSchema.safeParse(data);
