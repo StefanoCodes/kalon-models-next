@@ -6,6 +6,7 @@ import { PRELOADER_DURATION } from "@/lib/constants";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function Preloader() {
+  const [showPreloader, setShowPreloader] = useState(true);
   const [fillPercentage, setFillPercentage] = useState(0);
   const [isFilled, setIsFilled] = useState(false);
 
@@ -26,8 +27,6 @@ export default function Preloader() {
 
     return () => clearInterval(intervalId);
   }, [isFilled]);
-
-  const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -83,7 +82,7 @@ export default function Preloader() {
                 fontWeight="bold"
                 fill={isFilled ? "white" : "none"}
                 stroke="#333"
-                strokeWidth="2"
+                strokeWidth="1"
               >
                 KALON
               </text>
