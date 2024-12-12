@@ -74,10 +74,12 @@ export default function ContactForm() {
     if (success) {
       try {
         await submit(data);
-        toast({
-          title: "Message Sent",
-          description: "We will get back to you as soon as possible",
-        });
+        if (isSubmitSuccessful) {
+          toast({
+            title: "Message Sent",
+            description: "We will get back to you as soon as possible",
+          });
+        }
       } catch (error) {
         console.error(error);
         toast({

@@ -65,7 +65,6 @@ export default function StepTwo({ delta }: { delta: number }) {
                           new Date(year, month, day),
                           "MM/dd/yyyy",
                         );
-                        console.log(birthDate);
                         field.onChange(birthDate);
                       }}
                     >
