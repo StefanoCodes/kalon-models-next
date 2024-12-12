@@ -215,6 +215,16 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      contents: {
+        left: [
+          "The Vintage Tennis shoot was a perfect blend of laughter and creativity. From the start, the day had an energy that turned work into something effortless and fun. While we were there to capture stunning shots, the real magic happened in the moments in between—where we let go and enjoyed the experience.",
+          "Between takes, the tennis court became our playground. Rackets in hand, we laughed at our missed swings, celebrated the rare good ones, and turned every moment into a shared memory. It wasn’t about perfection; it was about connecting as a team and having fun while we worked.",
+        ],
+        right: [
+          "This kind of atmosphere is invaluable in the modeling industry. When the people on set are genuinely enjoying themselves, it shines through in the final product. The authenticity and energy that come from a relaxed, fun environment are exactly what clients and audiences love to see.",
+          "By the end of the day, we had more than just beautiful photos. We’d created an experience that reminded us why we love this industry, where work feels like a celebration and creativity thrives in the joy of the moment.",
+        ],
+      },
       coverImage: "/gallery/vintage-tennis/inner-wide.webp",
     },
     {
