@@ -54,6 +54,6 @@ export default function Home() {
     <section
       className="container relative min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
       id="home"
-    ></section>
+    />
   );
 }

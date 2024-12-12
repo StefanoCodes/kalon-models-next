@@ -164,6 +164,17 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
+      contents: {
+        left: [
+          "We didn’t shoot this in summer or spring, but in the middle of winter. Despite the cold, our models showed incredible grace and resilience. Just like athletes who train in any weather, this shoot was about preparing them to face anything the modeling industry might throw their way.",
+          "This wasn’t just about getting the perfect shot. It was about teaching our models to adapt and stay focused, even in uncomfortable conditions. The modeling industry demands flexibility, and they learned to perform with professionalism and poise no matter the challenge.",
+        ],
+
+        right: [
+          "The day emphasized the importance of a positive mindset. Complaining wouldn’t have warmed them up—it was their determination and teamwork that brought beauty to the shoot. They showed that true professionalism means embracing discomfort and staying strong.",
+          "By the end of the shoot, the models left with more than beautiful photos. They gained a deeper understanding of the resilience, adaptability, and confidence needed to succeed in an unpredictable industry.",
+        ],
+      },
     },
     {
       id: 4,
