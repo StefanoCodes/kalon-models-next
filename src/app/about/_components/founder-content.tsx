@@ -18,7 +18,7 @@ export default function FounderContent() {
           alt="Kalon"
           width={1000}
           height={1000}
-          className="z-[1] aspect-square h-full w-full rounded-xl object-cover md:mx-auto md:max-w-[371px] lg:rotate-12"
+          className="z-[1] aspect-square h-full w-full rounded-xl object-cover md:mx-auto md:max-w-[371px] lg:-rotate-12"
         />
       </div>
 

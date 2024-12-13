@@ -1,10 +1,7 @@
 import { WordFadeIn } from "@/components/motion/text-slide";
-import content from "../about.config";
 import TextRevealByWord from "./text-reveal";
 const headerAnimationStyle = `text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1] text-center`;
 const headerAnimationStyleSoft = `text-3xl font-normal leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1] text-center`;
-const { title } = content;
-
 export default function Header() {
   return (
     <div className="flex flex-col items-center justify-center gap-16">
@@ -35,7 +32,8 @@ export default function Header() {
         </div>
       </div>
       <div className="relative flex max-w-prose flex-col items-center gap-8">
-        {/* <TextRevealByWord text="Magic UI will change the way you design." /> */}
+        {/* <TextRevealByWord text="We are South Africa’s #1 modeling academy. Since 2020, we’ve trained 65+ models, helping them find their place in the industry, from runway to pageantry, personal branding, and beyond." /> */}
+
         <div className="flex flex-col items-center gap-4">
           <p className="body-text text-center">
             We are <strong>South Africa's #1</strong> modeling academy.{" "}
