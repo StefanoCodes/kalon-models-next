@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import Heading from "./about/_components/heading";
 import Link from "next/link";
 import Image from "next/image";
+
+// testing
 {
   /* <div className="flex flex-col justify-end gap-2 pb-12 md:gap-0 lg:self-end">
           <Heading
