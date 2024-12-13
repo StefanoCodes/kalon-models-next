@@ -11,7 +11,6 @@ const contentList = galleryContent;
 export default function Gallery() {
   return (
     <div className="flex flex-col gap-8 md:gap-16">
-      <Heading headingSize="h1">Gallery</Heading>
       {contentList.map((content, index) => (
         <GalleryList key={index} content={content} />
       ))}
