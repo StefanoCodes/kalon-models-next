@@ -7,7 +7,7 @@ const { latestWorkTitle, latestWorkRecent, latestWorkSecond } =
 export default function LatestWork() {
   return (
     <div className="flex flex-col gap-6">
-      <Heading headingSize="h3" className="text-xl font-normal lg:text-2xl">
+      <Heading headingSize="h3" className="text-sm font-normal uppercase lg:text-sm ">
         {latestWorkTitle}
       </Heading>
 

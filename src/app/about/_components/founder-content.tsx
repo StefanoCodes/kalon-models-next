@@ -10,20 +10,20 @@ const {
 } = founder;
 export default function FounderContent() {
   return (
-    <div className="mb-8 flex w-full flex-col items-start gap-16 md:flex-row md:justify-between">
-      <div className="flex h-full">
+    <div className="mb-8 flex w-full flex-col items-start gap-16 md:flex-row md:justify-between h-full">
+      <div className="flex flex-1">
         <Image
           src={founderImage}
           alt="Kalon"
-          width={304}
-          height={327}
-          className="aspect-square h-full max-h-[327px] w-full rounded-xl object-cover md:w-auto md:max-w-[304px]"
+          width={1000}
+          height={1000}
+          className="aspect-square h-full w-full rounded-xl object-cover"
         />
       </div>
 
       {/* CONTENT */}
-      <div className="flex flex-col gap-8 md:max-w-[560px]">
-        <div className="flex max-w-xl flex-col gap-5">
+      <div className="flex flex-[1.5] flex-col md:gap-56 justify-between">
+        <div className="flex  flex-col gap-5">
           <p className="body-text">{textNote1}</p>
 
           <p className="body-text">{textNote2}</p>
