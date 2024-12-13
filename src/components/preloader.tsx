@@ -12,6 +12,7 @@ export default function Preloader() {
 
   useEffect(() => {
     const animateFill = () => {
+      // document.body.style.overflow = "hidden";
       setFillPercentage((prev) => {
         if (prev < 100) {
           return prev + 1;
@@ -23,7 +24,7 @@ export default function Preloader() {
       });
     };
 
-    const intervalId = setInterval(animateFill, 40);
+    const intervalId = setInterval(animateFill, 30);
 
     return () => clearInterval(intervalId);
   }, [isFilled]);
@@ -82,7 +83,7 @@ export default function Preloader() {
                 fontWeight="bold"
                 fill={isFilled ? "white" : "none"}
                 stroke="#333"
-                strokeWidth="1"
+                strokeWidth="0"
               >
                 KALON
               </text>
@@ -90,7 +91,7 @@ export default function Preloader() {
             <div className="absolute left-0 top-0 z-20 h-full w-full">
               <FlickeringGrid
                 color="rgb(255, 255, 255)"
-                maxOpacity={0.6}
+                maxOpacity={0.8}
                 flickerChance={0.2}
                 squareSize={2}
                 gridGap={6}
