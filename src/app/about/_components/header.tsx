@@ -2,22 +2,37 @@ import { WordFadeIn } from "@/components/motion/text-slide";
 import content from "../about.config";
 import TextRevealByWord from "./text-reveal";
 const headerAnimationStyle = `text-3xl font-medium leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1] text-center`;
+const headerAnimationStyleSoft = `text-3xl font-normal leading-[1.1] tracking-tight text-blackColor sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl xl:leading-[1.1] text-center`;
 const { title } = content;
 
 export default function Header() {
   return (
     <div className="flex flex-col items-center justify-center gap-16">
-      <div>
-        <WordFadeIn
-          words={title.main}
-          delay={0.15}
-          className={headerAnimationStyle}
-        />
-        <WordFadeIn
-          words={title.sub}
-          delay={0.4}
-          className={headerAnimationStyle}
-        />
+      <div className="flex flex-col items-center">
+        <div className="flex gap-2">
+          <WordFadeIn
+            words={"In the"}
+            delay={0.5}
+            className={headerAnimationStyleSoft}
+          />
+          <WordFadeIn
+            words={"academy today,"}
+            delay={0.75}
+            className={headerAnimationStyle}
+          />
+        </div>
+        <div className="flex gap-2">
+          <WordFadeIn
+            words={"on the"}
+            delay={1.25}
+            className={headerAnimationStyleSoft}
+          />
+          <WordFadeIn
+            words={"runway tomorrow."}
+            delay={1.5}
+            className={headerAnimationStyle}
+          />
+        </div>
       </div>
       <div className="relative flex max-w-prose flex-col items-center gap-8">
         {/* <TextRevealByWord text="Magic UI will change the way you design." /> */}
