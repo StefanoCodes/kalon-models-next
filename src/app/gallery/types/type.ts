@@ -3,6 +3,7 @@ export type GalleryContent = {
   slug: string;
   title: string;
   overview: string[];
+  latestWorkDescription?: string;
   sectors: string[];
   timeline: string;
   credits: Credits[];

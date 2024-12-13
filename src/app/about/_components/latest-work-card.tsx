@@ -16,12 +16,11 @@ export default function LatestWorkCard({
 }: {
   title: GalleryContent["title"];
   coverImage: GalleryContent["coverImage"];
-  description: GalleryContent["overview"][0];
+  description: GalleryContent["latestWorkDescription"];
   slug: GalleryContent["slug"];
   className?: string;
   imageClassName?: string;
 }) {
-  const shortDescription = description.slice(0, 210);
   return (
     <div
       className={cn(
@@ -44,6 +43,13 @@ export default function LatestWorkCard({
       </div>
       {/* right */}
       <div className="flex h-full flex-1 flex-col justify-between gap-3 px-3 md:gap-2 lg:px-3">
+        <div>
+          <p className="inline-block bg-gradient-to-b from-paragraph via-navLinkColor to-transparent bg-clip-text text-xs text-transparent dark:to-transparent sm:text-sm lg:text-base">
+            <span className="text-2xl md:text-lg lg:text-2xl xl:text-3xl">
+              {description}
+            </span>
+          </p>
+        </div>
         <div className="flex items-center justify-between">
           <h3 className="max-w-prose text-sm font-medium sm:text-base">
             {title}
@@ -58,13 +64,6 @@ export default function LatestWorkCard({
           >
             <ArrowUpRight className="h-4 w-4" />
           </PrimaryButton>
-        </div>
-        <div>
-          <p className="inline-block bg-gradient-to-b from-paragraph via-navLinkColor to-transparent bg-clip-text text-xs text-transparent dark:to-transparent sm:text-sm lg:text-base">
-            <span className="line-clamp-2 max-w-prose md:line-clamp-3 lg:line-clamp-none">
-              {shortDescription}
-            </span>
-          </p>
         </div>
       </div>
     </div>

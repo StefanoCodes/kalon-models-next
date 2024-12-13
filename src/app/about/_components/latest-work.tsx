@@ -7,7 +7,10 @@ const { latestWorkTitle, latestWorkRecent, latestWorkSecond } =
 export default function LatestWork() {
   return (
     <div className="flex flex-col gap-6">
-      <Heading headingSize="h3" className="text-sm font-normal uppercase lg:text-sm ">
+      <Heading
+        headingSize="h3"
+        className="text-sm font-normal uppercase lg:text-sm"
+      >
         {latestWorkTitle}
       </Heading>
 
@@ -15,14 +18,14 @@ export default function LatestWork() {
         <LatestWorkCard
           title={latestWorkRecent.title}
           coverImage={latestWorkRecent.coverImage}
-          description={latestWorkRecent.overview[0]}
+          description={latestWorkRecent.latestWorkDescription}
           slug={latestWorkRecent.slug}
         />
 
         <LatestWorkCard
           title={latestWorkSecond.title}
           coverImage={latestWorkSecond.coverImage}
-          description={latestWorkSecond.overview[0]}
+          description={latestWorkSecond.latestWorkDescription}
           slug={latestWorkSecond.slug}
           className="hidden md:flex"
         />
