@@ -92,7 +92,7 @@ export default function Preloader() {
               <FlickeringGrid
                 color="rgb(255, 255, 255)"
                 maxOpacity={0.8}
-                flickerChance={0.2}
+                flickerChance={0.3}
                 squareSize={2}
                 gridGap={6}
                 clipPath="url(#text-clip)"
