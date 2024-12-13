@@ -52,7 +52,16 @@ export const galleryContent: GalleryContent[][] = [
           alt: "fifth",
         },
       ],
-      // contents:''
+      contents: {
+        left: [
+          "Some shoots are demanding, but Eutierria was different. Its name, rooted in nature and connection, set the tone for a calm yet purposeful day. This wasn’t just about capturing visuals; it was about reconnecting—with the earth, ourselves, and each other.",
+          "Set outdoors, the shoot flowed with ease. We moved in sync with the environment, letting its natural rhythm guide us. Between shots, we took moments to breathe, feel the sun, and soak in the beauty around us. It felt as though nature itself was part of the team.",
+        ],
+        right: [
+          "Unlike most shoots, there was time to pause and bond. We filmed TikToks, laughed, shared meals, and swapped stories. These moments of connection made us feel more like a family than just a team at work.",
+          "By the end of the day, Eutierria gave us more than beautiful images. It reminded us of the power of slowing down, connecting with nature, and finding joy in the process. It wasn’t just a shoot; it was an experience that left us inspired and grounded.",
+        ],
+      },
       coverImage: "/gallery/eutierria/inner-wide.webp",
     },
     {
