@@ -20,7 +20,7 @@ export default function About() {
           src="/kalon-cover-home.jpg"
           alt="About Hero"
           fill
-          className="mx-auto max-w-[1920px] object-cover brightness-[0.4]"
+          className="mx-auto max-w-[1920px] object-cover saturate-0"
           priority
           loading="eager"
         />
@@ -34,7 +34,7 @@ export default function About() {
           <div className="flex flex-col gap-16">
             {/* <div className="flex flex-col gap-8 md:gap-12">
               {/* <StatsList /> */}
-              {/* <ServicesList /> */}
+            {/* <ServicesList /> */}
             {/* </div>  */}
             <FounderContent />
             <LatestWork />
