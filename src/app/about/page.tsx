@@ -1,10 +1,8 @@
-import ServicesList from "./_components/services-list";
 import { Metadata } from "next";
-import StatsList from "./_components/stats-list";
+import Image from "next/image";
 import FounderContent from "./_components/founder-content";
 import Header from "./_components/header";
 import LatestWork from "./_components/latest-work";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About | A Modeling Academy for Everyone, but Not Just Anyone.",

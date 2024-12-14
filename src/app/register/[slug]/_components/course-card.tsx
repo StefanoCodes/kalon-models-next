@@ -61,8 +61,7 @@ export function CourseCard({
           {!isSelected && (
             <motion.div
               className="w-full"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 1 }}
               exit={{ opacity: 0, x: -200 }}
               transition={{
                 type: "tween",
