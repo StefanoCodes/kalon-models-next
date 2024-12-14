@@ -15,7 +15,7 @@ const preferedMethodOfContactEnum = z.enum(["whatsapp", "email"], {
 const adultCourseEnum = z.enum(["adults"], {
   message: "Course is required",
 });
-const guardianCourseEnum = z.enum(["kids"], {
+const guardianCourseEnum = z.enum(["teens"], {
   message: "Course is required",
 });
 const guardianMemebershipsEnum = z.enum(["standard", "premium", "exclusive"], {

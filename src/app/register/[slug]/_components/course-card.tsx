@@ -1,3 +1,4 @@
+"use client";
 import PrimaryButton from "@/components/buttons/primary-button";
 import {
   Card,
@@ -9,6 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Calendar, Clock, Users } from "lucide-react";
 import { CourseCardProps } from "../../register.config";
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 export function CourseCard({
   title,
@@ -20,6 +23,9 @@ export function CourseCard({
   slug,
 }: CourseCardProps) {
   const searchQuery = `?course=${slug}`;
+  const [isSelected, setIsSelected] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
+  const [search, setSearch] = useState("");
   return (
     <Card className="w-full flex-1 overflow-hidden">
       <CardHeader>
@@ -51,15 +57,67 @@ export function CourseCard({
         >
           Learn more
         </PrimaryButton>
-
-        <PrimaryButton
-          variant={"kalon"}
-          href={`/register${searchQuery}`}
-          className="w-full rounded-sm font-normal tracking-wide"
-          innerClassName="rounded-sm"
-        >
-          Register
-        </PrimaryButton>
+        <AnimatePresence mode="popLayout">
+          {!isSelected && (
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, x: -200 }}
+              transition={{
+                type: "tween",
+              }}
+            >
+              <PrimaryButton
+                variant={"kalon"}
+                className="w-full rounded-sm font-normal tracking-wide"
+                innerClassName="rounded-sm"
+                onClick={() => {
+                  setIsSelected(true);
+                  setShowButtons(true);
+                }}
+              >
+                Register
+              </PrimaryButton>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {showButtons && isSelected && (
+          <motion.div
+            className="flex w-full items-center gap-2"
+            initial={{ opacity: 0, x: 200 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.3,
+              type: "tween",
+            }}
+          >
+            <PrimaryButton
+              variant={"kalon"}
+              href={`/register/?course=teens`}
+              className="w-full rounded-sm font-normal tracking-wide"
+              innerClassName="rounded-sm"
+              onClick={() => {
+                setIsSelected(true);
+                setShowButtons(true);
+              }}
+            >
+              Register Teens
+            </PrimaryButton>
+            <PrimaryButton
+              variant={"kalon"}
+              href={`/register/?course=adults`}
+              className="w-full rounded-sm font-normal tracking-wide"
+              innerClassName="rounded-sm"
+              onClick={() => {
+                setIsSelected(true);
+                setShowButtons(true);
+              }}
+            >
+              Register Adults
+            </PrimaryButton>
+          </motion.div>
+        )}
       </CardFooter>
     </Card>
   );

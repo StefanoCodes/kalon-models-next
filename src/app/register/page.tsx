@@ -21,7 +21,7 @@ export default async function Register({
   const { course } = params;
   // decision to know what content to be displayed
   // const isCourseNameValid = course === `adults` || course === `kids`;
-  const isCourseNameValid = course === `adults`;
+  const isCourseNameValid = course === `adults` || course === "teens";
 
   return (
     <div className="flex flex-col gap-8">
