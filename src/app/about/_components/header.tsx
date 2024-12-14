@@ -7,28 +7,12 @@ export default function Header() {
     <div className="flex flex-col items-center justify-center gap-16">
       <div className="flex flex-col items-center">
         <div className="flex gap-2">
-          <WordFadeIn
-            words={"In the"}
-            delay={0.5}
-            className={headerAnimationStyleSoft}
-          />
-          <WordFadeIn
-            words={"academy today,"}
-            delay={0.75}
-            className={headerAnimationStyle}
-          />
+          <span className={headerAnimationStyleSoft}>In the</span>
+          <span className={headerAnimationStyle}>academy today,</span>
         </div>
         <div className="flex gap-2">
-          <WordFadeIn
-            words={"on the"}
-            delay={1.25}
-            className={headerAnimationStyleSoft}
-          />
-          <WordFadeIn
-            words={"runway tomorrow."}
-            delay={1.5}
-            className={headerAnimationStyle}
-          />
+          <span className={headerAnimationStyleSoft}>on the</span>
+          <span className={headerAnimationStyle}>runway tomorrow,</span>
         </div>
       </div>
       <div className="relative flex max-w-prose flex-col items-center gap-8">

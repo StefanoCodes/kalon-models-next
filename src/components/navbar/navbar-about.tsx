@@ -45,10 +45,9 @@ export default function DestkopNavListAboutVariant({
                 })}
               >
                 <Link
-                  className={cn("select-none hover:opacity-80", {
-                    "text-tertiaryColor": pathname.startsWith(route.href),
-                    "text-primaryColor":
-                      bgColor === "white" && pathname.endsWith(route.href),
+                  className={cn("text-prim select-none hover:opacity-80", {
+                    // "text-primaryColor": pathname.startsWith(route.href),
+                    "text-primaryColor": pathname.startsWith(route.href),
                   })}
                   href={route.href}
                 >
