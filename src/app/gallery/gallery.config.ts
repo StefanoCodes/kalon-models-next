@@ -272,7 +272,7 @@ export const galleryContent: GalleryContent[][] = [
           name: "Mischa Henry (Goy Artistry)",
         },
         {
-          title: "Mischa Henry",
+          title: "Creative Director",
           name: "Don Eros & Manana Baloyi",
         },
       ],
