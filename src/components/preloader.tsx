@@ -65,7 +65,7 @@ export default function Preloader() {
                     y="50%"
                     dy=".35em"
                     textAnchor="middle"
-                    fontSize="80"
+                    fontSize="40"
                     fontFamily="Arial, sans-serif"
                     fontWeight="bold"
                   >
@@ -78,7 +78,7 @@ export default function Preloader() {
                 y="50%"
                 dy=".35em"
                 textAnchor="middle"
-                fontSize="80"
+                fontSize="40"
                 fontFamily="Arial, sans-serif"
                 fontWeight="bold"
                 fill={isFilled ? "white" : "none"}
