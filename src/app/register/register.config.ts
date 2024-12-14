@@ -37,12 +37,12 @@ export type CourseCardProps = {
   duration: string;
   startDate?: string;
   spots: number;
-  link: string;
+  link?: string;
   slug: string;
 };
 
-export const coursesMetaData = {
-  standard: {
+export const coursesMetaData = [
+  {
     title: `Standard Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     // startDate: `2024-01-01`,
@@ -51,7 +51,7 @@ export const coursesMetaData = {
     spots: 25,
     slug: `standard`,
   },
-  premium: {
+  {
     title: `Premium Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     // startDate: `2024-01-01`,
@@ -60,7 +60,7 @@ export const coursesMetaData = {
     spots: 15,
     slug: `premium`,
   },
-  exclusive: {
+  {
     title: `Exclusive Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     // startDate: `2024-01-01`,
@@ -69,26 +69,26 @@ export const coursesMetaData = {
     spots: 10,
     slug: `exclusive`,
   },
-  // kids: {
-  //   title: `Kids Courses`,
-  //   description: `Kids Courses for beginners and intermediates who want to learn the basics of modelling.`,
-  //   startDate: `2024-01-01`,
-  //   link: `/register/kids`,
-  //   duration: `10 weeks`,
-  //   spots: 10,
-  //   slug: `kids`,
-  // },
-  // to be toggled in future when needed
-  // masterclass: {
-  //   title: `The Masterclass`,
-  //   description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community.`,
-  //   startDate: `2024-01-01`,
-  //   link: `/register/masterclass`,
-  //   duration: `10 weeks`,
-  //   spots: 10,
-  //   slug: `masterclass`,
-  // },
-};
+];
+// kids: {
+//   title: `Kids Courses`,
+//   description: `Kids Courses for beginners and intermediates who want to learn the basics of modelling.`,
+//   startDate: `2024-01-01`,
+//   link: `/register/kids`,
+//   duration: `10 weeks`,
+//   spots: 10,
+//   slug: `kids`,
+// },
+// to be toggled in future when needed
+// masterclass: {
+//   title: `The Masterclass`,
+//   description: `The Kalon Models Masterclass is an exclusive opportunity designed by the modelling community.`,
+//   startDate: `2024-01-01`,
+//   link: `/register/masterclass`,
+//   duration: `10 weeks`,
+//   spots: 10,
+//   slug: `masterclass`,
+// },
 
 export const courses = {
   standard: {
