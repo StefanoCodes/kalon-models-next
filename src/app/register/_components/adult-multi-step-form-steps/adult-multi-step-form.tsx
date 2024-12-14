@@ -11,6 +11,7 @@ import Success from "../sucess";
 import StepOne from "./step-one";
 import StepThree from "./step-three";
 import StepTwo from "./step-two";
+import { membershipTypes } from "../registration";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -41,7 +42,13 @@ const steps = [
   { id: "Step 4", name: "Complete" },
 ];
 
-export default function AdultMultiStepForm({ course }: { course?: "adults" }) {
+export default function AdultMultiStepForm({
+  course,
+  membership,
+}: {
+  course?: "adults";
+  membership: membershipTypes;
+}) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const finalStep = steps.length - 1;
@@ -62,7 +69,7 @@ export default function AdultMultiStepForm({ course }: { course?: "adults" }) {
       howDidYouHearAboutUs: "",
       whyWouldYouLikeToJoinKalonModels: "",
       selectedCourse: course,
-      membership: undefined,
+      membership: membership,
     },
   });
   const {
@@ -112,6 +119,7 @@ export default function AdultMultiStepForm({ course }: { course?: "adults" }) {
         if (success) {
           try {
             await handleSubmit(async (data) => {
+              console.log(data);
               await submit(data);
             })();
           } catch (error) {

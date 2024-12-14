@@ -4,13 +4,17 @@ import { Metadata } from "next";
 import Heading from "../about/_components/heading";
 import CoursesList from "./[slug]/_components/courses-list";
 import RegistrationForm from "./_components/registration";
+import NotFound from "../not-found";
 
 export const metadata: Metadata = {
   title: "Register | #1 modelling academy in South Africa",
   description:
     "Register with Kalon Models today and begin your journey to becoming a professional model.",
 };
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+type SearchParams = Promise<{
+  course: string;
+  membership: string;
+}>;
 
 export default async function Register({
   searchParams,
@@ -18,10 +22,15 @@ export default async function Register({
   searchParams: SearchParams;
 }) {
   const params = await searchParams;
-  const { course } = params;
-  // decision to know what content to be displayed
-  // const isCourseNameValid = course === `adults` || course === `kids`;
+  const { course, membership } = params;
   const isCourseNameValid = course === `adults` || course === "teens";
+  const isMembershipNameValid =
+    membership === "standard" ||
+    membership === "premium" ||
+    membership === "exclusive";
+  if (params.membership && params.course) {
+    if (!isMembershipNameValid || !isCourseNameValid) return NotFound();
+  }
 
   return (
     <div className="flex flex-col gap-8">
@@ -42,7 +51,11 @@ export default async function Register({
         <Heading headingSize="h1">Registration Info</Heading>
       )}
       {!isCourseNameValid && <CoursesList />}
-      <div>{isCourseNameValid && <RegistrationForm query={course} />}</div>
+      <div>
+        {isCourseNameValid && isMembershipNameValid && (
+          <RegistrationForm courseName={course} membership={membership} />
+        )}
+      </div>
     </div>
   );
 }

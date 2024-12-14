@@ -114,7 +114,7 @@ export default function StepFour({ delta }: { delta: number }) {
             />
           </div>
           {/* membership */}
-          <div className="md:flex-1">
+          {/* <div className="md:flex-1">
             <FormField
               control={control}
               name="membership"
@@ -143,7 +143,7 @@ export default function StepFour({ delta }: { delta: number }) {
                 </FormItem>
               )}
             />
-          </div>
+          </div> */}
         </Row>
       </div>
     </motion.div>

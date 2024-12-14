@@ -4,21 +4,36 @@ import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-mul
 export type ageRangeTypes = "lessThan18" | "18to25" | "morethan25" | undefined;
 // export type courseTypes = "adults" | "kids" | undefined; // with the kids integration
 export type courseTypes = "adults" | "teens" | "undefined";
-export default function RegistrationForm({ query }: { query: courseTypes }) {
+export type membershipTypes =
+  | "standard"
+  | "premium"
+  | "exclusive"
+  | "undefined";
+export default function RegistrationForm({
+  courseName,
+  membership,
+}: {
+  courseName: courseTypes;
+  membership: membershipTypes;
+}) {
   return (
     <>
-      {query && (
+      {courseName && (
         <p className="h-[3rem]">
           Registering for the
           <span className="capitalize">
             {" "}
-            {query.charAt(0).toUpperCase() + query.slice(1)} course
+            {courseName.charAt(0).toUpperCase() + courseName.slice(1)} course
           </span>
         </p>
       )}
       <>
-        {query === `adults` && <AdultMultiStepForm course={query} />}
-        {query === `teens` && <GuardianMultiStepForm course={query} />}
+        {courseName === `adults` && (
+          <AdultMultiStepForm course={courseName} membership={membership} />
+        )}
+        {courseName === `teens` && (
+          <GuardianMultiStepForm course={courseName} membership={membership} />
+        )}
       </>
     </>
   );

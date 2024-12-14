@@ -22,7 +22,6 @@ export function CourseCard({
   link,
   slug,
 }: CourseCardProps) {
-  const searchQuery = `?course=${slug}`;
   const [isSelected, setIsSelected] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [search, setSearch] = useState("");
@@ -93,7 +92,7 @@ export function CourseCard({
           >
             <PrimaryButton
               variant={"kalon"}
-              href={`/register/?course=teens`}
+              href={`/register/?course=teens&membership=${slug}`}
               className="w-full rounded-sm font-normal tracking-wide"
               innerClassName="rounded-sm"
               onClick={() => {
@@ -105,7 +104,7 @@ export function CourseCard({
             </PrimaryButton>
             <PrimaryButton
               variant={"kalon"}
-              href={`/register/?course=adults`}
+              href={`/register/?course=adults&membership=${slug}`}
               className="w-full rounded-sm font-normal tracking-wide"
               innerClassName="rounded-sm"
               onClick={() => {

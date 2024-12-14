@@ -12,6 +12,7 @@ import StepFour from "./step-four";
 import StepOne from "./step-one";
 import StepThree from "./step-three";
 import StepTwo from "./step-two";
+import { membershipTypes } from "../registration";
 
 type Inputs = z.infer<typeof guardianRegistriationFormSchema>;
 
@@ -52,8 +53,10 @@ const steps = [
 
 export default function GuardianMultiStepForm({
   course,
+  membership,
 }: {
   course?: "teens";
+  membership: membershipTypes;
 }) {
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
@@ -80,7 +83,7 @@ export default function GuardianMultiStepForm({
       studentPreferedMethodOfContact: "whatsapp",
       studentHowDidYouHearAboutUs: "",
       selectedCourse: course,
-      membership: undefined,
+      membership: membership,
     },
   });
   const {
@@ -139,7 +142,7 @@ export default function GuardianMultiStepForm({
                 studentPhoneNumber: data.studentPhoneNumber || "n/a",
                 studentInstagramUsername:
                   data.studentInstagramUsername || "n/a",
-                course: `kids`,
+                course,
               };
               await submit(formData);
             })();

@@ -111,7 +111,7 @@ export default function StepThree({
               )}
             />
           </div>
-          <div className="md:flex-1">
+          {/* <div className="md:flex-1">
             <FormField
               control={control}
               name="membership"
@@ -136,7 +136,7 @@ export default function StepThree({
                 </FormItem>
               )}
             />
-          </div>
+          </div> */}
         </Row>
       </div>
     </motion.div>

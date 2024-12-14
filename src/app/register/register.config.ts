@@ -46,10 +46,10 @@ export const coursesMetaData = {
     title: `Standard Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     // startDate: `2024-01-01`,
-    link: `/register/standard`,
+    name: `/register/standard`,
     duration: `49 sessions`,
     spots: 25,
-    slug: `adults`,
+    slug: `standard`,
   },
   premium: {
     title: `Premium Courses`,
@@ -58,7 +58,7 @@ export const coursesMetaData = {
     link: `/register/premium`,
     duration: `37 sessions`,
     spots: 15,
-    slug: `adults`,
+    slug: `premium`,
   },
   exclusive: {
     title: `Exclusive Courses`,
@@ -67,7 +67,7 @@ export const coursesMetaData = {
     link: `/register/exclusive`,
     duration: `59 sessions`,
     spots: 10,
-    slug: `adults`,
+    slug: `exclusive`,
   },
   // kids: {
   //   title: `Kids Courses`,
