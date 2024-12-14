@@ -8,10 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Calendar, Clock, Users } from "lucide-react";
-import { CourseCardProps } from "../../register.config";
-import { useState } from "react";
+import { Clock, Users } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+import { CourseCardProps } from "../../register.config";
 
 export function CourseCard({
   title,
@@ -37,10 +37,10 @@ export function CourseCard({
             <Clock className="mr-1 h-4 w-4" />
             {duration}
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Calendar className="mr-1 h-4 w-4" />
             {startDate}
-          </div>
+          </div> */}
           <div className="flex items-center">
             <Users className="mr-1 h-4 w-4" />
             {spots} spots

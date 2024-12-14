@@ -20,7 +20,6 @@ export default function About() {
           fill
           className="mx-auto max-w-[1920px] object-cover saturate-0"
           priority
-          loading="eager"
         />
       </div>
       <section

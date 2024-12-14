@@ -22,17 +22,16 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
   const words = text.split(" ");
 
   return (
-    <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>
+    <div ref={targetRef} className={cn("relative z-0 h-[150vh]", className)}>
       <div
         className={
-          "sticky top-0 mx-auto flex h-[25%] max-w-4xl items-center bg-transparent px-[1rem]"
+          "sticky top-0 mx-auto flex h-[50%] items-center bg-transparent"
         }
       >
-        <div></div>
         <p
           ref={targetRef}
           className={
-            "body-text flex flex-wrap items-center justify-center p-5 text-center"
+            "body-text flex w-full flex-wrap items-center justify-center text-center"
           }
         >
           {words.map((word, i) => {

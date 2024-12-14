@@ -5,6 +5,7 @@ const headerAnimationStyleSoft = `text-3xl font-normal leading-[1.1] tracking-ti
 export default function Header() {
   return (
     <div className="flex flex-col items-center justify-center gap-16">
+      {/* Main Heading */}
       <div className="flex flex-col items-center">
         <div className="flex gap-2">
           <span className={headerAnimationStyleSoft}>In the</span>
@@ -15,10 +16,8 @@ export default function Header() {
           <span className={headerAnimationStyle}>runway tomorrow,</span>
         </div>
       </div>
-      <div className="relative flex max-w-prose flex-col items-center gap-8">
-        {/* <TextRevealByWord text="We are South Africa’s #1 modeling academy. Since 2020, we’ve trained 65+ models, helping them find their place in the industry, from runway to pageantry, personal branding, and beyond." /> */}
-
-        <div className="flex flex-col items-center gap-4">
+      <div className="relative flex flex-col items-center gap-8 md:max-w-prose">
+        {/* <div className="flex flex-col items-center gap-4">
           <p className="body-text text-center">
             We are <strong>South Africa's #1</strong> modeling academy.{" "}
             <strong>Since 2020</strong>, we've{" "}
@@ -40,7 +39,8 @@ export default function Header() {
             is where you find your place
           </p>
           <p className="body-text text-center">Welcome home.</p>
-        </div>
+        </div> */}
+        <TextRevealByWord text="We are South Africa's #1 modeling academy. Since 2020, we've trained 65+ models, helping them find their place in the industry, from runway to pageantry, personal branding, and beyond. with a dedicated team of 7+ experienced professionals, some of whom have worked with the likes of Maxhosa, David Tlale and SAFW, we're proud to be shaping the future of modeling in Pretoria, Johannesburg and Cape Town. Wether it's your first step on the runway or your hundredth, Kalon is where you find your place Welcome home." />
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ export type CourseCardProps = {
   duration: string;
   startDate?: string;
   spots: number;
-  link?: string;
+  link: string;
   slug: string;
 };
 
@@ -46,7 +46,7 @@ export const coursesMetaData = [
     title: `Standard Courses`,
     description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
     // startDate: `2024-01-01`,
-    name: `/register/standard`,
+    link: `/register/standard`,
     duration: `49 sessions`,
     spots: 25,
     slug: `standard`,
