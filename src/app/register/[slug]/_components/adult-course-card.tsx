@@ -1,27 +1,26 @@
 import Heading from "@/app/about/_components/heading";
 import ContentList from "./content-list";
-import { AdultCourseDetails } from "../../register.config";
-
+import { AdultCourseDetails, courses } from "../../register.config";
 export default function AdultCourseCard({
   courseDetails,
 }: {
-  courseDetails: AdultCourseDetails;
+  courseDetails: "standard" | "premium" | "exclusive";
 }) {
-  const { heading, description, price, content } = courseDetails;
+  const courseInfo = courses[courseDetails];
   return (
     <div className="flex flex-col gap-4">
       {/* HEADING */}
       <div className="border-borderColor flex flex-col gap-4 border-b pb-6 lg:gap-6">
         <div className="flex flex-row items-center justify-between">
           <Heading headingSize="h3" className="text-xl font-medium">
-            {heading}
+            {courseInfo.heading}
           </Heading>
-          <p className="text-xl font-normal sm:text-2xl">{price}</p>
+          <p className="text-xl font-normal sm:text-2xl">{courseInfo.price}</p>
         </div>
-        <p className="text-mutedColor">{description}</p>
+        <p className="text-mutedColor">{courseInfo.description}</p>
       </div>
       {/* MAIN */}
-      <ContentList content={content} />
+      <ContentList content={courseInfo.content} />
     </div>
   );
 }
