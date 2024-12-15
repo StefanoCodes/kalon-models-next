@@ -214,7 +214,7 @@ export default function ContactForm() {
             )}
           />
           <TextureButton
-            variant="kalon"
+            variant="kalonBlack"
             size="sm"
             disabled={isSubmitting}
             className={cn(
