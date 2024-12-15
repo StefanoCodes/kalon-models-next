@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import FlickeringGrid from "./shimmer-dot";
 import { PRELOADER_DURATION } from "@/lib/constants";
 import { motion, AnimatePresence } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export default function Preloader() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -12,7 +13,6 @@ export default function Preloader() {
 
   useEffect(() => {
     const animateFill = () => {
-      // document.body.style.overflow = "hidden";
       setFillPercentage((prev) => {
         if (prev < 100) {
           return prev + 1;
@@ -66,7 +66,7 @@ export default function Preloader() {
                     dy=".35em"
                     textAnchor="middle"
                     fontSize="40"
-                    fontFamily="Arial, sans-serif"
+                    className={cn(`font-abcNormal`, isFilled && "hidden")}
                     fontWeight="bold"
                   >
                     KALON
@@ -78,9 +78,9 @@ export default function Preloader() {
                 y="50%"
                 dy=".35em"
                 textAnchor="middle"
-                fontSize="40"
-                fontFamily="Arial, sans-serif"
-                fontWeight="bold"
+                fontSize="16.67"
+                className="font-abcNormal"
+                fontWeight="normal"
                 fill={isFilled ? "white" : "none"}
                 stroke="#333"
                 strokeWidth="0"
@@ -91,7 +91,7 @@ export default function Preloader() {
             <div className="absolute left-0 top-0 z-20 h-full w-full">
               <FlickeringGrid
                 color="rgb(255, 255, 255)"
-                maxOpacity={0.8}
+                maxOpacity={1}
                 flickerChance={0.3}
                 squareSize={2}
                 gridGap={6}
