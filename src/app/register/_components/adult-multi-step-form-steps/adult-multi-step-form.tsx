@@ -12,6 +12,8 @@ import StepOne from "./step-one";
 import StepThree from "./step-three";
 import StepTwo from "./step-two";
 import { membershipTypes } from "../registration";
+import { getAllGalleryItems } from "@/lib/gallery";
+import { getAllMemberships } from "@/lib/memberships";
 type Inputs = z.infer<typeof registriationFormSchema>;
 const steps = [
   {
@@ -49,6 +51,8 @@ export default function AdultMultiStepForm({
   course?: "adults";
   membership: membershipTypes;
 }) {
+  const res = getAllMemberships();
+  console.log(res);
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const finalStep = steps.length - 1;

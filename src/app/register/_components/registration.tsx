@@ -1,3 +1,4 @@
+import { getAllGalleryItems } from "@/lib/gallery";
 import AdultMultiStepForm from "./adult-multi-step-form-steps/adult-multi-step-form";
 import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";
 // import GuardianMultiStepForm from "./guardian-multi-step-form-steps/guardian-multi-step-form";

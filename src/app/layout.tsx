@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import Preloader from "@/components/preloader";
+import { BASE_URL } from "@/lib/constants";
+import { getAllGalleryItems } from "@/lib/gallery";
 
 const ABCNormal = localFont({
   src: [
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
       "An introduction to Kalon Models, where we empower aspiring models to kickstart their careers with expert training, development, and opportunities in the modeling industry.",
     images: ["/og.image.webp"],
     type: "website",
-    url: "https://kalon-models-next.vercel.app",
+    url: BASE_URL,
   },
   twitter: {
     card: "summary_large_image",

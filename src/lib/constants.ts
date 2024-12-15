@@ -8,3 +8,4 @@ export const KALON_WHATSAPP_URL = "wa.me/27645151307";
 export const KALON_INSTAGRAM_URL = "https://www.instagram.com/kalon.models";
 export const KALON_TIKTOK_URL = "https://www.tiktok.com/@kalon.au";
 export const PRELOADER_DURATION = 3500;
+export const BASE_URL = "https://kalon-models-next.vercel.app";
