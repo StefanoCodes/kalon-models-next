@@ -72,21 +72,18 @@ export default function ContactForm() {
         duration: 5000,
       });
     }
-
-    if (success) {
-      try {
-        await submit(data);
-        toast({
-          title: "Message Sent",
-          description: "We will get back to you as soon as possible",
-        });
-      } catch (error) {
-        console.error(error);
-        toast({
-          title: "Error",
-          description: "Something went wrong",
-        });
-      }
+    try {
+      await submit(data);
+      toast({
+        title: "Message Sent",
+        description: "We will get back to you as soon as possible",
+      });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Error",
+        description: "Something went wrong",
+      });
     }
     form.reset();
   };

@@ -24,7 +24,7 @@ export default function LatestWorkCard({
   return (
     <div
       className={cn(
-        "latest-work-card-shadow flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor px-0 py-3 pt-0 md:flex-row md:gap-0 md:pt-3 lg:items-start lg:pt-4",
+        "latest-work-card-shadow flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor p-3 md:flex-row md:gap-0 lg:items-start lg:pt-4",
         className,
       )}
     >
@@ -34,7 +34,7 @@ export default function LatestWorkCard({
           src={coverImage}
           alt={title}
           className={cn(
-            "aspect-square h-full w-full rounded-t-md object-cover md:rounded-md",
+            "aspect-square h-full w-full rounded-md object-cover",
             imageClassName,
           )}
           width={1000}
