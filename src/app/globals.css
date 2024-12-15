@@ -156,3 +156,12 @@
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+.instagram-container-card-shadow {
+  background: linear-gradient(0deg, #ececec 0%, #ffffff 100%);
+  box-shadow:
+    0px 0px 1px rgba(0, 0, 0, 0.07),
+    0px 0px 1px rgba(0, 0, 0, 0.05),
+    0px 3px 3px rgba(0, 0, 0, 0.25),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 10.5px;
+}

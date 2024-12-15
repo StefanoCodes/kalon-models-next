@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import GalleryList from "./_components/gallery-list";
-import Heading from "../about/_components/heading";
 import { galleryContent } from "./gallery.config";
 
 export const metadata: Metadata = {
