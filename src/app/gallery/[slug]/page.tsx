@@ -38,6 +38,13 @@ export async function generateMetadata(
     openGraph: {
       images: [content.coverImage],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `Gallery | ${content.title}`,
+      description: content.overview[0],
+      images: [content.coverImage],
+      creator: "@kalonmodels",
+    },
   };
 }
 
