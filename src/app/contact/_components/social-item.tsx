@@ -18,7 +18,11 @@ export default function SocialItem({
       >
         {title}
       </Heading>
-      <Link href={url} target="_blank" className="text-sm text-mutedColor">
+      <Link
+        href={url}
+        target="_blank"
+        className="text-sm text-mutedColor transition-colors hover:text-navLinkColor"
+      >
         {displayName}
       </Link>
     </div>
