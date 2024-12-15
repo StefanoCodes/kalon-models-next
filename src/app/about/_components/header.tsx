@@ -40,7 +40,7 @@ export default function Header() {
           </p>
           <p className="body-text text-center">Welcome home.</p>
         </div> */}
-        <TextRevealByWord text="We are South Africa's #1 modeling academy. Since 2020, we've trained 65+ models, helping them find their place in the industry, from runway to pageantry, personal branding, and beyond. with a dedicated team of 7+ experienced professionals, some of whom have worked with the likes of Maxhosa, David Tlale and SAFW, we're proud to be shaping the future of modeling in Pretoria, Johannesburg and Cape Town. Wether it's your first step on the runway or your hundredth, Kalon is where you find your place Welcome home." />
+        <TextRevealByWord text="We are South Africa’s #1 modeling academy. Since 2020, we’ve trained 65+ models, helping them find their place in the industry, from runway to pageantry, personal branding, and beyond. With a dedicated team of 7+ experienced professionals, some of whom have worked with the likes of Maxhosa, David Tlale, and SAFW, we’re proud to be shaping the future of modeling in Pretoria, Johannesburg and Cape Town. Whether it’s your first step on the runway or your hundredth, Kalon is where you find your place. Welcome home." />
       </div>
     </div>
   );
