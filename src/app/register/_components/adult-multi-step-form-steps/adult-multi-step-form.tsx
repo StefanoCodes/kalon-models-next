@@ -51,8 +51,6 @@ export default function AdultMultiStepForm({
   course?: "adults";
   membership: membershipTypes;
 }) {
-  const res = getAllMemberships();
-  console.log(res);
   const [previousStep, setPreviousStep] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const finalStep = steps.length - 1;
