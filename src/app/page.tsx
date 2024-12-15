@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import Heading from "./about/_components/heading";
 import Link from "next/link";
 import Image from "next/image";
+import DashedLine from "../../public/dashed-line.svg";
 
 // testing
 {
@@ -54,8 +55,35 @@ import Image from "next/image";
 export default function Home() {
   return (
     <section
-      className="container relative min-h-screen-mobile py-10 md:min-h-screen-desktop xl:px-0"
+      className="container relative flex min-h-screen-mobile items-center justify-center py-10 md:min-h-screen-desktop xl:px-0"
       id="home"
-    />
+    >
+      <div className="flex w-full max-w-[42rem] flex-col items-center">
+        <div className="flex items-center gap-3">
+          <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
+            we
+          </span>
+          <span className="text-[2.1875rem] text-[#B1B4B9] md:text-[4.375rem]">
+            shape
+          </span>
+        </div>
+        <div className="relative flex items-center gap-3">
+          <Image
+            src={DashedLine}
+            alt="dashed line"
+            width={660}
+            className="absolute inset-0 w-full"
+          />
+
+          <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
+            tomorrows
+          </span>
+
+          <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
+            models
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }
