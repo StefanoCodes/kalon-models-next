@@ -1,17 +1,19 @@
 import Image from "next/image";
 import content from "@/app/about/about.config";
+import SecondaryButton from "@/components/buttons/secondary-button";
+import DoubleQuotes from "../../../../public/double-quotes.svg";
 const { founder } = content;
-const {
-  founderImage,
-  founderSignature,
-  founderAbbreviation,
-  textNote1,
-  textNote2,
-} = founder;
-export default function FounderContent() {
-  return (
-    <div className="mb-8 flex h-full w-full flex-col gap-16 md:flex-row md:justify-between md:gap-4">
-      <div className="relative flex flex-1">
+
+// TEMP
+// const {
+//   founderImage,
+//   founderSignature,
+//   founderAbbreviation,
+//   textNote1,
+//   textNote2,
+// } = founder;
+{
+  /* <div className="relative flex flex-1">
         <div className="-z-1 absolute left-1/2 top-1/2 hidden h-full w-[371px] -translate-x-1/2 -translate-y-1/2 rounded-xl bg-black lg:block" />
         <Image
           src={founderImage}
@@ -20,10 +22,14 @@ export default function FounderContent() {
           height={1000}
           className="z-[1] aspect-square h-full w-full rounded-xl object-cover md:mx-auto md:max-w-[371px] lg:-rotate-12"
         />
-      </div>
+      </div> */
+}
 
-      {/* CONTENT */}
-      <div className="flex flex-[1.5] flex-col justify-between gap-8 xl:min-h-[400px]">
+{
+  /* CONTENT */
+}
+{
+  /* <div className="flex flex-[1.5] flex-col justify-between gap-8 xl:min-h-[400px]">
         <div className="flex flex-col gap-5">
           <p className="body-text">{textNote1}</p>
 
@@ -39,6 +45,34 @@ export default function FounderContent() {
           />
           <p className="body-text">{founderAbbreviation}</p>
         </div>
+      </div> */
+}
+
+export default function FounderContent() {
+  return (
+    <div className="flex h-full w-full flex-col items-center gap-[3.375rem]">
+      <SecondaryButton
+        containerStyles="h-[45px] w-[45px]"
+        subContainerSyles="h-[38px] w-[38px]"
+        childrenContainerStyles="h-[31px] w-[31px]"
+      >
+        <Image
+          width={20}
+          height={20}
+          src={DoubleQuotes}
+          alt="double quotes icon"
+        />
+      </SecondaryButton>
+      <p className="max-w-[44ch] text-center text-xl md:text-2xl">
+        My mission is to create a supportive environment where models can
+        thrive, ensuring that no one has to navigate the industry alone.
+      </p>
+      <div className="flex w-full flex-col items-center gap-1 text-center">
+        <div className="flex flex-col">
+          <p className="text-lg text-secondaryColor">Manana Baloyi</p>
+          <span className="-mt-[3px] h-[1px] w-full bg-secondaryColor" />
+        </div>
+        <span className="text-lg">Founder, Kalon Models</span>
       </div>
     </div>
   );
