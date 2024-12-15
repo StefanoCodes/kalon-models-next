@@ -63,7 +63,7 @@ export default function Home() {
           <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
             we
           </span>
-          <span className="text-[2.1875rem] text-[#B1B4B9] md:text-[4.375rem]">
+          <span className="border-l border-r px-[2px] text-[2.1875rem] text-[#B1B4B9] md:text-[4.375rem]">
             shape
           </span>
         </div>
