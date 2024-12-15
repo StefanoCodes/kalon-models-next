@@ -24,12 +24,12 @@ export default function LatestWorkCard({
   return (
     <div
       className={cn(
-        "latest-work-card-shadow flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor p-3 md:flex-row md:gap-0 lg:items-start lg:pt-4",
+        "latest-work-card-shadow flex flex-col items-center gap-4 rounded-md bg-backgroundLightAltColor p-2 md:flex-row md:gap-0 lg:items-start",
         className,
       )}
     >
       {/* left */}
-      <div className="h-[200px] w-full flex-1 md:h-[150px] md:px-3 lg:h-[200px]">
+      <div className="h-[200px] w-full flex-1">
         <Image
           src={coverImage}
           alt={title}
