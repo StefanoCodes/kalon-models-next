@@ -47,7 +47,7 @@ export function CourseCard({
           </div>
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col gap-4">
+      <CardFooter className="relative flex flex-col gap-4">
         <PrimaryButton
           href={link}
           variant="outline"
@@ -61,7 +61,7 @@ export function CourseCard({
             <motion.div
               className="w-full"
               initial={{ opacity: 1 }}
-              exit={{ opacity: 0, x: -200 }}
+              exit={{ opacity: 0, x: -300 }}
               transition={{
                 type: "tween",
               }}
