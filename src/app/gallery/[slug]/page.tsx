@@ -7,7 +7,39 @@ import GallerySlugSectors from "./_components/sectors";
 import GallerySlugImages from "./_components/images";
 import GallerySlugMainImage from "./_components/main-image";
 import GallerySlugContentImage from "./_components/content-image";
+
+import type { Metadata, ResolvingMetadata } from "next";
+
 type Params = Promise<{ slug: string }>;
+
+export async function generateMetadata(
+  {
+    params,
+  }: {
+    params: Params;
+  },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const { slug } = await params;
+  const contentList = galleryContent.map((item) =>
+    item.find((item) => item.slug === slug),
+  );
+  const items = contentList.filter((item) => item !== undefined);
+  const content = items.find((item) => item !== undefined);
+  if (!content) return {};
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `Gallery | ${content.title}`,
+    description: content.overview[0],
+    openGraph: {
+      images: [content.coverImage],
+    },
+  };
+}
 
 export default async function GalleryInnerPage({ params }: { params: Params }) {
   const { slug } = await params;
