@@ -3,7 +3,7 @@ import Heading from "./about/_components/heading";
 import Link from "next/link";
 import Image from "next/image";
 import DashedLine from "../../public/dashed-line.svg";
-
+import ArrowLine from "../../public/arrow-to-arrow-line.svg";
 // testing
 {
   /* <div className="flex flex-col justify-end gap-2 pb-12 md:gap-0 lg:self-end">
@@ -63,9 +63,16 @@ export default function Home() {
           <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
             we
           </span>
-          <span className="border-l border-r px-[2px] text-[2.1875rem] text-[#B1B4B9] md:text-[4.375rem]">
-            shape
-          </span>
+          <div className="flex items-center border-l-[1.5px] border-r-[1.5px] border-[#D9D9D9] md:min-h-[120px]">
+            <span className="relative text-[2.1875rem] leading-[60px] text-[#B1B4B9] md:text-[4.375rem]">
+              shape
+              <Image
+                className="absolute top-2 w-full md:-top-1"
+                src={ArrowLine}
+                alt="arrow to arrow line svg"
+              />
+            </span>
+          </div>
         </div>
         <div className="relative flex items-center gap-3">
           <Image
@@ -74,14 +81,21 @@ export default function Home() {
             width={660}
             className="absolute inset-0 w-full"
           />
-
-          <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
-            tomorrows
-          </span>
-
-          <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
-            models
-          </span>
+          <div className="">
+            <span className="text-[2.1875rem] text-[#232121] md:text-[4.375rem]">
+              tomorrows
+            </span>
+          </div>
+          <div className="flex items-center border-l-[1.5px] border-r-[1.5px] border-[#D9D9D9] md:min-h-[120px]">
+            <span className="relative text-[2.1875rem] leading-[60px] text-[#232121] md:text-[4.375rem]">
+              models
+              <Image
+                className="absolute bottom-2 w-full md:-bottom-2"
+                src={ArrowLine}
+                alt="arrow to arrow line svg"
+              />
+            </span>
+          </div>
         </div>
       </div>
     </section>
