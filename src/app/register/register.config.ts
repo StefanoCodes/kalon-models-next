@@ -43,8 +43,8 @@ export type CourseCardProps = {
 
 export const coursesMetaData = [
   {
-    title: `Standard Courses`,
-    description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
+    title: `Kalon Standard`,
+    description: `Discover the fundamentals of modeling and unlock your confidence.`,
     // startDate: `2024-01-01`,
     link: `/register/standard`,
     duration: `37 sessions`,
@@ -52,8 +52,8 @@ export const coursesMetaData = [
     slug: `standard`,
   },
   {
-    title: `Premium Courses`,
-    description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
+    title: `Kalon Premium`,
+    description: `Enhance your skills and refine your craft with advanced training.`,
     // startDate: `2024-01-01`,
     link: `/register/premium`,
     duration: `49 sessions`,
@@ -61,8 +61,8 @@ export const coursesMetaData = [
     slug: `premium`,
   },
   {
-    title: `Exclusive Courses`,
-    description: `Adults Courses for beginners and intermediates who want to learn the basics of modelling.`,
+    title: `Kalon Exclusive`,
+    description: `Reach new heights with exceptional training designed to elevate your career.`,
     // startDate: `2024-01-01`,
     link: `/register/exclusive`,
     duration: `59 sessions`,

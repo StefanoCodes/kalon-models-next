@@ -25,7 +25,6 @@ export function CourseCard({
 }: CourseCardProps) {
   const [isSelected, setIsSelected] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
-  const [search, setSearch] = useState("");
   return (
     <Card className="w-full flex-1 overflow-hidden">
       <CardHeader>
@@ -50,15 +49,14 @@ export function CourseCard({
       </CardContent>
       <CardFooter className="relative flex w-full flex-col gap-4">
         <div className="w-full">
-          <SecondaryButton
-            containerStyles="w-full h-14"
-            thirdContainerStyles="rounded-[13.67px]"
-            subContainerSyles="w-[calc(100%-16px)] h-10 "
-            childrenContainerStyles="w-[calc(100%-8px)]  text-[#868686]"
-            to={link}
+          <PrimaryButton
+            variant="secondary"
+            className="rounded-lg"
+            innerClassName="rounded-lg"
+            href={link}
           >
             View more
-          </SecondaryButton>
+          </PrimaryButton>
         </div>
         <AnimatePresence mode="popLayout">
           {!isSelected && (
