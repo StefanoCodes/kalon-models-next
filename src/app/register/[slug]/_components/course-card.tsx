@@ -53,7 +53,7 @@ export function CourseCard({
           <SecondaryButton
             containerStyles="w-full h-14"
             thirdContainerStyles="rounded-[13.67]"
-            subContainerSyles="w-[calc(100%-16px)] h-10 rounded-none"
+            subContainerSyles="w-[calc(100%-16px)] h-10 "
             childrenContainerStyles="w-[calc(100%-8px)]  text-[#868686]"
             to={link}
           >
