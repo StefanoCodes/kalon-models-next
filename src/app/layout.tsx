@@ -1,12 +1,11 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar/navbar";
+import Preloader from "@/components/preloader";
+import { Toaster } from "@/components/ui/toaster";
+import { BASE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/navbar/navbar";
-import Footer from "@/components/footer";
-import { Toaster } from "@/components/ui/toaster";
-import Preloader from "@/components/preloader";
-import { BASE_URL } from "@/lib/constants";
-import { getAllGalleryItems } from "@/lib/gallery";
 
 const ABCNormal = localFont({
   src: [
@@ -37,6 +36,7 @@ const ABCNormal = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "Kalon | The modelling academy for all",
   description:
     "An introduction to Kalon Models, where we empower aspiring models to kickstart their careers with expert training, development, and opportunities in the modeling industry.",
@@ -56,6 +56,7 @@ export const metadata: Metadata = {
     images: ["/og-image.webp"],
     creator: "@kalonmodels",
   },
+  // keywords
 };
 
 export default function RootLayout({
