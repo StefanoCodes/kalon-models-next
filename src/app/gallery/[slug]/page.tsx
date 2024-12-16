@@ -53,9 +53,9 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
   const galleryItems = getAllGalleryItems();
-  return galleryItems.map((item) => {
-    slug: item.slug;
-  });
+  return galleryItems.map((item) => ({
+    slug: item.slug,
+  }));
 }
 
 export default async function GalleryInnerPage({ params }: { params: Params }) {

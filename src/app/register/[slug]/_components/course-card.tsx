@@ -12,7 +12,6 @@ import { Clock, Users } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { CourseCardProps } from "../../register.config";
-import SecondaryButton from "@/components/buttons/secondary-button";
 
 export function CourseCard({
   title,
