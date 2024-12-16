@@ -29,7 +29,7 @@ export default {
         textDarkColor: "var(--color-text-dark)",
         backgroundLightAltColor: "var(--color-background-light-alt)",
         mutedColor: "var(--color-muted)",
-        whiteColor: "var(--color-white)",
+        whiteColor: "var(--color-white-muted)",
         grayLightColor: "var(--color-gray-light)",
         blackColor: "var(--color-black)",
         paragraph: "var(--paragraph)",

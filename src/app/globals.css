@@ -14,6 +14,7 @@
     --color-background-light-alt: rgb(242, 242, 242);
     --color-muted: rgb(133, 130, 130);
     --color-white: rgb(255, 255, 255);
+    --color-white-muted: rgb(248, 248, 248);
     --color-gray-light: rgb(216, 216, 216);
     --color-black: rgb(10, 10, 10);
     --paragraph: rgb(61, 61, 61);
@@ -48,6 +49,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -80,29 +82,36 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   .body-text {
     @apply text-base leading-[1.5] tracking-[0.4px] text-blackColor md:text-lg md:leading-[1.7];
   }
+
   .text-gradient {
     @apply bg-gradient-to-r from-primaryColor to-secondaryColor bg-clip-text text-transparent;
   }
+
   .form-input {
     @apply relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap px-0 py-2 text-paragraph outline-none transition-shadow;
   }
+
   .slug-content {
     @apply text-sm leading-[1.5] text-paragraph;
   }
+
   .text-shadow {
-    @apply drop-shadow-[0_0_1px_rgba(0,0,0,0.25)];
+    @apply drop-shadow-[0_0_1px_rgba(0, 0, 0, 0.25)];
   }
 }
 
 .body-overflow-hidden {
   overflow: hidden;
 }
+
 .text-shadow-white {
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
   color: white;
@@ -112,6 +121,7 @@
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   color: white;
 }
+
 /* .text-shadow-white-variant-3{
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   color: black;
@@ -120,18 +130,22 @@
   0% {
     -webkit-mask-position: 0 0;
   }
+
   100% {
     -webkit-mask-position: 1000px 1000px;
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .dots-canvas {
   animation:
     fadeIn 3s cubic-bezier(0.65, 0, 0.35, 1),
@@ -139,6 +153,7 @@
   -webkit-mask-image: url(/perlin-noise.svg);
   mask-image: url(/perlin-noise.svg);
 }
+
 /* .latest-work-card-shadow {
   box-shadow:
     0px 5px 14px -1px rgba(95, 95, 95, 0.1),
@@ -156,6 +171,7 @@
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
 }
+
 .instagram-container-card-shadow {
   background: linear-gradient(0deg, #ececec 0%, #ffffff 100%);
   box-shadow:
