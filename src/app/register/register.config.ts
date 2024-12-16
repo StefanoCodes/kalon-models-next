@@ -94,7 +94,7 @@ export const courses = {
   standard: {
     heading: `Standard membership`,
     description: `Perfect for those starting their modelling journey. Gain access to essential training and begin your path to success.`,
-    price: `R950`,
+    price: `R749`,
     content: [
       {
         title: `Runway Training`,
@@ -122,7 +122,7 @@ export const courses = {
   premium: {
     heading: `Premium membership`,
     description: `For those ready to elevate their skills. Dive deeper into modelling with enhanced training and growth opportunities.`,
-    price: `R1 295`,
+    price: `R1,099`,
     content: [
       {
         title: `Runway Training`,
@@ -162,7 +162,7 @@ export const courses = {
   exclusive: {
     heading: `Exclusive membership`,
     description: `Tailored for the experienced. Refine your craft and unlock advanced opportunities with personalized guidance and support.`,
-    price: `R2 355`,
+    price: `R1,499`,
     content: [
       {
         title: `Runway Training`,
