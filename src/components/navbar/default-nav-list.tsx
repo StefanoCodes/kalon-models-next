@@ -40,12 +40,15 @@ function DesktopNavListDefaultVariant({ pathname }: { pathname: string }) {
                 </Link>
               </li>
             ))}
-            <li>
-              <PrimaryButton size="sm" variant="kalon" href="/register">
-                Register
-              </PrimaryButton>
-            </li>
           </ul>
+          <PrimaryButton
+            size="sm"
+            variant="kalon"
+            href="/register"
+            className="w-fit"
+          >
+            Register
+          </PrimaryButton>
         </div>
       </nav>
     </header>

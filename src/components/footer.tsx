@@ -10,7 +10,12 @@ export default function Footer() {
       <div className="container flex items-center justify-between py-4 xl:px-0">
         <FooterTextAnimation />
 
-        <SecondaryButton to={KALON_INSTAGRAM_URL}>
+        <SecondaryButton
+          to={KALON_INSTAGRAM_URL}
+          rel="noopener noreferrer"
+          aria-label="Instagram link to Kalon"
+          target="_blank"
+        >
           <Image
             width={20}
             height={19}

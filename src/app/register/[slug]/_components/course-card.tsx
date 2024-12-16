@@ -12,6 +12,7 @@ import { Clock, Users } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { CourseCardProps } from "../../register.config";
+import SecondaryButton from "@/components/buttons/secondary-button";
 
 export function CourseCard({
   title,
@@ -47,15 +48,18 @@ export function CourseCard({
           </div>
         </div>
       </CardContent>
-      <CardFooter className="relative flex flex-col gap-4">
-        <PrimaryButton
-          href={link}
-          variant="outline"
-          className="w-full rounded-sm font-normal tracking-wide"
-          innerClassName="rounded-sm"
-        >
-          Learn more
-        </PrimaryButton>
+      <CardFooter className="relative flex w-full flex-col gap-4">
+        <div className="w-full">
+          <SecondaryButton
+            containerStyles="w-full h-14"
+            thirdContainerStyles="rounded-[13.67]"
+            subContainerSyles="w-[calc(100%-16px)] h-10 rounded-none"
+            childrenContainerStyles="w-[calc(100%-8px)]  text-[#868686]"
+            to={link}
+          >
+            View more
+          </SecondaryButton>
+        </div>
         <AnimatePresence mode="popLayout">
           {!isSelected && (
             <motion.div

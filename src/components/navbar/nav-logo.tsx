@@ -14,7 +14,7 @@ export default function NavLogo({
     <Heading
       headingSize="h2"
       className={cn(
-        "text-[16.67px] font-light uppercase md:text-[16.67px] lg:text-[16.67px]",
+        "min-w-[120px] text-[16.67px] font-light uppercase md:text-[16.67px] lg:text-[16.67px]",
         className,
       )}
     >

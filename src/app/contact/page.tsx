@@ -1,3 +1,4 @@
+import Diamond from "@/components/diamond-star";
 import ContactForm from "./_components/contact-form";
 import ContactHeading from "./_components/heading";
 import Socials from "./_components/socials";

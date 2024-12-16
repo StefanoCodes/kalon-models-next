@@ -6,7 +6,7 @@ export default function Navbar() {
     <>
       {/* DESKTOP NAV HIDDEN ON mobile SHOWN AT SM */}
       <DesktopNavList />
-      {/* MOBILE NAV HIDDEN ON SHOWN AT MOBILE SM: */}
+      {/* MOBILE NAV seen until sm: */}
       <MobileNavList />
     </>
   );

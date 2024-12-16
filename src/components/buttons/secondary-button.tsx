@@ -1,28 +1,35 @@
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
+import { ButtonProps } from "../ui/button";
+
+interface SecondaryButtonProps extends ButtonProps {
+  children?: React.ReactNode;
+  to?: string;
+  containerStyles?: string;
+  subContainerSyles?: string;
+  thirdContainerStyles?: string;
+  childrenContainerStyles?: string;
+  target?: string;
+}
+
 export default function SecondaryButton({
   children = "Explore",
   to,
   containerStyles,
   subContainerSyles,
+  thirdContainerStyles,
   childrenContainerStyles,
-}: {
-  children?: React.ReactNode;
-  to?: string;
-  containerStyles?: string;
-  subContainerSyles?: string;
-  childrenContainerStyles?: string;
-}) {
+  target = "",
+}: SecondaryButtonProps) {
   return to ? (
-    <Link
-      href={to}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram link to Kalon"
-      className="group"
-    >
+    <Link href={to} target={target} className="group">
       <div className={cn("h-10 w-10", containerStyles)}>
-        <div className="flex h-full w-full items-center justify-center rounded-[14.47px] bg-gradient-to-b from-[#E9E9E9] via-[#E9E9E9] to-[#FFFFFF]">
+        <div
+          className={cn(
+            "flex h-full w-full items-center justify-center rounded-[14.47px] bg-gradient-to-b from-[#E9E9E9] via-[#E9E9E9] to-[#FFFFFF]",
+            thirdContainerStyles,
+          )}
+        >
           <div
             className={cn(
               "instagram-container-card-shadow flex h-8 w-8 items-center justify-center bg-gradient-to-b from-[#ECECEC] to-[#FFFF]",
@@ -43,7 +50,12 @@ export default function SecondaryButton({
     </Link>
   ) : (
     <div className={cn("h-10 w-10", containerStyles)}>
-      <div className="flex h-full w-full items-center justify-center rounded-[14.47px] bg-gradient-to-b from-[#E9E9E9] via-[#E9E9E9] to-[#FFFFFF]">
+      <div
+        className={cn(
+          "flex h-full w-full items-center justify-center rounded-[14.47px] bg-gradient-to-b from-[#E9E9E9] via-[#E9E9E9] to-[#FFFFFF]",
+          thirdContainerStyles,
+        )}
+      >
         <div
           className={cn(
             "instagram-container-card-shadow flex h-8 w-8 items-center justify-center bg-gradient-to-b from-[#ECECEC] to-[#FFFF]",
