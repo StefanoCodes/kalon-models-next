@@ -9,8 +9,11 @@ import GallerySlugMainImage from "./_components/main-image";
 import GallerySlugContentImage from "./_components/content-image";
 
 import type { Metadata, ResolvingMetadata } from "next";
+import { getAllGalleryItems } from "@/lib/gallery";
 
 type Params = Promise<{ slug: string }>;
+
+// Dynamic metadata for each gallery post
 
 export async function generateMetadata(
   {
@@ -46,6 +49,13 @@ export async function generateMetadata(
       creator: "@kalonmodels",
     },
   };
+}
+
+export async function generateStaticParams() {
+  const galleryItems = getAllGalleryItems();
+  return galleryItems.map((item) => {
+    slug: item.slug;
+  });
 }
 
 export default async function GalleryInnerPage({ params }: { params: Params }) {
