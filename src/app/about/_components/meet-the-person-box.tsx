@@ -1,4 +1,5 @@
 "use client";
+import PlaceholderSkeleton from "@/app/gallery/_components/placeholder-skeleton";
 import PrimaryButton from "@/components/buttons/primary-button";
 
 import { motion, AnimatePresence, useCycle } from "motion/react";
@@ -62,7 +63,7 @@ export function Person({
     <div className="flex flex-col gap-4">
       {/* box */}
       <div className="flex flex-col gap-6">
-        <div className="min-h-[17rem] min-w-[18rem] bg-black/5" />
+        <PlaceholderSkeleton className="min-h-[17rem] min-w-[18rem] bg-black/5" />
         <div className="flex flex-row items-center justify-between">
           {/* founder content */}
           <div className="flex flex-col">
