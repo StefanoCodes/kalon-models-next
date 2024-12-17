@@ -65,7 +65,7 @@ export default function Preloader() {
                     y="50%"
                     dy=".35em"
                     textAnchor="middle"
-                    fontSize="40"
+                    fontSize="24"
                     className={cn(`font-abcNormal`, isFilled && "hidden")}
                     fontWeight="bold"
                   >
@@ -78,7 +78,7 @@ export default function Preloader() {
                 y="50%"
                 dy=".35em"
                 textAnchor="middle"
-                fontSize="16.67"
+                fontSize="24"
                 className="font-abcNormal"
                 fontWeight="normal"
                 fill={isFilled ? "white" : "none"}
