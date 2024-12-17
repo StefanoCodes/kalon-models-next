@@ -1,6 +1,30 @@
 import PrimaryButton from "@/components/buttons/primary-button";
+import { PlusIcon } from "lucide-react";
 
-export default function MeetPerson({
+const team = [
+  {
+    name: "Manana Baloyi",
+    role: "Founder",
+    // image
+  },
+  {
+    name: "Nkateko Baloyi",
+    role: "Administrative Coordinator",
+    // image
+  },
+  {
+    name: "Mbhuri Baloyi",
+    role: "Runway Coach",
+    // image
+  },
+  {
+    name: "Mikateko Mbhalati",
+    role: "Pageant Coach",
+    // image
+  },
+];
+
+export function Person({
   name,
   role,
   image,
@@ -22,10 +46,23 @@ export default function MeetPerson({
           </span>
         </div>
         {/* button */}
-        <PrimaryButton className="w-fit rounded-md" innerClassName="rounded-md">
-          +
+        <PrimaryButton
+          className="max-w-fit rounded-md"
+          innerClassName="rounded-md"
+        >
+          <PlusIcon className="size-4" />
         </PrimaryButton>
       </div>
+    </div>
+  );
+}
+
+export default function Team() {
+  return (
+    <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+      {team.map(({ name, role }, idx) => {
+        return <Person key={idx} name={name} role={role} />;
+      })}
     </div>
   );
 }

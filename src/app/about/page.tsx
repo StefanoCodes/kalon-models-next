@@ -45,10 +45,8 @@ export default function About() {
       >
         <div className="flex flex-col gap-16">
           <Header />
-          <div className="flex flex-col gap-16">
-            <FounderContent />
-            <LatestWork />
-          </div>
+          <FounderContent />
+          <LatestWork />
         </div>
       </section>
     </>
