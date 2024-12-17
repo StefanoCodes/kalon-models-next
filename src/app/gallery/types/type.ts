@@ -10,6 +10,7 @@ export type GalleryContent = {
   coverImage: string;
   images: GalleryImage[];
   contents?: Record<string, string[]>;
+  blurUrl?: string;
 };
 
 export type Credits = {

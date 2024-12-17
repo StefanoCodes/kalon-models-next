@@ -18,7 +18,6 @@ export default function GallerySlugImages({
         fill
         src={image}
         alt={alt}
-        placeholder="blur"
       />
     </div>
   );

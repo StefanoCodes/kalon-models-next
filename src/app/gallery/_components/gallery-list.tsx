@@ -18,18 +18,21 @@ export default function GalleryList({
   return (
     <>
       <GalleryListRow>
-        {content.map(({ id, title, timeline, slug, overview, coverImage }) => (
-          <GalleryListItem
-            id={id}
-            key={id}
-            title={title}
-            timeline={timeline}
-            slug={slug}
-            overview={overview[0]}
-            coverImage={coverImage}
-            className={gridCols[id as keyof typeof gridCols]}
-          />
-        ))}
+        {content.map(
+          ({ id, title, timeline, slug, overview, coverImage, blurUrl }) => (
+            <GalleryListItem
+              id={id}
+              key={id}
+              title={title}
+              timeline={timeline}
+              slug={slug}
+              overview={overview[0]}
+              coverImage={coverImage}
+              className={gridCols[id as keyof typeof gridCols]}
+              blurUrl={blurUrl}
+            />
+          ),
+        )}
       </GalleryListRow>
     </>
   );

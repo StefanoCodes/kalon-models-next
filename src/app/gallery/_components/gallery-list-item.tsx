@@ -9,6 +9,7 @@ export default function GalleryListItem({
   className,
   overview,
   coverImage,
+  blurUrl,
 }: {
   id: number;
   title: string;
@@ -17,6 +18,7 @@ export default function GalleryListItem({
   slug: string;
   className?: string;
   coverImage: string;
+  blurUrl?: string;
 }) {
   return (
     <div className={cn(className)}>
@@ -30,9 +32,10 @@ export default function GalleryListItem({
                 src={coverImage}
                 width={1000}
                 height={1000}
-                placeholder="blur"
                 className="duration-600 aspect-square min-h-[450px] w-full rounded-md object-cover brightness-50 filter transition-transform duration-500 lg:max-h-[550px] lg:hover:scale-110"
                 alt="placeholder"
+                placeholder="blur"
+                blurDataURL={blurUrl}
               />
             </div>
           </Link>

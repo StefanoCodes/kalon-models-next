@@ -19,7 +19,6 @@ export default function GallerySlugMainImage({
         alt={alt}
         quality={100}
         priority
-        placeholder="blur"
       />
     </div>
   );
