@@ -42,7 +42,7 @@ export function CourseCard({
               {spots} spots
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="flex flex-col gap-6">
               <div className="flex w-full items-center justify-between gap-2 border-b pb-3">
                 <p className="text-sm font-normal">Runway Training</p>
@@ -61,20 +61,20 @@ export function CourseCard({
                 <span className="text-xs">2 Sessions Per Month</span>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* list */}
         </div>
       </CardContent>
       <CardFooter className="relative flex w-full flex-col gap-4">
         <div className="w-full">
-          {/* <PrimaryButton
+          <PrimaryButton
             variant="secondary"
             className="rounded-lg"
             innerClassName="rounded-lg"
             href={link}
           >
             View more
-          </PrimaryButton> */}
+          </PrimaryButton>
         </div>
         <AnimatePresence mode="popLayout">
           {!isSelected && (
