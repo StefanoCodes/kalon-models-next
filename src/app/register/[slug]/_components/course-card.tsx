@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Clock, Users } from "lucide-react";
+import { Check, Clock, Users } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { CourseCardProps } from "../../register.config";
@@ -31,31 +31,50 @@ export function CourseCard({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="flex flex-col items-start gap-4 text-sm text-gray-500 xl:flex-row xl:items-center">
-          <div className="flex items-center">
-            <Clock className="mr-1 h-4 w-4" />
-            {duration}
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-row items-start gap-4 text-sm text-gray-500 xl:items-center">
+            <div className="flex items-center">
+              <Clock className="mr-1 h-4 w-4" />
+              {duration}
+            </div>
+            <div className="flex items-center">
+              <Users className="mr-1 h-4 w-4" />
+              {spots} spots
+            </div>
           </div>
-          {/* <div className="flex items-center">
-            <Calendar className="mr-1 h-4 w-4" />
-            {startDate}
-          </div> */}
-          <div className="flex items-center">
-            <Users className="mr-1 h-4 w-4" />
-            {spots} spots
+          <div>
+            <div className="flex flex-col gap-6">
+              <div className="flex w-full items-center justify-between gap-2 border-b pb-3">
+                <p className="text-sm font-normal">Runway Training</p>
+                <span className="text-xs">2 Sessions Per Month</span>
+              </div>
+              <div className="flex w-full items-center justify-between gap-2 border-b pb-3">
+                <p className="text-sm font-normal">Runway Training</p>
+                <span className="text-xs">2 Sessions Per Month</span>
+              </div>
+              <div className="flex w-full items-center justify-between gap-2 border-b pb-3">
+                <p className="text-sm font-normal">Runway Training</p>
+                <span className="text-xs">2 Sessions Per Month</span>
+              </div>
+              <div className="flex w-full items-center justify-between gap-2 border-b pb-3">
+                <p className="text-sm font-normal">Runway Training</p>
+                <span className="text-xs">2 Sessions Per Month</span>
+              </div>
+            </div>
           </div>
+          {/* list */}
         </div>
       </CardContent>
       <CardFooter className="relative flex w-full flex-col gap-4">
         <div className="w-full">
-          <PrimaryButton
+          {/* <PrimaryButton
             variant="secondary"
             className="rounded-lg"
             innerClassName="rounded-lg"
             href={link}
           >
             View more
-          </PrimaryButton>
+          </PrimaryButton> */}
         </div>
         <AnimatePresence mode="popLayout">
           {!isSelected && (

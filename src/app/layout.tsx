@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import Preloader from "@/components/preloader";
@@ -76,6 +78,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

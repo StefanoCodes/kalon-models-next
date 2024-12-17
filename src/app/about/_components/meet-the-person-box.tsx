@@ -74,6 +74,7 @@ export function Person({
           </div>
           {/* button */}
           <PrimaryButton
+            variant="kalonBlack"
             className={`max-w-fit rounded-md`}
             innerClassName={`max-w-fit rounded-md border-2 border-transparent`}
             onClick={toggleContentOpen}

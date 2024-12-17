@@ -1,6 +1,3 @@
-import Image from "next/image";
-import ArrowLine from "../../public/arrow-to-arrow-line.svg";
-import DashedLine from "../../public/dashed-line.svg";
 import Diamond from "@/components/diamond-star";
 
 export default function Home() {

@@ -1,4 +1,3 @@
-import { memberships } from "./register/register.config";
 import { BASE_URL } from "@/lib/constants";
 import { getAllGalleryItems } from "@/lib/gallery";
 import { getAllMemberships } from "@/lib/memberships";
