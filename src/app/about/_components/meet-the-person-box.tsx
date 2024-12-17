@@ -74,8 +74,8 @@ export function Person({
           </div>
           {/* button */}
           <PrimaryButton
-            className={`max-w-fit rounded-md ${isContentOpen && `border-transparent outline`}`}
-            innerClassName={`max-w-fit rounded-md border-2 border-transparent ${isContentOpen && `border-2 border-white`}`}
+            className={`max-w-fit rounded-md`}
+            innerClassName={`max-w-fit rounded-md border-2 border-transparent`}
             onClick={toggleContentOpen}
           >
             <div className="relative h-4 w-4">

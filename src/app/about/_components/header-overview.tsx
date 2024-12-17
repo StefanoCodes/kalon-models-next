@@ -10,14 +10,14 @@ export default function HeaderOverview() {
   return (
     <div className="flex grid-cols-12 flex-col items-start gap-8 xs:grid md:gap-10 lg:gap-12">
       {/* FOUNDED IN */}
-      <div className={`col-span-12 md:col-span-4 xl:col-span-2`}>
+      <div className={`col-span-6 md:col-span-4 xl:col-span-2`}>
         <div className="flex flex-col gap-[10px]">
           <h2 className="text-[11px] font-normal uppercase">founded in</h2>
           <p className="text-xl font-medium text-[#0A0A0A]">2020</p>
         </div>
       </div>
       {/* LOCATIONS */}
-      <div className="col-span-12 md:col-span-8 xl:col-span-2">
+      <div className="col-span-6 md:col-span-8 xl:col-span-2">
         <div className="flex flex-col gap-[10px]">
           <h2 className="text-[11px] font-normal uppercase">locations</h2>
           <div className="flex flex-col gap-2">

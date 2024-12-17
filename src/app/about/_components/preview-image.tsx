@@ -5,7 +5,7 @@ export default function PreviewImage() {
   return (
     <div className="relative">
       <div className="relative h-[500px] w-full">
-        <div className="h-full w-full bg-[#B2B3C9]"></div>
+        <div className="h-full w-full bg-black/25"></div>
         {/* <Image
             src="/kalon-cover-home.jpg"
             alt="About Hero"
