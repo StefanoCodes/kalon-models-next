@@ -2,7 +2,9 @@
 import PrimaryButton from "@/components/buttons/primary-button";
 
 import { motion, AnimatePresence, useCycle } from "motion/react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 const accordionVariants = {
   open: {
     opacity: 1,
@@ -18,30 +20,18 @@ const team = [
   {
     name: "Manana Baloyi",
     role: "Founder",
-    // text,
-    // linkedIn
-    // image
   },
   {
     name: "Nkateko Baloyi",
     role: "Administrative Coordinator",
-    // text,
-    // linkedIn
-    // image
   },
   {
     name: "Mbhuri Baloyi",
     role: "Runway Coach",
-    // text,
-    // linkedIn
-    // image
   },
   {
     name: "Mikateko Mbhalati",
     role: "Pageant Coach",
-    // text,
-    // linkedIn
-    // image
   },
 ];
 
@@ -49,10 +39,14 @@ export function Person({
   name,
   role,
   image,
+  bio,
+  linkedIn,
 }: {
   name?: string;
   role?: string;
   image?: string;
+  bio?: string;
+  linkedIn?: string;
 }) {
   const [isContentOpen, toggleContentOpen] = useCycle(false, true);
   const [contentHeight, setContentHeight] = useState(0);
@@ -100,50 +94,6 @@ export function Person({
         </div>
       </div>
       {/* accordion */}
-      {/* <AnimatePresence>
-        {isContentOpen && (
-          <div>
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: "1px" }}
-            >
-              <div className="flex flex-col gap-4">
-                <p className="text-base font-normal">
-                  My modeling journey began in 2017, but my career truly started
-                  in 2020. The first three years were particularly
-                  challenging—not due to rejection or missed opportunities, but
-                  because I didn’t receive the proper guidance.
-                </p>
-                <p>LinkedIn</p>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence> */}
-      {/* <AnimatePresence>
-        {isContentOpen && (
-          <motion.div
-            variants={accordionVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-          >
-            <motion.div className="rounded-md bg-gray-100 p-4" layout>
-              <div className="flex flex-col gap-4">
-                <p className="text-base font-normal">
-                  My modeling journey began in 2017, but my career truly started
-                  in 2020. The first three years were particularly
-                  challenging—not due to rejection or missed opportunities, but
-                  because I didn't receive the proper guidance.
-                </p>
-                <p>LinkedIn</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
       <motion.div
         initial={false}
         animate={isContentOpen ? "open" : "closed"}
@@ -152,13 +102,15 @@ export function Person({
         style={{ overflow: "hidden" }}
       >
         <div ref={contentRef} className="flex flex-col gap-4">
-          <p className="text-base font-normal">
+          <p className="text-base font-normal text-[#0A0A0A]">
             My modeling journey began in 2017, but my career truly started in
             2020. The first three years were particularly challenging—not due to
             rejection or missed opportunities, but because I didn't receive the
             proper guidance.
           </p>
-          <p>LinkedIn</p>
+          <Link href={"#"} className="w-fit border-b border-[#0A0A0A]">
+            LinkedIn
+          </Link>
         </div>
       </motion.div>
     </div>
