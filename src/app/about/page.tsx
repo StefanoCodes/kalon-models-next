@@ -46,10 +46,6 @@ export default function About() {
         <div className="flex flex-col gap-16">
           <Header />
           <div className="flex flex-col gap-16">
-            {/* <div className="flex flex-col gap-8 md:gap-12">
-              {/* <StatsList /> */}
-            {/* <ServicesList /> */}
-            {/* </div>  */}
             <FounderContent />
             <LatestWork />
           </div>

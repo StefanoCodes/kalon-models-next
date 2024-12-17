@@ -1,6 +1,7 @@
 import { WordFadeIn } from "@/components/motion/text-slide";
 import TextRevealByWord from "./text-reveal";
 import Hr from "@/components/hr";
+import FacesBehindSuccess from "./faces-behind-success";
 const gridCols = {
   1: "col-span-12 md:col-span-4 xl:col-span-2",
   2: "col-span-12 md:col-span-8 xl:col-span-2",
@@ -60,6 +61,7 @@ export default function Header() {
         </div>
       </div>
       <Hr className="bg-gradient-to-r from-[#F8F8F8] via-[#737373] to-[#F8F8F8]" />
+      <FacesBehindSuccess />
     </div>
   );
 }
