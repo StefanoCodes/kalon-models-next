@@ -20,6 +20,7 @@ export default function GalleryList({
       <GalleryListRow>
         {content.map(({ id, title, timeline, slug, overview, coverImage }) => (
           <GalleryListItem
+            id={id}
             key={id}
             title={title}
             timeline={timeline}

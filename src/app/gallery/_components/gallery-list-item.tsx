@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 export default function GalleryListItem({
+  id,
   title,
   timeline,
   slug,
@@ -9,6 +10,7 @@ export default function GalleryListItem({
   overview,
   coverImage,
 }: {
+  id: number;
   title: string;
   timeline: string;
   overview: string;
@@ -24,6 +26,7 @@ export default function GalleryListItem({
           <Link href={`gallery/${slug}`}>
             <div className="inline-block w-full overflow-hidden rounded-md">
               <Image
+                priority={id < 2 ? true : false}
                 src={coverImage}
                 width={1000}
                 height={1000}
