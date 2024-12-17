@@ -11,6 +11,11 @@ import { usePathname } from "next/navigation";
 const { instagram } = contactConfig.socials;
 import { useMotionValueEvent } from "motion/react";
 import PrimaryButton from "../buttons/primary-button";
+import Footer from "../footer";
+import SecondaryButton from "../buttons/secondary-button";
+import Image from "next/image";
+import { KALON_INSTAGRAM_URL } from "@/lib/constants";
+import Instagram from "../../../public/instagram.svg";
 type bgColorType = "white" | "transparent";
 
 export default function MobileNavList() {
@@ -64,15 +69,35 @@ export default function MobileNavList() {
                 variants={linkVariants}
                 className="flex w-full flex-col gap-8"
               >
-                <PrimaryButton
-                  onClick={toggleOpen}
-                  href="/register"
-                  variant="kalon"
-                  size="sm"
-                >
-                  Register
-                </PrimaryButton>
-                <div className="flex flex-row items-center justify-between">
+                <div className="flex flex-col gap-4">
+                  <PrimaryButton
+                    onClick={toggleOpen}
+                    href="/register"
+                    variant="kalon"
+                    size="sm"
+                  >
+                    Register
+                  </PrimaryButton>
+                  {/* <div className="flex items-center justify-between xl:px-0">
+                    {/* <FooterTextAnimation /> */}
+                  {/* Creating Experiences Since 2020
+                  <SecondaryButton
+                    to={KALON_INSTAGRAM_URL}
+                    rel="noopener noreferrer"
+                    aria-label="Instagram link to Kalon"
+                    target="_blank"
+                  >
+                    <Image
+                      width={20}
+                      height={19}
+                      src={Instagram}
+                      alt="instagram social icon"
+                    />
+                  </SecondaryButton> */}
+                  {/* </div>  */}
+                </div>
+
+                {/* <div className="flex flex-row items-center justify-between">
                   <p className="text-xs font-light text-muted-foreground">
                     hello@kalon.com.au
                   </p>
@@ -90,7 +115,7 @@ export default function MobileNavList() {
                       ti
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             </nav>
           </motion.div>
